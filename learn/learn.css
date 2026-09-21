@@ -106,3 +106,6 @@ button{font-family:inherit}a,button{touch-action:manipulation}h1,h2,h3{overflow-
 .hub-parents-guide a{display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;padding:10px 16px;border-radius:999px;background:#174338;color:white;text-decoration:none;font-weight:800;font-size:.83rem}
 .hub-parents-guide a:hover{background:#326750}
 @media(max-width:650px){.hub-parents-guide{margin:-21px 0 30px;flex-direction:column;align-items:stretch;padding:19px}.hub-parents-guide a{text-align:center}.hub-parents-guide strong{font-size:.98rem}}
+
+/* Keep translated Learning Hub headings inside narrow 320–360px screens. */
+@media(max-width:420px){.section-head{flex-direction:column;align-items:flex-start;gap:8px}.section-head h2{max-width:100%;overflow-wrap:anywhere;font-size:clamp(1.65rem,6vw,2rem)}}

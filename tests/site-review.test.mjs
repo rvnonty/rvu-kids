@@ -1,0 +1,54 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFileSync,existsSync} from 'node:fs';
+const base=new URL('../',import.meta.url);
+const read=p=>readFileSync(new URL(p,base),'utf8');
+const has=p=>existsSync(new URL(p,base));
+test('five unique physical preview images across home and preview',()=>{
+ const preview=read('preview/index.html');
+ const expected=['cover.webp','letter-a.webp','practice-a.webp','feelings.webp','letter-m.webp'];
+ const listed=[...preview.matchAll(/<figure><img src="\/assets\/([a-z-]+\.webp)"/g)].map(m=>m[1]);
+ assert.deepEqual(listed,expected);
+ assert.equal(listed.length,5);
+ assert.equal(new Set(listed).size,5);
+ const home=read('app.js');
+ for(const image of expected.slice(1))assert.ok(home.includes("'"+image.replace('.webp','')+"'"));
+ assert.ok(!has('assets/review.webp'));
+ for(const image of expected)assert.ok(has('assets/'+image));
+});
+test('all navigation targets map to committed static files',()=>{
+ const pages=['index.html','learn/index.html','preview/index.html','books/alphabet/index.html','learn/alphabet/index.html','learn/sentences/index.html'];
+ for(const p of pages){
+  assert.ok(has(p),p);
+  const html=read(p);
+  for(const m of html.matchAll(/href="\/(?!#)([^"#?]+\/)"(?:\s|>)/g)){
+   const target=m[1]+'index.html';
+   assert.ok(has(target),p+' -> /'+m[1]);
+  }
+ }
+});
+test('alphabet index and selected lesson previews are wired',()=>{
+ const alphabet=read('learn/alphabet/index.html');
+ const js=read('learn/learn.js');
+ const hub=read('learn/index.html');
+ assert.ok(alphabet.includes('data-page="alphabet-index"'));
+ assert.ok(hub.includes('href="/learn/alphabet/"'));
+ assert.ok(js.includes("p==='alphabet-index'"));
+ assert.ok(js.includes("d.id==='a'||d.id==='m'"));
+ assert.ok(js.includes('/assets/letter-m.webp'));
+});
+test('English and Arabic switching is coherent on main and learning pages',()=>{
+ const app=read('app.js'), learn=read('learn/learn.js'),html=read('index.html');
+ assert.ok(app.includes("sessionStorage.setItem('rvu-lang',lang)"));
+ assert.ok(learn.includes("url.searchParams.set('lang',next)"));
+ assert.ok(html.includes('data-i18n="navLearn"'));
+ assert.ok(html.includes('data-i18n="navPreview"'));
+ assert.ok(app.includes("digitalPreview:'Exactly five real pages:"));
+});
+test('no imaginary live checkout or audio assets',()=>{
+ const conf=read('wrangler.jsonc');
+ assert.equal(JSON.parse(conf).vars.ORDERS_ENABLED,'false');
+ const audio=JSON.parse(read('learn/audio-manifest.json'));
+ assert.equal(audio.status,'awaiting-reviewed-audio');
+ assert.ok(audio.recordings.every(r=>r.asset===null));
+});

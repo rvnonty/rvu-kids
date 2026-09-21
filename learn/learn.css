@@ -109,3 +109,21 @@ button{font-family:inherit}a,button{touch-action:manipulation}h1,h2,h3{overflow-
 
 /* Keep translated Learning Hub headings inside narrow 320–360px screens. */
 @media(max-width:420px){.section-head{flex-direction:column;align-items:flex-start;gap:8px}.section-head h2{max-width:100%;overflow-wrap:anywhere;font-size:clamp(1.65rem,6vw,2rem)}}
+
+/* All five selected pages share one print-page silhouette. */
+.preview-five{align-items:stretch}
+.preview-five figure{min-width:0;position:relative;transition:transform .28s cubic-bezier(.2,.75,.25,1),box-shadow .28s ease}
+.preview-five img{
+  width:100%;
+  height:auto;
+  aspect-ratio:900 / 1273;
+  object-fit:cover;
+  object-position:center;
+}
+@media(hover:hover) and (pointer:fine){
+  .preview-five figure:hover{z-index:2;transform:scale(1.035) rotate(2deg);box-shadow:0 15px 28px #173c3224}
+}
+@media(hover:none),(pointer:coarse),(prefers-reduced-motion:reduce){
+  .preview-five figure{transition:none}
+  .preview-five figure:hover{transform:none}
+}

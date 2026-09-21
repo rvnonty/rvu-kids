@@ -201,3 +201,27 @@ test('bilingual parent guide ships in build and links from storefront and hub',(
  assert.ok(read('sitemap.xml').includes('<loc>https://rvu-kids.company/parents/</loc>'));
  assert.equal((read('preview/index.html').match(/<figure>/g)||[]).length,5);
 });
+
+test('approved wordmark remains consistent across home, learning and parent pages',()=>{
+ const svg=read('assets/rvu-kids-logo.svg'),home=read('style.css'),shared=read('learn/learn.css');
+ assert.ok(svg.startsWith('<svg ')&&svg.includes('viewBox="123 12 198 123"'));
+ assert.ok(svg.includes('#183d32')&&svg.includes('#e49532'));
+ assert.ok(home.includes(".header .brand,.footer .brand{"));
+ assert.ok(home.includes("background:url('/assets/rvu-kids-logo.svg')"));
+ assert.ok(shared.includes("background:url('/assets/rvu-kids-logo.svg')"));
+ assert.ok(shared.includes('.sitebar .brand b{font-size:0'));
+ assert.ok(shared.includes('.sitebar nav{'));
+ assert.ok(shared.includes('overflow-x:auto'));
+ const favicon=read('favicon.svg');
+ assert.ok(favicon.includes('#e49532')&&favicon.includes('#183d32'));
+});
+test('all preview cards have the same print ratio, modest hover and touch fallback',()=>{
+ const home=read('style.css'),shared=read('learn/learn.css');
+ assert.ok(home.includes('.preview-card .preview-frame{\\n  width:100%;\\n  aspect-ratio:900 / 1273;'.replaceAll('\\n','\n')));
+ assert.ok(home.includes('scale(1.035) rotate(2deg)'));
+ assert.ok(shared.includes('.preview-five img{'));
+ assert.ok(shared.includes('aspect-ratio:900 / 1273'));
+ assert.ok(shared.includes('.preview-five figure:first-child{grid-column:auto;max-width:none;justify-self:stretch}'));
+ assert.ok(home.includes('(prefers-reduced-motion:reduce)'));
+ assert.ok(shared.includes('(pointer:coarse)'));
+});

@@ -62,7 +62,7 @@ function lessonTemplate(type,d,idx){
  const sub=el('p','lesson-sub',type==='alphabet'?(lang==='ar'?'حرف '+d.letter:'Letter '+d.letter):d.titleAr);
  shell.append(caption,heading,sub);
  if(type==='alphabet'){
-  if(d.id==='a'){const page=el('img','real-page');page.src='/assets/letter-a.webp';page.alt='Actual teaching page from Rvu Alphabet Book — letter A';page.loading='lazy';shell.append(page)}
+  if(d.id==='a'||d.id==='m'){const page=el('img','real-page');page.src=d.id==='a'?'/assets/letter-a.webp':'/assets/letter-m.webp';page.alt='Actual teaching page from Rvu Alphabet Book — letter '+d.letter;page.loading='lazy';shell.append(page)}
   const syll=el('div','letter-name');syll.append(el('span',null,t('say')+': '));const b=el('b',null,d.letterName);b.dir='ltr';syll.append(b);shell.append(syll);
   shell.append(el('p','phonics-note',t('hint')));
  }
@@ -117,7 +117,7 @@ function translateStatic(){
  }
  if(document.body.dataset.page==='preview'){
   const hero=document.querySelector('.hero');if(hero){hero.querySelector('h1').innerHTML='Five real pages.<br><em>A closer look inside.</em>';hero.querySelector('p').textContent='Five individual physical pages at most—not five double-page spreads. These are selected pages from the actual book.'}
-  const captions=['The book cover','Alphabet and illustrated words','Tracing and writing practice','Everyday English','Review and recall'];document.querySelectorAll('.preview-five figcaption').forEach((n,i)=>n.textContent=captions[i]);
+  const captions=['The book cover','Letter A — illustrated words','Letter A — tracing and writing','Everyday English','Letter M — moon, milk, monkey, mouse'];document.querySelectorAll('.preview-five figcaption').forEach((n,i)=>n.textContent=captions[i]);
   const cta=document.querySelector('.cta');if(cta){cta.querySelector('h2').textContent='200 EGP + shipping by governorate';cta.querySelector('p').textContent='96 pages. Printed on demand in Mit Ghamr, Egypt.';cta.querySelector('a').textContent='Order your copy'}
  }
  if(location.pathname.startsWith('/books/alphabet/')){

@@ -88,3 +88,25 @@ test('displayed numbers follow the book, not the PDF front matter',()=>{
  assert.ok(js.includes("printedPages(d.pages).join('–')"));
  assert.ok(js.includes("printedPages(u.pages).join('–')"));
 });
+
+
+test('legacy learning URLs never silently display a different lesson',()=>{
+ const js=text('learn/learn.js');
+ assert.ok(!js.includes("'healthy-habits':'bathroom'"));
+ assert.ok(!js.includes("'kind-words':'can-you-help'"));
+ for(const [slug,target] of [
+  ['healthy-habits','/learn/sentences/'],
+  ['kind-words','/learn/sentences/polite-words/'],
+  ['good-manners','/learn/sentences/polite-words/']
+ ]){
+  const page=text('learn/sentences/'+slug+'/index.html');
+  assert.ok(page.includes('content="0;url='+target+'"'),slug);
+  assert.ok(page.includes('name="robots" content="noindex,follow"'),slug);
+ }
+});
+test('learning browser titles describe the actual lesson',()=>{
+ const js=text('learn/learn.js');
+ assert.ok(js.includes("document.title=headingLabel+' | RVU Kids Learning'"));
+ assert.ok(js.includes("document.title='Everyday English | RVU Kids'"));
+ assert.ok(js.includes("meta.name='description'"));
+});

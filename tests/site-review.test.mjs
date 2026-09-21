@@ -204,7 +204,7 @@ test('bilingual parent guide ships in build and links from storefront and hub',(
 
 test('approved wordmark remains consistent across home, learning and parent pages',()=>{
  const svg=read('assets/rvu-kids-logo.svg'),home=read('style.css'),shared=read('learn/learn.css');
- assert.ok(svg.startsWith('<svg ')&&svg.includes('viewBox="123 12 198 123"'));
+ assert.ok(svg.startsWith('<svg ')&&svg.includes('viewBox="0 0 246 146"'));
  assert.ok(svg.includes('#183d32')&&svg.includes('#e49532'));
  assert.ok(home.includes(".header .brand,.footer .brand{"));
  assert.ok(home.includes("background:url('/assets/rvu-kids-logo.svg')"));
@@ -225,4 +225,13 @@ test('all preview cards have the same print ratio, modest hover and touch fallba
  assert.ok(shared.includes('.preview-five figure:first-child{grid-column:auto;max-width:none;justify-self:stretch}'));
  assert.ok(home.includes('(prefers-reduced-motion:reduce)'));
  assert.ok(shared.includes('(pointer:coarse)'));
+});
+
+test('cover credit stays inside artwork and header remains compact on phones',()=>{
+ const css=read('style.css');
+ assert.ok(css.includes('.header{\n display:grid;'));
+ assert.ok(css.includes('grid-template-columns:138px minmax(0,1fr) auto'));
+ assert.ok(css.includes('.hero-art .art-credit{\n bottom:22px;'));
+ assert.ok(css.includes('.hero-art{min-height:625px}'));
+ assert.ok(css.includes('.hero-art .art-credit{bottom:17px;'));
 });

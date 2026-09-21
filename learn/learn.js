@@ -1,51 +1,110 @@
 'use strict';
-const letters='ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
-const units=[
-['feelings','Feelings','المشاعر'],
-['hungry','I’m Hungry','أنا جعان'],
-['thirsty','I’m Thirsty','أنا عطشان'],
-['healthy-habits','Healthy Habits','عادات صحية'],
-['my-family','My Family','عيلتي'],
-['hello-about-me','Hello & About Me','أنا مين؟'],
-['at-school','At School','في المدرسة'],
-['polite-words','Polite Words','كلمات مهذبة'],
-['likes-and-dislikes','I Like / I Don’t Like','بحب / مش بحب'],
-['kind-words','Kind Words & Helpful Hearts','كلام طيب ومساعدة'],
-['good-manners','Good Manners','سلوكيات كويسة'],
-['lets-play','Let’s Play','يلا نلعب'],
-['my-body','My Body & How I Feel','جسمي وإحساسي'],
-['daily-routine','Daily Routine','روتيني اليومي'],
-['stay-safe','Stay Safe','خليك آمن']
-];
-function esc(s){return s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
-function buildHub(){
- const lg=document.querySelector('#letter-grid'); if(lg) letters.forEach(l=>{const a=document.createElement('a');a.href='/learn/alphabet/'+l.toLowerCase()+'/';a.textContent=l;a.setAttribute('aria-label','Letter '+l);lg.append(a)});
- const ug=document.querySelector('#unit-grid'); if(ug) units.forEach((u,i)=>{const a=document.createElement('a');a.className='unit-card';a.href='/learn/sentences/'+u[0]+'/';a.innerHTML='<small>Unit '+String(i+1).padStart(2,'0')+'</small><h3>'+esc(u[1])+'</h3><p>'+esc(u[2])+'</p>';ug.append(a)});
+const C=window.RVU_CURRICULUM;
+if(!C)throw Error('Curriculum unavailable');
+const alphabet=C.alphabet,units=C.sentences;
+const icons={
+apple:'🍎',ant:'🐜',airplane:'✈️',alligator:'🐊',ball:'⚽',bear:'🐻',banana:'🍌',boat:'⛵',
+cat:'🐱',car:'🚗',cake:'🎂',cup:'🥤',dog:'🐶',duck:'🦆',doll:'🪆',door:'🚪',
+elephant:'🐘',egg:'🥚',ear:'👂',elbow:'💪',fish:'🐟',frog:'🐸',flower:'🌻',fork:'🍴',
+goat:'🐐',grapes:'🍇',gift:'🎁',guitar:'🎸',hat:'👒',house:'🏠',horse:'🐴',hand:'✋',
+island:'🏝️',iguana:'🦎','ice cream':'🍦',insect:'🐞',juice:'🧃',jacket:'🧥',jellyfish:'🪼',jam:'🍯',
+kite:'🪁',key:'🔑',kitten:'🐈',kangaroo:'🦘',lion:'🦁',lemon:'🍋',leaf:'🍃',lamp:'💡',
+moon:'🌙',milk:'🥛',monkey:'🐒',mouse:'🐁',nest:'🪺',nose:'👃',net:'🥅',night:'🌌',
+orange:'🍊',octopus:'🐙',ocean:'🌊',otter:'🦦',pig:'🐷',pen:'🖊️',pizza:'🍕',panda:'🐼',
+queen:'👑',quilt:'🧵',quail:'',rabbit:'🐇',robot:'🤖',rain:'🌧️',rainbow:'🌈',
+sun:'☀️',star:'⭐',sock:'🧦',spoon:'🥄',tiger:'🐯',train:'🚂',tree:'🌳',turtle:'🐢',
+umbrella:'☂️',uncle:'',up:'⬆️',under:'⬇️',van:'🚐',vase:'🏺',violin:'🎻',vegetables:'🥦',
+whale:'🐳',watermelon:'🍉',window:'🪟',watch:'⌚','x-ray':'🩻',xylophone:'', 'yo-yo':'🪀',
+yogurt:'🥣',yellow:'🟡',yak:'',zebra:'🦓',zoo:'',zipper:'🤐',zero:'0️⃣',
+bathroom:'🚻',wash:'🫧',hands:'👐',family:'👨‍👩‍👧‍👦',mom:'👩',dad:'👨',
+brother:'👦',sister:'👧',teacher:'👩‍🏫',book:'📖',pencil:'✏️',school:'🏫',water:'💧'
+};
+const i18n={
+ar:{hub:'التعلّم',preview:'المعاينة',book:'الكتاب',listen:'الاستماع',pending:'نعمل على إضافة الصوت الأمريكي بعد مراجعة كل تسجيل. الأزرار الصوتية لن تظهر قبل تجهيز الملفات الحقيقية.',alph:'الحروف والكلمات',sent:'Everyday English — الجمل',words:'كلمات الدرس',sentences:'جمل الدرس',pages:'الصفحات الفعلية في الكتاب',say:'اسم الحرف في الكتاب',sound:'صوت الحرف',hint:'اسم الحرف مختلف عن صوت الحرف؛ النطق الصوتي سيتم اعتماده بصورة منفصلة.',remember:'اختبار صغير',question:'اضغط على الكلمة المطلوبة',correct:'إجابة صحيحة!',retry:'جرّب تاني',next:'التالي',prev:'السابق',all:'كل الحروف',allSent:'كل الوحدات',buy:'اطلب الكتاب',practice:'شوف واسمع وكرر مع ولي الأمر',learn:'مكتبة التعلّم',units:'الوحدات',previewPages:'صفحات مختارة',live:'المحتوى مطابق للمنهج المعتمد',learning:'اتعلّم مع كتابك',childHint:'استخدم الصور في الكتاب الأصلي لتأكيد المعنى؛ الرموز هنا للتذكير وليست بديلًا عن رسومات الكتاب.',audioUnavailable:'الصوت لم يُنشر بعد. لن نستخدم صوت الجهاز كأنه تسجيل أمريكي معتمد.',sample:'لمن يشاهد النموذج فقط',more:'افتح الوحدة التالية',begin:'ابدأ',switch:'English'},
+en:{hub:'Learning Hub',preview:'Preview',book:'The Book',listen:'Audio',pending:'Natural American English audio will appear after every recording has been reviewed. We will not show fake playback buttons.',alph:'Alphabet & Words',sent:'Everyday English — Sentences',words:'Lesson Words',sentences:'Target Sentences',pages:'Physical book pages',say:'Letter name in the book',sound:'Letter sound',hint:'A letter name is not the same as its phonics sound. Phonics audio will be reviewed separately.',remember:'A little word check',question:'Choose the requested word',correct:'Well done!',retry:'Try again',next:'Next',prev:'Previous',all:'All letters',allSent:'All units',buy:'Order the Book',practice:'Look, say and practice with a parent',learn:'Learning Hub',units:'Units',previewPages:'Selected pages',live:'Matches the approved curriculum',learning:'Learn alongside your book',childHint:'Check the actual book illustrations for meaning. These small pictograms are memory cues, not replacements for the book artwork.',audioUnavailable:'Audio has not been published yet. We will not substitute a device-generated voice for reviewed American English audio.',sample:'Preview only',more:'Open the next lesson',begin:'Start',switch:'العربية'}
+};
+const getParam=new URLSearchParams(location.search).get('lang');
+let lang=getParam==='en'?'en':getParam==='ar'?'ar':(sessionStorage.getItem('rvu-lang')||'ar');
+const t=k=>i18n[lang][k]||k;
+const el=(tag,cls,text)=>{const x=document.createElement(tag);if(cls)x.className=cls;if(text!==undefined)x.textContent=text;return x};
+function link(url,text,cls){const a=el('a',cls,text);a.href=url;return a}
+function renderNavLang(){
+ const nav=document.querySelector('.sitebar nav');if(!nav)return;
+ const sw=el('button','lang-switch',t('switch'));sw.type='button';sw.addEventListener('click',()=>{sessionStorage.setItem('rvu-lang',lang==='ar'?'en':'ar');location.reload()});nav.append(sw);
+ document.documentElement.lang=lang;document.documentElement.dir=lang==='ar'?'rtl':'ltr';
+ const v=nav.querySelectorAll('a');
+ if(v.length>=3){v[0].textContent=t('hub');v[1].textContent=t('preview');v[2].textContent=t('book')}
 }
-function letterLesson(slug){
- const idx=letters.findIndex(x=>x.toLowerCase()===slug); if(idx<0)return null; const L=letters[idx];
- return {kind:'alphabet',kicker:'Alphabet & Words',title:L+' '+L.toLowerCase(),sub:'Letter '+L,ar:'درس الحرف '+L,index:idx};
+function urlLetter(a){return '/learn/alphabet/'+a.id+'/'}
+function urlUnit(u){return '/learn/sentences/'+u.id+'/'}
+function escaped(s){return String(s).replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]))}
+function cardLetter(a){
+ const z=link(urlLetter(a),undefined,'tile-letter');z.innerHTML='<strong>'+a.letter+'</strong><small>'+a.letter.toLowerCase()+'</small>';z.setAttribute('aria-label','Letter '+a.letter);return z
 }
-function sentenceLesson(slug){
- const idx=units.findIndex(u=>u[0]===slug); if(idx<0)return null; const u=units[idx];
- return {kind:'sentences',kicker:'Everyday English',title:u[1],sub:u[2],ar:'Everyday English',index:idx};
+function cardUnit(u,i){
+ const a=link(urlUnit(u),undefined,'unit-card');a.innerHTML='<small>UNIT '+String(i+1).padStart(2,'0')+' · PAGES '+u.pages.join('–')+'</small><h3 dir="ltr">'+escaped(u.title)+'</h3><p>'+escaped(u.titleAr)+'</p><span class="tile-arrow">↗</span>';return a;
 }
-function renderLesson(){
- const parts=location.pathname.split('/').filter(Boolean); let data=null;
- if(parts[0]==='learn'&&parts[1]==='alphabet')data=letterLesson(parts[2]||'a');
- if(parts[0]==='learn'&&parts[1]==='sentences'&&parts[2])data=sentenceLesson(parts[2]);
- const root=document.querySelector('#lesson-root'); if(!root)return;
- if(!data){root.innerHTML='<section class="lesson-top"><div class="lesson-card"><h1 class="lesson-title">Lesson not found</h1><a class="button" href="/learn/">Back to Learning Hub</a></div></section>';return}
- document.title=data.title+' | RVU Kids';
- let prev='#',next='#',prevText='Previous',nextText='Next';
- if(data.kind==='alphabet'){const i=data.index;prev=i>0?'/learn/alphabet/'+letters[i-1].toLowerCase()+'/':'/learn/';next=i<25?'/learn/alphabet/'+letters[i+1].toLowerCase()+'/':'/learn/sentences/';prevText=i>0?'← '+letters[i-1]:'← Hub';nextText=i<25?letters[i+1]+' →':'Everyday English →'}
- else{const i=data.index;prev=i>0?'/learn/sentences/'+units[i-1][0]+'/':'/learn/';next=i<units.length-1?'/learn/sentences/'+units[i+1][0]+'/':'/learn/';prevText=i>0?'← '+units[i-1][1]:'← Hub';nextText=i<units.length-1?units[i+1][1]+' →':'Hub →'}
- root.innerHTML='<section class="lesson-top"><div class="crumbs"><a href="/">RVU Kids</a> / <a href="/learn/">Learn</a> / '+esc(data.kicker)+'</div><div class="lesson-card"><span class="lesson-kicker">'+esc(data.kicker)+'</span><h1 class="lesson-title">'+esc(data.title)+'</h1><div class="lesson-sub">'+esc(data.sub)+'</div><div class="phase-note"><strong>الصفحة التعليمية جاهزة.</strong><br>الكلمات، الرسومات التفصيلية والصوتيات سيتم إدخالها في المرحلة التالية بعد اعتماد المحتوى والنطق؛ لذلك لن نعرض كلمات مخمّنة أو أصواتًا مؤقتة هنا.</div><div class="lesson-nav"><a href="'+prev+'">'+esc(prevText)+'</a><a href="'+next+'">'+esc(nextText)+'</a></div></div></section>';
+function hub(){
+ const grid=document.querySelector('#letter-grid');if(grid){grid.replaceChildren();alphabet.forEach(a=>grid.append(cardLetter(a)))}
+ const unitsGrid=document.querySelector('#unit-grid');if(unitsGrid){unitsGrid.replaceChildren();units.forEach((u,i)=>unitsGrid.append(cardUnit(u,i)))}
 }
-function renderSentencesIndex(){
- const root=document.querySelector('#lesson-root'); if(!root)return;
- root.innerHTML='<section class="hero compact"><span class="eyebrow">Everyday English</span><h1>15 مواقف.<br><em>إنجليزي من يوم الطفل.</em></h1><p>المسار منفصل عن الحروف عشان الطفل يركز على الجمل والمواقف اليومية. الكلمات والصوتيات هتدخل في المرحلة التالية.</p></section><section class="sentence-list" id="sentence-list"></section>';
- const list=document.querySelector('#sentence-list'); units.forEach((u,i)=>{const a=document.createElement('a');a.href='/learn/sentences/'+u[0]+'/';a.innerHTML='<small>Unit '+String(i+1).padStart(2,'0')+'</small><h3>'+esc(u[1])+'</h3><span>'+esc(u[2])+'</span>';list.append(a)});
+function speakBadge(){const box=el('aside','audio-notice');box.append(el('span','audio-mark','◌'));box.append(el('p',null,t('audioUnavailable')));return box}
+function wordVisual(w){const icon=icons[w]||'';const box=el('div','word-visual'+(icon?'':' no-icon'),icon||w[0].toUpperCase());box.setAttribute('aria-hidden','true');return box}
+function lessonBreadcrumb(target){
+ const c=el('nav','crumbs');c.setAttribute('aria-label','Breadcrumb');c.append(link('/', 'RVU Kids'));c.append(document.createTextNode(' / '));c.append(link('/learn/',t('hub')));c.append(document.createTextNode(' / '+target));return c
 }
-if(document.body.dataset.page==='hub')buildHub();
-if(document.body.dataset.page==='lesson'){const p=location.pathname.split('/').filter(Boolean); if(p[0]==='learn'&&p[1]==='sentences'&&!p[2])renderSentencesIndex(); else renderLesson();}
+function lessonTemplate(type,d,idx){
+ const root=document.querySelector('#lesson-root');root.replaceChildren();
+ const head=el('section','lesson-top');head.append(lessonBreadcrumb(type==='alphabet'?t('alph'):t('sent')));
+ const shell=el('div','lesson-card');
+ const caption=el('span','lesson-kicker',(type==='alphabet'?'ALPHABET & WORDS':'EVERYDAY ENGLISH')+' · '+t('pages')+': '+d.pages.join('–'));
+ const heading=el('h1','lesson-title',type==='alphabet'?d.letter+' '+d.letter.toLowerCase():d.title);heading.dir='ltr';
+ const sub=el('p','lesson-sub',type==='alphabet'?(lang==='ar'?'حرف '+d.letter:'Letter '+d.letter):d.titleAr);
+ shell.append(caption,heading,sub);
+ if(type==='alphabet'){
+  if(d.id==='a'){const page=el('img','real-page');page.src='/assets/letter-a.webp';page.alt='Actual teaching page from Rvu Alphabet Book — letter A';page.loading='lazy';shell.append(page)}
+  const syll=el('div','letter-name');syll.append(el('span',null,t('say')+': '));const b=el('b',null,d.letterName);b.dir='ltr';syll.append(b);shell.append(syll);
+  shell.append(el('p','phonics-note',t('hint')));
+ }
+ const title=el('h2','minor-heading',type==='alphabet'?t('words'):t('sentences'));shell.append(title);
+ if(type==='alphabet'){
+  const g=el('div','word-grid');d.words.forEach((w,i)=>{const item=el('article','word-card');item.append(wordVisual(w));const s=el('strong','english-word',w);s.lang='en';s.dir='ltr';item.append(s);const num=el('span','word-counter',String(i+1).padStart(2,'0'));item.append(num);g.append(item)});shell.append(g)
+ }else{
+  if(d.id==='feelings'){const image=el('img','real-page');image.src='/assets/feelings.webp';image.alt='Actual feelings page from Rvu Alphabet Book';image.loading='lazy';shell.append(image)}
+  if(d.words.length){const labels=el('div','support-words');labels.append(el('p',null,lang==='ar'?'كلمات موجودة في الدرس:':'Vocabulary in this lesson:'));d.words.forEach(w=>labels.append(el('span',null,w)));shell.append(labels)}
+ }
+ if(d.sentences?.length){if(type==='alphabet')shell.append(el('h2','minor-heading',t('sentences')));const g=el('div','phrase-grid');d.sentences.forEach((s,i)=>{const c=el('div','phrase-card');c.append(el('span','number',String(i+1).padStart(2,'0')));const p=el('strong','phrase-text',s);p.lang='en';p.dir='ltr';c.append(p);g.append(c)});shell.append(g)}
+ shell.append(speakBadge());
+ if(type==='alphabet')shell.append(buildPractice(d));
+ const prev=type==='alphabet'?alphabet[idx-1]:units[idx-1],next=type==='alphabet'?alphabet[idx+1]:units[idx+1];
+ const nav=el('nav','lesson-nav');nav.setAttribute('aria-label','Lesson navigation');nav.append(link(prev?(type==='alphabet'?urlLetter(prev):urlUnit(prev)):(type==='alphabet'?'/learn/':'/learn/sentences/'),'← '+(prev?(type==='alphabet'?prev.letter:prev.title):t('learn'))));nav.append(link(type==='alphabet'?'/learn/':'/learn/sentences/',type==='alphabet'?t('all'):t('allSent')));nav.append(link(next?(type==='alphabet'?urlLetter(next):urlUnit(next)):'/learn/',(next?(type==='alphabet'?next.letter:next.title):t('learn'))+' →'));shell.append(nav);
+ head.append(shell);root.append(head)
+}
+function buildPractice(d){
+ const box=el('section','quiz');box.append(el('span','lesson-kicker','WORD CHECK'));box.append(el('h2',null,t('remember')));
+ const prompt=el('p','quiz-prompt');const options=el('div','quiz-options');const feedback=el('p','quiz-feedback');feedback.setAttribute('role','status');
+ const next=el('button','button quiz-next',t('next'));next.type='button';next.hidden=true;
+ let index=0;
+ function show(){
+  const w=d.words[index];prompt.textContent=(lang==='ar'?'فين كلمة ':'Find the word: ')+w;feedback.textContent='';options.replaceChildren();next.hidden=true;
+  const choice=[...d.words].sort((a,b)=>((a.length*7+index*11)%17)-((b.length*7+index*11)%17));
+  choice.forEach(option=>{const b=el('button','quiz-choice',option);b.type='button';b.lang='en';b.addEventListener('click',()=>{if(option===w){feedback.textContent=t('correct');b.classList.add('right');options.querySelectorAll('button').forEach(x=>x.disabled=true);next.hidden=false}else{feedback.textContent=t('retry');b.classList.add('wrong')}});options.append(b)});
+ }
+ next.addEventListener('click',()=>{index=(index+1)%d.words.length;show()});box.append(prompt,options,feedback,next);show();return box;
+}
+function lessons(){
+ const path=location.pathname.split('/').filter(Boolean);
+ if(path[1]==='alphabet'&&path[2]){const idx=alphabet.findIndex(l=>l.id===path[2]);if(idx>=0){lessonTemplate('alphabet',alphabet[idx],idx);return}}
+ if(path[1]==='sentences'&&path[2]){const aliases={'healthy-habits':'bathroom','kind-words':'can-you-help','good-manners':'polite-words'};const slug=aliases[path[2]]||path[2];const idx=units.findIndex(u=>u.id===slug);if(idx>=0){lessonTemplate('sentences',units[idx],idx);return}}
+ if(path[1]==='sentences'&&!path[2]){const root=document.querySelector('#lesson-root');root.innerHTML='<section class="hero compact"><span class="eyebrow">Everyday English</span><h1>'+t('sent')+'</h1><p>'+t('practice')+'</p></section>';const g=el('div','unit-grid');units.forEach((u,i)=>g.append(cardUnit(u,i)));root.append(g);return}
+ const root=document.querySelector('#lesson-root');root.innerHTML='<section class="lesson-card"><h1>Lesson not found</h1><a href="/learn/">Learning Hub</a></section>';
+}
+function preview(){
+ const figs=[...document.querySelectorAll('.preview-five figure')];
+ let index=0;const dlg=el('dialog','page-dialog');const btn=el('button','dialog-close','×');btn.type='button';btn.setAttribute('aria-label','Close preview');const image=el('img','dialog-image');const cap=el('p','dialog-caption');const controls=el('div','dialog-controls');const prev=el('button','button ghost','←');const next=el('button','button ghost','→');prev.type='button';next.type='button';controls.append(prev,next);dlg.append(btn,image,cap,controls);document.body.append(dlg);
+ function show(i){index=(i+figs.length)%figs.length;image.src=figs[index].querySelector('img').src;image.alt=figs[index].querySelector('img').alt;cap.textContent=(index+1)+' / '+figs.length+' — '+figs[index].querySelector('figcaption').textContent}
+ btn.addEventListener('click',()=>dlg.close());dlg.addEventListener('click',e=>{if(e.target===dlg)dlg.close()});prev.addEventListener('click',()=>show(index-1));next.addEventListener('click',()=>show(index+1));dlg.addEventListener('keydown',e=>{if(e.key==='ArrowRight')show(index+1);else if(e.key==='ArrowLeft')show(index-1)});
+ figs.forEach((figure,i)=>{figure.tabIndex=0;figure.setAttribute('role','button');figure.setAttribute('aria-label','Preview page '+(i+1));const open=()=>{show(i);dlg.showModal()};figure.addEventListener('click',open);figure.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open()}})})
+}
+renderNavLang();
+const p=document.body.dataset.page;if(p==='hub')hub();if(p==='lesson')lessons();if(p==='preview')preview();

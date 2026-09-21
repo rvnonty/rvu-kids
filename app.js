@@ -5,7 +5,9 @@ skip:'Skip to content',announcement:'A little world of learning. One book at a t
 const ar = Object.fromEntries([...document.querySelectorAll('[data-i18n]')].map(el=>[el.dataset.i18n,el.innerHTML]));
 const governorates=[['C','القاهرة','Cairo'],['GZ','الجيزة','Giza'],['ALX','الإسكندرية','Alexandria'],['DK','الدقهلية','Dakahlia'],['SHR','الشرقية','Sharqia'],['GH','الغربية','Gharbia'],['MN','المنوفية','Monufia'],['KB','القليوبية','Qalyubia'],['BH','البحيرة','Beheira'],['KFS','كفر الشيخ','Kafr El Sheikh'],['DT','دمياط','Damietta'],['PTS','بورسعيد','Port Said'],['IS','الإسماعيلية','Ismailia'],['SUZ','السويس','Suez'],['FYM','الفيوم','Faiyum'],['BNS','بني سويف','Beni Suef'],['MT','المنيا','Minya'],['AST','أسيوط','Asyut'],['SHG','سوهاج','Sohag'],['KN','قنا','Qena'],['LX','الأقصر','Luxor'],['ASN','أسوان','Aswan'],['BA','البحر الأحمر','Red Sea'],['WAD','الوادي الجديد','New Valley'],['MTT','مطروح','Matrouh'],['SIN','شمال سيناء','North Sinai'],['JS','جنوب سيناء','South Sinai']];
 const previews=[['letter-a','حرف A وحكايته','The letter A','حروف وكلمات مصوّرة','Letters & illustrated words'],['practice-a','وقت التجربة','Time to try','تتبّع، كتابة واختيار','Trace, write & choose'],['feelings','نتكلم عن مشاعرنا','Let’s talk about feelings','إنجليزي من الحياة اليومية','Everyday English'],['letter-m','حرف M وحكايته','The letter M','moon · milk · monkey · mouse','moon · milk · monkey · mouse']];
-let lang=new URLSearchParams(location.search).get('lang')==='en'?'en':'ar';
+const requestedLang=new URLSearchParams(location.search).get('lang');
+let lang=requestedLang==='en'||requestedLang==='ar'?requestedLang:(sessionStorage.getItem('rvu-lang')||'ar');
+sessionStorage.setItem('rvu-lang',lang);
 let serviceReady=false,shippingRates={},busy=false,lastAttempt=null;
 const form=document.querySelector('#order-form');
 const message=document.querySelector('#form-message');
@@ -37,7 +39,7 @@ function setLanguage(value){
  form.elements.phone.setCustomValidity('');serviceText();updateTotals();
 }
 function openPreview(p){const img=document.querySelector('#preview-image');img.src=`./assets/${p[0]}.webp`;img.alt=p[isEn()?2:1];document.querySelector('#preview-caption').textContent=img.alt;document.querySelector('#preview-dialog').showModal();}
-document.querySelector('#language').addEventListener('click',()=>{setLanguage(isEn()?'ar':'en');const url=new URL(location.href);url.searchParams.set('lang',lang);history.replaceState(null,'',url);});
+document.querySelector('#language').addEventListener('click',()=>{setLanguage(isEn()?'ar':'en');sessionStorage.setItem('rvu-lang',lang);const url=new URL(location.href);url.searchParams.set('lang',lang);history.replaceState(null,'',url);});
 for(const type of ['preview','privacy']){const dialog=document.querySelector(`#${type}-dialog`);document.querySelector(`#${type}-close`).addEventListener('click',()=>dialog.close());dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();}});}
 ['privacy-open','footer-privacy'].forEach(id=>document.getElementById(id).addEventListener('click',()=>document.querySelector('#privacy-dialog').showModal()));
 qty.addEventListener('input',updateTotals);gov.addEventListener('change',updateTotals);form.elements.phone.addEventListener('input',()=>form.elements.phone.setCustomValidity(''));

@@ -139,3 +139,21 @@ test('order heading is uncluttered and hero artwork is optically centered',()=>{
  assert.ok(css.includes('transform:translate(-50%,-50%) rotate(-5deg)'));
  assert.ok(css.includes('.hero-art .book{margin-inline:auto;transform:translateY(-7px) rotate(-4deg)}'));
 });
+
+
+test('home learning discovery is concise, bilingual and free of redundant text grids',()=>{
+ const html=read('index.html'),css=read('style.css'),app=read('app.js');
+ assert.equal((html.match(/class="explore-card /g)||[]).length,2);
+ assert.ok(html.includes('href="/learn/alphabet/"'));
+ assert.ok(html.includes('href="/learn/sentences/"'));
+ assert.ok(html.includes('id="inside" class="explore-section'));
+ assert.ok(html.includes('id="why-different"'));
+ assert.ok(html.includes('id="preview"'));
+ assert.ok(!html.includes('01 / Aa'));
+ assert.ok(!html.includes('05</span><h3>Book Preview'));
+ assert.ok(!html.includes('الكتاب مش واقف عند الورق'));
+ assert.ok(css.includes('.explore-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))'));
+ assert.ok(css.includes('.explore-card:focus-visible'));
+ assert.ok(app.includes("digitalEyebrow:'Keep exploring'"));
+ assert.ok(app.includes("digitalTitle:'The learning continues online.'"));
+});

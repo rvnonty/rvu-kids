@@ -91,14 +91,6 @@ function lessonBreadcrumb(target){
  const c=el('nav','crumbs');c.setAttribute('aria-label','Breadcrumb');c.append(link('/', 'RVU Kids'));c.append(document.createTextNode(' / '));c.append(link('/learn/',t('hub')));c.append(document.createTextNode(' / '+target));return c
 }
 function lessonTemplate(type,d,idx){
- const headingLabel=type==='alphabet'?'Letter '+d.letter:d.title;
- document.title=headingLabel+' | RVU Kids Learning';
- const summary=type==='alphabet'
-  ?'Practice letter '+d.letter+' with '+d.words.join(', ')+'. Rvu Alphabet Book, ages 3–6.'
-  :'Practice '+d.title+' with everyday English from Rvu Alphabet Book, ages 3–6.';
- let meta=document.querySelector('meta[name="description"]');
- if(!meta){meta=document.createElement('meta');meta.name='description';document.head.append(meta)}
- meta.content=summary;
  const root=document.querySelector('#lesson-root');root.replaceChildren();
  const head=el('section','lesson-top');head.append(lessonBreadcrumb(type==='alphabet'?t('alph'):t('sent')));
  const shell=el('div','lesson-card');
@@ -143,7 +135,7 @@ function lessons(){
  const path=location.pathname.split('/').filter(Boolean);
  if(path[1]==='alphabet'&&path[2]){const idx=alphabet.findIndex(l=>l.id===path[2]);if(idx>=0){lessonTemplate('alphabet',alphabet[idx],idx);return}}
  if(path[1]==='sentences'&&path[2]){const idx=units.findIndex(u=>u.id===path[2]);if(idx>=0){lessonTemplate('sentences',units[idx],idx);return}}
- if(path[1]==='sentences'&&!path[2]){document.title='Everyday English | RVU Kids';const root=document.querySelector('#lesson-root');root.innerHTML='<section class="hero compact"><span class="eyebrow">Everyday English</span><h1>'+t('sent')+'</h1><p>'+t('practice')+'</p></section>';const g=el('div','unit-grid');units.forEach((u,i)=>g.append(cardUnit(u,i)));root.append(g);return}
+ if(path[1]==='sentences'&&!path[2]){const root=document.querySelector('#lesson-root');root.innerHTML='<section class="hero compact"><span class="eyebrow">Everyday English</span><h1>'+t('sent')+'</h1><p>'+t('practice')+'</p></section>';const g=el('div','unit-grid');units.forEach((u,i)=>g.append(cardUnit(u,i)));root.append(g);return}
  const root=document.querySelector('#lesson-root');root.innerHTML='<section class="lesson-card"><h1>Lesson not found</h1><a href="/learn/">Learning Hub</a></section>';
 }
 function preview(){

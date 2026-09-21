@@ -23,7 +23,18 @@ The deployed GitHub Pages branch now includes:
 
 Storefront and Learning Hub source are implemented and the GitHub Pages build is deployed to the configured domain. Private database provisioning and live order activation remain pending. GitHub Pages deployment success does not independently establish that DNS and HTTPS are reachable in every browser.
 
-The proposed deployment is Cloudflare Workers with static assets and a private D1 database. **This alternative requires the owner's approval before deployment.** GitHub Pages is not the production host: its published limits prohibit sites primarily facilitating commercial transactions. See https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits .
+The public website currently deploys via GitHub Pages on `rvu-kids.company`. The Cloudflare Worker and D1 files are a separate, unconnected proposal for private order processing; do not migrate the domain or enable order submission without the owner's approval and end-to-end testing.
+
+## QA review of the current release
+
+- The public preview shows **exactly five unique physical pages**: cover, letter A teaching page, letter A practice, Feelings, and letter M teaching page. The old review image was removed from public assets.
+- All 26 alphabet lessons, all 15 Everyday English units, and the `/learn/alphabet/` index have stable direct URLs.
+- Arabic/English switching is shared across the storefront and learning routes, including explicit `?lang=` URLs.
+- The mini visual word check only appears when at least two illustrated visual clues exist; it never substitutes for the locked workbook exercises.
+- CI builds `dist`, checks JavaScript syntax, verifies curriculum counts, checks site navigation and checks preview files.
+- Search-index basics include `sitemap.xml` with the main sections and 41 lessons.
+- **Visual release caveat:** the letter M image currently committed is a small valid WebP (200×283 px); replace it with an optimized high-resolution export of physical page 28 from the original book before relying on full-screen zoom quality.
+- Audio recordings, actual QR insertion into the printed book, customer order submission and direct browser-device visual QA remain separate pending work.
 
 ## Local build and checks
 
@@ -37,7 +48,7 @@ python3 -m http.server 8080 --directory dist
 
 Static-only preview deliberately disables order submission when `/api/config` is unavailable. It never simulates a successful order.
 
-## Production setup after hosting approval
+## Optional private-order-service setup (only after explicit approval)
 
 1. Build `dist/`. Deploy only that directory as static assets, plus `server/worker.mjs` as the Worker.
 2. Create a dedicated private D1 database for RVU Kids, apply `server/schema.sql`, and bind it to the Worker as `DB`. Add the real D1 identifier to deployment configuration once issued. Never invent identifiers.
@@ -45,7 +56,7 @@ Static-only preview deliberately disables order submission when `/api/config` is
 4. Confirm the owner can privately inspect and process orders in the D1 dashboard, and agree a routine for checking incoming requests. There are no email or WhatsApp notifications yet.
 5. Populate `shipping_rates` only with owner-confirmed rates. The table is empty by default. Rates apply per order; if fees depend on quantity, weight or address, leave that governorate disabled and quote manually. Never use zero for an unknown price.
 6. Set `ORDERS_ENABLED` to `true` only after private storage and real submission have been verified. Keep it `false` for any public preview.
-7. Connect `rvu-kids.company` and `www` to the approved hosting provider using its issued DNS values. Preserve all unrelated DNS records. Verify valid HTTPS on both, a canonical redirect, and then add the canonical URL/sitemap metadata.
+7. Preserve the live GitHub Pages custom domain and DNS. This Worker deployment is not enabled by these repository files; a private-order service requires a separately approved secure integration and a verified endpoint. Never change DNS as an incidental test.
 8. Run a clearly labeled synthetic test, verify its saved record privately, then remove only that synthetic record. Verify customer form errors and mobile/desktop rendering before launch.
 
 ## Order operations

@@ -106,5 +106,26 @@ function preview(){
  btn.addEventListener('click',()=>dlg.close());dlg.addEventListener('click',e=>{if(e.target===dlg)dlg.close()});prev.addEventListener('click',()=>show(index-1));next.addEventListener('click',()=>show(index+1));dlg.addEventListener('keydown',e=>{if(e.key==='ArrowRight')show(index+1);else if(e.key==='ArrowLeft')show(index-1)});
  figs.forEach((figure,i)=>{figure.tabIndex=0;figure.setAttribute('role','button');figure.setAttribute('aria-label','Preview page '+(i+1));const open=()=>{show(i);dlg.showModal()};figure.addEventListener('click',open);figure.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open()}})})
 }
+
+function translateStatic(){
+ if(lang!=='en')return;
+ if(document.body.dataset.page==='hub'){
+  const hero=document.querySelector('.hero');if(hero){hero.querySelector('h1').innerHTML='A book to hold.<br><em>A world to explore.</em>';hero.querySelector('p').textContent='Discover letter lessons and Everyday English alongside the printed Rvu Alphabet Book. The learning paths are ready; reviewed pronunciation audio will be added separately.';const a=hero.querySelectorAll('.hero-actions a');if(a[0])a[0].textContent='Explore Lessons';if(a[1])a[1].textContent='Preview Five Real Pages'}
+  const cards=document.querySelectorAll('.path-card');if(cards[0]){cards[0].querySelector('small').textContent='LEARNING PATH 01';cards[0].querySelector('p').textContent='26 individual A–Z lessons with the exact words from the approved book.'}if(cards[1]){cards[1].querySelector('small').textContent='LEARNING PATH 02';cards[1].querySelector('p').textContent='15 separate units about everyday communication, organized around the printed book.'}
+  const hs=document.querySelectorAll('.section-head h2');if(hs[0])hs[0].textContent='Choose a letter';if(hs[1])hs[1].textContent='Everyday conversations';
+  const cta=document.querySelector('.cta');if(cta){cta.querySelector('h2').textContent='200 EGP + shipping by governorate';cta.querySelector('p').textContent='96 printed pages, made to order, for children ages 3–6.';cta.querySelector('a').textContent='Order the book'}
+ }
+ if(document.body.dataset.page==='preview'){
+  const hero=document.querySelector('.hero');if(hero){hero.querySelector('h1').innerHTML='Five real pages.<br><em>A closer look inside.</em>';hero.querySelector('p').textContent='Five individual physical pages at most—not five double-page spreads. These are selected pages from the actual book.'}
+  const captions=['The book cover','Alphabet and illustrated words','Tracing and writing practice','Everyday English','Review and recall'];document.querySelectorAll('.preview-five figcaption').forEach((n,i)=>n.textContent=captions[i]);
+  const cta=document.querySelector('.cta');if(cta){cta.querySelector('h2').textContent='200 EGP + shipping by governorate';cta.querySelector('p').textContent='96 pages. Printed on demand in Mit Ghamr, Egypt.';cta.querySelector('a').textContent='Order your copy'}
+ }
+ if(location.pathname.startsWith('/books/alphabet/')){
+  const h=document.querySelector('.product-copy');if(h){const paras=h.querySelectorAll('p');if(paras[0])paras[0].textContent='A colorful 96-page workbook for ages 3–6, combining letters, handwriting, activities, and Everyday English.';if(paras[1])paras[1].textContent='Shipping is calculated by governorate. Printing takes approximately one day after payment verification.';const links=h.querySelectorAll('.hero-actions a');if(links[0])links[0].textContent='Order the Book';if(links[1])links[1].textContent='Preview Five Pages';if(links[2])links[2].textContent='Explore Learning Hub'}
+  const c=document.querySelector('.cta');if(c){c.querySelector('h2').textContent='Made especially for your child';c.querySelector('p').textContent='Printing starts only after we verify payment.';c.querySelector('a').textContent='Start your order'}
+ }
+}
+
 renderNavLang();
+translateStatic();
 const p=document.body.dataset.page;if(p==='hub')hub();if(p==='lesson')lessons();if(p==='preview')preview();

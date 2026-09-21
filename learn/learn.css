@@ -127,3 +127,9 @@ button{font-family:inherit}a,button{touch-action:manipulation}h1,h2,h3{overflow-
   .preview-five figure{transition:none}
   .preview-five figure:hover{transform:none}
 }
+
+/* Mobile: don't let the first preview enlarge to a different card size. */
+@media(max-width:560px){
+ .preview-five{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .preview-five figure:first-child{grid-column:auto;max-width:none;justify-self:stretch}
+}

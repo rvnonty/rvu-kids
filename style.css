@@ -125,3 +125,10 @@ header,main,footer,section,.wrap,.hero,.hero-copy,.hero-art,
 @media(max-width:850px){.hero-art{min-height:510px}}
 @media(max-width:430px){.hero-art{min-height:475px}.hero-art .book{transform:translateY(4px) rotate(-5deg)}.hero-art .pages-badge{bottom:84px}.hero-art .art-credit{padding:7px 13px}.hero-art .art-byline{font-size:.7rem}}
 @media(prefers-reduced-motion:reduce){.preview-dialog img.page-turn{animation:none!important}}
+
+
+/* Keep the creator line genuinely BELOW the rotated physical book at all widths,
+   instead of letting it float over the last part of the cover. */
+@media(min-width:1101px){.hero-art{min-height:clamp(610px,47vw,680px)}}
+@media(min-width:851px) and (max-width:1100px){.hero-art{min-height:595px}}
+@media(min-width:431px) and (max-width:850px){.hero-art{min-height:600px}}

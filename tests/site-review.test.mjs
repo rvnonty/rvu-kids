@@ -157,3 +157,15 @@ test('home learning discovery is concise, bilingual and free of redundant text g
  assert.ok(app.includes("digitalEyebrow:'Keep exploring'"));
  assert.ok(app.includes("digitalTitle:'The learning continues online.'"));
 });
+
+
+test('order form has no mandatory consent paragraph but privacy remains accessible in footer',()=>{
+ const html=read('index.html'),app=read('app.js');
+ assert.ok(!html.includes('name="consent"'));
+ assert.ok(!html.includes('id="privacy-open"'));
+ assert.ok(!html.includes('موافق أشارك بيانات الطلب والعنوان'));
+ assert.ok(html.includes('id="footer-privacy"'));
+ assert.ok(html.includes('id="privacy-dialog"'));
+ assert.ok(app.includes("document.getElementById('footer-privacy').addEventListener('click'"));
+ assert.ok(app.includes("form.addEventListener('submit'"));
+});

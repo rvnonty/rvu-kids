@@ -183,3 +183,21 @@ test('main storefront sections have descriptive metadata and exact canonical URL
   assert.ok(html.includes('<meta name="description" content="'),path);
  }
 });
+
+test('bilingual parent guide ships in build and links from storefront and hub',()=>{
+ const page=read('parents/index.html'),css=read('parents/guide.css'),js=read('parents/guide.js');
+ assert.ok(read('index.html').includes('href="/parents/"'));
+ assert.ok(read('learn/index.html').includes('href="/parents/"'));
+ assert.ok(page.includes('3–4')&&page.includes('5–6'));
+ assert.ok(page.includes('I see an apple.'));
+ assert.ok(page.includes('قيد التجهيز'));
+ assert.ok(page.includes('href="/learn/alphabet/a/"'));
+ assert.ok(page.includes('href="/learn/sentences/feelings/"'));
+ assert.ok(js.includes("sessionStorage.setItem('rvu-lang',lang)"));
+ assert.ok(css.includes('@media(max-width:620px)'));
+ assert.ok(read('app.js').includes("parentGuideTitle:'Where should we start?'"));
+ assert.ok(read('learn/learn.js').includes('data-hub-parent-title'));
+ assert.ok(read('build.mjs').includes("'parents'"));
+ assert.ok(read('sitemap.xml').includes('<loc>https://rvu-kids.company/parents/</loc>'));
+ assert.equal((read('preview/index.html').match(/<figure>/g)||[]).length,5);
+});

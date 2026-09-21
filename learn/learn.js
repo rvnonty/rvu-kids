@@ -153,6 +153,9 @@ function translateStatic(){
   const title=document.querySelector('#letters-title');if(title)title.textContent='Choose a letter';const cta=document.querySelector('.cta');if(cta){cta.querySelector('h2').textContent='200 EGP + shipping by governorate';cta.querySelector('p').textContent='96 printed pages, made to order.';cta.querySelector('a').textContent='Order the book'}
  }
  if(document.body.dataset.page==='hub'){
+  const title=document.querySelector('[data-hub-parent-title]');if(title)title.textContent='Using the book with a child aged 3–6?';
+  const help=document.querySelector('[data-hub-parent-text]');if(help)help.textContent='See our short parent guide for age-appropriate, low-pressure activities.';
+  const parentLink=document.querySelector('[data-hub-parent-link]');if(parentLink)parentLink.textContent='Parent guide ↗';
   const hero=document.querySelector('.hero');if(hero){hero.querySelector('h1').innerHTML='A book to hold.<br><em>A world to explore.</em>';hero.querySelector('p').textContent='Discover letter lessons and Everyday English alongside the printed Rvu Alphabet Book. The learning paths are ready; reviewed pronunciation audio will be added separately.';const a=hero.querySelectorAll('.hero-actions a');if(a[0])a[0].textContent='Explore Lessons';if(a[1])a[1].textContent='Preview Five Real Pages'}
   const cards=document.querySelectorAll('.path-card');if(cards[0]){cards[0].querySelector('small').textContent='LEARNING PATH 01';cards[0].querySelector('p').textContent='26 individual A–Z lessons with the exact words from the approved book.'}if(cards[1]){cards[1].querySelector('small').textContent='LEARNING PATH 02';cards[1].querySelector('p').textContent='15 separate units about everyday communication, organized around the printed book.'}
   const hs=document.querySelectorAll('.section-head h2');if(hs[0])hs[0].textContent='Choose a letter';if(hs[1])hs[1].textContent='Everyday conversations';

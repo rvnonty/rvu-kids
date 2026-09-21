@@ -98,3 +98,11 @@ button{font-family:inherit}a,button{touch-action:manipulation}h1,h2,h3{overflow-
 .word-card:nth-child(3n+2) .word-visual.story-visual::before{background-position:25% 55%}
 .word-card:nth-child(3n+3) .word-visual.story-visual::before{background-position:83% 59%}
 @media(max-width:560px){.word-visual.story-visual::before{width:23px;height:23px}}
+
+/* Small parent-guide gateway in the Learning Hub */
+.hub-parents-guide{display:flex;align-items:center;justify-content:space-between;gap:15px;border:1px solid #d9e3d4;background:#edf2e8;padding:18px 24px;border-radius:20px;margin:-28px 0 42px}
+.hub-parents-guide strong{color:#174338;font-size:1.08rem}
+.hub-parents-guide p{margin:3px 0 0;color:#556c60;font-size:.89rem}
+.hub-parents-guide a{display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;padding:10px 16px;border-radius:999px;background:#174338;color:white;text-decoration:none;font-weight:800;font-size:.83rem}
+.hub-parents-guide a:hover{background:#326750}
+@media(max-width:650px){.hub-parents-guide{margin:-21px 0 30px;flex-direction:column;align-items:stretch;padding:19px}.hub-parents-guide a{text-align:center}.hub-parents-guide strong{font-size:.98rem}}

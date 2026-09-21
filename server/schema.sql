@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS orders (
  city TEXT NOT NULL,
  address TEXT NOT NULL,
  quantity INTEGER NOT NULL CHECK(quantity BETWEEN 1 AND 20),
- payment_method TEXT NOT NULL CHECK(payment_method IN ('instapay','bank')),
+ payment_method TEXT NOT NULL CHECK(payment_method IN ('instapay','vodafone_cash')),
  notes TEXT NOT NULL DEFAULT '',
  locale TEXT NOT NULL CHECK(locale IN ('ar','en')),
  unit_price_egp INTEGER NOT NULL CHECK(unit_price_egp = 200),

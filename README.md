@@ -11,17 +11,17 @@ The deployed GitHub Pages branch now includes:
 - `/learn/sentences/` and 15 individual sentence lessons, including Phase 1.2 curriculum corrections.
 - `/preview/` — a strict five-physical-page preview (cover plus four selected actual pages), with an accessible zoom viewer.
 - `/books/alphabet/` — dedicated product page, retaining 200 EGP + shipping.
-- `/learn/qr-map.json` — 41 stable QR destinations paired with physical PDF page numbers.
+- `/learn/qr-map.json` — 41 stable QR destinations, with child-facing `printedPages` (A 1–2, M 25–26, Feelings 53–54) and separate `pdfPages` for the three PDF-only front-matter pages.
 - `/learn/audio-manifest.json` — production checklist for 244 expected recordings (26 letter names + 26 letter sounds + 101 words + 27 alphabet sentences + 64 Everyday English sentences).
 - `tests/learning.test.mjs` and GitHub Actions checks for content counts, 41 direct links and the five-page preview cap.
 
 **Outstanding:** 244 reviewed audio files are **not present in the repository**. The manifest contains null audio assets deliberately; no device voice or nonfunctional audio buttons are passed off as approved American pronunciation. Existing printed PDF has **not** been altered or embedded with QR codes; mapping and downloadable QR images are separate preparation assets. All 41 lessons render approved text. Where an exact artwork cutout is not available, small word pictograms are memory cues; they are not claimed to be images from the workbook.
 
-**Orders:** The static GitHub Pages frontend is a public preview. Backend source exists but has no provisioned private database or enabled order API; the public form remains disabled until a tested private integration is approved. Do not report checkout/payment success or collect customer information through an unsecured workaround.
+**Orders:** The active public form opens WhatsApp username `@n2nty` with an order message drafted from the visitor's input. The visitor must review it and press Send in WhatsApp. The site never reports an order received or payment verified. Payment choices are InstaPay and Vodafone Cash only. Shipping and the final total are confirmed privately before payment. No customer data is submitted to this GitHub Pages frontend or stored in the repository.
 
 ## Current state
 
-Storefront and Learning Hub source are implemented and the GitHub Pages build is deployed to the configured domain. Private database provisioning and live order activation remain pending. GitHub Pages deployment success does not independently establish that DNS and HTTPS are reachable in every browser.
+Storefront and Learning Hub are deployed at the configured domain. Direct WhatsApp ordering is enabled; the independent private-order API and database remain disabled. GitHub Pages build success should be complemented with browser verification of the live WhatsApp handoff.
 
 The public website currently deploys via GitHub Pages on `rvu-kids.company`. The Cloudflare Worker and D1 files are a separate, unconnected proposal for private order processing; do not migrate the domain or enable order submission without the owner's approval and end-to-end testing.
 
@@ -33,8 +33,8 @@ The public website currently deploys via GitHub Pages on `rvu-kids.company`. The
 - The mini visual word check only appears when at least two illustrated visual clues exist; it never substitutes for the locked workbook exercises.
 - CI builds `dist`, checks JavaScript syntax, verifies curriculum counts, checks site navigation and checks preview files.
 - Search-index basics include `sitemap.xml` with the main sections and 41 lessons.
-- **Visual release caveat:** the letter M image currently committed is a small valid WebP (200×283 px); replace it with an optimized high-resolution export of physical page 28 from the original book before relying on full-screen zoom quality.
-- Audio recordings, actual QR insertion into the printed book, customer order submission and direct browser-device visual QA remain separate pending work.
+- Letter M preview uses the approved replacement high-resolution artwork (1086 × 1448 native pixels); the five-page preview limit remains unchanged.
+- Approved American English audio recordings and inserting the QR codes in the print-ready PDF remain separate pending work. The public site clearly labels the audio feature as coming soon.
 
 ## Local build and checks
 
@@ -46,7 +46,7 @@ npm run build
 python3 -m http.server 8080 --directory dist
 ```
 
-Static-only preview deliberately disables order submission when `/api/config` is unavailable. It never simulates a successful order.
+Static storefront uses WhatsApp instead of the disabled `/api/config` and `/api/orders` backend. Completing the form only constructs a message: the customer sends it explicitly from WhatsApp. This frontend never simulates a completed order or verified payment.
 
 ## Optional private-order-service setup (only after explicit approval)
 
@@ -67,6 +67,6 @@ The public API has no order-list or order-detail endpoint, no payment verificati
 
 ## Content and privacy
 
-Only selected previews from the supplied book are included; the complete saleable PDF is not published. Audio playback is explicitly not promised until reviewed assets are uploaded; the QR link mapping is prepared but QR codes have not been embedded in the physical PDF. Physical paper, size and binding have not been invented. No bank account details, transfer screenshots, customer records or API keys belong in source control. No analytics trackers or customer local-storage persistence are used. Google Fonts is an external font resource.
+Only five selected physical preview pages from the supplied book are included; the complete saleable PDF is not published. Reviewed American English audio is described as a planned feature, not active playback. The QR link map distinguishes printed page numbers from PDF physical indices; QR codes have not been embedded in the physical PDF. Physical paper, size and binding have not been invented. No bank account details, transfer screenshots, customer records or API keys belong in source control. No analytics trackers or customer local-storage persistence are used. Google Fonts is an external font resource.
 
 Design and book artwork belong to RVU Kids/their respective rights holders. No redistribution license is granted by this repository.

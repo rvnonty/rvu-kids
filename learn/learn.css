@@ -90,3 +90,11 @@ button{font-family:inherit}a,button{touch-action:manipulation}h1,h2,h3{overflow-
 .story-visible{opacity:1;transform:none}
 @media(max-width:560px){.storybook-cast{gap:8px;justify-content:center}.character-portrait{width:clamp(71px,21vw,92px);border-width:3px}.cast-note{flex-basis:100%;max-width:100%;text-align:center}.compact-cast .character-portrait{width:clamp(50px,15vw,65px)}.compact-cast .cast-note{flex-basis:100%;padding:5px;font-size:.76rem}.word-visual.story-visual{width:78px;height:78px}.story-initial{font-size:2.4rem}.unit-card::before{font-size:2.8rem}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.story-reveal:not(.story-visible){opacity:1!important;transform:none!important}}
+
+
+/* A tiny recurring cast cameo on each word sticker keeps the original book
+   characters present without adding another full-page preview or generic emoji. */
+.word-visual.story-visual::before{content:"";position:absolute;z-index:2;inset-inline-start:3px;bottom:3px;width:27px;height:27px;border-radius:50%;border:2px solid #fffdf8;background-image:url('/assets/cover.webp');background-size:350% auto;background-position:52% 68%;box-shadow:0 2px 5px #35534030}
+.word-card:nth-child(3n+2) .word-visual.story-visual::before{background-position:25% 55%}
+.word-card:nth-child(3n+3) .word-visual.story-visual::before{background-position:83% 59%}
+@media(max-width:560px){.word-visual.story-visual::before{width:23px;height:23px}}

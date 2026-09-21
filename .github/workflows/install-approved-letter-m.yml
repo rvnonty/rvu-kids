@@ -50,5 +50,16 @@ jobs:
           git add assets/letter-m.webp
           if ! git diff --cached --quiet; then
             git commit -m "Replace pixelated letter M page with approved native-resolution artwork"
-            git push
+            for attempt in 1 2 3 4 5 6; do
+              if git push origin HEAD:main; then
+                echo "Approved artwork published to main"
+                exit 0
+              fi
+              echo "GitHub remote temporarily rejected the image push, retry $attempt/6"
+              sleep $((attempt * 12))
+              git fetch origin main
+              git rebase origin/main
+            done
+            echo "Unable to push after 6 attempts" >&2
+            exit 1
           fi

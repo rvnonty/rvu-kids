@@ -104,11 +104,12 @@ test('legacy learning URLs never silently display a different lesson',()=>{
   assert.ok(page.includes('name="robots" content="noindex,follow"'),slug);
  }
 });
-test('learning browser titles describe the actual lesson',()=>{
+test('static lesson titles stay unique instead of being replaced at runtime',()=>{
  const js=text('learn/learn.js');
- assert.ok(js.includes("document.title=headingLabel+' | RVU Kids Learning'"));
- assert.ok(js.includes("document.title='Everyday English | RVU Kids'"));
- assert.ok(js.includes("meta.name='description'"));
+ assert.ok(!js.includes("document.title=headingLabel+' | RVU Kids Learning'"));
+ assert.ok(!js.includes("document.title='Everyday English | RVU Kids'"));
+ assert.ok(text('learn/alphabet/a/index.html').includes('Letter A — Alphabet &amp; Words | RVU Kids'));
+ assert.ok(text('learn/sentences/feelings/index.html').includes('My Feelings — Everyday English | RVU Kids'));
 });
 
 

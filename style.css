@@ -76,3 +76,15 @@ header,main,footer,section,.wrap,.hero,.hero-copy,.hero-art,
  .form-row{grid-template-columns:minmax(0,1fr)}
  .hero-actions{gap:14px}
 }
+
+
+/* Preview: artwork must meet the existing pastel frames without white paper gutters. */
+.preview-card .preview-frame{padding:11px;border-radius:16px;overflow:hidden}
+.preview-card img{width:100%;height:auto;aspect-ratio:auto;object-fit:contain;display:block;
+  box-shadow:0 5px 18px rgba(18,48,36,.13);border-radius:9px}
+.preview-card:hover img{transform:translateY(-3px)}
+.preview-card:nth-child(1) .preview-frame{background:#e3e7db}
+.preview-card:nth-child(2) .preview-frame{background:#f2d4c8}
+.preview-card:nth-child(3) .preview-frame{background:#e0e2f1}
+.preview-card:nth-child(4) .preview-frame{background:#f0dfae}
+@media(max-width:720px){.preview-card .preview-frame{padding:9px}.preview-card img{border-radius:7px}}

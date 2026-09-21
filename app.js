@@ -57,7 +57,7 @@ document.querySelector('#preview-dialog').addEventListener('keydown',e=>{
 });
 document.querySelector('#language').addEventListener('click',()=>{setLanguage(isEn()?'ar':'en');sessionStorage.setItem('rvu-lang',lang);const url=new URL(location.href);url.searchParams.set('lang',lang);history.replaceState(null,'',url);});
 for(const type of ['preview','privacy']){const dialog=document.querySelector(`#${type}-dialog`);document.querySelector(`#${type}-close`).addEventListener('click',()=>dialog.close());dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();}});}
-['privacy-open','footer-privacy'].forEach(id=>document.getElementById(id).addEventListener('click',()=>document.querySelector('#privacy-dialog').showModal()));
+document.getElementById('footer-privacy').addEventListener('click',()=>document.querySelector('#privacy-dialog').showModal());
 qty.addEventListener('input',updateTotals);gov.addEventListener('change',updateTotals);form.elements.phone.addEventListener('input',()=>form.elements.phone.setCustomValidity(''));
 setLanguage(lang);
 function normalizePhone(v){return v.replace(/[٠-٩]/g,c=>'٠١٢٣٤٥٦٧٨٩'.indexOf(c)).replace(/[\s()-]/g,'').replace(/^0020/,'+20');}

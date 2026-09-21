@@ -64,3 +64,20 @@ test('responsive layout avoids unbounded horizontal grid growth',()=>{
  assert.ok(css.includes('@media(max-width:850px)'));
  assert.ok(css.includes('.hero{grid-template-columns:minmax(0,1fr);gap:18px}'));
 });
+
+
+test('visually hidden controls cannot extend the document by 10,000px',()=>{
+ const css=read('style.css'),learn=read('learn/learn.css');
+ assert.ok(!css.includes('left:-10000px'));
+ assert.ok(!learn.includes('left:-9999px'));
+ assert.ok(css.includes('clip-path:inset(50%)'));
+ assert.ok(learn.includes('transform:translateY(-180%)'));
+});
+test('book preview cards do not introduce white picture frames',()=>{
+ const main=read('style.css'),learn=read('learn/learn.css');
+ assert.ok(main.includes('.preview-card .preview-frame{padding:11px'));
+ assert.ok(learn.includes('.preview-five figure{background:transparent;padding:0'));
+ for(const name of ['cover','letter-a','practice-a','feelings','letter-m']){
+   assert.ok(readFileSync(new URL('assets/'+name+'.webp',base)).length>150000,name+' is too small for a preview');
+ }
+});

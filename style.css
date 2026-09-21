@@ -150,3 +150,82 @@ header,main,footer,section,.wrap,.hero,.hero-copy,.hero-art,
  .hero-art .book-orbit{width:90%;height:calc(100% - 83px)}
  .hero-art .book{transform:translateY(-8px) rotate(-4deg)}
 }
+
+
+/* Approved cover composition — book breaks through a smaller cream backdrop.
+   All text stays real HTML, and the original book-cover asset stays untouched. */
+.hero-art{min-height:715px}
+.hero-art .book{
+  width:min(410px,78%);
+  max-width:100%;
+  z-index:1;
+  margin-inline:auto;
+  transform:translateY(-19px) rotate(-4deg);
+  box-shadow:11px 19px 0 #ab885225,23px 36px 44px #382f232e;
+}
+.hero-art .book-orbit{
+  width:min(78%,455px);
+  height:calc(100% - 215px);
+  top:50%;
+  left:50%;
+  border-radius:49% 47% 46% 50%;
+  transform:translate(-50%,-50%) rotate(-6deg);
+  background:#f9dea0;
+}
+.hero-art .art-star{
+  display:block;
+  width:51px;
+  height:51px;
+  background:#b6513e;
+  font-size:0!important;
+  line-height:0;
+  clip-path:polygon(50% 0%,61% 30%,70% 40%,100% 50%,70% 61%,61% 70%,50% 100%,39% 70%,30% 61%,0% 50%,30% 40%,39% 30%);
+}
+.hero-art .star-one{top:42px;left:14px}
+.hero-art .star-two{width:38px;height:38px;right:9px;bottom:105px}
+.hero-art .pages-badge{z-index:3;left:0;bottom:122px}
+.hero-art .art-credit{
+  left:calc(50% - 11px);
+  bottom:6px;
+  padding:10px 43px;
+  border-color:#e2e5d8;
+  border-radius:999px;
+  background:#fffefa;
+  box-shadow:0 15px 32px #283b2c1c;
+}
+.hero-art .art-caption{font-size:.8rem}
+.hero-art .art-byline{font-size:.8rem}
+.hero-art .art-credit::before,.hero-art .art-credit::after{
+  content:'♥';
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  font-family:Georgia,serif;
+  color:#c75552;
+  font-size:1rem;
+  line-height:1;
+}
+.hero-art .art-credit::before{left:16px}
+.hero-art .art-credit::after{right:16px}
+@media(min-width:1101px){.hero-art{min-height:715px}}
+@media(min-width:851px) and (max-width:1100px){
+  .hero-art{min-height:670px}
+  .hero-art .book{width:min(365px,82%)}
+  .hero-art .book-orbit{width:82%;height:calc(100% - 185px)}
+}
+@media(min-width:431px) and (max-width:850px){
+  .hero-art{min-height:625px}
+  .hero-art .book{width:min(354px,81%)}
+  .hero-art .book-orbit{width:81%;height:calc(100% - 170px)}
+}
+@media(max-width:430px){
+  .hero-art{min-height:545px}
+  .hero-art .book{width:min(295px,82%);transform:translateY(-16px) rotate(-4deg)}
+  .hero-art .book-orbit{width:83%;height:calc(100% - 160px)}
+  .hero-art .star-one{width:33px;height:33px;top:31px;left:6px}
+  .hero-art .star-two{width:29px;height:29px;right:6px;bottom:94px}
+  .hero-art .pages-badge{bottom:104px;left:0}
+  .hero-art .art-credit{left:calc(50% - 8px);bottom:4px;padding:8px 31px}
+  .hero-art .art-credit::before{left:11px}
+  .hero-art .art-credit::after{right:11px}
+}

@@ -81,3 +81,29 @@ test('book preview cards do not introduce white picture frames',()=>{
    assert.ok(readFileSync(new URL('assets/'+name+'.webp',base)).length>150000,name+' is too small for a preview');
  }
 });
+
+
+test('whatsapp orders are enabled, use the approved username and never fake submission',()=>{
+ const page=read('index.html'),js=read('app.js');
+ assert.ok(page.includes('value="instapay"'));
+ assert.ok(page.includes('value="vodafone_cash"'));
+ assert.ok(!page.includes('value="bank"'));
+ assert.ok(page.includes('id="submit-order" class="button full" data-i18n="submitOrder"'));
+ assert.ok(page.includes('واتساب @n2nty'));
+ assert.ok(js.includes("'https://wa.me/n2nty?text='"));
+ assert.ok(js.includes('encodeURIComponent(fields.join('));
+ assert.ok(js.includes('window.location.assign(url)'));
+ assert.ok(js.includes('payload.payment'));
+ assert.ok(!js.includes("fetch('./api/config'"));
+ assert.ok(!js.includes("fetch('./api/orders'"));
+ assert.ok(page.includes('اضغط إرسال هناك'));
+});
+test('why different gives clear printed learning progression and honest future US audio',()=>{
+ const page=read('index.html'),app=read('app.js');
+ for(const id of ['why-different','whyLettersTitle','whyWordsTitle','whySentencesTitle','whyAudioSoon','whyAudioTitle','whyAudioText']){
+  assert.ok(page.includes(id),id);
+ }
+ assert.ok(app.includes('audio playback is not available yet'.replace('audio playback','Audio playback')));
+ const css=read('style.css');
+ assert.ok(css.includes('.why-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))'));
+});

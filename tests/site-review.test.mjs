@@ -128,3 +128,14 @@ test('storybook learning identity and gentle interactions use official book cove
  assert.ok(site.includes('.hero-art .art-credit'));
  assert.ok(!main.includes('data-i18n="whatsappNotice"'));
 });
+
+
+test('order heading is uncluttered and hero artwork is optically centered',()=>{
+ const html=read('index.html'),css=read('style.css');
+ assert.ok(!html.includes('كل الحقول مطلوبة، إلا المذكور'));
+ assert.ok(!html.includes('data-i18n="formRequired"'));
+ assert.ok(html.includes('Created By: Ramez Medhat'));
+ assert.ok(css.includes('width:min(90%,510px)'));
+ assert.ok(css.includes('transform:translate(-50%,-50%) rotate(-5deg)'));
+ assert.ok(css.includes('.hero-art .book{margin-inline:auto;transform:translateY(-7px) rotate(-4deg)}'));
+});

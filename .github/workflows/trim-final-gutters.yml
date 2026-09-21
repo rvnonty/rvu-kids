@@ -1,0 +1,34 @@
+name: Finish cropping A preview gutters
+on:
+  push:
+    branches: [main]
+    paths: [.github/workflows/trim-final-gutters.yml]
+permissions:
+  contents: write
+jobs:
+  trim:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: python -m pip install --disable-pip-version-check Pillow==11.3.0
+      - name: Remove remaining edge strip without cropping content at top or bottom
+        run: |
+          python - <<'PY'
+          from PIL import Image
+          for filename in ('assets/letter-a.webp','assets/practice-a.webp'):
+              with Image.open(filename) as original:
+                  image=original.convert('RGB')
+              assert image.width==1200
+              image=image.crop((7,0,image.width-7,image.height))
+              image.save(filename,'WEBP',quality=93,method=6)
+              print(filename,image.size)
+          PY
+      - name: Commit precise edge crop
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/letter-a.webp assets/practice-a.webp
+          git commit -m "Remove final thin white gutters from both A pages"
+          git push

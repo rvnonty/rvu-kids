@@ -153,3 +153,118 @@ button{font-family:inherit}a,button{touch-action:manipulation}h1,h2,h3{overflow-
  }
 }
 @media(max-width:360px){.sitebar .brand{width:80px;height:50px;min-width:80px}}
+
+/* Learning Hub typography and text-flow polish — Arabic, English, mobile. */
+html{scroll-padding-top:24px}
+html,body{max-width:100%}
+body{line-height:1.8;text-rendering:optimizeLegibility}
+.sitebar,.shell,.hero,.paths,.path-card,.path-card>div,.section,.section-head,.letter-grid,
+.unit-grid,.unit-card,.lesson-card,.word-card,.phrase-card,.quiz,.cta,
+.product-hero,.product-copy,.hub-parents-guide,.support-words{min-width:0}
+.hero h1,.product-copy h1{line-height:1.16;letter-spacing:-.038em;overflow-wrap:normal}
+.hero h1 em{font-style:normal;color:#a7553f}
+.hero p,.path-card p,.unit-card p,.product-copy p,.three p,
+.phase-note,.phonics-note,.audio-notice p,.hub-parents-guide p{
+  line-height:1.85;overflow-wrap:break-word
+}
+.hero p{max-width:690px;margin:18px 0 0;font-size:clamp(1rem,1.45vw,1.1rem)}
+.hero .eyebrow,.section-head .eyebrow{line-height:1.6}
+.section-head{align-items:flex-end}
+.section-head h2{font-size:clamp(1.65rem,3.2vw,2.3rem);line-height:1.45}
+.path-card{grid-template-columns:auto minmax(0,1fr) auto;gap:clamp(12px,1.5vw,18px)}
+.path-card h2{font-size:clamp(1.25rem,2vw,1.65rem);line-height:1.4;overflow-wrap:break-word}
+.path-card p{font-size:.94rem;margin-top:7px}
+.path-card small,.unit-card small{display:block;line-height:1.6}
+.unit-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.unit-card{display:block;min-width:0;padding:clamp(17px,2vw,22px)}
+.unit-card h3{line-height:1.5;font-size:clamp(1.08rem,1.7vw,1.24rem);overflow-wrap:break-word}
+.unit-card p{line-height:1.8;overflow-wrap:break-word}
+.lesson-top{padding-top:clamp(22px,4vw,46px)}
+.lesson-card{padding:clamp(21px,3.2vw,36px)}
+.lesson-kicker{display:block;line-height:1.9;overflow-wrap:break-word}
+.lesson-title{font-size:clamp(2.25rem,6vw,4.7rem);line-height:1.16;letter-spacing:-.025em;overflow-wrap:break-word}
+.lesson-sub{line-height:1.75;overflow-wrap:break-word}
+.minor-heading{line-height:1.5;margin:29px 0 16px}
+.crumbs{line-height:1.8;overflow-wrap:break-word}
+.word-card,.phrase-card{min-width:0}
+.english-word{line-height:1.45;overflow-wrap:break-word;word-break:normal}
+.phrase-text{min-width:0;flex:1;line-height:1.65;overflow-wrap:break-word}
+.phrase-card .number{flex-shrink:0}
+.support-words{line-height:1.8}
+.support-words span{max-width:100%;overflow-wrap:break-word}
+.audio-notice p{min-width:0}
+.quiz{padding:clamp(17px,2.5vw,24px)}
+.quiz h2{font-size:clamp(1.32rem,2.5vw,1.8rem);line-height:1.5}
+.quiz-prompt{line-height:1.8;margin-block:12px}
+.quiz-choice{line-height:1.5;overflow-wrap:break-word;direction:ltr;text-align:center}
+.quiz-feedback{line-height:1.7}
+.lesson-nav{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:32px}
+.lesson-nav a{
+ display:flex;align-items:center;min-width:0;min-height:48px;padding:10px 12px;
+ border:1px solid #d7e3d8;border-radius:13px;background:#f7faf5;
+ font-size:.9rem;line-height:1.65;overflow-wrap:break-word;
+}
+.lesson-nav a:nth-child(1){justify-content:flex-start;text-align:start}
+.lesson-nav a:nth-child(2){justify-content:center;text-align:center}
+.lesson-nav a:nth-child(3){justify-content:flex-end;text-align:end}
+.cta{min-width:0}
+.cta>div{min-width:0}
+.cta h2{font-size:clamp(1.35rem,2.35vw,1.9rem);line-height:1.5;overflow-wrap:break-word}
+.cta p{line-height:1.8;margin-top:4px;overflow-wrap:break-word}
+.cta small{line-height:1.6}
+.preview-five figcaption{line-height:1.6;overflow-wrap:break-word}
+html[lang="ar"] .hero h1,html[lang="ar"] .product-copy h1{
+ font-family:"Noto Sans Arabic",sans-serif;
+ font-size:clamp(2.2rem,5.25vw,4.1rem);
+ line-height:1.57;letter-spacing:0
+}
+html[lang="ar"] .hero h1 em{font-family:inherit;font-weight:700}
+html[lang="ar"] .eyebrow{letter-spacing:0;text-transform:none}
+html[lang="ar"] .section-head h2{line-height:1.6;letter-spacing:0}
+html[lang="ar"] .lesson-kicker{letter-spacing:0;text-transform:none}
+html[lang="ar"] .lesson-sub{font-family:"Noto Sans Arabic",sans-serif}
+html[lang="ar"] .path-card h2{direction:ltr;text-align:right;unicode-bidi:isolate}
+html[lang="ar"] .unit-card h3[dir="ltr"]{text-align:right}
+html[lang="en"] .path-card h2,html[lang="en"] .unit-card h3[dir="ltr"]{text-align:left}
+html[lang="ar"] .sitebar nav,html[lang="en"] .sitebar nav{line-height:1.65}
+@media(max-width:900px){
+ .unit-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .paths{grid-template-columns:minmax(0,1fr)}
+}
+@media(max-width:560px){
+ .shell{padding-inline:clamp(14px,4.5vw,20px)}
+ .hero{padding:clamp(25px,6vw,38px) clamp(18px,5vw,25px);margin-top:12px;margin-bottom:38px}
+ .hero h1{font-size:clamp(2.15rem,9vw,3.1rem)}
+ html[lang="ar"] .hero h1{font-size:clamp(2.05rem,8.4vw,2.9rem);line-height:1.58}
+ .hero p{font-size:.96rem;line-height:1.85}
+ .hero-actions{gap:9px;margin-top:21px}
+ .hero-actions .button{min-height:44px;padding:10px 16px;line-height:1.55;text-align:center;font-size:.88rem}
+ .paths{gap:12px;margin-bottom:45px}
+ .path-card{grid-template-columns:65px minmax(0,1fr);gap:14px;padding:19px;min-height:unset}
+ .path-icon{width:62px;height:62px;font-size:1.35rem}
+ .path-card h2{font-size:clamp(1.08rem,4.4vw,1.4rem)}
+ .path-card p{font-size:.88rem;line-height:1.75}
+ .section{padding:17px 0 43px}
+ .section-head h2{font-size:clamp(1.6rem,6.5vw,2.05rem)}
+ .unit-grid{grid-template-columns:minmax(0,1fr);gap:12px}
+ .unit-card{min-height:unset;padding:18px}
+ .lesson-card{padding:22px 16px;border-radius:22px}
+ .lesson-title{font-size:clamp(2.15rem,9vw,3rem)}
+ .lesson-kicker{font-size:.73rem}
+ .minor-heading{margin-block:24px 13px}
+ .quiz-options{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .lesson-nav{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+ .lesson-nav a{padding:10px;font-size:.81rem}
+ .lesson-nav a:nth-child(2){grid-column:1/-1;grid-row:2}
+ .lesson-nav a:nth-child(3){grid-column:2;grid-row:1}
+ .cta{padding:23px 19px;gap:17px}
+ .cta h2{font-size:1.4rem}
+ .sitebar nav{padding-bottom:8px}
+}
+@media(max-width:370px){
+ .path-card{grid-template-columns:52px minmax(0,1fr);gap:11px;padding:15px}
+ .path-icon{width:51px;height:51px;border-radius:17px;font-size:1.1rem}
+ .path-card h2{font-size:1.05rem}
+ .sitebar nav a{font-size:.8rem}
+ .sitebar nav .lang-switch{font-size:.75rem}
+}

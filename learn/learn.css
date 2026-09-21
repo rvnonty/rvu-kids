@@ -141,7 +141,8 @@ button{font-family:inherit}a,button{touch-action:manipulation}h1,h2,h3{overflow-
   background:url('/assets/rvu-kids-logo.svg') center / contain no-repeat;
   font-size:0;line-height:0;letter-spacing:0;
 }
-.sitebar .brand b{display:none}
+/* Preserve the accessible word KIDS while hiding duplicate visual text. */
+.sitebar .brand b{font-size:0;margin:0;color:transparent}
 @media(max-width:560px){
  .sitebar .brand{width:91px;height:57px;min-width:91px}
  .sitebar nav{

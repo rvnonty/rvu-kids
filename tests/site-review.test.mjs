@@ -89,7 +89,8 @@ test('whatsapp orders are enabled, use the approved username and never fake subm
  assert.ok(page.includes('value="vodafone_cash"'));
  assert.ok(!page.includes('value="bank"'));
  assert.ok(page.includes('id="submit-order" class="button full" data-i18n="submitOrder"'));
- assert.ok(page.includes('واتساب @n2nty'));
+ assert.ok(page.includes('@n2nty'));
+ assert.ok(!page.includes('الطلب هيفتح على واتساب @n2nty برسالة جاهزة.'));
  assert.ok(js.includes("'https://wa.me/n2nty?text='"));
  assert.ok(js.includes('encodeURIComponent(fields.join('));
  assert.ok(js.includes('window.location.assign(url)'));

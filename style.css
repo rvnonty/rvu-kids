@@ -154,9 +154,9 @@ header,main,footer,section,.wrap,.hero,.hero-copy,.hero-art,
 
 /* Approved cover composition — book breaks through a smaller cream backdrop.
    All text stays real HTML, and the original book-cover asset stays untouched. */
-.hero-art{min-height:715px}
+.hero-art{min-height:565px}
 .hero-art .book{
-  width:min(410px,78%);
+  width:min(315px,67%);
   max-width:100%;
   z-index:1;
   margin-inline:auto;
@@ -207,20 +207,20 @@ header,main,footer,section,.wrap,.hero,.hero-copy,.hero-art,
 }
 .hero-art .art-credit::before{left:16px}
 .hero-art .art-credit::after{right:16px}
-@media(min-width:1101px){.hero-art{min-height:715px}}
+@media(min-width:1101px){.hero-art{min-height:565px}}
 @media(min-width:851px) and (max-width:1100px){
-  .hero-art{min-height:670px}
-  .hero-art .book{width:min(365px,82%)}
+  .hero-art{min-height:535px}
+  .hero-art .book{width:min(270px,67%)}
   .hero-art .book-orbit{width:82%;height:calc(100% - 185px)}
 }
 @media(min-width:431px) and (max-width:850px){
-  .hero-art{min-height:625px}
-  .hero-art .book{width:min(354px,81%)}
+  .hero-art{min-height:515px}
+  .hero-art .book{width:min(265px,66%)}
   .hero-art .book-orbit{width:81%;height:calc(100% - 170px)}
 }
 @media(max-width:430px){
-  .hero-art{min-height:545px}
-  .hero-art .book{width:min(295px,82%);transform:translateY(-16px) rotate(-4deg)}
+  .hero-art{min-height:450px}
+  .hero-art .book{width:min(220px,66%);transform:translateY(-8px) rotate(-4deg)}
   .hero-art .book-orbit{width:83%;height:calc(100% - 160px)}
   .hero-art .star-one{width:33px;height:33px;top:31px;left:6px}
   .hero-art .star-two{width:29px;height:29px;right:6px;bottom:94px}

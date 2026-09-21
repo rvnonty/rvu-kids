@@ -16,5 +16,12 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Verify JavaScript syntax
+        run: |
+          node --check app.js
+          node --check learn/content.js
+          node --check learn/learn.js
+      - name: Build all site sections
+        run: npm run build
       - name: Verify book curriculum, routes and previews
         run: npm test

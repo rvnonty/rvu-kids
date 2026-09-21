@@ -110,3 +110,22 @@ test('learning browser titles describe the actual lesson',()=>{
  assert.ok(js.includes("document.title='Everyday English | RVU Kids'"));
  assert.ok(js.includes("meta.name='description'"));
 });
+
+
+test('all 41 lesson HTML documents have distinct static titles, descriptions and canonical links',()=>{
+ const seen=new Set();
+ for(const [group,items] of [['alphabet',d.alphabet],['sentences',d.sentences]]){
+  for(const item of items){
+   const path='learn/'+group+'/'+item.id+'/index.html';
+   const html=text(path);
+   const title=html.match(/<title>([^<]+)<\/title>/)?.[1];
+   assert.ok(title&&!title.includes('RVU Kids Learning'),path);
+   assert.ok(html.includes('<meta name="description" content="'),path);
+   assert.ok(html.includes('<link rel="canonical" href="https://rvu-kids.company/'+path.replace(/index.html$/,'')+'">'),path);
+   assert.ok(!seen.has(title),'Duplicate title '+title);
+   seen.add(title);
+  }
+ }
+ assert.equal(seen.size,41);
+ assert.ok(text('learn/sentences/index.html').includes('<title>Everyday English — 15 Lessons | RVU Kids</title>'));
+});

@@ -43,7 +43,7 @@ function cardLetter(a){
  const z=link(urlLetter(a),undefined,'tile-letter');z.innerHTML='<strong>'+a.letter+'</strong><small>'+a.letter.toLowerCase()+'</small>';z.setAttribute('aria-label','Letter '+a.letter);return z
 }
 function cardUnit(u,i){
- const a=link(urlUnit(u),undefined,'unit-card');a.innerHTML='<small>UNIT '+String(i+1).padStart(2,'0')+' · PAGES '+u.pages.join('–')+'</small><h3 dir="ltr">'+escaped(u.title)+'</h3><p>'+escaped(u.titleAr)+'</p><span class="tile-arrow">↗</span>';return a;
+ const a=link(urlUnit(u),undefined,'unit-card');a.innerHTML='<small>UNIT '+String(i+1).padStart(2,'0')+' · PAGES '+u.pages.join('–')+'</small><h3 dir="ltr">'+escaped(u.title)+'</h3><p>'+escaped(lang==='ar'?u.titleAr:'A lesson from your book')+'</p><span class="tile-arrow">↗</span>';return a;
 }
 function hub(){
  const grid=document.querySelector('#letter-grid');if(grid){grid.replaceChildren();alphabet.forEach(a=>grid.append(cardLetter(a)))}
@@ -128,6 +128,9 @@ function translateStatic(){
   const cta=document.querySelector('.cta');if(cta){cta.querySelector('h2').textContent='200 EGP + shipping by governorate';cta.querySelector('p').textContent='96 pages. Printed on demand in Mit Ghamr, Egypt.';cta.querySelector('a').textContent='Order your copy'}
  }
  if(location.pathname.startsWith('/books/alphabet/')){
+  const badges=['pages','alphabet lessons','Everyday English units','years'];document.querySelectorAll('.feature-strip article span').forEach((n,i)=>n.textContent=badges[i]||'');
+  const head=document.querySelector('.section .section-head h2');if(head)head.textContent='A printed workbook connected to digital learning';
+  const sections=[['See','Illustrated scenes help children connect letters, words and meaning.'],['Try','Trace, write, match, choose and review inside the printed book.'],['Keep learning','Explore our Alphabet and Everyday English lessons. Reviewed audio will be added separately.']];document.querySelectorAll('.three article').forEach((article,i)=>{if(sections[i]){article.querySelector('h3').textContent=sections[i][0];article.querySelector('p').textContent=sections[i][1]}});
   const h=document.querySelector('.product-copy');if(h){const paras=h.querySelectorAll('p');if(paras[0])paras[0].textContent='A colorful 96-page workbook for ages 3–6, combining letters, handwriting, activities, and Everyday English.';if(paras[1])paras[1].textContent='Shipping is calculated by governorate. Printing takes approximately one day after payment verification.';const links=h.querySelectorAll('.hero-actions a');if(links[0])links[0].textContent='Order the Book';if(links[1])links[1].textContent='Preview Five Pages';if(links[2])links[2].textContent='Explore Learning Hub'}
   const c=document.querySelector('.cta');if(c){c.querySelector('h2').textContent='Made especially for your child';c.querySelector('p').textContent='Printing starts only after we verify payment.';c.querySelector('a').textContent='Start your order'}
  }

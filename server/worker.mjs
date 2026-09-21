@@ -6,7 +6,7 @@ export function validateOrder(b){
  if(!b||typeof b!=='object'||Array.isArray(b))return null;
  if(!text(b.name,2,100)||!text(b.city,2,100)||!text(b.address,8,500)||!text(b.notes??'',0,500))return null;
  const phone=typeof b.phone==='string'?b.phone.replace(/[٠-٩]/g,c=>'٠١٢٣٤٥٦٧٨٩'.indexOf(c)).replace(/[\s()-]/g,'').replace(/^0020/,'+20'):'';
- if(!/^(?:\+20|0)1[0125]\d{8}$/.test(phone)||!GOVS.has(b.governorate)||!Number.isInteger(b.quantity)||b.quantity<1||b.quantity>20||!['instapay','bank'].includes(b.payment)||b.consent!==true||b.website)return null;
+ if(!/^(?:\+20|0)1[0125]\d{8}$/.test(phone)||!GOVS.has(b.governorate)||!Number.isInteger(b.quantity)||b.quantity<1||b.quantity>20||!['instapay','vodafone_cash'].includes(b.payment)||b.consent!==true||b.website)return null;
  return {name:b.name.trim(),phone,city:b.city.trim(),address:b.address.trim(),governorate:b.governorate,quantity:b.quantity,payment:b.payment,notes:(b.notes??'').trim(),locale:b.locale==='en'?'en':'ar'};
 }
 async function hash(value){return [...new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(value)))].map(v=>v.toString(16).padStart(2,'0')).join('');}

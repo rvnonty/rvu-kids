@@ -78,7 +78,7 @@ function lessonTemplate(type,d,idx){
  shell.append(speakBadge());
  if(type==='alphabet'){const practice=buildPractice(d);if(practice)shell.append(practice)}
  const prev=type==='alphabet'?alphabet[idx-1]:units[idx-1],next=type==='alphabet'?alphabet[idx+1]:units[idx+1];
- const nav=el('nav','lesson-nav');nav.setAttribute('aria-label','Lesson navigation');nav.append(link(prev?(type==='alphabet'?urlLetter(prev):urlUnit(prev)):(type==='alphabet'?'/learn/':'/learn/sentences/'),'← '+(prev?(type==='alphabet'?prev.letter:prev.title):t('learn'))));nav.append(link(type==='alphabet'?'/learn/':'/learn/sentences/',type==='alphabet'?t('all'):t('allSent')));nav.append(link(next?(type==='alphabet'?urlLetter(next):urlUnit(next)):'/learn/',(next?(type==='alphabet'?next.letter:next.title):t('learn'))+' →'));shell.append(nav);
+ const nav=el('nav','lesson-nav');nav.setAttribute('aria-label','Lesson navigation');nav.append(link(prev?(type==='alphabet'?urlLetter(prev):urlUnit(prev)):(type==='alphabet'?'/learn/alphabet/':'/learn/sentences/'),'← '+(prev?(type==='alphabet'?prev.letter:prev.title):t('learn'))));nav.append(link(type==='alphabet'?'/learn/alphabet/':'/learn/sentences/',type==='alphabet'?t('all'):t('allSent')));nav.append(link(next?(type==='alphabet'?urlLetter(next):urlUnit(next)):(type==='alphabet'?'/learn/sentences/':'/learn/'),(next?(type==='alphabet'?next.letter:next.title):t('learn'))+' →'));shell.append(nav);
  head.append(shell);root.append(head)
 }
 function buildPractice(d){
@@ -112,6 +112,10 @@ function preview(){
 
 function translateStatic(){
  if(lang!=='en')return;
+ if(document.body.dataset.page==='alphabet-index'){
+  const hero=document.querySelector('.hero');if(hero){hero.querySelector('h1').innerHTML='Every letter.<br><em>Its own little world.</em>';hero.querySelector('p').textContent='Explore A–Z and the exact words and sentences from Rvu Alphabet Book. Reviewed pronunciation recordings will be added separately.';const a=hero.querySelectorAll('.hero-actions a');if(a[0])a[0].textContent='Back to Learning Hub';if(a[1])a[1].textContent='Book Preview'}
+  const title=document.querySelector('#letters-title');if(title)title.textContent='Choose a letter';const cta=document.querySelector('.cta');if(cta){cta.querySelector('h2').textContent='200 EGP + shipping by governorate';cta.querySelector('p').textContent='96 printed pages, made to order.';cta.querySelector('a').textContent='Order the book'}
+ }
  if(document.body.dataset.page==='hub'){
   const hero=document.querySelector('.hero');if(hero){hero.querySelector('h1').innerHTML='A book to hold.<br><em>A world to explore.</em>';hero.querySelector('p').textContent='Discover letter lessons and Everyday English alongside the printed Rvu Alphabet Book. The learning paths are ready; reviewed pronunciation audio will be added separately.';const a=hero.querySelectorAll('.hero-actions a');if(a[0])a[0].textContent='Explore Lessons';if(a[1])a[1].textContent='Preview Five Real Pages'}
   const cards=document.querySelectorAll('.path-card');if(cards[0]){cards[0].querySelector('small').textContent='LEARNING PATH 01';cards[0].querySelector('p').textContent='26 individual A–Z lessons with the exact words from the approved book.'}if(cards[1]){cards[1].querySelector('small').textContent='LEARNING PATH 02';cards[1].querySelector('p').textContent='15 separate units about everyday communication, organized around the printed book.'}
@@ -131,4 +135,4 @@ function translateStatic(){
 
 renderNavLang();
 translateStatic();
-const p=document.body.dataset.page;if(p==='hub')hub();if(p==='lesson')lessons();if(p==='preview')preview();
+const p=document.body.dataset.page;if(p==='hub'||p==='alphabet-index')hub();if(p==='lesson')lessons();if(p==='preview')preview();

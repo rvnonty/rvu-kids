@@ -58,6 +58,7 @@ test('all 41 routes and direct navigation',()=>{
   assert.match(entry.url,/^https:\/\/rvu-kids\.company\/learn\/(?:alphabet|sentences)\/[a-z0-9-]+\/$/);
   assert.ok(existsSync(new URL(entry.url.replace('https://rvu-kids.company/','')+'index.html',root)),entry.url);
   assert.equal(entry.printedPages[1],entry.printedPages[0]+1);
+  assert.deepEqual(entry.printedPages,entry.pdfPages.map(n=>n-3));
  }
 });
 test('audio stays explicitly unapproved until reviewed',()=>{
@@ -72,4 +73,18 @@ test('assets and scripts are wired',()=>{
   assert.ok(html.includes('/learn/learn.js'),f);
  }
  assert.ok(existsSync(new URL('CNAME',root)));
+});
+
+
+test('displayed numbers follow the book, not the PDF front matter',()=>{
+ const a=qr.units.find(x=>x.group==='alphabet'&&x.id==='a');
+ const m=qr.units.find(x=>x.group==='alphabet'&&x.id==='m');
+ const feelings=qr.units.find(x=>x.group==='sentences'&&x.id==='feelings');
+ assert.deepEqual(a.printedPages,[1,2]);assert.deepEqual(a.pdfPages,[4,5]);
+ assert.deepEqual(m.printedPages,[25,26]);assert.deepEqual(m.pdfPages,[28,29]);
+ assert.deepEqual(feelings.printedPages,[53,54]);assert.deepEqual(feelings.pdfPages,[56,57]);
+ const js=text('learn/learn.js');
+ assert.ok(js.includes('function printedPages(pages){return pages.map(page=>page-3)}'));
+ assert.ok(js.includes("printedPages(d.pages).join('–')"));
+ assert.ok(js.includes("printedPages(u.pages).join('–')"));
 });

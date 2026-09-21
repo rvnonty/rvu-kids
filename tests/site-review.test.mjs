@@ -204,8 +204,8 @@ test('bilingual parent guide ships in build and links from storefront and hub',(
 
 test('approved wordmark remains consistent across home, learning and parent pages',()=>{
  const svg=read('assets/rvu-kids-logo.svg'),home=read('style.css'),shared=read('learn/learn.css');
- assert.ok(svg.startsWith('<svg ')&&svg.includes('viewBox="0 0 246 146"'));
- assert.ok(svg.includes('#183d32')&&svg.includes('#e49532'));
+ assert.ok(svg.startsWith('<svg ')&&svg.includes('viewBox="0 0 232 146"'));
+ assert.ok(svg.includes('#183d32')&&!svg.includes('#e49532'));
  assert.ok(home.includes(".header .brand,.footer .brand{"));
  assert.ok(home.includes("background:url('/assets/rvu-kids-logo.svg')"));
  assert.ok(shared.includes("background:url('/assets/rvu-kids-logo.svg')"));
@@ -213,7 +213,8 @@ test('approved wordmark remains consistent across home, learning and parent page
  assert.ok(shared.includes('.sitebar nav{'));
  assert.ok(shared.includes('overflow-x:auto'));
  const favicon=read('favicon.svg');
- assert.ok(favicon.includes('#e49532')&&favicon.includes('#183d32'));
+ assert.ok(!favicon.includes('#e49532')&&favicon.includes('#183d32'));
+ assert.ok(!read('index.html').includes('class="brand-sun"'));
 });
 test('all preview cards have the same print ratio, modest hover and touch fallback',()=>{
  const home=read('style.css'),shared=read('learn/learn.css');

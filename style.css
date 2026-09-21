@@ -88,3 +88,24 @@ header,main,footer,section,.wrap,.hero,.hero-copy,.hero-art,
 .preview-card:nth-child(3) .preview-frame{background:#e0e2f1}
 .preview-card:nth-child(4) .preview-frame{background:#f0dfae}
 @media(max-width:720px){.preview-card .preview-frame{padding:9px}.preview-card img{border-radius:7px}}
+
+
+/* Four-step learning proposition — distinct from the existing inside-the-book features. */
+.why-different{background:linear-gradient(130deg,#eef2e9 0%,#f7f4e9 58%,#f4e8dd 100%);border-block:1px solid #dce3d8}
+.why-different .section-top{align-items:end}
+.why-different .section-top>p{max-width:440px}
+.why-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.why-grid article{position:relative;min-width:0;background:#fffdf8;border:1px solid #d7ded2;border-radius:19px;padding:26px 23px 25px;box-shadow:0 7px 20px #2846330a}
+.why-grid article:nth-child(2){background:#fffaf0}
+.why-grid article:nth-child(3){background:#fff8f4}
+.why-grid .why-audio{background:#dcebe4;border-color:#bfd1c5}
+.why-mark{display:flex;justify-content:center;align-items:center;width:62px;height:62px;border-radius:19px;background:#e7eee2;color:#163e32;font-family:'Manrope',sans-serif;font-size:1.45rem;font-weight:800;letter-spacing:-.04em;direction:ltr;margin-bottom:20px}
+.why-grid article:nth-child(2) .why-mark{background:#f6e6b9}
+.why-grid article:nth-child(3) .why-mark{background:#f6dcd2}
+.why-audio .why-mark{background:#bed7ca;font-size:2rem}
+.why-grid h3{font-size:1.13rem;line-height:1.55;margin-bottom:11px}
+.why-grid p{font-size:.89rem;line-height:1.85}
+.why-soon{position:absolute;inset-inline-end:20px;top:25px;background:#fffdf9;border:1px solid #b9d2c3;color:#315b4b;border-radius:999px;padding:2px 10px;font-size:.7rem;font-weight:700}
+.order-section .service-status{background:#ecf3e8;border-color:#b7cfb8;color:var(--ink)}
+@media(max-width:1050px){.why-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:520px){.why-grid{grid-template-columns:minmax(0,1fr);gap:12px}.why-grid article{padding:22px}.why-mark{width:53px;height:53px;font-size:1.3rem;margin-bottom:12px}.why-audio .why-mark{font-size:1.7rem}}

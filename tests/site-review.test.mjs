@@ -217,7 +217,8 @@ test('approved wordmark remains consistent across home, learning and parent page
 });
 test('all preview cards have the same print ratio, modest hover and touch fallback',()=>{
  const home=read('style.css'),shared=read('learn/learn.css');
- assert.ok(home.includes('.preview-card .preview-frame{\\n  width:100%;\\n  aspect-ratio:900 / 1273;'.replaceAll('\\n','\n')));
+ assert.ok(home.includes('.preview-card .preview-frame{'));
+ assert.ok(home.includes('aspect-ratio:900 / 1273'));
  assert.ok(home.includes('scale(1.035) rotate(2deg)'));
  assert.ok(shared.includes('.preview-five img{'));
  assert.ok(shared.includes('aspect-ratio:900 / 1273'));

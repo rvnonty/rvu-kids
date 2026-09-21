@@ -16,3 +16,17 @@ button{font-family:inherit}a,button{touch-action:manipulation}h1,h2,h3{overflow-
 
 /* Respect HTML hidden even on styled interactive buttons. */
 [hidden]{display:none!important}
+
+
+/* Same full-bleed previews as the storefront: no white backing around the art. */
+.preview-five figure{background:transparent;padding:0;border:0;border-radius:18px;overflow:hidden}
+.preview-five img{display:block;width:100%;height:auto;aspect-ratio:auto;object-fit:contain;border-radius:0}
+.preview-five figcaption{padding:11px 7px 13px;color:var(--ink);font-weight:750}
+.preview-five figure:nth-child(1){background:#e3e7db}
+.preview-five figure:nth-child(2){background:#f2d4c8}
+.preview-five figure:nth-child(3){background:#e0e2f1}
+.preview-five figure:nth-child(4){background:#f0dfae}
+.preview-five figure:nth-child(5){background:#dfece0}
+.page-dialog{background:var(--paper);padding:15px;border-radius:20px}
+.page-dialog img{border-radius:10px}
+@media(max-width:560px){.preview-five figure{border-radius:12px}.preview-five figcaption{font-size:.81rem}}

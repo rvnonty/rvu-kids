@@ -21,11 +21,36 @@ test('locked content counts',()=>{
  assert.ok(d.sentences[11].sentences.includes('Can I play with you?'));
  assert.ok(!d.sentences[11].sentences.includes('Can I play?'));
 });
-test('exactly five preview pages',()=>{
+test('exactly five UNIQUE real preview pages, including A and M',()=>{
  const preview=text('preview/index.html');
  assert.equal((preview.match(/<figure>/g)||[]).length,5);
+ const photos=[...preview.matchAll(/<figure><img src="\/assets\/([a-z-]+\.webp)"/g)].map(m=>m[1]);
+ assert.deepEqual(photos,['cover.webp','letter-a.webp','practice-a.webp','feelings.webp','letter-m.webp']);
+ const publicImages=['cover.webp','letter-a.webp','practice-a.webp','feelings.webp','letter-m.webp'];
+ assert.ok(publicImages.every(name=>existsSync(new URL('assets/'+name,root))));
+ assert.ok(!existsSync(new URL('assets/review.webp',root)),'Review image must not remain publicly accessible as a sixth page');
+ const home=text('app.js');
+ assert.ok(home.includes("['letter-m','حرف M"));
+ assert.ok(!home.includes("['review','"));
  assert.ok(!preview.includes('.pdf'));
 });
+test('M preview image is intact and from the actual book',()=>{
+ const data=readFileSync(new URL('assets/letter-m.webp',root));
+ assert.equal(data.toString('ascii',0,4),'RIFF');
+ assert.equal(data.toString('ascii',8,12),'WEBP');
+ assert.equal(data.readUInt32LE(4)+8,data.length);
+});
+test('production build includes all learning paths',()=>{
+ for(const file of ['dist/index.html','dist/learn/index.html','dist/learn/alphabet/a/index.html',
+ 'dist/learn/alphabet/m/index.html','dist/learn/alphabet/z/index.html',
+ 'dist/learn/sentences/index.html','dist/learn/sentences/feelings/index.html',
+ 'dist/books/alphabet/index.html','dist/preview/index.html','dist/CNAME',
+ 'dist/assets/letter-m.webp']){
+   assert.ok(existsSync(new URL(file,root)),file);
+ }
+ assert.ok(!existsSync(new URL('dist/assets/review.webp',root)));
+});
+
 test('all 41 routes and direct navigation',()=>{
  assert.equal(qr.units.length,41);
  assert.equal(new Set(qr.units.map(q=>q.url)).size,41);

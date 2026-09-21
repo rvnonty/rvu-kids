@@ -1,0 +1,1718 @@
+{
+  "version": 1,
+  "locale": "en-US",
+  "status": "awaiting-reviewed-audio",
+  "notForPublicPlayback": true,
+  "description": "Locked content manifest. Replace null asset with reviewed licensed audio URL only after QA. Letter name and phonics sound are separate assets.",
+  "requiredRecordings": 244,
+  "recordings": [
+    {
+      "type": "letter-name",
+      "lesson": "a",
+      "text": "A",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "letter-sound",
+      "lesson": "a",
+      "text": "A",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "a",
+      "text": "apple",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "a",
+      "text": "ant",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "a",
+      "text": "airplane",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "a",
+      "text": "alligator",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "alphabet-sentence",
+      "lesson": "a",
+      "text": "I see an apple.",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "letter-name",
+      "lesson": "b",
+      "text": "B",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "letter-sound",
+      "lesson": "b",
+      "text": "B",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "b",
+      "text": "ball",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "b",
+      "text": "bear",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "b",
+      "text": "banana",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "b",
+      "text": "boat",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "alphabet-sentence",
+      "lesson": "b",
+      "text": "I see a ball.",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "letter-name",
+      "lesson": "c",
+      "text": "C",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "letter-sound",
+      "lesson": "c",
+      "text": "C",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "c",
+      "text": "cat",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "c",
+      "text": "car",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "c",
+      "text": "cake",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "c",
+      "text": "cup",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "alphabet-sentence",
+      "lesson": "c",
+      "text": "This is a cat.",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "letter-name",
+      "lesson": "d",
+      "text": "D",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "letter-sound",
+      "lesson": "d",
+      "text": "D",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "d",
+      "text": "dog",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "d",
+      "text": "duck",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "d",
+      "text": "doll",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "d",
+      "text": "door",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "alphabet-sentence",
+      "lesson": "d",
+      "text": "I see a dog.",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "letter-name",
+      "lesson": "e",
+      "text": "E",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "letter-sound",
+      "lesson": "e",
+      "text": "E",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "e",
+      "text": "elephant",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "e",
+      "text": "egg",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "e",
+      "text": "ear",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "e",
+      "text": "elbow",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "alphabet-sentence",
+      "lesson": "e",
+      "text": "This is an elephant.",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "letter-name",
+      "lesson": "f",
+      "text": "F",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "letter-sound",
+      "lesson": "f",
+      "text": "F",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "f",
+      "text": "fish",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "f",
+      "text": "frog",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "f",
+      "text": "flower",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "f",
+      "text": "fork",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "alphabet-sentence",
+      "lesson": "f",
+      "text": "I see a fish.",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "letter-name",
+      "lesson": "g",
+      "text": "G",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "letter-sound",
+      "lesson": "g",
+      "text": "G",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "g",
+      "text": "goat",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "g",
+      "text": "grapes",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "g",
+      "text": "gift",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "g",
+      "text": "guitar",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "alphabet-sentence",
+      "lesson": "g",
+      "text": "This is a goat.",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "letter-name",
+      "lesson": "h",
+      "text": "H",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "letter-sound",
+      "lesson": "h",
+      "text": "H",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "h",
+      "text": "hat",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "h",
+      "text": "house",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "h",
+      "text": "horse",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "h",
+      "text": "hand",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "alphabet-sentence",
+      "lesson": "h",
+      "text": "I see a hat.",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "letter-name",
+      "lesson": "i",
+      "text": "I",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "letter-sound",
+      "lesson": "i",
+      "text": "I",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "i",
+      "text": "island",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "i",
+      "text": "iguana",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "i",
+      "text": "ice cream",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "i",
+      "text": "insect",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "alphabet-sentence",
+      "lesson": "i",
+      "text": "I see an iguana.",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "letter-name",
+      "lesson": "j",
+      "text": "J",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "letter-sound",
+      "lesson": "j",
+      "text": "J",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "j",
+      "text": "juice",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "j",
+      "text": "jacket",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "j",
+      "text": "jellyfish",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "j",
+      "text": "jam",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "alphabet-sentence",
+      "lesson": "j",
+      "text": "This is a jacket.",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "letter-name",
+      "lesson": "k",
+      "text": "K",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "letter-sound",
+      "lesson": "k",
+      "text": "K",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "k",
+      "text": "kite",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "k",
+      "text": "key",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "k",
+      "text": "kitten",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "k",
+      "text": "kangaroo",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "alphabet-sentence",
+      "lesson": "k",
+      "text": "I see a kite.",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "letter-name",
+      "lesson": "l",
+      "text": "L",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "letter-sound",
+      "lesson": "l",
+      "text": "L",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "l",
+      "text": "lion",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "l",
+      "text": "lemon",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "l",
+      "text": "leaf",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "l",
+      "text": "lamp",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "alphabet-sentence",
+      "lesson": "l",
+      "text": "This is a lion.",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "letter-name",
+      "lesson": "m",
+      "text": "M",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "letter-sound",
+      "lesson": "m",
+      "text": "M",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "m",
+      "text": "moon",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "m",
+      "text": "milk",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "m",
+      "text": "monkey",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "m",
+      "text": "mouse",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "alphabet-sentence",
+      "lesson": "m",
+      "text": "This is a monkey.",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "letter-name",
+      "lesson": "n",
+      "text": "N",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "letter-sound",
+      "lesson": "n",
+      "text": "N",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "n",
+      "text": "nest",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "n",
+      "text": "nose",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "n",
+      "text": "net",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "n",
+      "text": "night",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "alphabet-sentence",
+      "lesson": "n",
+      "text": "I see a nest.",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "letter-name",
+      "lesson": "o",
+      "text": "O",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "letter-sound",
+      "lesson": "o",
+      "text": "O",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "o",
+      "text": "orange",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "o",
+      "text": "octopus",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "o",
+      "text": "ocean",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "o",
+      "text": "otter",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "alphabet-sentence",
+      "lesson": "o",
+      "text": "I see an octopus.",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "letter-name",
+      "lesson": "p",
+      "text": "P",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "letter-sound",
+      "lesson": "p",
+      "text": "P",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "p",
+      "text": "pig",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "p",
+      "text": "pen",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "p",
+      "text": "pizza",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "p",
+      "text": "panda",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "alphabet-sentence",
+      "lesson": "p",
+      "text": "This is a panda.",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "letter-name",
+      "lesson": "q",
+      "text": "Q",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "letter-sound",
+      "lesson": "q",
+      "text": "Q",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "q",
+      "text": "queen",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "q",
+      "text": "quilt",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "q",
+      "text": "quail",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "alphabet-sentence",
+      "lesson": "q",
+      "text": "This is a queen.",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "letter-name",
+      "lesson": "r",
+      "text": "R",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "letter-sound",
+      "lesson": "r",
+      "text": "R",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "r",
+      "text": "rabbit",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "r",
+      "text": "robot",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "r",
+      "text": "rain",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "r",
+      "text": "rainbow",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "alphabet-sentence",
+      "lesson": "r",
+      "text": "I see a rainbow.",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "letter-name",
+      "lesson": "s",
+      "text": "S",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "letter-sound",
+      "lesson": "s",
+      "text": "S",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "s",
+      "text": "sun",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "s",
+      "text": "star",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "s",
+      "text": "sock",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "s",
+      "text": "spoon",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "alphabet-sentence",
+      "lesson": "s",
+      "text": "This is a star.",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "letter-name",
+      "lesson": "t",
+      "text": "T",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "letter-sound",
+      "lesson": "t",
+      "text": "T",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "t",
+      "text": "tiger",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "t",
+      "text": "train",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "t",
+      "text": "tree",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "t",
+      "text": "turtle",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "alphabet-sentence",
+      "lesson": "t",
+      "text": "I see a train.",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "letter-name",
+      "lesson": "u",
+      "text": "U",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "letter-sound",
+      "lesson": "u",
+      "text": "U",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "u",
+      "text": "umbrella",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "u",
+      "text": "uncle",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "u",
+      "text": "up",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "u",
+      "text": "under",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "alphabet-sentence",
+      "lesson": "u",
+      "text": "This is an umbrella.",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "letter-name",
+      "lesson": "v",
+      "text": "V",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "letter-sound",
+      "lesson": "v",
+      "text": "V",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "v",
+      "text": "van",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "v",
+      "text": "vase",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "v",
+      "text": "violin",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "v",
+      "text": "vegetables",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "alphabet-sentence",
+      "lesson": "v",
+      "text": "This is a van.",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "letter-name",
+      "lesson": "w",
+      "text": "W",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "letter-sound",
+      "lesson": "w",
+      "text": "W",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "w",
+      "text": "whale",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "w",
+      "text": "watermelon",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "w",
+      "text": "window",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "w",
+      "text": "watch",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "alphabet-sentence",
+      "lesson": "w",
+      "text": "I see a whale.",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "letter-name",
+      "lesson": "x",
+      "text": "X",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "letter-sound",
+      "lesson": "x",
+      "text": "X",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "x",
+      "text": "x-ray",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "x",
+      "text": "xylophone",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "alphabet-sentence",
+      "lesson": "x",
+      "text": "This is an x-ray.",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "alphabet-sentence",
+      "lesson": "x",
+      "text": "This is a xylophone.",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "letter-name",
+      "lesson": "y",
+      "text": "Y",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "letter-sound",
+      "lesson": "y",
+      "text": "Y",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "y",
+      "text": "yo-yo",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "y",
+      "text": "yogurt",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "y",
+      "text": "yellow",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "y",
+      "text": "yak",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "alphabet-sentence",
+      "lesson": "y",
+      "text": "This is a yo-yo.",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "letter-name",
+      "lesson": "z",
+      "text": "Z",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "letter-sound",
+      "lesson": "z",
+      "text": "Z",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "z",
+      "text": "zebra",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "z",
+      "text": "zoo",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "z",
+      "text": "zipper",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "word",
+      "lesson": "z",
+      "text": "zero",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "alphabet-sentence",
+      "lesson": "z",
+      "text": "This is a zebra.",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "everyday-sentence",
+      "lesson": "feelings",
+      "text": "I'm happy.",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "everyday-sentence",
+      "lesson": "feelings",
+      "text": "I'm sad.",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "everyday-sentence",
+      "lesson": "feelings",
+      "text": "I'm angry.",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "everyday-sentence",
+      "lesson": "feelings",
+      "text": "I'm scared.",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "everyday-sentence",
+      "lesson": "hungry",
+      "text": "I'm hungry.",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "everyday-sentence",
+      "lesson": "hungry",
+      "text": "Can I have a snack, please?",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "everyday-sentence",
+      "lesson": "thirsty",
+      "text": "I'm thirsty.",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "everyday-sentence",
+      "lesson": "thirsty",
+      "text": "Can I have some water, please?",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "everyday-sentence",
+      "lesson": "bathroom",
+      "text": "I need to go to the bathroom.",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "everyday-sentence",
+      "lesson": "bathroom",
+      "text": "Can I go to the bathroom, please?",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "everyday-sentence",
+      "lesson": "bathroom",
+      "text": "I wash my hands.",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "everyday-sentence",
+      "lesson": "my-family",
+      "text": "This is my family.",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "everyday-sentence",
+      "lesson": "my-family",
+      "text": "This is my mom.",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "everyday-sentence",
+      "lesson": "my-family",
+      "text": "This is my dad.",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "everyday-sentence",
+      "lesson": "my-family",
+      "text": "This is my brother.",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "everyday-sentence",
+      "lesson": "my-family",
+      "text": "This is my sister.",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "everyday-sentence",
+      "lesson": "hello-about-me",
+      "text": "Hello!",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "everyday-sentence",
+      "lesson": "hello-about-me",
+      "text": "My name is ______.",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "everyday-sentence",
+      "lesson": "hello-about-me",
+      "text": "What's your name?",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "everyday-sentence",
+      "lesson": "hello-about-me",
+      "text": "Goodbye!",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "everyday-sentence",
+      "lesson": "at-school",
+      "text": "I'm at school.",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "everyday-sentence",
+      "lesson": "at-school",
+      "text": "This is my teacher.",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "everyday-sentence",
+      "lesson": "at-school",
+      "text": "I have a book.",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "everyday-sentence",
+      "lesson": "at-school",
+      "text": "I have a pencil.",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "everyday-sentence",
+      "lesson": "can-i-have",
+      "text": "Can I have _____, please?",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "everyday-sentence",
+      "lesson": "can-i-have",
+      "text": "Can I have the ball, please?",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "everyday-sentence",
+      "lesson": "can-i-have",
+      "text": "Can I have the book, please?",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "everyday-sentence",
+      "lesson": "can-i-have",
+      "text": "Can I have some water, please?",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "everyday-sentence",
+      "lesson": "likes-and-dislikes",
+      "text": "I like pizza.",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "everyday-sentence",
+      "lesson": "likes-and-dislikes",
+      "text": "I like bananas.",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "everyday-sentence",
+      "lesson": "likes-and-dislikes",
+      "text": "I don't like milk.",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "everyday-sentence",
+      "lesson": "likes-and-dislikes",
+      "text": "I don't like yogurt.",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "everyday-sentence",
+      "lesson": "can-you-help",
+      "text": "Can you help me, please?",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "everyday-sentence",
+      "lesson": "can-you-help",
+      "text": "I don't understand.",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "everyday-sentence",
+      "lesson": "can-you-help",
+      "text": "Say it again, please.",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "everyday-sentence",
+      "lesson": "can-you-help",
+      "text": "Please open the box.",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "everyday-sentence",
+      "lesson": "can-you-help",
+      "text": "Please close the door.",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "everyday-sentence",
+      "lesson": "polite-words",
+      "text": "Please.",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "everyday-sentence",
+      "lesson": "polite-words",
+      "text": "Thank you.",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "everyday-sentence",
+      "lesson": "polite-words",
+      "text": "I'm sorry.",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "everyday-sentence",
+      "lesson": "polite-words",
+      "text": "Excuse me.",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "everyday-sentence",
+      "lesson": "polite-words",
+      "text": "You're welcome.",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "everyday-sentence",
+      "lesson": "lets-play",
+      "text": "Let's play.",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "everyday-sentence",
+      "lesson": "lets-play",
+      "text": "Can I play with you?",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "everyday-sentence",
+      "lesson": "lets-play",
+      "text": "My turn.",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "everyday-sentence",
+      "lesson": "lets-play",
+      "text": "Your turn.",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "everyday-sentence",
+      "lesson": "lets-play",
+      "text": "Let's share.",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "everyday-sentence",
+      "lesson": "my-body",
+      "text": "My head hurts.",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "everyday-sentence",
+      "lesson": "my-body",
+      "text": "My tummy hurts.",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "everyday-sentence",
+      "lesson": "my-body",
+      "text": "My hand hurts.",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "everyday-sentence",
+      "lesson": "my-body",
+      "text": "I'm tired.",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "everyday-sentence",
+      "lesson": "my-body",
+      "text": "I'm sick.",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "everyday-sentence",
+      "lesson": "daily-routine",
+      "text": "I wake up.",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "everyday-sentence",
+      "lesson": "daily-routine",
+      "text": "I brush my teeth.",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "everyday-sentence",
+      "lesson": "daily-routine",
+      "text": "I get dressed.",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "everyday-sentence",
+      "lesson": "daily-routine",
+      "text": "I eat breakfast.",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "everyday-sentence",
+      "lesson": "daily-routine",
+      "text": "I go to school.",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "everyday-sentence",
+      "lesson": "daily-routine",
+      "text": "I go to bed.",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "everyday-sentence",
+      "lesson": "stay-safe",
+      "text": "Stop.",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "everyday-sentence",
+      "lesson": "stay-safe",
+      "text": "Wait.",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "everyday-sentence",
+      "lesson": "stay-safe",
+      "text": "No, thank you.",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "everyday-sentence",
+      "lesson": "stay-safe",
+      "text": "Help me, please.",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "everyday-sentence",
+      "lesson": "stay-safe",
+      "text": "I need my mom.",
+      "asset": null,
+      "status": "awaiting-review"
+    },
+    {
+      "type": "everyday-sentence",
+      "lesson": "stay-safe",
+      "text": "I need my dad.",
+      "asset": null,
+      "status": "awaiting-review"
+    }
+  ]
+}

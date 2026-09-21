@@ -1,458 +1,622 @@
 {
-  "version": 1,
+  "version": 2,
   "domain": "rvu-kids.company",
-  "note": "Each QR opens the corresponding lesson; do not change stable URLs when updating audio.",
+  "note": "QR links remain stable. printedPages are the numbers visible inside the child-facing printed book (PDF physical page minus three front-matter pages); pdfPages are actual PDF physical page indexes.",
   "units": [
     {
       "group": "alphabet",
       "id": "a",
       "title": "Letter A",
       "printedPages": [
-        4,
-        5
+        1,
+        2
       ],
       "url": "https://rvu-kids.company/learn/alphabet/a/",
-      "qrFile": "alphabet-a.png"
+      "qrFile": "alphabet-a.png",
+      "pdfPages": [
+        4,
+        5
+      ]
     },
     {
       "group": "alphabet",
       "id": "b",
       "title": "Letter B",
       "printedPages": [
-        6,
-        7
+        3,
+        4
       ],
       "url": "https://rvu-kids.company/learn/alphabet/b/",
-      "qrFile": "alphabet-b.png"
+      "qrFile": "alphabet-b.png",
+      "pdfPages": [
+        6,
+        7
+      ]
     },
     {
       "group": "alphabet",
       "id": "c",
       "title": "Letter C",
       "printedPages": [
-        8,
-        9
+        5,
+        6
       ],
       "url": "https://rvu-kids.company/learn/alphabet/c/",
-      "qrFile": "alphabet-c.png"
+      "qrFile": "alphabet-c.png",
+      "pdfPages": [
+        8,
+        9
+      ]
     },
     {
       "group": "alphabet",
       "id": "d",
       "title": "Letter D",
       "printedPages": [
-        10,
-        11
+        7,
+        8
       ],
       "url": "https://rvu-kids.company/learn/alphabet/d/",
-      "qrFile": "alphabet-d.png"
+      "qrFile": "alphabet-d.png",
+      "pdfPages": [
+        10,
+        11
+      ]
     },
     {
       "group": "alphabet",
       "id": "e",
       "title": "Letter E",
       "printedPages": [
-        12,
-        13
+        9,
+        10
       ],
       "url": "https://rvu-kids.company/learn/alphabet/e/",
-      "qrFile": "alphabet-e.png"
+      "qrFile": "alphabet-e.png",
+      "pdfPages": [
+        12,
+        13
+      ]
     },
     {
       "group": "alphabet",
       "id": "f",
       "title": "Letter F",
       "printedPages": [
-        14,
-        15
+        11,
+        12
       ],
       "url": "https://rvu-kids.company/learn/alphabet/f/",
-      "qrFile": "alphabet-f.png"
+      "qrFile": "alphabet-f.png",
+      "pdfPages": [
+        14,
+        15
+      ]
     },
     {
       "group": "alphabet",
       "id": "g",
       "title": "Letter G",
       "printedPages": [
-        16,
-        17
+        13,
+        14
       ],
       "url": "https://rvu-kids.company/learn/alphabet/g/",
-      "qrFile": "alphabet-g.png"
+      "qrFile": "alphabet-g.png",
+      "pdfPages": [
+        16,
+        17
+      ]
     },
     {
       "group": "alphabet",
       "id": "h",
       "title": "Letter H",
       "printedPages": [
-        18,
-        19
+        15,
+        16
       ],
       "url": "https://rvu-kids.company/learn/alphabet/h/",
-      "qrFile": "alphabet-h.png"
+      "qrFile": "alphabet-h.png",
+      "pdfPages": [
+        18,
+        19
+      ]
     },
     {
       "group": "alphabet",
       "id": "i",
       "title": "Letter I",
       "printedPages": [
-        20,
-        21
+        17,
+        18
       ],
       "url": "https://rvu-kids.company/learn/alphabet/i/",
-      "qrFile": "alphabet-i.png"
+      "qrFile": "alphabet-i.png",
+      "pdfPages": [
+        20,
+        21
+      ]
     },
     {
       "group": "alphabet",
       "id": "j",
       "title": "Letter J",
       "printedPages": [
-        22,
-        23
+        19,
+        20
       ],
       "url": "https://rvu-kids.company/learn/alphabet/j/",
-      "qrFile": "alphabet-j.png"
+      "qrFile": "alphabet-j.png",
+      "pdfPages": [
+        22,
+        23
+      ]
     },
     {
       "group": "alphabet",
       "id": "k",
       "title": "Letter K",
       "printedPages": [
-        24,
-        25
+        21,
+        22
       ],
       "url": "https://rvu-kids.company/learn/alphabet/k/",
-      "qrFile": "alphabet-k.png"
+      "qrFile": "alphabet-k.png",
+      "pdfPages": [
+        24,
+        25
+      ]
     },
     {
       "group": "alphabet",
       "id": "l",
       "title": "Letter L",
       "printedPages": [
-        26,
-        27
+        23,
+        24
       ],
       "url": "https://rvu-kids.company/learn/alphabet/l/",
-      "qrFile": "alphabet-l.png"
+      "qrFile": "alphabet-l.png",
+      "pdfPages": [
+        26,
+        27
+      ]
     },
     {
       "group": "alphabet",
       "id": "m",
       "title": "Letter M",
       "printedPages": [
-        28,
-        29
+        25,
+        26
       ],
       "url": "https://rvu-kids.company/learn/alphabet/m/",
-      "qrFile": "alphabet-m.png"
+      "qrFile": "alphabet-m.png",
+      "pdfPages": [
+        28,
+        29
+      ]
     },
     {
       "group": "alphabet",
       "id": "n",
       "title": "Letter N",
       "printedPages": [
-        30,
-        31
+        27,
+        28
       ],
       "url": "https://rvu-kids.company/learn/alphabet/n/",
-      "qrFile": "alphabet-n.png"
+      "qrFile": "alphabet-n.png",
+      "pdfPages": [
+        30,
+        31
+      ]
     },
     {
       "group": "alphabet",
       "id": "o",
       "title": "Letter O",
       "printedPages": [
-        32,
-        33
+        29,
+        30
       ],
       "url": "https://rvu-kids.company/learn/alphabet/o/",
-      "qrFile": "alphabet-o.png"
+      "qrFile": "alphabet-o.png",
+      "pdfPages": [
+        32,
+        33
+      ]
     },
     {
       "group": "alphabet",
       "id": "p",
       "title": "Letter P",
       "printedPages": [
-        34,
-        35
+        31,
+        32
       ],
       "url": "https://rvu-kids.company/learn/alphabet/p/",
-      "qrFile": "alphabet-p.png"
+      "qrFile": "alphabet-p.png",
+      "pdfPages": [
+        34,
+        35
+      ]
     },
     {
       "group": "alphabet",
       "id": "q",
       "title": "Letter Q",
       "printedPages": [
-        36,
-        37
+        33,
+        34
       ],
       "url": "https://rvu-kids.company/learn/alphabet/q/",
-      "qrFile": "alphabet-q.png"
+      "qrFile": "alphabet-q.png",
+      "pdfPages": [
+        36,
+        37
+      ]
     },
     {
       "group": "alphabet",
       "id": "r",
       "title": "Letter R",
       "printedPages": [
-        38,
-        39
+        35,
+        36
       ],
       "url": "https://rvu-kids.company/learn/alphabet/r/",
-      "qrFile": "alphabet-r.png"
+      "qrFile": "alphabet-r.png",
+      "pdfPages": [
+        38,
+        39
+      ]
     },
     {
       "group": "alphabet",
       "id": "s",
       "title": "Letter S",
       "printedPages": [
-        40,
-        41
+        37,
+        38
       ],
       "url": "https://rvu-kids.company/learn/alphabet/s/",
-      "qrFile": "alphabet-s.png"
+      "qrFile": "alphabet-s.png",
+      "pdfPages": [
+        40,
+        41
+      ]
     },
     {
       "group": "alphabet",
       "id": "t",
       "title": "Letter T",
       "printedPages": [
-        42,
-        43
+        39,
+        40
       ],
       "url": "https://rvu-kids.company/learn/alphabet/t/",
-      "qrFile": "alphabet-t.png"
+      "qrFile": "alphabet-t.png",
+      "pdfPages": [
+        42,
+        43
+      ]
     },
     {
       "group": "alphabet",
       "id": "u",
       "title": "Letter U",
       "printedPages": [
-        44,
-        45
+        41,
+        42
       ],
       "url": "https://rvu-kids.company/learn/alphabet/u/",
-      "qrFile": "alphabet-u.png"
+      "qrFile": "alphabet-u.png",
+      "pdfPages": [
+        44,
+        45
+      ]
     },
     {
       "group": "alphabet",
       "id": "v",
       "title": "Letter V",
       "printedPages": [
-        46,
-        47
+        43,
+        44
       ],
       "url": "https://rvu-kids.company/learn/alphabet/v/",
-      "qrFile": "alphabet-v.png"
+      "qrFile": "alphabet-v.png",
+      "pdfPages": [
+        46,
+        47
+      ]
     },
     {
       "group": "alphabet",
       "id": "w",
       "title": "Letter W",
       "printedPages": [
-        48,
-        49
+        45,
+        46
       ],
       "url": "https://rvu-kids.company/learn/alphabet/w/",
-      "qrFile": "alphabet-w.png"
+      "qrFile": "alphabet-w.png",
+      "pdfPages": [
+        48,
+        49
+      ]
     },
     {
       "group": "alphabet",
       "id": "x",
       "title": "Letter X",
       "printedPages": [
-        50,
-        51
+        47,
+        48
       ],
       "url": "https://rvu-kids.company/learn/alphabet/x/",
-      "qrFile": "alphabet-x.png"
+      "qrFile": "alphabet-x.png",
+      "pdfPages": [
+        50,
+        51
+      ]
     },
     {
       "group": "alphabet",
       "id": "y",
       "title": "Letter Y",
       "printedPages": [
-        52,
-        53
+        49,
+        50
       ],
       "url": "https://rvu-kids.company/learn/alphabet/y/",
-      "qrFile": "alphabet-y.png"
+      "qrFile": "alphabet-y.png",
+      "pdfPages": [
+        52,
+        53
+      ]
     },
     {
       "group": "alphabet",
       "id": "z",
       "title": "Letter Z",
       "printedPages": [
-        54,
-        55
+        51,
+        52
       ],
       "url": "https://rvu-kids.company/learn/alphabet/z/",
-      "qrFile": "alphabet-z.png"
+      "qrFile": "alphabet-z.png",
+      "pdfPages": [
+        54,
+        55
+      ]
     },
     {
       "group": "sentences",
       "id": "feelings",
       "title": "My Feelings",
       "printedPages": [
-        56,
-        57
+        53,
+        54
       ],
       "url": "https://rvu-kids.company/learn/sentences/feelings/",
-      "qrFile": "sentences-01-feelings.png"
+      "qrFile": "sentences-01-feelings.png",
+      "pdfPages": [
+        56,
+        57
+      ]
     },
     {
       "group": "sentences",
       "id": "hungry",
       "title": "I'm Hungry",
       "printedPages": [
-        58,
-        59
+        55,
+        56
       ],
       "url": "https://rvu-kids.company/learn/sentences/hungry/",
-      "qrFile": "sentences-02-hungry.png"
+      "qrFile": "sentences-02-hungry.png",
+      "pdfPages": [
+        58,
+        59
+      ]
     },
     {
       "group": "sentences",
       "id": "thirsty",
       "title": "I'm Thirsty",
       "printedPages": [
-        60,
-        61
+        57,
+        58
       ],
       "url": "https://rvu-kids.company/learn/sentences/thirsty/",
-      "qrFile": "sentences-03-thirsty.png"
+      "qrFile": "sentences-03-thirsty.png",
+      "pdfPages": [
+        60,
+        61
+      ]
     },
     {
       "group": "sentences",
       "id": "bathroom",
       "title": "I Need the Bathroom",
       "printedPages": [
-        62,
-        63
+        59,
+        60
       ],
       "url": "https://rvu-kids.company/learn/sentences/bathroom/",
-      "qrFile": "sentences-04-bathroom.png"
+      "qrFile": "sentences-04-bathroom.png",
+      "pdfPages": [
+        62,
+        63
+      ]
     },
     {
       "group": "sentences",
       "id": "my-family",
       "title": "My Family",
       "printedPages": [
-        64,
-        65
+        61,
+        62
       ],
       "url": "https://rvu-kids.company/learn/sentences/my-family/",
-      "qrFile": "sentences-05-my-family.png"
+      "qrFile": "sentences-05-my-family.png",
+      "pdfPages": [
+        64,
+        65
+      ]
     },
     {
       "group": "sentences",
       "id": "hello-about-me",
       "title": "Hello & About Me",
       "printedPages": [
-        66,
-        67
+        63,
+        64
       ],
       "url": "https://rvu-kids.company/learn/sentences/hello-about-me/",
-      "qrFile": "sentences-06-hello-about-me.png"
+      "qrFile": "sentences-06-hello-about-me.png",
+      "pdfPages": [
+        66,
+        67
+      ]
     },
     {
       "group": "sentences",
       "id": "at-school",
       "title": "At School",
       "printedPages": [
-        68,
-        69
+        65,
+        66
       ],
       "url": "https://rvu-kids.company/learn/sentences/at-school/",
-      "qrFile": "sentences-07-at-school.png"
+      "qrFile": "sentences-07-at-school.png",
+      "pdfPages": [
+        68,
+        69
+      ]
     },
     {
       "group": "sentences",
       "id": "can-i-have",
       "title": "Can I Have…?",
       "printedPages": [
-        70,
-        71
+        67,
+        68
       ],
       "url": "https://rvu-kids.company/learn/sentences/can-i-have/",
-      "qrFile": "sentences-08-can-i-have.png"
+      "qrFile": "sentences-08-can-i-have.png",
+      "pdfPages": [
+        70,
+        71
+      ]
     },
     {
       "group": "sentences",
       "id": "likes-and-dislikes",
       "title": "I Like / I Don't Like",
       "printedPages": [
-        72,
-        73
+        69,
+        70
       ],
       "url": "https://rvu-kids.company/learn/sentences/likes-and-dislikes/",
-      "qrFile": "sentences-09-likes-and-dislikes.png"
+      "qrFile": "sentences-09-likes-and-dislikes.png",
+      "pdfPages": [
+        72,
+        73
+      ]
     },
     {
       "group": "sentences",
       "id": "can-you-help",
       "title": "Can You Help Me?",
       "printedPages": [
-        74,
-        75
+        71,
+        72
       ],
       "url": "https://rvu-kids.company/learn/sentences/can-you-help/",
-      "qrFile": "sentences-10-can-you-help.png"
+      "qrFile": "sentences-10-can-you-help.png",
+      "pdfPages": [
+        74,
+        75
+      ]
     },
     {
       "group": "sentences",
       "id": "polite-words",
       "title": "Please / Thank You / I'm Sorry",
       "printedPages": [
-        76,
-        77
+        73,
+        74
       ],
       "url": "https://rvu-kids.company/learn/sentences/polite-words/",
-      "qrFile": "sentences-11-polite-words.png"
+      "qrFile": "sentences-11-polite-words.png",
+      "pdfPages": [
+        76,
+        77
+      ]
     },
     {
       "group": "sentences",
       "id": "lets-play",
       "title": "Let's Play",
       "printedPages": [
-        78,
-        79
+        75,
+        76
       ],
       "url": "https://rvu-kids.company/learn/sentences/lets-play/",
-      "qrFile": "sentences-12-lets-play.png"
+      "qrFile": "sentences-12-lets-play.png",
+      "pdfPages": [
+        78,
+        79
+      ]
     },
     {
       "group": "sentences",
       "id": "my-body",
       "title": "My Body & How I Feel",
       "printedPages": [
-        80,
-        81
+        77,
+        78
       ],
       "url": "https://rvu-kids.company/learn/sentences/my-body/",
-      "qrFile": "sentences-13-my-body.png"
+      "qrFile": "sentences-13-my-body.png",
+      "pdfPages": [
+        80,
+        81
+      ]
     },
     {
       "group": "sentences",
       "id": "daily-routine",
       "title": "My Daily Routine",
       "printedPages": [
-        82,
-        83
+        79,
+        80
       ],
       "url": "https://rvu-kids.company/learn/sentences/daily-routine/",
-      "qrFile": "sentences-14-daily-routine.png"
+      "qrFile": "sentences-14-daily-routine.png",
+      "pdfPages": [
+        82,
+        83
+      ]
     },
     {
       "group": "sentences",
       "id": "stay-safe",
       "title": "Safety Words & Basic Needs",
       "printedPages": [
-        84,
-        85
+        81,
+        82
       ],
       "url": "https://rvu-kids.company/learn/sentences/stay-safe/",
-      "qrFile": "sentences-15-stay-safe.png"
+      "qrFile": "sentences-15-stay-safe.png",
+      "pdfPages": [
+        84,
+        85
+      ]
     }
   ]
 }

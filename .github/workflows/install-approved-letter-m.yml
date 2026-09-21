@@ -1,0 +1,54 @@
+name: Replace letter M with the approved full-resolution artwork
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/install-approved-letter-m.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  replace-letter-m:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Download and authenticate approved image
+        env:
+          ARTWORK_URL: https://d2ol7oe51mr4n9.cloudfront.net/user_3JUngcUhRYYa2eBXLpGvHnUaQyO/ffe91f68-26e8-4cbb-8215-5cff6cb80a98.png
+        run: |
+          curl --fail --location --show-error --retry 3 --max-time 90 "$ARTWORK_URL" -o /tmp/rvu-approved-letter-m.png
+          echo "9e8b19248cdd639cb42510c7e2dd31ad712e5ca04873c9f4c00598240841a074  /tmp/rvu-approved-letter-m.png" | sha256sum --check
+      - name: Convert original to high-quality WebP in place
+        run: |
+          python -m pip install --disable-pip-version-check Pillow==11.3.0
+          python - <<'PY'
+          from PIL import Image
+          from pathlib import Path
+          source = Path('/tmp/rvu-approved-letter-m.png')
+          destination = Path('assets/letter-m.webp')
+          with Image.open(source) as picture:
+              picture.load()
+              assert picture.size == (1086, 1448), picture.size
+              assert picture.mode == 'RGB', picture.mode
+              picture.save(destination, 'WEBP', quality=96, method=6)
+          with Image.open(destination) as uploaded:
+              uploaded.load()
+              assert uploaded.size == (1086, 1448), uploaded.size
+              assert uploaded.format == 'WEBP', uploaded.format
+          assert destination.stat().st_size > 150000
+          print(f'Updated {destination}: 1086 x 1448 native pixels, {destination.stat().st_size:,} bytes')
+          PY
+      - name: Commit the approved image to main
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/letter-m.webp
+          if ! git diff --cached --quiet; then
+            git commit -m "Replace pixelated letter M page with approved native-resolution artwork"
+            git push
+          fi

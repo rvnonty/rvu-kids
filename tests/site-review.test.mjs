@@ -96,7 +96,8 @@ test('whatsapp orders are enabled, use the approved username and never fake subm
  assert.ok(js.includes('payload.payment'));
  assert.ok(!js.includes("fetch('./api/config'"));
  assert.ok(!js.includes("fetch('./api/orders'"));
- assert.ok(page.includes('اضغط إرسال هناك'));
+ assert.ok(!page.includes('id="service-status"'));
+ assert.ok(page.includes('Created By: Ramez Medhat'));
 });
 test('why different gives clear printed learning progression and honest future US audio',()=>{
  const page=read('index.html'),app=read('app.js');
@@ -106,4 +107,23 @@ test('why different gives clear printed learning progression and honest future U
  assert.ok(app.includes('audio playback is not available yet'.replace('audio playback','Audio playback')));
  const css=read('style.css');
  assert.ok(css.includes('.why-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))'));
+});
+
+
+test('storybook learning identity and gentle interactions use official book cover',()=>{
+ const hub=read('learn/index.html'),js=read('learn/learn.js'),css=read('learn/learn.css');
+ const main=read('index.html'),site=read('style.css');
+ for(const character of ['boy','girl','lizard'])assert.ok(hub.includes('character-portrait '+character));
+ assert.ok(css.includes("background-image:url('/assets/cover.webp')"));
+ assert.ok(js.includes("function createCast(compact=false)"));
+ assert.ok(js.includes("function wordVisual(w)"));
+ assert.ok(js.includes("'word-visual story-visual'"));
+ assert.ok(js.includes("function enableStoryMotion()"));
+ assert.ok(js.includes('prefers-reduced-motion: reduce'));
+ assert.ok(css.includes('@media(prefers-reduced-motion:reduce)'));
+ assert.ok(css.includes('.page-dialog img.page-turn'));
+ assert.ok(main.includes('id="preview-previous"'));
+ assert.ok(main.includes('id="preview-next"'));
+ assert.ok(site.includes('.hero-art .art-credit'));
+ assert.ok(!main.includes('data-i18n="whatsappNotice"'));
 });

@@ -13,3 +13,6 @@
 
 /* Shared typography, natural direction switching and responsive improvements */
 button{font-family:inherit}a,button{touch-action:manipulation}h1,h2,h3{overflow-wrap:break-word}.quiz-picture{display:inline-flex;align-items:center;justify-content:center;vertical-align:middle;margin-inline:.7rem;font-size:2.3rem;background:#fff;border-radius:14px;min-width:58px;min-height:58px;border:1px solid #c7d9d0}.quiz-prompt{display:flex;flex-wrap:wrap;align-items:center;gap:8px}.sitebar nav .lang-switch:hover{border-color:#183d32;background:#ecf4ed}.preview-five figure{overflow:hidden}.preview-five img{aspect-ratio:900 / 1273;object-fit:cover}.word-card,.phrase-card{min-width:0}.sitebar nav{align-items:center}.sitebar nav a,.sitebar nav button{flex-shrink:0}.word-visual.no-icon{font-size:2.2rem}.lang-switch:focus-visible{outline:3px solid #d76d29;outline-offset:3px}@media(max-width:520px){.sitebar{flex-wrap:wrap}.sitebar nav{flex:1 0 100%;width:100%;justify-content:space-between;gap:10px}.quiz-options{grid-template-columns:repeat(2,minmax(0,1fr))}.lesson-nav{flex-wrap:wrap}}
+
+/* Respect HTML hidden even on styled interactive buttons. */
+[hidden]{display:none!important}

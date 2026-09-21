@@ -1,0 +1,40 @@
+name: Normalize RVU Kids M Preview Image
+on:
+  push:
+    branches: [main]
+    paths:
+      - assets/letter-m.webp
+      - .github/workflows/normalize-m.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  normalize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Validate and normalize uploaded WEBP asset
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('assets/letter-m.webp')
+          b=p.read_bytes()
+          assert b[:4] == b'RIFF' and b[8:12] == b'WEBP', 'M asset has invalid WEBP magic'
+          claimed=int.from_bytes(b[4:8], 'little') + 8
+          assert 1000 < claimed <= len(b), 'M asset has invalid WEBP declared length'
+          if claimed < len(b):
+              p.write_bytes(b[:claimed])
+          print(f'M image: declared={claimed}, final={p.stat().st_size} bytes')
+          PY
+          file assets/letter-m.webp
+      - name: Commit normalized asset if required
+        run: |
+          if ! git diff --quiet -- assets/letter-m.webp; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add assets/letter-m.webp
+            git commit -m "Normalize verified letter M preview WEBP asset"
+            git push
+          fi

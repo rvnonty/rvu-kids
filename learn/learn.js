@@ -20,8 +20,8 @@ bathroom:'🚻',wash:'🫧',hands:'👐',family:'👨‍👩‍👧‍👦',mom:
 brother:'👦',sister:'👧',teacher:'👩‍🏫',book:'📖',pencil:'✏️',school:'🏫',water:'💧'
 };
 const i18n={
-ar:{hub:'التعلّم',preview:'المعاينة',book:'الكتاب',listen:'الاستماع',pending:'نعمل على إضافة الصوت الأمريكي بعد مراجعة كل تسجيل. الأزرار الصوتية لن تظهر قبل تجهيز الملفات الحقيقية.',alph:'الحروف والكلمات',sent:'Everyday English — الجمل',words:'كلمات الدرس',sentences:'جمل الدرس',pages:'أرقام الصفحات المطبوعة في الكتاب',say:'اسم الحرف في الكتاب',sound:'صوت الحرف',hint:'اسم الحرف مختلف عن صوت الحرف؛ النطق الصوتي سيتم اعتماده بصورة منفصلة.',remember:'اختبار صغير',question:'اضغط على الكلمة المطلوبة',correct:'إجابة صحيحة!',retry:'جرّب تاني',next:'التالي',prev:'السابق',all:'كل الحروف',allSent:'كل الوحدات',buy:'اطلب الكتاب',practice:'شوف واسمع وكرر مع ولي الأمر',learn:'مكتبة التعلّم',units:'الوحدات',previewPages:'صفحات مختارة',live:'المحتوى مطابق للمنهج المعتمد',learning:'اتعلّم مع كتابك',childHint:'استخدم الصور في الكتاب الأصلي لتأكيد المعنى؛ الرموز هنا للتذكير وليست بديلًا عن رسومات الكتاب.',audioUnavailable:'الصوت لم يُنشر بعد. لن نستخدم صوت الجهاز كأنه تسجيل أمريكي معتمد.',sample:'لمن يشاهد النموذج فقط',more:'افتح الوحدة التالية',begin:'ابدأ',switch:'English'},
-en:{hub:'Learning Hub',preview:'Preview',book:'The Book',listen:'Audio',pending:'Natural American English audio will appear after every recording has been reviewed. We will not show fake playback buttons.',alph:'Alphabet & Words',sent:'Everyday English — Sentences',words:'Lesson Words',sentences:'Target Sentences',pages:'Printed page numbers in your book',say:'Letter name in the book',sound:'Letter sound',hint:'A letter name is not the same as its phonics sound. Phonics audio will be reviewed separately.',remember:'A little word check',question:'Choose the requested word',correct:'Well done!',retry:'Try again',next:'Next',prev:'Previous',all:'All letters',allSent:'All units',buy:'Order the Book',practice:'Look, say and practice with a parent',learn:'Learning Hub',units:'Units',previewPages:'Selected pages',live:'Matches the approved curriculum',learning:'Learn alongside your book',childHint:'Check the actual book illustrations for meaning. These small pictograms are memory cues, not replacements for the book artwork.',audioUnavailable:'Audio has not been published yet. We will not substitute a device-generated voice for reviewed American English audio.',sample:'Preview only',more:'Open the next lesson',begin:'Start',switch:'العربية'}
+ar:{hub:'التعلّم',preview:'المعاينة',book:'الكتاب',listen:'الاستماع',pending:'نعمل على إضافة الصوت الأمريكي بعد مراجعة كل تسجيل. الأزرار الصوتية لن تظهر قبل تجهيز الملفات الحقيقية.',alph:'الحروف والكلمات',sent:'Everyday English — الجمل',words:'كلمات الدرس',sentences:'جمل الدرس',pages:'أرقام الصفحات المطبوعة في الكتاب',say:'اسم الحرف في الكتاب',sound:'صوت الحرف',hint:'اسم الحرف مختلف عن صوت الحرف؛ النطق الصوتي سيتم اعتماده بصورة منفصلة.',remember:'اختبار صغير',question:'اضغط على الكلمة المطلوبة',correct:'إجابة صحيحة!',retry:'جرّب تاني',next:'التالي',prev:'السابق',all:'كل الحروف',allSent:'كل الوحدات',buy:'اطلب الكتاب',practice:'شوف واسمع وكرر مع ولي الأمر',learn:'مكتبة التعلّم',units:'الوحدات',previewPages:'صفحات مختارة',live:'المحتوى مطابق للمنهج المعتمد',learning:'اتعلّم مع كتابك',childHint:'استخدم الصور في الكتاب الأصلي لتأكيد المعنى؛ الرموز هنا للتذكير وليست بديلًا عن رسومات الكتاب.',audioUnavailable:'الصوت لم يُنشر بعد. لن نستخدم صوت الجهاز كأنه تسجيل أمريكي معتمد.',sample:'لمن يشاهد النموذج فقط',castWelcome:'صحابك في مغامرة التعلّم!',more:'افتح الوحدة التالية',begin:'ابدأ',switch:'English'},
+en:{hub:'Learning Hub',preview:'Preview',book:'The Book',listen:'Audio',pending:'Natural American English audio will appear after every recording has been reviewed. We will not show fake playback buttons.',alph:'Alphabet & Words',sent:'Everyday English — Sentences',words:'Lesson Words',sentences:'Target Sentences',pages:'Printed page numbers in your book',say:'Letter name in the book',sound:'Letter sound',hint:'A letter name is not the same as its phonics sound. Phonics audio will be reviewed separately.',remember:'A little word check',question:'Choose the requested word',correct:'Well done!',retry:'Try again',next:'Next',prev:'Previous',all:'All letters',allSent:'All units',buy:'Order the Book',practice:'Look, say and practice with a parent',learn:'Learning Hub',units:'Units',previewPages:'Selected pages',live:'Matches the approved curriculum',learning:'Learn alongside your book',childHint:'Check the actual book illustrations for meaning. These small pictograms are memory cues, not replacements for the book artwork.',audioUnavailable:'Audio has not been published yet. We will not substitute a device-generated voice for reviewed American English audio.',sample:'Preview only',castWelcome:'Your friends on every adventure!',more:'Open the next lesson',begin:'Start',switch:'العربية'}
 };
 const getParam=new URLSearchParams(location.search).get('lang');
 let lang=getParam==='en'||getParam==='ar'?getParam:(sessionStorage.getItem('rvu-lang')||'ar');
@@ -51,7 +51,42 @@ function hub(){
  const unitsGrid=document.querySelector('#unit-grid');if(unitsGrid){unitsGrid.replaceChildren();units.forEach((u,i)=>unitsGrid.append(cardUnit(u,i)))}
 }
 function speakBadge(){const box=el('aside','audio-notice');box.append(el('span','audio-mark','◌'));box.append(el('p',null,t('audioUnavailable')));return box}
-function wordVisual(w){const icon=icons[w]||'';const box=el('div','word-visual'+(icon?'':' no-icon'),icon||w[0].toUpperCase());box.setAttribute('aria-hidden','true');return box}
+function wordVisual(w){
+ const box=el('div','word-visual story-visual');
+ const initial=el('span','story-initial',w[0].toUpperCase());
+ const spark=el('span','story-spark','✦');spark.setAttribute('aria-hidden','true');
+ const second=el('span','story-spark second','✳');second.setAttribute('aria-hidden','true');
+ box.append(initial,spark,second);
+ box.setAttribute('aria-hidden','true');
+ box.style.setProperty('--word-hue',String((w.codePointAt(0)*37)%360));
+ return box;
+}
+function createCast(compact=false){
+ const cast=el('div','storybook-cast'+(compact?' compact-cast':''));
+ cast.setAttribute('aria-label',lang==='ar'?'أبطال RVU Kids من الغلاف الأصلي':'Original RVU Kids book characters');
+ for(const [type,arLabel,enLabel] of [
+  ['boy','الولد صاحب الهودي الأزرق','The boy in his blue hoodie'],
+  ['lizard','الليزرد الزرقاء الكيوت','The cute blue lizard'],
+  ['girl','البنت بفستانها الوردي','The girl in her pink dress']
+ ]){
+  const portrait=el('span','character-portrait '+type);
+  portrait.setAttribute('role','img');
+  portrait.setAttribute('aria-label',lang==='ar'?arLabel:enLabel);
+  cast.append(portrait);
+ }
+ const caption=el('span','cast-note',t('castWelcome'));cast.append(caption);
+ return cast;
+}
+function decorateLearning(){
+ const staticCast=document.querySelector('.hero .storybook-cast');
+ if(staticCast){
+  const label=staticCast.querySelector('[data-storybook-cast-caption]');if(label)label.textContent=t('castWelcome');
+  return;
+ }
+ if(document.body.dataset.page==='alphabet-index'){
+  const hero=document.querySelector('.hero');if(hero)hero.append(createCast());
+ }
+}
 function lessonBreadcrumb(target){
  const c=el('nav','crumbs');c.setAttribute('aria-label','Breadcrumb');c.append(link('/', 'RVU Kids'));c.append(document.createTextNode(' / '));c.append(link('/learn/',t('hub')));c.append(document.createTextNode(' / '+target));return c
 }
@@ -62,7 +97,7 @@ function lessonTemplate(type,d,idx){
  const caption=el('span','lesson-kicker',(type==='alphabet'?'ALPHABET & WORDS':'EVERYDAY ENGLISH')+' · '+t('pages')+': '+printedPages(d.pages).join('–'));
  const heading=el('h1','lesson-title',type==='alphabet'?d.letter+' '+d.letter.toLowerCase():d.title);heading.dir='ltr';
  const sub=el('p','lesson-sub',type==='alphabet'?(lang==='ar'?'حرف '+d.letter:'Letter '+d.letter):(lang==='ar'?d.titleAr:'Unit '+String(idx+1).padStart(2,'0')));
- shell.append(caption,heading,sub);
+ shell.append(caption,heading,sub,createCast(true));
  if(type==='alphabet'){
   if(d.id==='a'||d.id==='m'){const page=el('img','real-page');page.src=d.id==='a'?'/assets/letter-a.webp':'/assets/letter-m.webp';page.alt='Actual teaching page from Rvu Alphabet Book — letter '+d.letter;page.loading='lazy';shell.append(page)}
   const syll=el('div','letter-name');syll.append(el('span',null,t('say')+': '));const b=el('b',null,d.letterName);b.dir='ltr';syll.append(b);shell.append(syll);
@@ -90,9 +125,9 @@ function buildPractice(d){
  const next=el('button','button quiz-next',t('next'));next.type='button';next.hidden=true;
  let index=0;
  function show(){
-  const w=usable[index];prompt.replaceChildren();prompt.append(document.createTextNode(lang==='ar'?'اختار الكلمة اللي بتعبّر عنها الصورة: ':'Choose the word matching this picture: '));const picture=el('span','quiz-picture',icons[w]);picture.setAttribute('role','img');picture.setAttribute('aria-label',w);prompt.append(picture);feedback.textContent='';options.replaceChildren();next.hidden=true;
+  const w=usable[index];box.classList.remove('celebrate');prompt.replaceChildren();prompt.append(document.createTextNode(lang==='ar'?'اختار الكلمة اللي بتعبّر عنها الصورة: ':'Choose the word matching this picture: '));const picture=el('span','quiz-picture',icons[w]);picture.setAttribute('role','img');picture.setAttribute('aria-label',w);prompt.append(picture);feedback.textContent='';options.replaceChildren();next.hidden=true;
   const choice=[...d.words].sort((a,b)=>((a.length*7+index*11)%17)-((b.length*7+index*11)%17));
-  choice.forEach(option=>{const b=el('button','quiz-choice',option);b.type='button';b.lang='en';b.addEventListener('click',()=>{if(option===w){feedback.textContent=t('correct');b.classList.add('right');options.querySelectorAll('button').forEach(x=>x.disabled=true);next.hidden=false}else{feedback.textContent=t('retry');b.classList.add('wrong')}});options.append(b)});
+  choice.forEach(option=>{const b=el('button','quiz-choice',option);b.type='button';b.lang='en';b.addEventListener('click',()=>{if(option===w){feedback.textContent=t('correct');box.classList.add('celebrate');b.classList.add('right');options.querySelectorAll('button').forEach(x=>x.disabled=true);next.hidden=false}else{feedback.textContent=t('retry');b.classList.add('wrong')}});options.append(b)});
  }
  next.addEventListener('click',()=>{index=(index+1)%usable.length;show()});box.append(prompt,options,feedback,next);show();return box;
 }
@@ -106,7 +141,7 @@ function lessons(){
 function preview(){
  const figs=[...document.querySelectorAll('.preview-five figure')];
  let index=0;const dlg=el('dialog','page-dialog');const btn=el('button','dialog-close','×');btn.type='button';btn.setAttribute('aria-label','Close preview');const image=el('img','dialog-image');const cap=el('p','dialog-caption');const controls=el('div','dialog-controls');const prev=el('button','button ghost','←');const next=el('button','button ghost','→');prev.type='button';next.type='button';controls.append(prev,next);dlg.append(btn,image,cap,controls);document.body.append(dlg);
- function show(i){index=(i+figs.length)%figs.length;image.src=figs[index].querySelector('img').src;image.alt=figs[index].querySelector('img').alt;cap.textContent=(index+1)+' / '+figs.length+' — '+figs[index].querySelector('figcaption').textContent}
+ function show(i){index=(i+figs.length)%figs.length;image.classList.remove('page-turn');image.src=figs[index].querySelector('img').src;image.alt=figs[index].querySelector('img').alt;cap.textContent=(index+1)+' / '+figs.length+' — '+figs[index].querySelector('figcaption').textContent;if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){void image.offsetWidth;image.classList.add('page-turn')}}
  btn.addEventListener('click',()=>dlg.close());dlg.addEventListener('click',e=>{if(e.target===dlg)dlg.close()});prev.addEventListener('click',()=>show(index-1));next.addEventListener('click',()=>show(index+1));dlg.addEventListener('keydown',e=>{if(e.key==='ArrowRight')show(index+1);else if(e.key==='ArrowLeft')show(index-1)});
  figs.forEach((figure,i)=>{figure.tabIndex=0;figure.setAttribute('role','button');figure.setAttribute('aria-label','Preview page '+(i+1));const open=()=>{show(i);dlg.showModal()};figure.addEventListener('click',open);figure.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open()}})})
 }
@@ -139,4 +174,12 @@ function translateStatic(){
 
 renderNavLang();
 translateStatic();
+decorateLearning();
 const p=document.body.dataset.page;if(p==='hub'||p==='alphabet-index')hub();if(p==='lesson')lessons();if(p==='preview')preview();
+function enableStoryMotion(){
+ if(window.matchMedia('(prefers-reduced-motion: reduce)').matches||!('IntersectionObserver' in window))return;
+ const targets=[...document.querySelectorAll('.word-card,.unit-card,.tile-letter,.path-card,.preview-five figure,.story-character')];
+ const observer=new IntersectionObserver(entries=>{for(const entry of entries){if(entry.isIntersecting){entry.target.classList.add('story-visible');observer.unobserve(entry.target)}}},{threshold:0.07,rootMargin:'0px 0px 36px 0px'});
+ for(const target of targets){target.classList.add('story-reveal');observer.observe(target)}
+}
+enableStoryMotion();

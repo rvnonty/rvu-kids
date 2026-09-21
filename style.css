@@ -360,3 +360,109 @@ header,main,footer,section,.wrap,.hero,.hero-copy,.hero-art,
 
 /* Enlarge only the cream book backdrop by precisely 15%, keeping it centered. */
 .hero-art .book-orbit{transform:translate(-50%,-50%) rotate(-6deg) scale(1.15)}
+
+
+/* RVU Kids header: compact, evenly spaced and clear at every width. */
+.header{
+ display:grid;
+ grid-template-columns:138px minmax(0,1fr) auto;
+ align-items:center;
+ column-gap:clamp(14px,2vw,27px);
+ row-gap:14px;
+ padding-block:17px 19px;
+}
+.header .brand{
+ width:132px;height:80px;min-width:132px;
+ background-size:contain;
+}
+.header nav{
+ display:flex;align-items:center;justify-content:center;flex-wrap:nowrap;
+ gap:clamp(12px,1.35vw,23px);
+ min-width:0;
+}
+.header nav a{
+ flex:0 0 auto;
+ font-size:clamp(.84rem,.94vw,.94rem);
+ font-weight:700;
+ line-height:1.5;
+ padding:9px 0;
+ transition:color .18s;
+}
+.header-actions{
+ justify-self:end;display:flex;align-items:center;gap:12px;
+ white-space:nowrap;
+}
+.header .language{
+ border:1px solid #dce5dc;
+ border-radius:999px;
+ padding:9px 13px;
+ font-size:.9rem;font-weight:700;
+ background:#f5f7f1;
+ line-height:1.4;
+}
+.header .language:hover{background:#e8f0e8}
+.header .button.small{
+ min-height:45px;
+ padding:10px 17px;
+ border-radius:999px;
+ font-size:.89rem;
+ white-space:nowrap;
+}
+@media(max-width:1100px){
+ .header{grid-template-columns:minmax(0,1fr) auto}
+ .header .brand{grid-column:1;justify-self:start}
+ .header-actions{grid-column:2;grid-row:1}
+ .header nav{
+  grid-column:1/-1;grid-row:2;
+  order:unset;
+  width:100%;margin:0;
+  padding:13px 0 2px;
+  border-top:1px solid var(--line);
+  justify-content:center;
+ }
+}
+@media(max-width:720px){
+ .header{padding-block:13px 14px;gap:10px 12px}
+ .header .brand{width:96px;height:58px;min-width:96px}
+ .header-actions{gap:7px}
+ .header .language{font-size:.8rem;padding:8px 10px}
+ .header .button.small{min-height:42px;padding:9px 12px;font-size:.8rem}
+ .header nav{
+  justify-content:flex-start;
+  flex-wrap:nowrap;
+  gap:18px;
+  min-width:0;max-width:100%;
+  overflow-x:auto;
+  overscroll-behavior-x:contain;
+  scrollbar-width:thin;
+  padding:11px 1px 7px;
+ }
+ .header nav a{font-size:.82rem;padding:5px 0}
+}
+@media(max-width:360px){
+ .header .brand{width:83px;height:52px;min-width:83px}
+ .header-actions{gap:5px}
+ .header .language{padding:7px 8px}
+ .header .button.small{padding:9px 10px}
+}
+/* Keep the whole cover credit BELOW the book but INSIDE its clipping box.
+   A negative bottom offset used to cut the last line off. */
+.hero-art{min-height:625px}
+.hero-art .art-credit{
+ bottom:22px;
+ max-width:calc(100% - 16px);
+ white-space:normal;
+ width:max-content;
+ padding-block:10px;
+}
+.hero-art .art-caption,.hero-art .art-byline{white-space:normal}
+@media(min-width:851px) and (max-width:1100px){
+ .hero-art{min-height:585px}
+}
+@media(min-width:431px) and (max-width:850px){
+ .hero-art{min-height:565px}
+}
+@media(max-width:430px){
+ .hero-art{min-height:490px}
+ .hero-art .art-credit{bottom:17px;max-width:calc(100% - 12px);padding:8px 30px}
+}

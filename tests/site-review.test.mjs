@@ -169,3 +169,17 @@ test('order form has no mandatory consent paragraph but privacy remains accessib
  assert.ok(app.includes("document.getElementById('footer-privacy').addEventListener('click'"));
  assert.ok(app.includes("form.addEventListener('submit'"));
 });
+
+
+test('main storefront sections have descriptive metadata and exact canonical URLs',()=>{
+ for(const [path,canonical] of [
+  ['index.html','https://rvu-kids.company/'],
+  ['learn/index.html','https://rvu-kids.company/learn/'],
+  ['preview/index.html','https://rvu-kids.company/preview/'],
+  ['books/alphabet/index.html','https://rvu-kids.company/books/alphabet/']
+ ]){
+  const html=read(path);
+  assert.ok(html.includes('<link rel="canonical" href="'+canonical+'">'),path);
+  assert.ok(html.includes('<meta name="description" content="'),path);
+ }
+});

@@ -276,3 +276,25 @@ header,main,footer,section,.wrap,.hero,.hero-copy,.hero-art,
 .parents-teaser-link:hover{background:#2e624f;transform:translateY(-2px)}
 @media(max-width:650px){.parents-teaser-inner{flex-wrap:wrap;gap:12px;padding:19px}.parents-teaser-badge{width:52px;height:52px;font-size:1.23rem;border-radius:15px}.parents-teaser-copy{flex:1 1 calc(100% - 75px)}.parents-teaser-link{width:100%;margin-top:3px}.parents-teaser{padding-block:19px}}
 @media(prefers-reduced-motion:reduce){.parents-teaser-link{transition:none!important}.parents-teaser-link:hover{transform:none}}
+
+/* Balance the 96-page seal with the book cover: gently rightward and smaller. */
+.hero-art .pages-badge{
+  left:22px;
+  width:98px;
+  height:98px;
+  min-width:98px;
+  min-height:98px;
+}
+.hero-art .pages-badge strong{font-size:1.75rem}
+.hero-art .pages-badge span{font-size:.72rem}
+@media(max-width:430px){
+  .hero-art .pages-badge{
+    left:10px;
+    width:82px;
+    height:82px;
+    min-width:82px;
+    min-height:82px;
+  }
+  .hero-art .pages-badge strong{font-size:1.5rem}
+  .hero-art .pages-badge span{font-size:.64rem}
+}

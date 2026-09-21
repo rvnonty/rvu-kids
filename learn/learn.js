@@ -44,7 +44,7 @@ function cardLetter(a){
 }
 function printedPages(pages){return pages.map(page=>page-3)}
 function cardUnit(u,i){
- const a=link(urlUnit(u),undefined,'unit-card');a.innerHTML='<small>UNIT '+String(i+1).padStart(2,'0')+' · '+(lang==='ar'?'صفحات ':'PAGES ')+printedPages(u.pages).join('–')+'</small><h3 dir="ltr">'+escaped(u.title)+'</h3><p>'+escaped(lang==='ar'?u.titleAr:'A lesson from your book')+'</p><span class="tile-arrow">↗</span>';return a;
+ const a=link(urlUnit(u),undefined,'unit-card');a.innerHTML='<small>UNIT '+String(i+1).padStart(2,'0')+' · '+(lang==='ar'?'صفحات ':'PAGES ')+printedPages(u.pages).join('–')+'</small><h3 dir="ltr" lang="en">'+escaped(u.title)+'</h3><p>'+escaped(lang==='ar'?u.titleAr:'A lesson from your book')+'</p><span class="tile-arrow">↗</span>';return a;
 }
 function hub(){
  const grid=document.querySelector('#letter-grid');if(grid){grid.replaceChildren();alphabet.forEach(a=>grid.append(cardLetter(a)))}
@@ -95,7 +95,7 @@ function lessonTemplate(type,d,idx){
  const head=el('section','lesson-top');head.append(lessonBreadcrumb(type==='alphabet'?t('alph'):t('sent')));
  const shell=el('div','lesson-card');
  const caption=el('span','lesson-kicker',(type==='alphabet'?'ALPHABET & WORDS':'EVERYDAY ENGLISH')+' · '+t('pages')+': '+printedPages(d.pages).join('–'));
- const heading=el('h1','lesson-title',type==='alphabet'?d.letter+' '+d.letter.toLowerCase():d.title);heading.dir='ltr';
+ const heading=el('h1','lesson-title',type==='alphabet'?d.letter+' '+d.letter.toLowerCase():d.title);heading.dir='ltr';heading.lang='en';
  const sub=el('p','lesson-sub',type==='alphabet'?(lang==='ar'?'حرف '+d.letter:'Letter '+d.letter):(lang==='ar'?d.titleAr:'Unit '+String(idx+1).padStart(2,'0')));
  shell.append(caption,heading,sub,createCast(true));
  if(type==='alphabet'){
@@ -108,7 +108,7 @@ function lessonTemplate(type,d,idx){
   const g=el('div','word-grid');d.words.forEach((w,i)=>{const item=el('article','word-card');item.append(wordVisual(w));const s=el('strong','english-word',w);s.lang='en';s.dir='ltr';item.append(s);const num=el('span','word-counter',String(i+1).padStart(2,'0'));item.append(num);g.append(item)});shell.append(g)
  }else{
   if(d.id==='feelings'){const image=el('img','real-page');image.src='/assets/feelings.webp';image.alt='Actual feelings page from Rvu Alphabet Book';image.loading='lazy';shell.append(image)}
-  if(d.words.length){const labels=el('div','support-words');labels.append(el('p',null,lang==='ar'?'كلمات موجودة في الدرس:':'Vocabulary in this lesson:'));d.words.forEach(w=>labels.append(el('span',null,w)));shell.append(labels)}
+  if(d.words.length){const labels=el('div','support-words');labels.append(el('p',null,lang==='ar'?'كلمات موجودة في الدرس:':'Vocabulary in this lesson:'));d.words.forEach(w=>{const word=el('span',null,w);word.lang='en';word.dir='ltr';labels.append(word)});shell.append(labels)}
  }
  if(d.sentences?.length){if(type==='alphabet')shell.append(el('h2','minor-heading',t('sentences')));const g=el('div','phrase-grid');d.sentences.forEach((s,i)=>{const c=el('div','phrase-card');c.append(el('span','number',String(i+1).padStart(2,'0')));const p=el('strong','phrase-text',s);p.lang='en';p.dir='ltr';c.append(p);g.append(c)});shell.append(g)}
  shell.append(speakBadge());
@@ -127,7 +127,7 @@ function buildPractice(d){
  function show(){
   const w=usable[index];box.classList.remove('celebrate');prompt.replaceChildren();prompt.append(document.createTextNode(lang==='ar'?'اختار الكلمة اللي بتعبّر عنها الصورة: ':'Choose the word matching this picture: '));const picture=el('span','quiz-picture',icons[w]);picture.setAttribute('role','img');picture.setAttribute('aria-label',w);prompt.append(picture);feedback.textContent='';options.replaceChildren();next.hidden=true;
   const choice=[...d.words].sort((a,b)=>((a.length*7+index*11)%17)-((b.length*7+index*11)%17));
-  choice.forEach(option=>{const b=el('button','quiz-choice',option);b.type='button';b.lang='en';b.addEventListener('click',()=>{if(option===w){feedback.textContent=t('correct');box.classList.add('celebrate');b.classList.add('right');options.querySelectorAll('button').forEach(x=>x.disabled=true);next.hidden=false}else{feedback.textContent=t('retry');b.classList.add('wrong')}});options.append(b)});
+  choice.forEach(option=>{const b=el('button','quiz-choice',option);b.type='button';b.lang='en';b.dir='ltr';b.addEventListener('click',()=>{if(option===w){feedback.textContent=t('correct');box.classList.add('celebrate');b.classList.add('right');options.querySelectorAll('button').forEach(x=>x.disabled=true);next.hidden=false}else{feedback.textContent=t('retry');b.classList.add('wrong')}});options.append(b)});
  }
  next.addEventListener('click',()=>{index=(index+1)%usable.length;show()});box.append(prompt,options,feedback,next);show();return box;
 }

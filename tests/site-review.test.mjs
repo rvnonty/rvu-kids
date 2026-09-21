@@ -52,3 +52,15 @@ test('no imaginary live checkout or audio assets',()=>{
  assert.equal(audio.status,'awaiting-reviewed-audio');
  assert.ok(audio.recordings.every(r=>r.asset===null));
 });
+
+
+test('responsive layout avoids unbounded horizontal grid growth',()=>{
+ const css=read('style.css');
+ assert.ok(css.includes('grid-template-columns:minmax(0,1.02fr) minmax(0,1fr)'));
+ for(const selector of ['.learning-grid','.preview-grid','.benefits-grid','.steps']){
+   assert.ok(css.includes(selector+'{grid-template-columns:repeat(4,minmax(0,1fr))}'),selector);
+ }
+ assert.ok(css.includes('overflow-x:clip'));
+ assert.ok(css.includes('@media(max-width:850px)'));
+ assert.ok(css.includes('.hero{grid-template-columns:minmax(0,1fr);gap:18px}'));
+});

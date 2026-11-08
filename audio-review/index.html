@@ -11,7 +11,7 @@ header{background:#173d35;color:white;padding:25px max(4%,18px)}header .top{disp
 header h1{font-size:clamp(1.5rem,4vw,2.35rem);margin:20px 0 8px}header p{line-height:1.8;max-width:900px}
 main{max-width:1230px;margin:auto;padding:20px 18px 50px}.note{background:#fff7e9;border:1px solid #ddb871;border-radius:14px;padding:14px 18px;line-height:1.85}
 .stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:18px 0}.stat{background:white;padding:15px;border:1px solid #d8e3da;border-radius:13px}.stat strong{display:block;font-size:1.9rem}.stat small{color:#5e7568}
-.filters{display:grid;grid-template-columns:2fr 1fr 1fr;gap:12px;margin:16px 0}label{display:block;margin:9px 0;font-weight:700;font-size:.92rem}
+.filters{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:12px;margin:16px 0}label{display:block;margin:9px 0;font-weight:700;font-size:.92rem}
 input,select,textarea{width:100%;min-width:0;background:white;border:1px solid #c9d8cd;border-radius:10px;padding:11px}
 .layout{display:grid;grid-template-columns:minmax(245px,390px) 1fr;gap:14px}.panel{background:white;border:1px solid #d9e4da;border-radius:14px;overflow:hidden}
 .list{height:635px;overflow:auto}.item{display:flex;align-items:center;gap:9px;text-align:right;width:100%;border:0;border-bottom:1px solid #eef2ed;padding:11px 13px;cursor:pointer;color:inherit;background:white}
@@ -26,12 +26,13 @@ button.alt{background:#e5ede6;color:#173d35}button.ok{background:#276344}button.
 </head>
 <body>
 <header><div class="top"><strong>RVU <span style="color:#e9b35a">KIDS</span> · AUDIO</strong><a href="/learn/">رجوع لمكتبة التعلّم</a></div>
-<h1>اسمع التسجيلات الـ244 وراجعها</h1>
-<p>مكتبة الاستماع التجريبية: أسماء الحروف وأصواتها والكلمات والجمل بالنطق الأمريكي الاصطناعي.</p></header>
+<h1>اسمع التسجيلات الـ244 بصوت بنت أو ولد</h1>
+<p>نسختان لكل تسجيل: صوت أنثوي أمريكي وصوت ذكوري أمريكي باستخدام ذكاء اصطناعي أقرب للكلام الطبيعي.</p></header>
 <main>
-<div class="note"><strong>نسخة مراجعة فقط.</strong> التسجيلات مولّدة آليًا، ومش معتمدة تربويًا للاستخدام مع الأطفال. أصوات Phonics تحتاج مراجعة خاصة، وبعضها قد يحتوي على صوت إضافي. تقدم المراجعة بيتحفظ على جهازك فقط؛ صدّر التقرير بعد الاستماع.</div>
+<div class="note"><strong>نسخة استماع تجريبية وليست تسجيلات ممثلين صوتيين حقيقيين.</strong> الاختيارين بصوت عصبي أمريكي طبيعي نسبيًا. النطق محتاج تدقيق متخصص، خصوصًا Phonics. قراراتك محلية على جهازك؛ راجع كل صوت على حدة ثم صدّر التقرير.</div>
 <div class="stats"><div class="stat"><strong id="total">—</strong><small>تسجيل</small></div><div class="stat"><strong id="approved">0</strong><small>مقبول على جهازك</small></div><div class="stat"><strong id="redo">0</strong><small>يحتاج إعادة تسجيل</small></div><div class="stat"><strong id="pending">—</strong><small>لم يُراجع</small></div></div>
 <div class="filters">
+<div><label for="voice">اختار الصوت</label><select id="voice"><option value="female">صوت بنت · أمريكي</option><option value="male">صوت ولد · أمريكي</option></select></div>
 <div><label for="search">بحث</label><input id="search" placeholder="apple أو feelings أو A"></div>
 <div><label for="category">نوع التسجيل</label><select id="category"><option value="">الكل</option><option value="letter-name">اسم الحرف</option><option value="letter-sound">صوت الحرف</option><option value="word">الكلمات</option><option value="alphabet-sentence">جمل الحروف</option><option value="everyday-sentence">الجمل اليومية</option></select></div>
 <div><label for="status-filter">حالة المراجعة</label><select id="status-filter"><option value="">الكل</option><option value="pending">لم يُراجع</option><option value="approved">مقبول</option><option value="redo">إعادة تسجيل</option></select></div>
@@ -45,15 +46,16 @@ button.alt{background:#e5ede6;color:#173d35}button.ok{background:#276344}button.
 <div class="buttons"><button class="action ok" id="approve" type="button">✓ مقبول بعد الاستماع</button><button class="action no" id="reject" type="button">↺ يحتاج إعادة تسجيل</button><button class="action alt" id="clear" type="button">إلغاء القرار</button></div>
 <p class="meta" id="track-status"></p></section></div>
 <div class="buttons"><button class="action" id="export" type="button">تصدير تقرير المراجعة JSON</button></div>
-<p class="info">الاستماع هنا لا يفعّل التسجيلات في دروس الأطفال. الصفحة متاحة لكل من لديه الرابط، وتستخدم التخزين المحلي لتسجيل قرارات المراجعة.</p>
+<p class="info">التسجيلات مولّدة بنموذج Kokoro (Apache-2.0) وليست بشرًا حقيقيين. الاستماع هنا لا يفعّل التسجيلات في دروس الأطفال. الصفحة متاحة لكل من لديه الرابط، وتستخدم التخزين المحلي لتسجيل قرارات المراجعة.</p>
 </main>
 <script>
 'use strict';
 const $=id=>document.getElementById(id);
 const labels={'letter-name':'اسم الحرف','letter-sound':'صوت الحرف','word':'كلمة','alphabet-sentence':'جملة الحروف','everyday-sentence':'جملة يومية'};
-const key='rvu-audio-review-244-v1';let rows=[],selected=-1,reviews={};
+const key='rvu-audio-review-dual-voices-v1';let rows=[],selected=-1,reviews={};
 try{reviews=JSON.parse(localStorage.getItem(key)||'{}')||{}}catch{reviews={}}
-const state=i=>reviews[i]?.status||'pending';
+const reviewKey=i=>$('voice').value+':'+i;
+const state=i=>reviews[reviewKey(i)]?.status||'pending';
 function save(){try{localStorage.setItem(key,JSON.stringify(reviews))}catch{}}
 function stats(){let a=0,b=0;for(let i=0;i<rows.length;i++){if(state(i)==='approved')a++;if(state(i)==='redo')b++} $('total').textContent=rows.length;$('approved').textContent=a;$('redo').textContent=b;$('pending').textContent=rows.length-a-b}
 function showList(){const box=$('list');box.replaceChildren();const q=$('search').value.toLowerCase().trim(),cat=$('category').value,filter=$('status-filter').value;let shown=0;
@@ -61,16 +63,18 @@ rows.forEach((r,i)=>{if(q&&!(r.text+' '+r.type+' '+r.lesson).toLowerCase().inclu
 const b=document.createElement('button'),span=document.createElement('span'),title=document.createElement('b'),sub=document.createElement('small'),number=document.createElement('small');
 b.type='button';b.className='item'+(i===selected?' current':'');title.textContent=r.text;sub.textContent=(labels[r.type]||r.type)+' · '+r.lesson+' · '+(state(i)==='approved'?'✓ مقبول':state(i)==='redo'?'↺ إعادة':'لم يُراجع');number.textContent=String(i+1).padStart(3,'0');span.append(title,sub);b.append(span,number);b.onclick=()=>select(i);box.append(b)});
 if(!shown){const p=document.createElement('p');p.className='empty';p.textContent='لا توجد تسجيلات مطابقة';box.append(p)}}
-function select(i){if(i<0||i>=rows.length)return;const r=rows[i],path=r.asset.replace(/^\/learn\/audio\//,'');if(!/^(letter-name|letter-sound|word|alphabet-sentence|everyday-sentence)\/[a-z0-9-]+\.mp3$/.test(path))return;
-selected=i;const audio=$('audio');audio.pause();audio.src='/audio-review/learn/audio/'+path;audio.load();
-$('counter').textContent='تسجيل '+(i+1)+' من '+rows.length;$('track-text').textContent=r.text;$('detail').textContent=(labels[r.type]||r.type)+' · '+r.lesson;$('sound-notes').textContent=(r.notes||'')+(r.synthesis_text&&r.synthesis_text!==r.text?' | نسخة النطق: '+r.synthesis_text:'');
-$('notes').value=reviews[i]?.notes||'';$('reviewer').value=reviews[i]?.reviewer||'';$('track-status').textContent=state(i)==='approved'?'مقبول محليًا':state(i)==='redo'?'يحتاج إعادة تسجيل':'بانتظار المراجعة';showList()}
-function decide(status){if(selected<0)return;if(status==='pending')delete reviews[selected];else reviews[selected]={status,notes:$('notes').value.trim(),reviewer:$('reviewer').value.trim(),date:new Date().toISOString()};save();stats();select(selected)}
+function select(i){if(i<0||i>=rows.length)return;const r=rows[i],voice=$('voice').value,asset=r.voices?.[voice]?.asset||'';
+if(!/^\/audio-review\/neural\/(female|male)\/[0-9]{3}\.mp3$/.test(asset)){$('track-status').textContent='ملف الصوت المطلوب غير متاح';return}
+selected=i;const audio=$('audio');audio.pause();audio.src=asset;audio.load();
+$('counter').textContent='تسجيل '+(i+1)+' من '+rows.length;$('track-text').textContent=r.text;$('detail').textContent=(labels[r.type]||r.type)+' · '+r.lesson;$('sound-notes').textContent=(r.notes||'')+' · '+(voice==='female'?'الصوت الأنثوي':'الصوت الذكوري')+' · '+(r.voices?.[voice]?.notes||'');
+$('notes').value=reviews[reviewKey(i)]?.notes||'';$('reviewer').value=reviews[reviewKey(i)]?.reviewer||'';$('track-status').textContent=state(i)==='approved'?'مقبول محليًا':state(i)==='redo'?'يحتاج إعادة تسجيل':'بانتظار المراجعة';showList()}
+function decide(status){if(selected<0)return;const key=reviewKey(selected);if(status==='pending')delete reviews[key];else reviews[key]={status,notes:$('notes').value.trim(),reviewer:$('reviewer').value.trim(),date:new Date().toISOString()};save();stats();select(selected)}
 $('approve').onclick=()=>decide('approved');$('reject').onclick=()=>decide('redo');$('clear').onclick=()=>decide('pending');
+$('voice').addEventListener('change',()=>{stats();select(selected>=0?selected:0)});
 $('prev').onclick=()=>select((selected+rows.length-1)%rows.length);$('next').onclick=()=>select((selected+1)%rows.length);
 $('play').onclick=async()=>{if($('audio').paused){try{await $('audio').play()}catch{$('track-status').textContent='تعذر تشغيل الملف. جرب تحديث الصفحة.'}}else $('audio').pause()};
 for(const id of ['search','category','status-filter'])$(id).addEventListener(id==='search'?'input':'change',showList);
-$('export').onclick=()=>{const out={exported_at:new Date().toISOString(),purpose:'review only, not approval for public lessons',records:rows.map((r,i)=>({id:i+1,type:r.type,lesson:r.lesson,text:r.text,asset:r.asset,review:reviews[i]||{status:'pending'}}))};const blob=new Blob([JSON.stringify(out,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='rvu-244-audio-review.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),3000)};
-fetch('./learn/audio-manifest.json',{cache:'no-store'}).then(res=>{if(!res.ok)throw Error('Missing manifest');return res.json()}).then(obj=>{if(obj.requiredRecordings!==244||obj.recordings?.length!==244||obj.notForPublicPlayback!==true)throw Error('Invalid draft manifest');rows=obj.recordings;stats();select(0)}).catch(()=>{const p=document.createElement('p');p.className='empty';p.textContent='التسجيلات لم تُنشر بعد أو يوجد خطأ في تحميل القائمة.';$('list').replaceChildren(p);$('track-status').textContent='تعذر التحميل'});
+$('export').onclick=()=>{const out={exported_at:new Date().toISOString(),purpose:'review only, not approval for public lessons',records:rows.map((r,i)=>({id:i+1,type:r.type,lesson:r.lesson,text:r.text,asset:r.asset,review:{female:reviews['female:'+i]||{status:'pending'},male:reviews['male:'+i]||{status:'pending'}}}))};const blob=new Blob([JSON.stringify(out,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='rvu-244-audio-review.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),3000)};
+fetch('./neural-manifest.json',{cache:'no-store'}).then(res=>{if(!res.ok)throw Error('Missing manifest');return res.json()}).then(obj=>{if(obj.requiredRecordings!==244||obj.recordings?.length!==244||obj.notForPublicPlayback!==true||!obj.recordings.every(r=>r.voices?.female?.asset&&r.voices?.male?.asset))throw Error('Invalid draft manifest');rows=obj.recordings;stats();select(0)}).catch(()=>{const p=document.createElement('p');p.className='empty';p.textContent='التسجيلات لم تُنشر بعد أو يوجد خطأ في تحميل القائمة.';$('list').replaceChildren(p);$('track-status').textContent='تعذر التحميل'});
 </script>
 </body></html>

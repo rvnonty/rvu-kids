@@ -42,6 +42,6 @@ test('draft tracks stay unapproved and child-facing lessons stay disabled',()=>{
   assert.ok(activeManifest.recordings.every(r=>r.asset===null));
   assert.ok(html.includes('meta name="robots" content="noindex,nofollow"'));
   assert.ok(html.includes('audio id="audio" controls'));
-  assert.ok(html.includes("fetch('./learn/audio-manifest.json'"));
+  assert.ok(html.includes("fetch('./neural-manifest.json'"));
   assert.ok(readFileSync('build.mjs','utf8').includes("'audio-review'"));
 });

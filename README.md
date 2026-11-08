@@ -15,7 +15,7 @@ The deployed GitHub Pages branch now includes:
 - `/learn/audio-manifest.json` — production checklist for 244 expected recordings (26 letter names + 26 letter sounds + 101 words + 27 alphabet sentences + 64 Everyday English sentences).
 - `tests/learning.test.mjs` and GitHub Actions checks for content counts, 41 direct links and the five-page preview cap.
 
-**Outstanding:** 244 reviewed audio files are **not present in the repository**. The manifest contains null audio assets deliberately; no device voice or nonfunctional audio buttons are passed off as approved American pronunciation. Existing printed PDF has **not** been altered or embedded with QR codes; mapping and downloadable QR images are separate preparation assets. All 41 lessons render approved text. Where an exact artwork cutout is not available, small word pictograms are memory cues; they are not claimed to be images from the workbook.
+**Audio review preview:** 244 synthetic US-English MP3 drafts are now available for listening on `/audio-review/` (not linked from child-facing lessons). They have passed automated file checks but have **not** passed qualified phonics/pronunciation review. The published lesson audio is still disabled. The final 244 reviewed recordings are **not yet approved**. The production manifest at `/learn/audio-manifest.json` still contains null audio assets deliberately; the separate review manifest in `/audio-review/learn/audio-manifest.json` references the audible drafts and labels them unapproved. Existing printed PDF has **not** been altered or embedded with QR codes; mapping and downloadable QR images are separate preparation assets. All 41 lessons render approved text. Where an exact artwork cutout is not available, small word pictograms are memory cues; they are not claimed to be images from the workbook.
 
 **Orders:** The active public form opens WhatsApp username `@n2nty` with an order message drafted from the visitor's input. The visitor must review it and press Send in WhatsApp. The site never reports an order received or payment verified. Payment choices are InstaPay and Vodafone Cash only. Shipping and the final total are confirmed privately before payment. No customer data is submitted to this GitHub Pages frontend or stored in the repository.
 
@@ -34,7 +34,7 @@ The public website currently deploys via GitHub Pages on `rvu-kids.company`. The
 - CI builds `dist`, checks JavaScript syntax, verifies curriculum counts, checks site navigation and checks preview files.
 - Search-index basics include `sitemap.xml` with the main sections and 41 lessons.
 - Letter M preview uses the approved replacement high-resolution artwork (1086 × 1448 native pixels); the five-page preview limit remains unchanged.
-- Approved American English audio recordings and inserting the QR codes in the print-ready PDF remain separate pending work. The public site clearly labels the audio feature as coming soon.
+- Approving/replacing the synthetic American-English review drafts and inserting the QR codes in the print-ready PDF remain separate pending work. The public site clearly labels the audio feature as coming soon.
 
 ## Local build and checks
 
@@ -70,3 +70,7 @@ The public API has no order-list or order-detail endpoint, no payment verificati
 Only five selected physical preview pages from the supplied book are included; the complete saleable PDF is not published. Reviewed American English audio is described as a planned feature, not active playback. The QR link map distinguishes printed page numbers from PDF physical indices; QR codes have not been embedded in the physical PDF. Physical paper, size and binding have not been invented. No bank account details, transfer screenshots, customer records or API keys belong in source control. No analytics trackers or customer local-storage persistence are used. Google Fonts is an external font resource.
 
 Design and book artwork belong to RVU Kids/their respective rights holders. No redistribution license is granted by this repository.
+
+## Listening to draft recordings (owner review)
+
+Open `/audio-review/` on the deployed domain. The page provides filters, search, playback, local decisions, and a downloadable review JSON. The 244 MP3 files are publicly reachable by anyone who knows the URL; `noindex` is only a search-engine request, **not authentication**. No child-facing lesson controls consume these files. Replace/review any inaccurate phonics and approve every item before any future lesson integration.

@@ -6,7 +6,7 @@ await mkdir('dist',{recursive:true});
 for(const file of ['index.html','style.css','app.js','favicon.svg','robots.txt','_headers','CNAME','sitemap.xml'])
   await copyFile(file,`dist/${file}`);
 
-for(const dir of ['assets','learn','preview','books','parents'])
+for(const dir of ['assets','learn','preview','books','parents','audio-review'])
   await cp(dir,`dist/${dir}`,{recursive:true});
 
-console.log('Built full RVU Kids site: storefront, learning hub, preview and product pages. Private server code, tests and unpublished book PDF excluded.');
+console.log('Built RVU Kids storefront, lessons, and separate draft audio review studio. Child-facing audio remains disabled pending approval.');

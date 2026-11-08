@@ -44,12 +44,7 @@ jobs:
           python -m pip install "kokoro==0.9.4" "soundfile>=0.12,<1" "numpy>=1.24,<3" "transformers>=4.49,<5"
       - name: Generate male and female voice previews
         run: python -u scripts/generate-natural-voices.py
-      - name: Validate all 488 recordings and existing site tests
-        run: |
-          node --check app.js
-          node --test tests/*.test.mjs
-          npm run build
-      - name: Commit generated preview audio to review branch
+      - name: Stage generated files on review-only branch
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -58,6 +53,11 @@ jobs:
             git commit -m "Stage 488 US-English neural preview clips (two voices, unapproved)"
             git push origin HEAD:feature/natural-us-dual-voices
           fi
+      - name: Validate generated clips and all existing site tests
+        run: |
+          npm run build
+          node --check app.js
+          node --test tests/*.test.mjs
       - name: Preserve review build for inspection
         uses: actions/upload-artifact@v4
         with:

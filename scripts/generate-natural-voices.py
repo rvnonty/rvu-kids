@@ -71,10 +71,10 @@ def candidate_texts(record: dict) -> list[tuple[str, str]]:
     text = record["text"]
     letter = record["lesson"].lower()
     if kind == "letter-name":
-        return [(f'[{text}]/{LETTER_NAMES[letter]}/', "letter name IPA")]
+        return [(f'[{text}](/{LETTER_NAMES[letter]}/)', "letter name IPA")]
     if kind == "letter-sound":
         return [
-            (f'[sound]/{PHONICS[letter]}/', "isolated phoneme; phonics review essential"),
+            (f'[sound](/{PHONICS[letter]}/)', "isolated phoneme; phonics review essential"),
             (f"The first sound in {EXEMPLARS[letter]}.", "fallback explanatory sound cue; NOT an isolated phoneme"),
         ]
     if text == "My name is ______.":

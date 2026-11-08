@@ -1,0 +1,32 @@
+name: RVU Kids - Generate audio review drafts (not public)
+on:
+  push:
+    branches:
+      - feature/audio-review-drafts-244
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audio-review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install US-English speech synthesizer and audio utilities
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y espeak ffmpeg
+      - name: Generate and validate the complete 244-track review pack
+        run: node scripts/generate-audio-review.mjs
+      - name: Upload PRIVATE review draft artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: rvu-kids-244-audio-review-drafts
+          path: audio-review/
+          if-no-files-found: error
+          retention-days: 14

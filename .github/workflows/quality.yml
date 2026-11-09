@@ -2,7 +2,7 @@ name: RVU Kids Quality Checks
 
 on:
   push:
-    branches: [main]
+    branches: [main, feature/complete-101-vocabulary-pictures]
   workflow_dispatch:
 
 permissions:

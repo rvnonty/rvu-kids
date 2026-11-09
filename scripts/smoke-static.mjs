@@ -19,7 +19,7 @@ const server=createServer(async(request,response)=>{
 });
 await new Promise(r=>server.listen(0,'127.0.0.1',r));
 const base='http://127.0.0.1:'+server.address().port;
-const paths=['/','/learn/','/learn/words/','/assets/words/apple.svg','/assets/audio/female/000.mp3','/assets/audio/male/000.mp3'];
+const paths=['/','/learn/','/learn/words/','/assets/words/apple.svg','/assets/words/zero.svg','/assets/words/quail.svg','/assets/audio/female/000.mp3','/assets/audio/male/000.mp3'];
 const errors=[],times=[];
 let next=0;
 async function worker(){

@@ -291,3 +291,10 @@ html[lang="ar"] .sitebar nav,html[lang="en"] .sitebar nav{line-height:1.65}
 .word-zoom:focus-visible,.audio-play:focus-visible,.voice-choice:focus-visible{outline:3px solid #d97847;outline-offset:3px}
 @media(max-width:530px){.word-card{min-height:208px;padding:12px 8px}.word-zoom{min-width:84px;min-height:84px}.word-visual.story-visual{width:84px;height:84px}.library-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.audio-play{font-size:.76rem}}
 @media(prefers-reduced-motion:reduce){.word-zoom .word-visual{transition:none!important}.word-zoom.zoomed .word-visual{transform:scale(1.07)}}
+
+/* 101-word library: quick access to the newly illustrated P–Z words. */
+.word-jump{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 24px}
+.word-jump-link{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:8px 16px;border-radius:999px;border:1px solid #bad7c4;background:#eff8f1;color:#153d32;text-decoration:none;font-weight:800}
+.word-jump-link:hover,.word-jump-link:focus-visible{background:#daf0dd;outline-offset:3px}
+.word-section{margin-block:18px 38px;scroll-margin-top:22px}
+.word-section h2{margin-block:20px 10px}

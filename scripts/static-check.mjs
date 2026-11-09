@@ -14,7 +14,7 @@ async function walk(directory){
   }
 }
 await walk('dist');
-if(count>20000||audio!==488||images!==60)throw Error('Asset count/limits violated: '+JSON.stringify({count,audio,images}));
+if(count>20000||audio!==488||images!==101)throw Error('Asset count/limits violated: '+JSON.stringify({count,audio,images}));
 const cfg=JSON.parse(await readFile('wrangler.static.jsonc','utf8'));
 if(cfg.main||cfg.routes||cfg.assets.directory!=='./dist'||cfg.assets.not_found_handling!=='404-page')throw Error('Unsafe Cloudflare staging configuration');
 for(const path of ['404.html','_headers','learn/words/index.html','assets/words/apple.svg','assets/audio/female/000.mp3','assets/audio/male/000.mp3']){

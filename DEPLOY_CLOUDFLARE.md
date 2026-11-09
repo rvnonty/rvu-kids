@@ -10,7 +10,7 @@ The site remains live on GitHub Pages until the owner explicitly cuts over. The 
 2. In GitHub repository Settings → Secrets and variables → Actions, add `CLOUDFLARE_API_TOKEN` (a scoped Workers deployment token) and `CLOUDFLARE_ACCOUNT_ID`. **Never put secret values in the repository or chat.**
 3. Create GitHub Environment named `cloudflare-staging` (optionally require approval).
 4. Open Actions → Deploy RVU Kids to Cloudflare staging → Run workflow. It builds, checks static assets, and deploys `rvu-kids-static` to its Cloudflare preview hostname, without changing the public domain.
-5. Verify first 60 pictures, all sound formats, 404 status, navigation, WhatsApp handoff and caching on the preview domain.
+5. Verify all 101 picture thumbnails, all sound formats, 404 status, navigation, WhatsApp handoff and caching on the preview domain.
 
 ## Domain cutover (separate owner action)
 

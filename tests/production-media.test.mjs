@@ -11,9 +11,9 @@ test('all 244 audio targets are approved by the site owner and exist',()=>{
   assert.ok(existsSync('.'+path),path);assert.ok(statSync('.'+path).size>2300,path)
  }
 });
-test('60 first picture words are unique and all linked to an asset',()=>{
- const words=curriculum.alphabet.flatMap(a=>a.words).slice(0,60);
- assert.equal(words.length,60);assert.equal(new Set(words).size,60);
+test('all 101 picture words are unique and linked to images',()=>{
+ const words=curriculum.alphabet.flatMap(a=>a.words);
+ assert.equal(words.length,101);assert.equal(new Set(words).size,101);
  for(const w of words){const file='assets/words/'+w.replaceAll(' ','-')+'.svg';assert.ok(existsSync(file),file);assert.ok(statSync(file).size<2000,file)}
  assert.ok(existsSync('learn/words/index.html'));assert.ok(existsSync('dist/learn/words/index.html'));
 });
@@ -22,6 +22,11 @@ test('playback loads on click and photos respect reduced-motion',()=>{
  assert.ok(js.includes('new Audio(url)'));
  assert.ok(js.includes("image.loading='lazy'"));
  assert.ok(js.includes('function wordLibrary()'));
+ assert.ok(js.includes('const ALL_PICTURE_WORDS=alphabet.flatMap(unit=>unit.words);'));
+ assert.ok(!js.includes('FIRST_60'));
+ assert.ok(js.includes('ALL_PICTURE_WORDS.forEach'));
+ assert.ok(read('learn/words/index.html').includes('101 كلمة'));
+ assert.ok(read('learn/index.html').includes('101 كلمة'));
  assert.ok(css.includes('prefers-reduced-motion:reduce'));
  assert.ok(!existsSync('audio-review/index.html'));
 });

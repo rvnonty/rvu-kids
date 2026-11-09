@@ -2,7 +2,7 @@ name: RVU Kids Quality Checks
 
 on:
   push:
-    branches: [main, feature/cloudflare-cdn-release-readiness]
+    branches: [main]
   workflow_dispatch:
 
 permissions:

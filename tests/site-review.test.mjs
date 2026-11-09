@@ -49,8 +49,8 @@ test('no imaginary live checkout or audio assets',()=>{
  const conf=read('wrangler.jsonc');
  assert.equal(JSON.parse(conf).vars.ORDERS_ENABLED,'false');
  const audio=JSON.parse(read('learn/audio-manifest.json'));
- assert.equal(audio.status,'awaiting-reviewed-audio');
- assert.ok(audio.recordings.every(r=>r.asset===null));
+ assert.equal(audio.status,'approved-by-site-owner');
+ assert.ok(audio.recordings.every(r=>r.voices?.female&&r.voices?.male));
 });
 
 
@@ -105,7 +105,7 @@ test('why different gives clear printed learning progression and honest future U
  for(const id of ['why-different','whyLettersTitle','whyWordsTitle','whySentencesTitle','whyAudioSoon','whyAudioTitle','whyAudioText']){
   assert.ok(page.includes(id),id);
  }
- assert.ok(app.includes('audio playback is not available yet'.replace('audio playback','Audio playback')));
+ assert.ok(app.includes('American English audio library'));
  const css=read('style.css');
  assert.ok(css.includes('.why-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))'));
 });

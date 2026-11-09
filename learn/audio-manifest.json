@@ -13,8 +13,8 @@
       "lesson": "a",
       "text": "A",
       "voices": {
-        "female": "/audio-review/neural/female/000.mp3",
-        "male": "/audio-review/neural/male/000.mp3"
+        "female": "/assets/audio/female/000.mp3",
+        "male": "/assets/audio/male/000.mp3"
       }
     },
     {
@@ -22,8 +22,8 @@
       "lesson": "a",
       "text": "A",
       "voices": {
-        "female": "/audio-review/neural/female/001.mp3",
-        "male": "/audio-review/neural/male/001.mp3"
+        "female": "/assets/audio/female/001.mp3",
+        "male": "/assets/audio/male/001.mp3"
       }
     },
     {
@@ -31,8 +31,8 @@
       "lesson": "a",
       "text": "apple",
       "voices": {
-        "female": "/audio-review/neural/female/002.mp3",
-        "male": "/audio-review/neural/male/002.mp3"
+        "female": "/assets/audio/female/002.mp3",
+        "male": "/assets/audio/male/002.mp3"
       }
     },
     {
@@ -40,8 +40,8 @@
       "lesson": "a",
       "text": "ant",
       "voices": {
-        "female": "/audio-review/neural/female/003.mp3",
-        "male": "/audio-review/neural/male/003.mp3"
+        "female": "/assets/audio/female/003.mp3",
+        "male": "/assets/audio/male/003.mp3"
       }
     },
     {
@@ -49,8 +49,8 @@
       "lesson": "a",
       "text": "airplane",
       "voices": {
-        "female": "/audio-review/neural/female/004.mp3",
-        "male": "/audio-review/neural/male/004.mp3"
+        "female": "/assets/audio/female/004.mp3",
+        "male": "/assets/audio/male/004.mp3"
       }
     },
     {
@@ -58,8 +58,8 @@
       "lesson": "a",
       "text": "alligator",
       "voices": {
-        "female": "/audio-review/neural/female/005.mp3",
-        "male": "/audio-review/neural/male/005.mp3"
+        "female": "/assets/audio/female/005.mp3",
+        "male": "/assets/audio/male/005.mp3"
       }
     },
     {
@@ -67,8 +67,8 @@
       "lesson": "a",
       "text": "I see an apple.",
       "voices": {
-        "female": "/audio-review/neural/female/006.mp3",
-        "male": "/audio-review/neural/male/006.mp3"
+        "female": "/assets/audio/female/006.mp3",
+        "male": "/assets/audio/male/006.mp3"
       }
     },
     {
@@ -76,8 +76,8 @@
       "lesson": "b",
       "text": "B",
       "voices": {
-        "female": "/audio-review/neural/female/007.mp3",
-        "male": "/audio-review/neural/male/007.mp3"
+        "female": "/assets/audio/female/007.mp3",
+        "male": "/assets/audio/male/007.mp3"
       }
     },
     {
@@ -85,8 +85,8 @@
       "lesson": "b",
       "text": "B",
       "voices": {
-        "female": "/audio-review/neural/female/008.mp3",
-        "male": "/audio-review/neural/male/008.mp3"
+        "female": "/assets/audio/female/008.mp3",
+        "male": "/assets/audio/male/008.mp3"
       }
     },
     {
@@ -94,8 +94,8 @@
       "lesson": "b",
       "text": "ball",
       "voices": {
-        "female": "/audio-review/neural/female/009.mp3",
-        "male": "/audio-review/neural/male/009.mp3"
+        "female": "/assets/audio/female/009.mp3",
+        "male": "/assets/audio/male/009.mp3"
       }
     },
     {
@@ -103,8 +103,8 @@
       "lesson": "b",
       "text": "bear",
       "voices": {
-        "female": "/audio-review/neural/female/010.mp3",
-        "male": "/audio-review/neural/male/010.mp3"
+        "female": "/assets/audio/female/010.mp3",
+        "male": "/assets/audio/male/010.mp3"
       }
     },
     {
@@ -112,8 +112,8 @@
       "lesson": "b",
       "text": "banana",
       "voices": {
-        "female": "/audio-review/neural/female/011.mp3",
-        "male": "/audio-review/neural/male/011.mp3"
+        "female": "/assets/audio/female/011.mp3",
+        "male": "/assets/audio/male/011.mp3"
       }
     },
     {
@@ -121,8 +121,8 @@
       "lesson": "b",
       "text": "boat",
       "voices": {
-        "female": "/audio-review/neural/female/012.mp3",
-        "male": "/audio-review/neural/male/012.mp3"
+        "female": "/assets/audio/female/012.mp3",
+        "male": "/assets/audio/male/012.mp3"
       }
     },
     {
@@ -130,8 +130,8 @@
       "lesson": "b",
       "text": "I see a ball.",
       "voices": {
-        "female": "/audio-review/neural/female/013.mp3",
-        "male": "/audio-review/neural/male/013.mp3"
+        "female": "/assets/audio/female/013.mp3",
+        "male": "/assets/audio/male/013.mp3"
       }
     },
     {
@@ -139,8 +139,8 @@
       "lesson": "c",
       "text": "C",
       "voices": {
-        "female": "/audio-review/neural/female/014.mp3",
-        "male": "/audio-review/neural/male/014.mp3"
+        "female": "/assets/audio/female/014.mp3",
+        "male": "/assets/audio/male/014.mp3"
       }
     },
     {
@@ -148,8 +148,8 @@
       "lesson": "c",
       "text": "C",
       "voices": {
-        "female": "/audio-review/neural/female/015.mp3",
-        "male": "/audio-review/neural/male/015.mp3"
+        "female": "/assets/audio/female/015.mp3",
+        "male": "/assets/audio/male/015.mp3"
       }
     },
     {
@@ -157,8 +157,8 @@
       "lesson": "c",
       "text": "cat",
       "voices": {
-        "female": "/audio-review/neural/female/016.mp3",
-        "male": "/audio-review/neural/male/016.mp3"
+        "female": "/assets/audio/female/016.mp3",
+        "male": "/assets/audio/male/016.mp3"
       }
     },
     {
@@ -166,8 +166,8 @@
       "lesson": "c",
       "text": "car",
       "voices": {
-        "female": "/audio-review/neural/female/017.mp3",
-        "male": "/audio-review/neural/male/017.mp3"
+        "female": "/assets/audio/female/017.mp3",
+        "male": "/assets/audio/male/017.mp3"
       }
     },
     {
@@ -175,8 +175,8 @@
       "lesson": "c",
       "text": "cake",
       "voices": {
-        "female": "/audio-review/neural/female/018.mp3",
-        "male": "/audio-review/neural/male/018.mp3"
+        "female": "/assets/audio/female/018.mp3",
+        "male": "/assets/audio/male/018.mp3"
       }
     },
     {
@@ -184,8 +184,8 @@
       "lesson": "c",
       "text": "cup",
       "voices": {
-        "female": "/audio-review/neural/female/019.mp3",
-        "male": "/audio-review/neural/male/019.mp3"
+        "female": "/assets/audio/female/019.mp3",
+        "male": "/assets/audio/male/019.mp3"
       }
     },
     {
@@ -193,8 +193,8 @@
       "lesson": "c",
       "text": "This is a cat.",
       "voices": {
-        "female": "/audio-review/neural/female/020.mp3",
-        "male": "/audio-review/neural/male/020.mp3"
+        "female": "/assets/audio/female/020.mp3",
+        "male": "/assets/audio/male/020.mp3"
       }
     },
     {
@@ -202,8 +202,8 @@
       "lesson": "d",
       "text": "D",
       "voices": {
-        "female": "/audio-review/neural/female/021.mp3",
-        "male": "/audio-review/neural/male/021.mp3"
+        "female": "/assets/audio/female/021.mp3",
+        "male": "/assets/audio/male/021.mp3"
       }
     },
     {
@@ -211,8 +211,8 @@
       "lesson": "d",
       "text": "D",
       "voices": {
-        "female": "/audio-review/neural/female/022.mp3",
-        "male": "/audio-review/neural/male/022.mp3"
+        "female": "/assets/audio/female/022.mp3",
+        "male": "/assets/audio/male/022.mp3"
       }
     },
     {
@@ -220,8 +220,8 @@
       "lesson": "d",
       "text": "dog",
       "voices": {
-        "female": "/audio-review/neural/female/023.mp3",
-        "male": "/audio-review/neural/male/023.mp3"
+        "female": "/assets/audio/female/023.mp3",
+        "male": "/assets/audio/male/023.mp3"
       }
     },
     {
@@ -229,8 +229,8 @@
       "lesson": "d",
       "text": "duck",
       "voices": {
-        "female": "/audio-review/neural/female/024.mp3",
-        "male": "/audio-review/neural/male/024.mp3"
+        "female": "/assets/audio/female/024.mp3",
+        "male": "/assets/audio/male/024.mp3"
       }
     },
     {
@@ -238,8 +238,8 @@
       "lesson": "d",
       "text": "doll",
       "voices": {
-        "female": "/audio-review/neural/female/025.mp3",
-        "male": "/audio-review/neural/male/025.mp3"
+        "female": "/assets/audio/female/025.mp3",
+        "male": "/assets/audio/male/025.mp3"
       }
     },
     {
@@ -247,8 +247,8 @@
       "lesson": "d",
       "text": "door",
       "voices": {
-        "female": "/audio-review/neural/female/026.mp3",
-        "male": "/audio-review/neural/male/026.mp3"
+        "female": "/assets/audio/female/026.mp3",
+        "male": "/assets/audio/male/026.mp3"
       }
     },
     {
@@ -256,8 +256,8 @@
       "lesson": "d",
       "text": "I see a dog.",
       "voices": {
-        "female": "/audio-review/neural/female/027.mp3",
-        "male": "/audio-review/neural/male/027.mp3"
+        "female": "/assets/audio/female/027.mp3",
+        "male": "/assets/audio/male/027.mp3"
       }
     },
     {
@@ -265,8 +265,8 @@
       "lesson": "e",
       "text": "E",
       "voices": {
-        "female": "/audio-review/neural/female/028.mp3",
-        "male": "/audio-review/neural/male/028.mp3"
+        "female": "/assets/audio/female/028.mp3",
+        "male": "/assets/audio/male/028.mp3"
       }
     },
     {
@@ -274,8 +274,8 @@
       "lesson": "e",
       "text": "E",
       "voices": {
-        "female": "/audio-review/neural/female/029.mp3",
-        "male": "/audio-review/neural/male/029.mp3"
+        "female": "/assets/audio/female/029.mp3",
+        "male": "/assets/audio/male/029.mp3"
       }
     },
     {
@@ -283,8 +283,8 @@
       "lesson": "e",
       "text": "elephant",
       "voices": {
-        "female": "/audio-review/neural/female/030.mp3",
-        "male": "/audio-review/neural/male/030.mp3"
+        "female": "/assets/audio/female/030.mp3",
+        "male": "/assets/audio/male/030.mp3"
       }
     },
     {
@@ -292,8 +292,8 @@
       "lesson": "e",
       "text": "egg",
       "voices": {
-        "female": "/audio-review/neural/female/031.mp3",
-        "male": "/audio-review/neural/male/031.mp3"
+        "female": "/assets/audio/female/031.mp3",
+        "male": "/assets/audio/male/031.mp3"
       }
     },
     {
@@ -301,8 +301,8 @@
       "lesson": "e",
       "text": "ear",
       "voices": {
-        "female": "/audio-review/neural/female/032.mp3",
-        "male": "/audio-review/neural/male/032.mp3"
+        "female": "/assets/audio/female/032.mp3",
+        "male": "/assets/audio/male/032.mp3"
       }
     },
     {
@@ -310,8 +310,8 @@
       "lesson": "e",
       "text": "elbow",
       "voices": {
-        "female": "/audio-review/neural/female/033.mp3",
-        "male": "/audio-review/neural/male/033.mp3"
+        "female": "/assets/audio/female/033.mp3",
+        "male": "/assets/audio/male/033.mp3"
       }
     },
     {
@@ -319,8 +319,8 @@
       "lesson": "e",
       "text": "This is an elephant.",
       "voices": {
-        "female": "/audio-review/neural/female/034.mp3",
-        "male": "/audio-review/neural/male/034.mp3"
+        "female": "/assets/audio/female/034.mp3",
+        "male": "/assets/audio/male/034.mp3"
       }
     },
     {
@@ -328,8 +328,8 @@
       "lesson": "f",
       "text": "F",
       "voices": {
-        "female": "/audio-review/neural/female/035.mp3",
-        "male": "/audio-review/neural/male/035.mp3"
+        "female": "/assets/audio/female/035.mp3",
+        "male": "/assets/audio/male/035.mp3"
       }
     },
     {
@@ -337,8 +337,8 @@
       "lesson": "f",
       "text": "F",
       "voices": {
-        "female": "/audio-review/neural/female/036.mp3",
-        "male": "/audio-review/neural/male/036.mp3"
+        "female": "/assets/audio/female/036.mp3",
+        "male": "/assets/audio/male/036.mp3"
       }
     },
     {
@@ -346,8 +346,8 @@
       "lesson": "f",
       "text": "fish",
       "voices": {
-        "female": "/audio-review/neural/female/037.mp3",
-        "male": "/audio-review/neural/male/037.mp3"
+        "female": "/assets/audio/female/037.mp3",
+        "male": "/assets/audio/male/037.mp3"
       }
     },
     {
@@ -355,8 +355,8 @@
       "lesson": "f",
       "text": "frog",
       "voices": {
-        "female": "/audio-review/neural/female/038.mp3",
-        "male": "/audio-review/neural/male/038.mp3"
+        "female": "/assets/audio/female/038.mp3",
+        "male": "/assets/audio/male/038.mp3"
       }
     },
     {
@@ -364,8 +364,8 @@
       "lesson": "f",
       "text": "flower",
       "voices": {
-        "female": "/audio-review/neural/female/039.mp3",
-        "male": "/audio-review/neural/male/039.mp3"
+        "female": "/assets/audio/female/039.mp3",
+        "male": "/assets/audio/male/039.mp3"
       }
     },
     {
@@ -373,8 +373,8 @@
       "lesson": "f",
       "text": "fork",
       "voices": {
-        "female": "/audio-review/neural/female/040.mp3",
-        "male": "/audio-review/neural/male/040.mp3"
+        "female": "/assets/audio/female/040.mp3",
+        "male": "/assets/audio/male/040.mp3"
       }
     },
     {
@@ -382,8 +382,8 @@
       "lesson": "f",
       "text": "I see a fish.",
       "voices": {
-        "female": "/audio-review/neural/female/041.mp3",
-        "male": "/audio-review/neural/male/041.mp3"
+        "female": "/assets/audio/female/041.mp3",
+        "male": "/assets/audio/male/041.mp3"
       }
     },
     {
@@ -391,8 +391,8 @@
       "lesson": "g",
       "text": "G",
       "voices": {
-        "female": "/audio-review/neural/female/042.mp3",
-        "male": "/audio-review/neural/male/042.mp3"
+        "female": "/assets/audio/female/042.mp3",
+        "male": "/assets/audio/male/042.mp3"
       }
     },
     {
@@ -400,8 +400,8 @@
       "lesson": "g",
       "text": "G",
       "voices": {
-        "female": "/audio-review/neural/female/043.mp3",
-        "male": "/audio-review/neural/male/043.mp3"
+        "female": "/assets/audio/female/043.mp3",
+        "male": "/assets/audio/male/043.mp3"
       }
     },
     {
@@ -409,8 +409,8 @@
       "lesson": "g",
       "text": "goat",
       "voices": {
-        "female": "/audio-review/neural/female/044.mp3",
-        "male": "/audio-review/neural/male/044.mp3"
+        "female": "/assets/audio/female/044.mp3",
+        "male": "/assets/audio/male/044.mp3"
       }
     },
     {
@@ -418,8 +418,8 @@
       "lesson": "g",
       "text": "grapes",
       "voices": {
-        "female": "/audio-review/neural/female/045.mp3",
-        "male": "/audio-review/neural/male/045.mp3"
+        "female": "/assets/audio/female/045.mp3",
+        "male": "/assets/audio/male/045.mp3"
       }
     },
     {
@@ -427,8 +427,8 @@
       "lesson": "g",
       "text": "gift",
       "voices": {
-        "female": "/audio-review/neural/female/046.mp3",
-        "male": "/audio-review/neural/male/046.mp3"
+        "female": "/assets/audio/female/046.mp3",
+        "male": "/assets/audio/male/046.mp3"
       }
     },
     {
@@ -436,8 +436,8 @@
       "lesson": "g",
       "text": "guitar",
       "voices": {
-        "female": "/audio-review/neural/female/047.mp3",
-        "male": "/audio-review/neural/male/047.mp3"
+        "female": "/assets/audio/female/047.mp3",
+        "male": "/assets/audio/male/047.mp3"
       }
     },
     {
@@ -445,8 +445,8 @@
       "lesson": "g",
       "text": "This is a goat.",
       "voices": {
-        "female": "/audio-review/neural/female/048.mp3",
-        "male": "/audio-review/neural/male/048.mp3"
+        "female": "/assets/audio/female/048.mp3",
+        "male": "/assets/audio/male/048.mp3"
       }
     },
     {
@@ -454,8 +454,8 @@
       "lesson": "h",
       "text": "H",
       "voices": {
-        "female": "/audio-review/neural/female/049.mp3",
-        "male": "/audio-review/neural/male/049.mp3"
+        "female": "/assets/audio/female/049.mp3",
+        "male": "/assets/audio/male/049.mp3"
       }
     },
     {
@@ -463,8 +463,8 @@
       "lesson": "h",
       "text": "H",
       "voices": {
-        "female": "/audio-review/neural/female/050.mp3",
-        "male": "/audio-review/neural/male/050.mp3"
+        "female": "/assets/audio/female/050.mp3",
+        "male": "/assets/audio/male/050.mp3"
       }
     },
     {
@@ -472,8 +472,8 @@
       "lesson": "h",
       "text": "hat",
       "voices": {
-        "female": "/audio-review/neural/female/051.mp3",
-        "male": "/audio-review/neural/male/051.mp3"
+        "female": "/assets/audio/female/051.mp3",
+        "male": "/assets/audio/male/051.mp3"
       }
     },
     {
@@ -481,8 +481,8 @@
       "lesson": "h",
       "text": "house",
       "voices": {
-        "female": "/audio-review/neural/female/052.mp3",
-        "male": "/audio-review/neural/male/052.mp3"
+        "female": "/assets/audio/female/052.mp3",
+        "male": "/assets/audio/male/052.mp3"
       }
     },
     {
@@ -490,8 +490,8 @@
       "lesson": "h",
       "text": "horse",
       "voices": {
-        "female": "/audio-review/neural/female/053.mp3",
-        "male": "/audio-review/neural/male/053.mp3"
+        "female": "/assets/audio/female/053.mp3",
+        "male": "/assets/audio/male/053.mp3"
       }
     },
     {
@@ -499,8 +499,8 @@
       "lesson": "h",
       "text": "hand",
       "voices": {
-        "female": "/audio-review/neural/female/054.mp3",
-        "male": "/audio-review/neural/male/054.mp3"
+        "female": "/assets/audio/female/054.mp3",
+        "male": "/assets/audio/male/054.mp3"
       }
     },
     {
@@ -508,8 +508,8 @@
       "lesson": "h",
       "text": "I see a hat.",
       "voices": {
-        "female": "/audio-review/neural/female/055.mp3",
-        "male": "/audio-review/neural/male/055.mp3"
+        "female": "/assets/audio/female/055.mp3",
+        "male": "/assets/audio/male/055.mp3"
       }
     },
     {
@@ -517,8 +517,8 @@
       "lesson": "i",
       "text": "I",
       "voices": {
-        "female": "/audio-review/neural/female/056.mp3",
-        "male": "/audio-review/neural/male/056.mp3"
+        "female": "/assets/audio/female/056.mp3",
+        "male": "/assets/audio/male/056.mp3"
       }
     },
     {
@@ -526,8 +526,8 @@
       "lesson": "i",
       "text": "I",
       "voices": {
-        "female": "/audio-review/neural/female/057.mp3",
-        "male": "/audio-review/neural/male/057.mp3"
+        "female": "/assets/audio/female/057.mp3",
+        "male": "/assets/audio/male/057.mp3"
       }
     },
     {
@@ -535,8 +535,8 @@
       "lesson": "i",
       "text": "island",
       "voices": {
-        "female": "/audio-review/neural/female/058.mp3",
-        "male": "/audio-review/neural/male/058.mp3"
+        "female": "/assets/audio/female/058.mp3",
+        "male": "/assets/audio/male/058.mp3"
       }
     },
     {
@@ -544,8 +544,8 @@
       "lesson": "i",
       "text": "iguana",
       "voices": {
-        "female": "/audio-review/neural/female/059.mp3",
-        "male": "/audio-review/neural/male/059.mp3"
+        "female": "/assets/audio/female/059.mp3",
+        "male": "/assets/audio/male/059.mp3"
       }
     },
     {
@@ -553,8 +553,8 @@
       "lesson": "i",
       "text": "ice cream",
       "voices": {
-        "female": "/audio-review/neural/female/060.mp3",
-        "male": "/audio-review/neural/male/060.mp3"
+        "female": "/assets/audio/female/060.mp3",
+        "male": "/assets/audio/male/060.mp3"
       }
     },
     {
@@ -562,8 +562,8 @@
       "lesson": "i",
       "text": "insect",
       "voices": {
-        "female": "/audio-review/neural/female/061.mp3",
-        "male": "/audio-review/neural/male/061.mp3"
+        "female": "/assets/audio/female/061.mp3",
+        "male": "/assets/audio/male/061.mp3"
       }
     },
     {
@@ -571,8 +571,8 @@
       "lesson": "i",
       "text": "I see an iguana.",
       "voices": {
-        "female": "/audio-review/neural/female/062.mp3",
-        "male": "/audio-review/neural/male/062.mp3"
+        "female": "/assets/audio/female/062.mp3",
+        "male": "/assets/audio/male/062.mp3"
       }
     },
     {
@@ -580,8 +580,8 @@
       "lesson": "j",
       "text": "J",
       "voices": {
-        "female": "/audio-review/neural/female/063.mp3",
-        "male": "/audio-review/neural/male/063.mp3"
+        "female": "/assets/audio/female/063.mp3",
+        "male": "/assets/audio/male/063.mp3"
       }
     },
     {
@@ -589,8 +589,8 @@
       "lesson": "j",
       "text": "J",
       "voices": {
-        "female": "/audio-review/neural/female/064.mp3",
-        "male": "/audio-review/neural/male/064.mp3"
+        "female": "/assets/audio/female/064.mp3",
+        "male": "/assets/audio/male/064.mp3"
       }
     },
     {
@@ -598,8 +598,8 @@
       "lesson": "j",
       "text": "juice",
       "voices": {
-        "female": "/audio-review/neural/female/065.mp3",
-        "male": "/audio-review/neural/male/065.mp3"
+        "female": "/assets/audio/female/065.mp3",
+        "male": "/assets/audio/male/065.mp3"
       }
     },
     {
@@ -607,8 +607,8 @@
       "lesson": "j",
       "text": "jacket",
       "voices": {
-        "female": "/audio-review/neural/female/066.mp3",
-        "male": "/audio-review/neural/male/066.mp3"
+        "female": "/assets/audio/female/066.mp3",
+        "male": "/assets/audio/male/066.mp3"
       }
     },
     {
@@ -616,8 +616,8 @@
       "lesson": "j",
       "text": "jellyfish",
       "voices": {
-        "female": "/audio-review/neural/female/067.mp3",
-        "male": "/audio-review/neural/male/067.mp3"
+        "female": "/assets/audio/female/067.mp3",
+        "male": "/assets/audio/male/067.mp3"
       }
     },
     {
@@ -625,8 +625,8 @@
       "lesson": "j",
       "text": "jam",
       "voices": {
-        "female": "/audio-review/neural/female/068.mp3",
-        "male": "/audio-review/neural/male/068.mp3"
+        "female": "/assets/audio/female/068.mp3",
+        "male": "/assets/audio/male/068.mp3"
       }
     },
     {
@@ -634,8 +634,8 @@
       "lesson": "j",
       "text": "This is a jacket.",
       "voices": {
-        "female": "/audio-review/neural/female/069.mp3",
-        "male": "/audio-review/neural/male/069.mp3"
+        "female": "/assets/audio/female/069.mp3",
+        "male": "/assets/audio/male/069.mp3"
       }
     },
     {
@@ -643,8 +643,8 @@
       "lesson": "k",
       "text": "K",
       "voices": {
-        "female": "/audio-review/neural/female/070.mp3",
-        "male": "/audio-review/neural/male/070.mp3"
+        "female": "/assets/audio/female/070.mp3",
+        "male": "/assets/audio/male/070.mp3"
       }
     },
     {
@@ -652,8 +652,8 @@
       "lesson": "k",
       "text": "K",
       "voices": {
-        "female": "/audio-review/neural/female/071.mp3",
-        "male": "/audio-review/neural/male/071.mp3"
+        "female": "/assets/audio/female/071.mp3",
+        "male": "/assets/audio/male/071.mp3"
       }
     },
     {
@@ -661,8 +661,8 @@
       "lesson": "k",
       "text": "kite",
       "voices": {
-        "female": "/audio-review/neural/female/072.mp3",
-        "male": "/audio-review/neural/male/072.mp3"
+        "female": "/assets/audio/female/072.mp3",
+        "male": "/assets/audio/male/072.mp3"
       }
     },
     {
@@ -670,8 +670,8 @@
       "lesson": "k",
       "text": "key",
       "voices": {
-        "female": "/audio-review/neural/female/073.mp3",
-        "male": "/audio-review/neural/male/073.mp3"
+        "female": "/assets/audio/female/073.mp3",
+        "male": "/assets/audio/male/073.mp3"
       }
     },
     {
@@ -679,8 +679,8 @@
       "lesson": "k",
       "text": "kitten",
       "voices": {
-        "female": "/audio-review/neural/female/074.mp3",
-        "male": "/audio-review/neural/male/074.mp3"
+        "female": "/assets/audio/female/074.mp3",
+        "male": "/assets/audio/male/074.mp3"
       }
     },
     {
@@ -688,8 +688,8 @@
       "lesson": "k",
       "text": "kangaroo",
       "voices": {
-        "female": "/audio-review/neural/female/075.mp3",
-        "male": "/audio-review/neural/male/075.mp3"
+        "female": "/assets/audio/female/075.mp3",
+        "male": "/assets/audio/male/075.mp3"
       }
     },
     {
@@ -697,8 +697,8 @@
       "lesson": "k",
       "text": "I see a kite.",
       "voices": {
-        "female": "/audio-review/neural/female/076.mp3",
-        "male": "/audio-review/neural/male/076.mp3"
+        "female": "/assets/audio/female/076.mp3",
+        "male": "/assets/audio/male/076.mp3"
       }
     },
     {
@@ -706,8 +706,8 @@
       "lesson": "l",
       "text": "L",
       "voices": {
-        "female": "/audio-review/neural/female/077.mp3",
-        "male": "/audio-review/neural/male/077.mp3"
+        "female": "/assets/audio/female/077.mp3",
+        "male": "/assets/audio/male/077.mp3"
       }
     },
     {
@@ -715,8 +715,8 @@
       "lesson": "l",
       "text": "L",
       "voices": {
-        "female": "/audio-review/neural/female/078.mp3",
-        "male": "/audio-review/neural/male/078.mp3"
+        "female": "/assets/audio/female/078.mp3",
+        "male": "/assets/audio/male/078.mp3"
       }
     },
     {
@@ -724,8 +724,8 @@
       "lesson": "l",
       "text": "lion",
       "voices": {
-        "female": "/audio-review/neural/female/079.mp3",
-        "male": "/audio-review/neural/male/079.mp3"
+        "female": "/assets/audio/female/079.mp3",
+        "male": "/assets/audio/male/079.mp3"
       }
     },
     {
@@ -733,8 +733,8 @@
       "lesson": "l",
       "text": "lemon",
       "voices": {
-        "female": "/audio-review/neural/female/080.mp3",
-        "male": "/audio-review/neural/male/080.mp3"
+        "female": "/assets/audio/female/080.mp3",
+        "male": "/assets/audio/male/080.mp3"
       }
     },
     {
@@ -742,8 +742,8 @@
       "lesson": "l",
       "text": "leaf",
       "voices": {
-        "female": "/audio-review/neural/female/081.mp3",
-        "male": "/audio-review/neural/male/081.mp3"
+        "female": "/assets/audio/female/081.mp3",
+        "male": "/assets/audio/male/081.mp3"
       }
     },
     {
@@ -751,8 +751,8 @@
       "lesson": "l",
       "text": "lamp",
       "voices": {
-        "female": "/audio-review/neural/female/082.mp3",
-        "male": "/audio-review/neural/male/082.mp3"
+        "female": "/assets/audio/female/082.mp3",
+        "male": "/assets/audio/male/082.mp3"
       }
     },
     {
@@ -760,8 +760,8 @@
       "lesson": "l",
       "text": "This is a lion.",
       "voices": {
-        "female": "/audio-review/neural/female/083.mp3",
-        "male": "/audio-review/neural/male/083.mp3"
+        "female": "/assets/audio/female/083.mp3",
+        "male": "/assets/audio/male/083.mp3"
       }
     },
     {
@@ -769,8 +769,8 @@
       "lesson": "m",
       "text": "M",
       "voices": {
-        "female": "/audio-review/neural/female/084.mp3",
-        "male": "/audio-review/neural/male/084.mp3"
+        "female": "/assets/audio/female/084.mp3",
+        "male": "/assets/audio/male/084.mp3"
       }
     },
     {
@@ -778,8 +778,8 @@
       "lesson": "m",
       "text": "M",
       "voices": {
-        "female": "/audio-review/neural/female/085.mp3",
-        "male": "/audio-review/neural/male/085.mp3"
+        "female": "/assets/audio/female/085.mp3",
+        "male": "/assets/audio/male/085.mp3"
       }
     },
     {
@@ -787,8 +787,8 @@
       "lesson": "m",
       "text": "moon",
       "voices": {
-        "female": "/audio-review/neural/female/086.mp3",
-        "male": "/audio-review/neural/male/086.mp3"
+        "female": "/assets/audio/female/086.mp3",
+        "male": "/assets/audio/male/086.mp3"
       }
     },
     {
@@ -796,8 +796,8 @@
       "lesson": "m",
       "text": "milk",
       "voices": {
-        "female": "/audio-review/neural/female/087.mp3",
-        "male": "/audio-review/neural/male/087.mp3"
+        "female": "/assets/audio/female/087.mp3",
+        "male": "/assets/audio/male/087.mp3"
       }
     },
     {
@@ -805,8 +805,8 @@
       "lesson": "m",
       "text": "monkey",
       "voices": {
-        "female": "/audio-review/neural/female/088.mp3",
-        "male": "/audio-review/neural/male/088.mp3"
+        "female": "/assets/audio/female/088.mp3",
+        "male": "/assets/audio/male/088.mp3"
       }
     },
     {
@@ -814,8 +814,8 @@
       "lesson": "m",
       "text": "mouse",
       "voices": {
-        "female": "/audio-review/neural/female/089.mp3",
-        "male": "/audio-review/neural/male/089.mp3"
+        "female": "/assets/audio/female/089.mp3",
+        "male": "/assets/audio/male/089.mp3"
       }
     },
     {
@@ -823,8 +823,8 @@
       "lesson": "m",
       "text": "This is a monkey.",
       "voices": {
-        "female": "/audio-review/neural/female/090.mp3",
-        "male": "/audio-review/neural/male/090.mp3"
+        "female": "/assets/audio/female/090.mp3",
+        "male": "/assets/audio/male/090.mp3"
       }
     },
     {
@@ -832,8 +832,8 @@
       "lesson": "n",
       "text": "N",
       "voices": {
-        "female": "/audio-review/neural/female/091.mp3",
-        "male": "/audio-review/neural/male/091.mp3"
+        "female": "/assets/audio/female/091.mp3",
+        "male": "/assets/audio/male/091.mp3"
       }
     },
     {
@@ -841,8 +841,8 @@
       "lesson": "n",
       "text": "N",
       "voices": {
-        "female": "/audio-review/neural/female/092.mp3",
-        "male": "/audio-review/neural/male/092.mp3"
+        "female": "/assets/audio/female/092.mp3",
+        "male": "/assets/audio/male/092.mp3"
       }
     },
     {
@@ -850,8 +850,8 @@
       "lesson": "n",
       "text": "nest",
       "voices": {
-        "female": "/audio-review/neural/female/093.mp3",
-        "male": "/audio-review/neural/male/093.mp3"
+        "female": "/assets/audio/female/093.mp3",
+        "male": "/assets/audio/male/093.mp3"
       }
     },
     {
@@ -859,8 +859,8 @@
       "lesson": "n",
       "text": "nose",
       "voices": {
-        "female": "/audio-review/neural/female/094.mp3",
-        "male": "/audio-review/neural/male/094.mp3"
+        "female": "/assets/audio/female/094.mp3",
+        "male": "/assets/audio/male/094.mp3"
       }
     },
     {
@@ -868,8 +868,8 @@
       "lesson": "n",
       "text": "net",
       "voices": {
-        "female": "/audio-review/neural/female/095.mp3",
-        "male": "/audio-review/neural/male/095.mp3"
+        "female": "/assets/audio/female/095.mp3",
+        "male": "/assets/audio/male/095.mp3"
       }
     },
     {
@@ -877,8 +877,8 @@
       "lesson": "n",
       "text": "night",
       "voices": {
-        "female": "/audio-review/neural/female/096.mp3",
-        "male": "/audio-review/neural/male/096.mp3"
+        "female": "/assets/audio/female/096.mp3",
+        "male": "/assets/audio/male/096.mp3"
       }
     },
     {
@@ -886,8 +886,8 @@
       "lesson": "n",
       "text": "I see a nest.",
       "voices": {
-        "female": "/audio-review/neural/female/097.mp3",
-        "male": "/audio-review/neural/male/097.mp3"
+        "female": "/assets/audio/female/097.mp3",
+        "male": "/assets/audio/male/097.mp3"
       }
     },
     {
@@ -895,8 +895,8 @@
       "lesson": "o",
       "text": "O",
       "voices": {
-        "female": "/audio-review/neural/female/098.mp3",
-        "male": "/audio-review/neural/male/098.mp3"
+        "female": "/assets/audio/female/098.mp3",
+        "male": "/assets/audio/male/098.mp3"
       }
     },
     {
@@ -904,8 +904,8 @@
       "lesson": "o",
       "text": "O",
       "voices": {
-        "female": "/audio-review/neural/female/099.mp3",
-        "male": "/audio-review/neural/male/099.mp3"
+        "female": "/assets/audio/female/099.mp3",
+        "male": "/assets/audio/male/099.mp3"
       }
     },
     {
@@ -913,8 +913,8 @@
       "lesson": "o",
       "text": "orange",
       "voices": {
-        "female": "/audio-review/neural/female/100.mp3",
-        "male": "/audio-review/neural/male/100.mp3"
+        "female": "/assets/audio/female/100.mp3",
+        "male": "/assets/audio/male/100.mp3"
       }
     },
     {
@@ -922,8 +922,8 @@
       "lesson": "o",
       "text": "octopus",
       "voices": {
-        "female": "/audio-review/neural/female/101.mp3",
-        "male": "/audio-review/neural/male/101.mp3"
+        "female": "/assets/audio/female/101.mp3",
+        "male": "/assets/audio/male/101.mp3"
       }
     },
     {
@@ -931,8 +931,8 @@
       "lesson": "o",
       "text": "ocean",
       "voices": {
-        "female": "/audio-review/neural/female/102.mp3",
-        "male": "/audio-review/neural/male/102.mp3"
+        "female": "/assets/audio/female/102.mp3",
+        "male": "/assets/audio/male/102.mp3"
       }
     },
     {
@@ -940,8 +940,8 @@
       "lesson": "o",
       "text": "otter",
       "voices": {
-        "female": "/audio-review/neural/female/103.mp3",
-        "male": "/audio-review/neural/male/103.mp3"
+        "female": "/assets/audio/female/103.mp3",
+        "male": "/assets/audio/male/103.mp3"
       }
     },
     {
@@ -949,8 +949,8 @@
       "lesson": "o",
       "text": "I see an octopus.",
       "voices": {
-        "female": "/audio-review/neural/female/104.mp3",
-        "male": "/audio-review/neural/male/104.mp3"
+        "female": "/assets/audio/female/104.mp3",
+        "male": "/assets/audio/male/104.mp3"
       }
     },
     {
@@ -958,8 +958,8 @@
       "lesson": "p",
       "text": "P",
       "voices": {
-        "female": "/audio-review/neural/female/105.mp3",
-        "male": "/audio-review/neural/male/105.mp3"
+        "female": "/assets/audio/female/105.mp3",
+        "male": "/assets/audio/male/105.mp3"
       }
     },
     {
@@ -967,8 +967,8 @@
       "lesson": "p",
       "text": "P",
       "voices": {
-        "female": "/audio-review/neural/female/106.mp3",
-        "male": "/audio-review/neural/male/106.mp3"
+        "female": "/assets/audio/female/106.mp3",
+        "male": "/assets/audio/male/106.mp3"
       }
     },
     {
@@ -976,8 +976,8 @@
       "lesson": "p",
       "text": "pig",
       "voices": {
-        "female": "/audio-review/neural/female/107.mp3",
-        "male": "/audio-review/neural/male/107.mp3"
+        "female": "/assets/audio/female/107.mp3",
+        "male": "/assets/audio/male/107.mp3"
       }
     },
     {
@@ -985,8 +985,8 @@
       "lesson": "p",
       "text": "pen",
       "voices": {
-        "female": "/audio-review/neural/female/108.mp3",
-        "male": "/audio-review/neural/male/108.mp3"
+        "female": "/assets/audio/female/108.mp3",
+        "male": "/assets/audio/male/108.mp3"
       }
     },
     {
@@ -994,8 +994,8 @@
       "lesson": "p",
       "text": "pizza",
       "voices": {
-        "female": "/audio-review/neural/female/109.mp3",
-        "male": "/audio-review/neural/male/109.mp3"
+        "female": "/assets/audio/female/109.mp3",
+        "male": "/assets/audio/male/109.mp3"
       }
     },
     {
@@ -1003,8 +1003,8 @@
       "lesson": "p",
       "text": "panda",
       "voices": {
-        "female": "/audio-review/neural/female/110.mp3",
-        "male": "/audio-review/neural/male/110.mp3"
+        "female": "/assets/audio/female/110.mp3",
+        "male": "/assets/audio/male/110.mp3"
       }
     },
     {
@@ -1012,8 +1012,8 @@
       "lesson": "p",
       "text": "This is a panda.",
       "voices": {
-        "female": "/audio-review/neural/female/111.mp3",
-        "male": "/audio-review/neural/male/111.mp3"
+        "female": "/assets/audio/female/111.mp3",
+        "male": "/assets/audio/male/111.mp3"
       }
     },
     {
@@ -1021,8 +1021,8 @@
       "lesson": "q",
       "text": "Q",
       "voices": {
-        "female": "/audio-review/neural/female/112.mp3",
-        "male": "/audio-review/neural/male/112.mp3"
+        "female": "/assets/audio/female/112.mp3",
+        "male": "/assets/audio/male/112.mp3"
       }
     },
     {
@@ -1030,8 +1030,8 @@
       "lesson": "q",
       "text": "Q",
       "voices": {
-        "female": "/audio-review/neural/female/113.mp3",
-        "male": "/audio-review/neural/male/113.mp3"
+        "female": "/assets/audio/female/113.mp3",
+        "male": "/assets/audio/male/113.mp3"
       }
     },
     {
@@ -1039,8 +1039,8 @@
       "lesson": "q",
       "text": "queen",
       "voices": {
-        "female": "/audio-review/neural/female/114.mp3",
-        "male": "/audio-review/neural/male/114.mp3"
+        "female": "/assets/audio/female/114.mp3",
+        "male": "/assets/audio/male/114.mp3"
       }
     },
     {
@@ -1048,8 +1048,8 @@
       "lesson": "q",
       "text": "quilt",
       "voices": {
-        "female": "/audio-review/neural/female/115.mp3",
-        "male": "/audio-review/neural/male/115.mp3"
+        "female": "/assets/audio/female/115.mp3",
+        "male": "/assets/audio/male/115.mp3"
       }
     },
     {
@@ -1057,8 +1057,8 @@
       "lesson": "q",
       "text": "quail",
       "voices": {
-        "female": "/audio-review/neural/female/116.mp3",
-        "male": "/audio-review/neural/male/116.mp3"
+        "female": "/assets/audio/female/116.mp3",
+        "male": "/assets/audio/male/116.mp3"
       }
     },
     {
@@ -1066,8 +1066,8 @@
       "lesson": "q",
       "text": "This is a queen.",
       "voices": {
-        "female": "/audio-review/neural/female/117.mp3",
-        "male": "/audio-review/neural/male/117.mp3"
+        "female": "/assets/audio/female/117.mp3",
+        "male": "/assets/audio/male/117.mp3"
       }
     },
     {
@@ -1075,8 +1075,8 @@
       "lesson": "r",
       "text": "R",
       "voices": {
-        "female": "/audio-review/neural/female/118.mp3",
-        "male": "/audio-review/neural/male/118.mp3"
+        "female": "/assets/audio/female/118.mp3",
+        "male": "/assets/audio/male/118.mp3"
       }
     },
     {
@@ -1084,8 +1084,8 @@
       "lesson": "r",
       "text": "R",
       "voices": {
-        "female": "/audio-review/neural/female/119.mp3",
-        "male": "/audio-review/neural/male/119.mp3"
+        "female": "/assets/audio/female/119.mp3",
+        "male": "/assets/audio/male/119.mp3"
       }
     },
     {
@@ -1093,8 +1093,8 @@
       "lesson": "r",
       "text": "rabbit",
       "voices": {
-        "female": "/audio-review/neural/female/120.mp3",
-        "male": "/audio-review/neural/male/120.mp3"
+        "female": "/assets/audio/female/120.mp3",
+        "male": "/assets/audio/male/120.mp3"
       }
     },
     {
@@ -1102,8 +1102,8 @@
       "lesson": "r",
       "text": "robot",
       "voices": {
-        "female": "/audio-review/neural/female/121.mp3",
-        "male": "/audio-review/neural/male/121.mp3"
+        "female": "/assets/audio/female/121.mp3",
+        "male": "/assets/audio/male/121.mp3"
       }
     },
     {
@@ -1111,8 +1111,8 @@
       "lesson": "r",
       "text": "rain",
       "voices": {
-        "female": "/audio-review/neural/female/122.mp3",
-        "male": "/audio-review/neural/male/122.mp3"
+        "female": "/assets/audio/female/122.mp3",
+        "male": "/assets/audio/male/122.mp3"
       }
     },
     {
@@ -1120,8 +1120,8 @@
       "lesson": "r",
       "text": "rainbow",
       "voices": {
-        "female": "/audio-review/neural/female/123.mp3",
-        "male": "/audio-review/neural/male/123.mp3"
+        "female": "/assets/audio/female/123.mp3",
+        "male": "/assets/audio/male/123.mp3"
       }
     },
     {
@@ -1129,8 +1129,8 @@
       "lesson": "r",
       "text": "I see a rainbow.",
       "voices": {
-        "female": "/audio-review/neural/female/124.mp3",
-        "male": "/audio-review/neural/male/124.mp3"
+        "female": "/assets/audio/female/124.mp3",
+        "male": "/assets/audio/male/124.mp3"
       }
     },
     {
@@ -1138,8 +1138,8 @@
       "lesson": "s",
       "text": "S",
       "voices": {
-        "female": "/audio-review/neural/female/125.mp3",
-        "male": "/audio-review/neural/male/125.mp3"
+        "female": "/assets/audio/female/125.mp3",
+        "male": "/assets/audio/male/125.mp3"
       }
     },
     {
@@ -1147,8 +1147,8 @@
       "lesson": "s",
       "text": "S",
       "voices": {
-        "female": "/audio-review/neural/female/126.mp3",
-        "male": "/audio-review/neural/male/126.mp3"
+        "female": "/assets/audio/female/126.mp3",
+        "male": "/assets/audio/male/126.mp3"
       }
     },
     {
@@ -1156,8 +1156,8 @@
       "lesson": "s",
       "text": "sun",
       "voices": {
-        "female": "/audio-review/neural/female/127.mp3",
-        "male": "/audio-review/neural/male/127.mp3"
+        "female": "/assets/audio/female/127.mp3",
+        "male": "/assets/audio/male/127.mp3"
       }
     },
     {
@@ -1165,8 +1165,8 @@
       "lesson": "s",
       "text": "star",
       "voices": {
-        "female": "/audio-review/neural/female/128.mp3",
-        "male": "/audio-review/neural/male/128.mp3"
+        "female": "/assets/audio/female/128.mp3",
+        "male": "/assets/audio/male/128.mp3"
       }
     },
     {
@@ -1174,8 +1174,8 @@
       "lesson": "s",
       "text": "sock",
       "voices": {
-        "female": "/audio-review/neural/female/129.mp3",
-        "male": "/audio-review/neural/male/129.mp3"
+        "female": "/assets/audio/female/129.mp3",
+        "male": "/assets/audio/male/129.mp3"
       }
     },
     {
@@ -1183,8 +1183,8 @@
       "lesson": "s",
       "text": "spoon",
       "voices": {
-        "female": "/audio-review/neural/female/130.mp3",
-        "male": "/audio-review/neural/male/130.mp3"
+        "female": "/assets/audio/female/130.mp3",
+        "male": "/assets/audio/male/130.mp3"
       }
     },
     {
@@ -1192,8 +1192,8 @@
       "lesson": "s",
       "text": "This is a star.",
       "voices": {
-        "female": "/audio-review/neural/female/131.mp3",
-        "male": "/audio-review/neural/male/131.mp3"
+        "female": "/assets/audio/female/131.mp3",
+        "male": "/assets/audio/male/131.mp3"
       }
     },
     {
@@ -1201,8 +1201,8 @@
       "lesson": "t",
       "text": "T",
       "voices": {
-        "female": "/audio-review/neural/female/132.mp3",
-        "male": "/audio-review/neural/male/132.mp3"
+        "female": "/assets/audio/female/132.mp3",
+        "male": "/assets/audio/male/132.mp3"
       }
     },
     {
@@ -1210,8 +1210,8 @@
       "lesson": "t",
       "text": "T",
       "voices": {
-        "female": "/audio-review/neural/female/133.mp3",
-        "male": "/audio-review/neural/male/133.mp3"
+        "female": "/assets/audio/female/133.mp3",
+        "male": "/assets/audio/male/133.mp3"
       }
     },
     {
@@ -1219,8 +1219,8 @@
       "lesson": "t",
       "text": "tiger",
       "voices": {
-        "female": "/audio-review/neural/female/134.mp3",
-        "male": "/audio-review/neural/male/134.mp3"
+        "female": "/assets/audio/female/134.mp3",
+        "male": "/assets/audio/male/134.mp3"
       }
     },
     {
@@ -1228,8 +1228,8 @@
       "lesson": "t",
       "text": "train",
       "voices": {
-        "female": "/audio-review/neural/female/135.mp3",
-        "male": "/audio-review/neural/male/135.mp3"
+        "female": "/assets/audio/female/135.mp3",
+        "male": "/assets/audio/male/135.mp3"
       }
     },
     {
@@ -1237,8 +1237,8 @@
       "lesson": "t",
       "text": "tree",
       "voices": {
-        "female": "/audio-review/neural/female/136.mp3",
-        "male": "/audio-review/neural/male/136.mp3"
+        "female": "/assets/audio/female/136.mp3",
+        "male": "/assets/audio/male/136.mp3"
       }
     },
     {
@@ -1246,8 +1246,8 @@
       "lesson": "t",
       "text": "turtle",
       "voices": {
-        "female": "/audio-review/neural/female/137.mp3",
-        "male": "/audio-review/neural/male/137.mp3"
+        "female": "/assets/audio/female/137.mp3",
+        "male": "/assets/audio/male/137.mp3"
       }
     },
     {
@@ -1255,8 +1255,8 @@
       "lesson": "t",
       "text": "I see a train.",
       "voices": {
-        "female": "/audio-review/neural/female/138.mp3",
-        "male": "/audio-review/neural/male/138.mp3"
+        "female": "/assets/audio/female/138.mp3",
+        "male": "/assets/audio/male/138.mp3"
       }
     },
     {
@@ -1264,8 +1264,8 @@
       "lesson": "u",
       "text": "U",
       "voices": {
-        "female": "/audio-review/neural/female/139.mp3",
-        "male": "/audio-review/neural/male/139.mp3"
+        "female": "/assets/audio/female/139.mp3",
+        "male": "/assets/audio/male/139.mp3"
       }
     },
     {
@@ -1273,8 +1273,8 @@
       "lesson": "u",
       "text": "U",
       "voices": {
-        "female": "/audio-review/neural/female/140.mp3",
-        "male": "/audio-review/neural/male/140.mp3"
+        "female": "/assets/audio/female/140.mp3",
+        "male": "/assets/audio/male/140.mp3"
       }
     },
     {
@@ -1282,8 +1282,8 @@
       "lesson": "u",
       "text": "umbrella",
       "voices": {
-        "female": "/audio-review/neural/female/141.mp3",
-        "male": "/audio-review/neural/male/141.mp3"
+        "female": "/assets/audio/female/141.mp3",
+        "male": "/assets/audio/male/141.mp3"
       }
     },
     {
@@ -1291,8 +1291,8 @@
       "lesson": "u",
       "text": "uncle",
       "voices": {
-        "female": "/audio-review/neural/female/142.mp3",
-        "male": "/audio-review/neural/male/142.mp3"
+        "female": "/assets/audio/female/142.mp3",
+        "male": "/assets/audio/male/142.mp3"
       }
     },
     {
@@ -1300,8 +1300,8 @@
       "lesson": "u",
       "text": "up",
       "voices": {
-        "female": "/audio-review/neural/female/143.mp3",
-        "male": "/audio-review/neural/male/143.mp3"
+        "female": "/assets/audio/female/143.mp3",
+        "male": "/assets/audio/male/143.mp3"
       }
     },
     {
@@ -1309,8 +1309,8 @@
       "lesson": "u",
       "text": "under",
       "voices": {
-        "female": "/audio-review/neural/female/144.mp3",
-        "male": "/audio-review/neural/male/144.mp3"
+        "female": "/assets/audio/female/144.mp3",
+        "male": "/assets/audio/male/144.mp3"
       }
     },
     {
@@ -1318,8 +1318,8 @@
       "lesson": "u",
       "text": "This is an umbrella.",
       "voices": {
-        "female": "/audio-review/neural/female/145.mp3",
-        "male": "/audio-review/neural/male/145.mp3"
+        "female": "/assets/audio/female/145.mp3",
+        "male": "/assets/audio/male/145.mp3"
       }
     },
     {
@@ -1327,8 +1327,8 @@
       "lesson": "v",
       "text": "V",
       "voices": {
-        "female": "/audio-review/neural/female/146.mp3",
-        "male": "/audio-review/neural/male/146.mp3"
+        "female": "/assets/audio/female/146.mp3",
+        "male": "/assets/audio/male/146.mp3"
       }
     },
     {
@@ -1336,8 +1336,8 @@
       "lesson": "v",
       "text": "V",
       "voices": {
-        "female": "/audio-review/neural/female/147.mp3",
-        "male": "/audio-review/neural/male/147.mp3"
+        "female": "/assets/audio/female/147.mp3",
+        "male": "/assets/audio/male/147.mp3"
       }
     },
     {
@@ -1345,8 +1345,8 @@
       "lesson": "v",
       "text": "van",
       "voices": {
-        "female": "/audio-review/neural/female/148.mp3",
-        "male": "/audio-review/neural/male/148.mp3"
+        "female": "/assets/audio/female/148.mp3",
+        "male": "/assets/audio/male/148.mp3"
       }
     },
     {
@@ -1354,8 +1354,8 @@
       "lesson": "v",
       "text": "vase",
       "voices": {
-        "female": "/audio-review/neural/female/149.mp3",
-        "male": "/audio-review/neural/male/149.mp3"
+        "female": "/assets/audio/female/149.mp3",
+        "male": "/assets/audio/male/149.mp3"
       }
     },
     {
@@ -1363,8 +1363,8 @@
       "lesson": "v",
       "text": "violin",
       "voices": {
-        "female": "/audio-review/neural/female/150.mp3",
-        "male": "/audio-review/neural/male/150.mp3"
+        "female": "/assets/audio/female/150.mp3",
+        "male": "/assets/audio/male/150.mp3"
       }
     },
     {
@@ -1372,8 +1372,8 @@
       "lesson": "v",
       "text": "vegetables",
       "voices": {
-        "female": "/audio-review/neural/female/151.mp3",
-        "male": "/audio-review/neural/male/151.mp3"
+        "female": "/assets/audio/female/151.mp3",
+        "male": "/assets/audio/male/151.mp3"
       }
     },
     {
@@ -1381,8 +1381,8 @@
       "lesson": "v",
       "text": "This is a van.",
       "voices": {
-        "female": "/audio-review/neural/female/152.mp3",
-        "male": "/audio-review/neural/male/152.mp3"
+        "female": "/assets/audio/female/152.mp3",
+        "male": "/assets/audio/male/152.mp3"
       }
     },
     {
@@ -1390,8 +1390,8 @@
       "lesson": "w",
       "text": "W",
       "voices": {
-        "female": "/audio-review/neural/female/153.mp3",
-        "male": "/audio-review/neural/male/153.mp3"
+        "female": "/assets/audio/female/153.mp3",
+        "male": "/assets/audio/male/153.mp3"
       }
     },
     {
@@ -1399,8 +1399,8 @@
       "lesson": "w",
       "text": "W",
       "voices": {
-        "female": "/audio-review/neural/female/154.mp3",
-        "male": "/audio-review/neural/male/154.mp3"
+        "female": "/assets/audio/female/154.mp3",
+        "male": "/assets/audio/male/154.mp3"
       }
     },
     {
@@ -1408,8 +1408,8 @@
       "lesson": "w",
       "text": "whale",
       "voices": {
-        "female": "/audio-review/neural/female/155.mp3",
-        "male": "/audio-review/neural/male/155.mp3"
+        "female": "/assets/audio/female/155.mp3",
+        "male": "/assets/audio/male/155.mp3"
       }
     },
     {
@@ -1417,8 +1417,8 @@
       "lesson": "w",
       "text": "watermelon",
       "voices": {
-        "female": "/audio-review/neural/female/156.mp3",
-        "male": "/audio-review/neural/male/156.mp3"
+        "female": "/assets/audio/female/156.mp3",
+        "male": "/assets/audio/male/156.mp3"
       }
     },
     {
@@ -1426,8 +1426,8 @@
       "lesson": "w",
       "text": "window",
       "voices": {
-        "female": "/audio-review/neural/female/157.mp3",
-        "male": "/audio-review/neural/male/157.mp3"
+        "female": "/assets/audio/female/157.mp3",
+        "male": "/assets/audio/male/157.mp3"
       }
     },
     {
@@ -1435,8 +1435,8 @@
       "lesson": "w",
       "text": "watch",
       "voices": {
-        "female": "/audio-review/neural/female/158.mp3",
-        "male": "/audio-review/neural/male/158.mp3"
+        "female": "/assets/audio/female/158.mp3",
+        "male": "/assets/audio/male/158.mp3"
       }
     },
     {
@@ -1444,8 +1444,8 @@
       "lesson": "w",
       "text": "I see a whale.",
       "voices": {
-        "female": "/audio-review/neural/female/159.mp3",
-        "male": "/audio-review/neural/male/159.mp3"
+        "female": "/assets/audio/female/159.mp3",
+        "male": "/assets/audio/male/159.mp3"
       }
     },
     {
@@ -1453,8 +1453,8 @@
       "lesson": "x",
       "text": "X",
       "voices": {
-        "female": "/audio-review/neural/female/160.mp3",
-        "male": "/audio-review/neural/male/160.mp3"
+        "female": "/assets/audio/female/160.mp3",
+        "male": "/assets/audio/male/160.mp3"
       }
     },
     {
@@ -1462,8 +1462,8 @@
       "lesson": "x",
       "text": "X",
       "voices": {
-        "female": "/audio-review/neural/female/161.mp3",
-        "male": "/audio-review/neural/male/161.mp3"
+        "female": "/assets/audio/female/161.mp3",
+        "male": "/assets/audio/male/161.mp3"
       }
     },
     {
@@ -1471,8 +1471,8 @@
       "lesson": "x",
       "text": "x-ray",
       "voices": {
-        "female": "/audio-review/neural/female/162.mp3",
-        "male": "/audio-review/neural/male/162.mp3"
+        "female": "/assets/audio/female/162.mp3",
+        "male": "/assets/audio/male/162.mp3"
       }
     },
     {
@@ -1480,8 +1480,8 @@
       "lesson": "x",
       "text": "xylophone",
       "voices": {
-        "female": "/audio-review/neural/female/163.mp3",
-        "male": "/audio-review/neural/male/163.mp3"
+        "female": "/assets/audio/female/163.mp3",
+        "male": "/assets/audio/male/163.mp3"
       }
     },
     {
@@ -1489,8 +1489,8 @@
       "lesson": "x",
       "text": "This is an x-ray.",
       "voices": {
-        "female": "/audio-review/neural/female/164.mp3",
-        "male": "/audio-review/neural/male/164.mp3"
+        "female": "/assets/audio/female/164.mp3",
+        "male": "/assets/audio/male/164.mp3"
       }
     },
     {
@@ -1498,8 +1498,8 @@
       "lesson": "x",
       "text": "This is a xylophone.",
       "voices": {
-        "female": "/audio-review/neural/female/165.mp3",
-        "male": "/audio-review/neural/male/165.mp3"
+        "female": "/assets/audio/female/165.mp3",
+        "male": "/assets/audio/male/165.mp3"
       }
     },
     {
@@ -1507,8 +1507,8 @@
       "lesson": "y",
       "text": "Y",
       "voices": {
-        "female": "/audio-review/neural/female/166.mp3",
-        "male": "/audio-review/neural/male/166.mp3"
+        "female": "/assets/audio/female/166.mp3",
+        "male": "/assets/audio/male/166.mp3"
       }
     },
     {
@@ -1516,8 +1516,8 @@
       "lesson": "y",
       "text": "Y",
       "voices": {
-        "female": "/audio-review/neural/female/167.mp3",
-        "male": "/audio-review/neural/male/167.mp3"
+        "female": "/assets/audio/female/167.mp3",
+        "male": "/assets/audio/male/167.mp3"
       }
     },
     {
@@ -1525,8 +1525,8 @@
       "lesson": "y",
       "text": "yo-yo",
       "voices": {
-        "female": "/audio-review/neural/female/168.mp3",
-        "male": "/audio-review/neural/male/168.mp3"
+        "female": "/assets/audio/female/168.mp3",
+        "male": "/assets/audio/male/168.mp3"
       }
     },
     {
@@ -1534,8 +1534,8 @@
       "lesson": "y",
       "text": "yogurt",
       "voices": {
-        "female": "/audio-review/neural/female/169.mp3",
-        "male": "/audio-review/neural/male/169.mp3"
+        "female": "/assets/audio/female/169.mp3",
+        "male": "/assets/audio/male/169.mp3"
       }
     },
     {
@@ -1543,8 +1543,8 @@
       "lesson": "y",
       "text": "yellow",
       "voices": {
-        "female": "/audio-review/neural/female/170.mp3",
-        "male": "/audio-review/neural/male/170.mp3"
+        "female": "/assets/audio/female/170.mp3",
+        "male": "/assets/audio/male/170.mp3"
       }
     },
     {
@@ -1552,8 +1552,8 @@
       "lesson": "y",
       "text": "yak",
       "voices": {
-        "female": "/audio-review/neural/female/171.mp3",
-        "male": "/audio-review/neural/male/171.mp3"
+        "female": "/assets/audio/female/171.mp3",
+        "male": "/assets/audio/male/171.mp3"
       }
     },
     {
@@ -1561,8 +1561,8 @@
       "lesson": "y",
       "text": "This is a yo-yo.",
       "voices": {
-        "female": "/audio-review/neural/female/172.mp3",
-        "male": "/audio-review/neural/male/172.mp3"
+        "female": "/assets/audio/female/172.mp3",
+        "male": "/assets/audio/male/172.mp3"
       }
     },
     {
@@ -1570,8 +1570,8 @@
       "lesson": "z",
       "text": "Z",
       "voices": {
-        "female": "/audio-review/neural/female/173.mp3",
-        "male": "/audio-review/neural/male/173.mp3"
+        "female": "/assets/audio/female/173.mp3",
+        "male": "/assets/audio/male/173.mp3"
       }
     },
     {
@@ -1579,8 +1579,8 @@
       "lesson": "z",
       "text": "Z",
       "voices": {
-        "female": "/audio-review/neural/female/174.mp3",
-        "male": "/audio-review/neural/male/174.mp3"
+        "female": "/assets/audio/female/174.mp3",
+        "male": "/assets/audio/male/174.mp3"
       }
     },
     {
@@ -1588,8 +1588,8 @@
       "lesson": "z",
       "text": "zebra",
       "voices": {
-        "female": "/audio-review/neural/female/175.mp3",
-        "male": "/audio-review/neural/male/175.mp3"
+        "female": "/assets/audio/female/175.mp3",
+        "male": "/assets/audio/male/175.mp3"
       }
     },
     {
@@ -1597,8 +1597,8 @@
       "lesson": "z",
       "text": "zoo",
       "voices": {
-        "female": "/audio-review/neural/female/176.mp3",
-        "male": "/audio-review/neural/male/176.mp3"
+        "female": "/assets/audio/female/176.mp3",
+        "male": "/assets/audio/male/176.mp3"
       }
     },
     {
@@ -1606,8 +1606,8 @@
       "lesson": "z",
       "text": "zipper",
       "voices": {
-        "female": "/audio-review/neural/female/177.mp3",
-        "male": "/audio-review/neural/male/177.mp3"
+        "female": "/assets/audio/female/177.mp3",
+        "male": "/assets/audio/male/177.mp3"
       }
     },
     {
@@ -1615,8 +1615,8 @@
       "lesson": "z",
       "text": "zero",
       "voices": {
-        "female": "/audio-review/neural/female/178.mp3",
-        "male": "/audio-review/neural/male/178.mp3"
+        "female": "/assets/audio/female/178.mp3",
+        "male": "/assets/audio/male/178.mp3"
       }
     },
     {
@@ -1624,8 +1624,8 @@
       "lesson": "z",
       "text": "This is a zebra.",
       "voices": {
-        "female": "/audio-review/neural/female/179.mp3",
-        "male": "/audio-review/neural/male/179.mp3"
+        "female": "/assets/audio/female/179.mp3",
+        "male": "/assets/audio/male/179.mp3"
       }
     },
     {
@@ -1633,8 +1633,8 @@
       "lesson": "feelings",
       "text": "I'm happy.",
       "voices": {
-        "female": "/audio-review/neural/female/180.mp3",
-        "male": "/audio-review/neural/male/180.mp3"
+        "female": "/assets/audio/female/180.mp3",
+        "male": "/assets/audio/male/180.mp3"
       }
     },
     {
@@ -1642,8 +1642,8 @@
       "lesson": "feelings",
       "text": "I'm sad.",
       "voices": {
-        "female": "/audio-review/neural/female/181.mp3",
-        "male": "/audio-review/neural/male/181.mp3"
+        "female": "/assets/audio/female/181.mp3",
+        "male": "/assets/audio/male/181.mp3"
       }
     },
     {
@@ -1651,8 +1651,8 @@
       "lesson": "feelings",
       "text": "I'm angry.",
       "voices": {
-        "female": "/audio-review/neural/female/182.mp3",
-        "male": "/audio-review/neural/male/182.mp3"
+        "female": "/assets/audio/female/182.mp3",
+        "male": "/assets/audio/male/182.mp3"
       }
     },
     {
@@ -1660,8 +1660,8 @@
       "lesson": "feelings",
       "text": "I'm scared.",
       "voices": {
-        "female": "/audio-review/neural/female/183.mp3",
-        "male": "/audio-review/neural/male/183.mp3"
+        "female": "/assets/audio/female/183.mp3",
+        "male": "/assets/audio/male/183.mp3"
       }
     },
     {
@@ -1669,8 +1669,8 @@
       "lesson": "hungry",
       "text": "I'm hungry.",
       "voices": {
-        "female": "/audio-review/neural/female/184.mp3",
-        "male": "/audio-review/neural/male/184.mp3"
+        "female": "/assets/audio/female/184.mp3",
+        "male": "/assets/audio/male/184.mp3"
       }
     },
     {
@@ -1678,8 +1678,8 @@
       "lesson": "hungry",
       "text": "Can I have a snack, please?",
       "voices": {
-        "female": "/audio-review/neural/female/185.mp3",
-        "male": "/audio-review/neural/male/185.mp3"
+        "female": "/assets/audio/female/185.mp3",
+        "male": "/assets/audio/male/185.mp3"
       }
     },
     {
@@ -1687,8 +1687,8 @@
       "lesson": "thirsty",
       "text": "I'm thirsty.",
       "voices": {
-        "female": "/audio-review/neural/female/186.mp3",
-        "male": "/audio-review/neural/male/186.mp3"
+        "female": "/assets/audio/female/186.mp3",
+        "male": "/assets/audio/male/186.mp3"
       }
     },
     {
@@ -1696,8 +1696,8 @@
       "lesson": "thirsty",
       "text": "Can I have some water, please?",
       "voices": {
-        "female": "/audio-review/neural/female/187.mp3",
-        "male": "/audio-review/neural/male/187.mp3"
+        "female": "/assets/audio/female/187.mp3",
+        "male": "/assets/audio/male/187.mp3"
       }
     },
     {
@@ -1705,8 +1705,8 @@
       "lesson": "bathroom",
       "text": "I need to go to the bathroom.",
       "voices": {
-        "female": "/audio-review/neural/female/188.mp3",
-        "male": "/audio-review/neural/male/188.mp3"
+        "female": "/assets/audio/female/188.mp3",
+        "male": "/assets/audio/male/188.mp3"
       }
     },
     {
@@ -1714,8 +1714,8 @@
       "lesson": "bathroom",
       "text": "Can I go to the bathroom, please?",
       "voices": {
-        "female": "/audio-review/neural/female/189.mp3",
-        "male": "/audio-review/neural/male/189.mp3"
+        "female": "/assets/audio/female/189.mp3",
+        "male": "/assets/audio/male/189.mp3"
       }
     },
     {
@@ -1723,8 +1723,8 @@
       "lesson": "bathroom",
       "text": "I wash my hands.",
       "voices": {
-        "female": "/audio-review/neural/female/190.mp3",
-        "male": "/audio-review/neural/male/190.mp3"
+        "female": "/assets/audio/female/190.mp3",
+        "male": "/assets/audio/male/190.mp3"
       }
     },
     {
@@ -1732,8 +1732,8 @@
       "lesson": "my-family",
       "text": "This is my family.",
       "voices": {
-        "female": "/audio-review/neural/female/191.mp3",
-        "male": "/audio-review/neural/male/191.mp3"
+        "female": "/assets/audio/female/191.mp3",
+        "male": "/assets/audio/male/191.mp3"
       }
     },
     {
@@ -1741,8 +1741,8 @@
       "lesson": "my-family",
       "text": "This is my mom.",
       "voices": {
-        "female": "/audio-review/neural/female/192.mp3",
-        "male": "/audio-review/neural/male/192.mp3"
+        "female": "/assets/audio/female/192.mp3",
+        "male": "/assets/audio/male/192.mp3"
       }
     },
     {
@@ -1750,8 +1750,8 @@
       "lesson": "my-family",
       "text": "This is my dad.",
       "voices": {
-        "female": "/audio-review/neural/female/193.mp3",
-        "male": "/audio-review/neural/male/193.mp3"
+        "female": "/assets/audio/female/193.mp3",
+        "male": "/assets/audio/male/193.mp3"
       }
     },
     {
@@ -1759,8 +1759,8 @@
       "lesson": "my-family",
       "text": "This is my brother.",
       "voices": {
-        "female": "/audio-review/neural/female/194.mp3",
-        "male": "/audio-review/neural/male/194.mp3"
+        "female": "/assets/audio/female/194.mp3",
+        "male": "/assets/audio/male/194.mp3"
       }
     },
     {
@@ -1768,8 +1768,8 @@
       "lesson": "my-family",
       "text": "This is my sister.",
       "voices": {
-        "female": "/audio-review/neural/female/195.mp3",
-        "male": "/audio-review/neural/male/195.mp3"
+        "female": "/assets/audio/female/195.mp3",
+        "male": "/assets/audio/male/195.mp3"
       }
     },
     {
@@ -1777,8 +1777,8 @@
       "lesson": "hello-about-me",
       "text": "Hello!",
       "voices": {
-        "female": "/audio-review/neural/female/196.mp3",
-        "male": "/audio-review/neural/male/196.mp3"
+        "female": "/assets/audio/female/196.mp3",
+        "male": "/assets/audio/male/196.mp3"
       }
     },
     {
@@ -1786,8 +1786,8 @@
       "lesson": "hello-about-me",
       "text": "My name is ______.",
       "voices": {
-        "female": "/audio-review/neural/female/197.mp3",
-        "male": "/audio-review/neural/male/197.mp3"
+        "female": "/assets/audio/female/197.mp3",
+        "male": "/assets/audio/male/197.mp3"
       }
     },
     {
@@ -1795,8 +1795,8 @@
       "lesson": "hello-about-me",
       "text": "What's your name?",
       "voices": {
-        "female": "/audio-review/neural/female/198.mp3",
-        "male": "/audio-review/neural/male/198.mp3"
+        "female": "/assets/audio/female/198.mp3",
+        "male": "/assets/audio/male/198.mp3"
       }
     },
     {
@@ -1804,8 +1804,8 @@
       "lesson": "hello-about-me",
       "text": "Goodbye!",
       "voices": {
-        "female": "/audio-review/neural/female/199.mp3",
-        "male": "/audio-review/neural/male/199.mp3"
+        "female": "/assets/audio/female/199.mp3",
+        "male": "/assets/audio/male/199.mp3"
       }
     },
     {
@@ -1813,8 +1813,8 @@
       "lesson": "at-school",
       "text": "I'm at school.",
       "voices": {
-        "female": "/audio-review/neural/female/200.mp3",
-        "male": "/audio-review/neural/male/200.mp3"
+        "female": "/assets/audio/female/200.mp3",
+        "male": "/assets/audio/male/200.mp3"
       }
     },
     {
@@ -1822,8 +1822,8 @@
       "lesson": "at-school",
       "text": "This is my teacher.",
       "voices": {
-        "female": "/audio-review/neural/female/201.mp3",
-        "male": "/audio-review/neural/male/201.mp3"
+        "female": "/assets/audio/female/201.mp3",
+        "male": "/assets/audio/male/201.mp3"
       }
     },
     {
@@ -1831,8 +1831,8 @@
       "lesson": "at-school",
       "text": "I have a book.",
       "voices": {
-        "female": "/audio-review/neural/female/202.mp3",
-        "male": "/audio-review/neural/male/202.mp3"
+        "female": "/assets/audio/female/202.mp3",
+        "male": "/assets/audio/male/202.mp3"
       }
     },
     {
@@ -1840,8 +1840,8 @@
       "lesson": "at-school",
       "text": "I have a pencil.",
       "voices": {
-        "female": "/audio-review/neural/female/203.mp3",
-        "male": "/audio-review/neural/male/203.mp3"
+        "female": "/assets/audio/female/203.mp3",
+        "male": "/assets/audio/male/203.mp3"
       }
     },
     {
@@ -1849,8 +1849,8 @@
       "lesson": "can-i-have",
       "text": "Can I have _____, please?",
       "voices": {
-        "female": "/audio-review/neural/female/204.mp3",
-        "male": "/audio-review/neural/male/204.mp3"
+        "female": "/assets/audio/female/204.mp3",
+        "male": "/assets/audio/male/204.mp3"
       }
     },
     {
@@ -1858,8 +1858,8 @@
       "lesson": "can-i-have",
       "text": "Can I have the ball, please?",
       "voices": {
-        "female": "/audio-review/neural/female/205.mp3",
-        "male": "/audio-review/neural/male/205.mp3"
+        "female": "/assets/audio/female/205.mp3",
+        "male": "/assets/audio/male/205.mp3"
       }
     },
     {
@@ -1867,8 +1867,8 @@
       "lesson": "can-i-have",
       "text": "Can I have the book, please?",
       "voices": {
-        "female": "/audio-review/neural/female/206.mp3",
-        "male": "/audio-review/neural/male/206.mp3"
+        "female": "/assets/audio/female/206.mp3",
+        "male": "/assets/audio/male/206.mp3"
       }
     },
     {
@@ -1876,8 +1876,8 @@
       "lesson": "can-i-have",
       "text": "Can I have some water, please?",
       "voices": {
-        "female": "/audio-review/neural/female/207.mp3",
-        "male": "/audio-review/neural/male/207.mp3"
+        "female": "/assets/audio/female/207.mp3",
+        "male": "/assets/audio/male/207.mp3"
       }
     },
     {
@@ -1885,8 +1885,8 @@
       "lesson": "likes-and-dislikes",
       "text": "I like pizza.",
       "voices": {
-        "female": "/audio-review/neural/female/208.mp3",
-        "male": "/audio-review/neural/male/208.mp3"
+        "female": "/assets/audio/female/208.mp3",
+        "male": "/assets/audio/male/208.mp3"
       }
     },
     {
@@ -1894,8 +1894,8 @@
       "lesson": "likes-and-dislikes",
       "text": "I like bananas.",
       "voices": {
-        "female": "/audio-review/neural/female/209.mp3",
-        "male": "/audio-review/neural/male/209.mp3"
+        "female": "/assets/audio/female/209.mp3",
+        "male": "/assets/audio/male/209.mp3"
       }
     },
     {
@@ -1903,8 +1903,8 @@
       "lesson": "likes-and-dislikes",
       "text": "I don't like milk.",
       "voices": {
-        "female": "/audio-review/neural/female/210.mp3",
-        "male": "/audio-review/neural/male/210.mp3"
+        "female": "/assets/audio/female/210.mp3",
+        "male": "/assets/audio/male/210.mp3"
       }
     },
     {
@@ -1912,8 +1912,8 @@
       "lesson": "likes-and-dislikes",
       "text": "I don't like yogurt.",
       "voices": {
-        "female": "/audio-review/neural/female/211.mp3",
-        "male": "/audio-review/neural/male/211.mp3"
+        "female": "/assets/audio/female/211.mp3",
+        "male": "/assets/audio/male/211.mp3"
       }
     },
     {
@@ -1921,8 +1921,8 @@
       "lesson": "can-you-help",
       "text": "Can you help me, please?",
       "voices": {
-        "female": "/audio-review/neural/female/212.mp3",
-        "male": "/audio-review/neural/male/212.mp3"
+        "female": "/assets/audio/female/212.mp3",
+        "male": "/assets/audio/male/212.mp3"
       }
     },
     {
@@ -1930,8 +1930,8 @@
       "lesson": "can-you-help",
       "text": "I don't understand.",
       "voices": {
-        "female": "/audio-review/neural/female/213.mp3",
-        "male": "/audio-review/neural/male/213.mp3"
+        "female": "/assets/audio/female/213.mp3",
+        "male": "/assets/audio/male/213.mp3"
       }
     },
     {
@@ -1939,8 +1939,8 @@
       "lesson": "can-you-help",
       "text": "Say it again, please.",
       "voices": {
-        "female": "/audio-review/neural/female/214.mp3",
-        "male": "/audio-review/neural/male/214.mp3"
+        "female": "/assets/audio/female/214.mp3",
+        "male": "/assets/audio/male/214.mp3"
       }
     },
     {
@@ -1948,8 +1948,8 @@
       "lesson": "can-you-help",
       "text": "Please open the box.",
       "voices": {
-        "female": "/audio-review/neural/female/215.mp3",
-        "male": "/audio-review/neural/male/215.mp3"
+        "female": "/assets/audio/female/215.mp3",
+        "male": "/assets/audio/male/215.mp3"
       }
     },
     {
@@ -1957,8 +1957,8 @@
       "lesson": "can-you-help",
       "text": "Please close the door.",
       "voices": {
-        "female": "/audio-review/neural/female/216.mp3",
-        "male": "/audio-review/neural/male/216.mp3"
+        "female": "/assets/audio/female/216.mp3",
+        "male": "/assets/audio/male/216.mp3"
       }
     },
     {
@@ -1966,8 +1966,8 @@
       "lesson": "polite-words",
       "text": "Please.",
       "voices": {
-        "female": "/audio-review/neural/female/217.mp3",
-        "male": "/audio-review/neural/male/217.mp3"
+        "female": "/assets/audio/female/217.mp3",
+        "male": "/assets/audio/male/217.mp3"
       }
     },
     {
@@ -1975,8 +1975,8 @@
       "lesson": "polite-words",
       "text": "Thank you.",
       "voices": {
-        "female": "/audio-review/neural/female/218.mp3",
-        "male": "/audio-review/neural/male/218.mp3"
+        "female": "/assets/audio/female/218.mp3",
+        "male": "/assets/audio/male/218.mp3"
       }
     },
     {
@@ -1984,8 +1984,8 @@
       "lesson": "polite-words",
       "text": "I'm sorry.",
       "voices": {
-        "female": "/audio-review/neural/female/219.mp3",
-        "male": "/audio-review/neural/male/219.mp3"
+        "female": "/assets/audio/female/219.mp3",
+        "male": "/assets/audio/male/219.mp3"
       }
     },
     {
@@ -1993,8 +1993,8 @@
       "lesson": "polite-words",
       "text": "Excuse me.",
       "voices": {
-        "female": "/audio-review/neural/female/220.mp3",
-        "male": "/audio-review/neural/male/220.mp3"
+        "female": "/assets/audio/female/220.mp3",
+        "male": "/assets/audio/male/220.mp3"
       }
     },
     {
@@ -2002,8 +2002,8 @@
       "lesson": "polite-words",
       "text": "You're welcome.",
       "voices": {
-        "female": "/audio-review/neural/female/221.mp3",
-        "male": "/audio-review/neural/male/221.mp3"
+        "female": "/assets/audio/female/221.mp3",
+        "male": "/assets/audio/male/221.mp3"
       }
     },
     {
@@ -2011,8 +2011,8 @@
       "lesson": "lets-play",
       "text": "Let's play.",
       "voices": {
-        "female": "/audio-review/neural/female/222.mp3",
-        "male": "/audio-review/neural/male/222.mp3"
+        "female": "/assets/audio/female/222.mp3",
+        "male": "/assets/audio/male/222.mp3"
       }
     },
     {
@@ -2020,8 +2020,8 @@
       "lesson": "lets-play",
       "text": "Can I play with you?",
       "voices": {
-        "female": "/audio-review/neural/female/223.mp3",
-        "male": "/audio-review/neural/male/223.mp3"
+        "female": "/assets/audio/female/223.mp3",
+        "male": "/assets/audio/male/223.mp3"
       }
     },
     {
@@ -2029,8 +2029,8 @@
       "lesson": "lets-play",
       "text": "My turn.",
       "voices": {
-        "female": "/audio-review/neural/female/224.mp3",
-        "male": "/audio-review/neural/male/224.mp3"
+        "female": "/assets/audio/female/224.mp3",
+        "male": "/assets/audio/male/224.mp3"
       }
     },
     {
@@ -2038,8 +2038,8 @@
       "lesson": "lets-play",
       "text": "Your turn.",
       "voices": {
-        "female": "/audio-review/neural/female/225.mp3",
-        "male": "/audio-review/neural/male/225.mp3"
+        "female": "/assets/audio/female/225.mp3",
+        "male": "/assets/audio/male/225.mp3"
       }
     },
     {
@@ -2047,8 +2047,8 @@
       "lesson": "lets-play",
       "text": "Let's share.",
       "voices": {
-        "female": "/audio-review/neural/female/226.mp3",
-        "male": "/audio-review/neural/male/226.mp3"
+        "female": "/assets/audio/female/226.mp3",
+        "male": "/assets/audio/male/226.mp3"
       }
     },
     {
@@ -2056,8 +2056,8 @@
       "lesson": "my-body",
       "text": "My head hurts.",
       "voices": {
-        "female": "/audio-review/neural/female/227.mp3",
-        "male": "/audio-review/neural/male/227.mp3"
+        "female": "/assets/audio/female/227.mp3",
+        "male": "/assets/audio/male/227.mp3"
       }
     },
     {
@@ -2065,8 +2065,8 @@
       "lesson": "my-body",
       "text": "My tummy hurts.",
       "voices": {
-        "female": "/audio-review/neural/female/228.mp3",
-        "male": "/audio-review/neural/male/228.mp3"
+        "female": "/assets/audio/female/228.mp3",
+        "male": "/assets/audio/male/228.mp3"
       }
     },
     {
@@ -2074,8 +2074,8 @@
       "lesson": "my-body",
       "text": "My hand hurts.",
       "voices": {
-        "female": "/audio-review/neural/female/229.mp3",
-        "male": "/audio-review/neural/male/229.mp3"
+        "female": "/assets/audio/female/229.mp3",
+        "male": "/assets/audio/male/229.mp3"
       }
     },
     {
@@ -2083,8 +2083,8 @@
       "lesson": "my-body",
       "text": "I'm tired.",
       "voices": {
-        "female": "/audio-review/neural/female/230.mp3",
-        "male": "/audio-review/neural/male/230.mp3"
+        "female": "/assets/audio/female/230.mp3",
+        "male": "/assets/audio/male/230.mp3"
       }
     },
     {
@@ -2092,8 +2092,8 @@
       "lesson": "my-body",
       "text": "I'm sick.",
       "voices": {
-        "female": "/audio-review/neural/female/231.mp3",
-        "male": "/audio-review/neural/male/231.mp3"
+        "female": "/assets/audio/female/231.mp3",
+        "male": "/assets/audio/male/231.mp3"
       }
     },
     {
@@ -2101,8 +2101,8 @@
       "lesson": "daily-routine",
       "text": "I wake up.",
       "voices": {
-        "female": "/audio-review/neural/female/232.mp3",
-        "male": "/audio-review/neural/male/232.mp3"
+        "female": "/assets/audio/female/232.mp3",
+        "male": "/assets/audio/male/232.mp3"
       }
     },
     {
@@ -2110,8 +2110,8 @@
       "lesson": "daily-routine",
       "text": "I brush my teeth.",
       "voices": {
-        "female": "/audio-review/neural/female/233.mp3",
-        "male": "/audio-review/neural/male/233.mp3"
+        "female": "/assets/audio/female/233.mp3",
+        "male": "/assets/audio/male/233.mp3"
       }
     },
     {
@@ -2119,8 +2119,8 @@
       "lesson": "daily-routine",
       "text": "I get dressed.",
       "voices": {
-        "female": "/audio-review/neural/female/234.mp3",
-        "male": "/audio-review/neural/male/234.mp3"
+        "female": "/assets/audio/female/234.mp3",
+        "male": "/assets/audio/male/234.mp3"
       }
     },
     {
@@ -2128,8 +2128,8 @@
       "lesson": "daily-routine",
       "text": "I eat breakfast.",
       "voices": {
-        "female": "/audio-review/neural/female/235.mp3",
-        "male": "/audio-review/neural/male/235.mp3"
+        "female": "/assets/audio/female/235.mp3",
+        "male": "/assets/audio/male/235.mp3"
       }
     },
     {
@@ -2137,8 +2137,8 @@
       "lesson": "daily-routine",
       "text": "I go to school.",
       "voices": {
-        "female": "/audio-review/neural/female/236.mp3",
-        "male": "/audio-review/neural/male/236.mp3"
+        "female": "/assets/audio/female/236.mp3",
+        "male": "/assets/audio/male/236.mp3"
       }
     },
     {
@@ -2146,8 +2146,8 @@
       "lesson": "daily-routine",
       "text": "I go to bed.",
       "voices": {
-        "female": "/audio-review/neural/female/237.mp3",
-        "male": "/audio-review/neural/male/237.mp3"
+        "female": "/assets/audio/female/237.mp3",
+        "male": "/assets/audio/male/237.mp3"
       }
     },
     {
@@ -2155,8 +2155,8 @@
       "lesson": "stay-safe",
       "text": "Stop.",
       "voices": {
-        "female": "/audio-review/neural/female/238.mp3",
-        "male": "/audio-review/neural/male/238.mp3"
+        "female": "/assets/audio/female/238.mp3",
+        "male": "/assets/audio/male/238.mp3"
       }
     },
     {
@@ -2164,8 +2164,8 @@
       "lesson": "stay-safe",
       "text": "Wait.",
       "voices": {
-        "female": "/audio-review/neural/female/239.mp3",
-        "male": "/audio-review/neural/male/239.mp3"
+        "female": "/assets/audio/female/239.mp3",
+        "male": "/assets/audio/male/239.mp3"
       }
     },
     {
@@ -2173,8 +2173,8 @@
       "lesson": "stay-safe",
       "text": "No, thank you.",
       "voices": {
-        "female": "/audio-review/neural/female/240.mp3",
-        "male": "/audio-review/neural/male/240.mp3"
+        "female": "/assets/audio/female/240.mp3",
+        "male": "/assets/audio/male/240.mp3"
       }
     },
     {
@@ -2182,8 +2182,8 @@
       "lesson": "stay-safe",
       "text": "Help me, please.",
       "voices": {
-        "female": "/audio-review/neural/female/241.mp3",
-        "male": "/audio-review/neural/male/241.mp3"
+        "female": "/assets/audio/female/241.mp3",
+        "male": "/assets/audio/male/241.mp3"
       }
     },
     {
@@ -2191,8 +2191,8 @@
       "lesson": "stay-safe",
       "text": "I need my mom.",
       "voices": {
-        "female": "/audio-review/neural/female/242.mp3",
-        "male": "/audio-review/neural/male/242.mp3"
+        "female": "/assets/audio/female/242.mp3",
+        "male": "/assets/audio/male/242.mp3"
       }
     },
     {
@@ -2200,8 +2200,8 @@
       "lesson": "stay-safe",
       "text": "I need my dad.",
       "voices": {
-        "female": "/audio-review/neural/female/243.mp3",
-        "male": "/audio-review/neural/male/243.mp3"
+        "female": "/assets/audio/female/243.mp3",
+        "male": "/assets/audio/male/243.mp3"
       }
     }
   ]

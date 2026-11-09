@@ -2,7 +2,7 @@ name: RVU Kids Quality Checks
 
 on:
   push:
-    branches: [main]
+    branches: [main, feature/cloudflare-cdn-release-readiness]
   workflow_dispatch:
 
 permissions:
@@ -25,3 +25,7 @@ jobs:
         run: npm run build
       - name: Verify book curriculum, routes and previews
         run: npm test
+      - name: Validate CDN static assets and local functional smoke
+        run: |
+          node scripts/static-check.mjs
+          node scripts/smoke-static.mjs

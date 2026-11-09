@@ -1,1718 +1,2208 @@
 {
-  "version": 1,
+  "version": 4,
   "locale": "en-US",
-  "status": "awaiting-reviewed-audio",
-  "notForPublicPlayback": true,
-  "description": "Locked content manifest. Replace null asset with reviewed licensed audio URL only after QA. Letter name and phonics sound are separate assets.",
+  "status": "approved-by-site-owner",
   "requiredRecordings": 244,
+  "voices": [
+    "female",
+    "male"
+  ],
   "recordings": [
     {
       "type": "letter-name",
       "lesson": "a",
       "text": "A",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/000.mp3",
+        "male": "/assets/audio/male/000.mp3"
+      }
     },
     {
       "type": "letter-sound",
       "lesson": "a",
       "text": "A",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/001.mp3",
+        "male": "/assets/audio/male/001.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "a",
       "text": "apple",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/002.mp3",
+        "male": "/assets/audio/male/002.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "a",
       "text": "ant",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/003.mp3",
+        "male": "/assets/audio/male/003.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "a",
       "text": "airplane",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/004.mp3",
+        "male": "/assets/audio/male/004.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "a",
       "text": "alligator",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/005.mp3",
+        "male": "/assets/audio/male/005.mp3"
+      }
     },
     {
       "type": "alphabet-sentence",
       "lesson": "a",
       "text": "I see an apple.",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/006.mp3",
+        "male": "/assets/audio/male/006.mp3"
+      }
     },
     {
       "type": "letter-name",
       "lesson": "b",
       "text": "B",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/007.mp3",
+        "male": "/assets/audio/male/007.mp3"
+      }
     },
     {
       "type": "letter-sound",
       "lesson": "b",
       "text": "B",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/008.mp3",
+        "male": "/assets/audio/male/008.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "b",
       "text": "ball",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/009.mp3",
+        "male": "/assets/audio/male/009.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "b",
       "text": "bear",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/010.mp3",
+        "male": "/assets/audio/male/010.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "b",
       "text": "banana",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/011.mp3",
+        "male": "/assets/audio/male/011.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "b",
       "text": "boat",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/012.mp3",
+        "male": "/assets/audio/male/012.mp3"
+      }
     },
     {
       "type": "alphabet-sentence",
       "lesson": "b",
       "text": "I see a ball.",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/013.mp3",
+        "male": "/assets/audio/male/013.mp3"
+      }
     },
     {
       "type": "letter-name",
       "lesson": "c",
       "text": "C",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/014.mp3",
+        "male": "/assets/audio/male/014.mp3"
+      }
     },
     {
       "type": "letter-sound",
       "lesson": "c",
       "text": "C",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/015.mp3",
+        "male": "/assets/audio/male/015.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "c",
       "text": "cat",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/016.mp3",
+        "male": "/assets/audio/male/016.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "c",
       "text": "car",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/017.mp3",
+        "male": "/assets/audio/male/017.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "c",
       "text": "cake",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/018.mp3",
+        "male": "/assets/audio/male/018.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "c",
       "text": "cup",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/019.mp3",
+        "male": "/assets/audio/male/019.mp3"
+      }
     },
     {
       "type": "alphabet-sentence",
       "lesson": "c",
       "text": "This is a cat.",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/020.mp3",
+        "male": "/assets/audio/male/020.mp3"
+      }
     },
     {
       "type": "letter-name",
       "lesson": "d",
       "text": "D",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/021.mp3",
+        "male": "/assets/audio/male/021.mp3"
+      }
     },
     {
       "type": "letter-sound",
       "lesson": "d",
       "text": "D",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/022.mp3",
+        "male": "/assets/audio/male/022.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "d",
       "text": "dog",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/023.mp3",
+        "male": "/assets/audio/male/023.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "d",
       "text": "duck",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/024.mp3",
+        "male": "/assets/audio/male/024.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "d",
       "text": "doll",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/025.mp3",
+        "male": "/assets/audio/male/025.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "d",
       "text": "door",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/026.mp3",
+        "male": "/assets/audio/male/026.mp3"
+      }
     },
     {
       "type": "alphabet-sentence",
       "lesson": "d",
       "text": "I see a dog.",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/027.mp3",
+        "male": "/assets/audio/male/027.mp3"
+      }
     },
     {
       "type": "letter-name",
       "lesson": "e",
       "text": "E",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/028.mp3",
+        "male": "/assets/audio/male/028.mp3"
+      }
     },
     {
       "type": "letter-sound",
       "lesson": "e",
       "text": "E",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/029.mp3",
+        "male": "/assets/audio/male/029.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "e",
       "text": "elephant",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/030.mp3",
+        "male": "/assets/audio/male/030.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "e",
       "text": "egg",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/031.mp3",
+        "male": "/assets/audio/male/031.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "e",
       "text": "ear",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/032.mp3",
+        "male": "/assets/audio/male/032.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "e",
       "text": "elbow",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/033.mp3",
+        "male": "/assets/audio/male/033.mp3"
+      }
     },
     {
       "type": "alphabet-sentence",
       "lesson": "e",
       "text": "This is an elephant.",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/034.mp3",
+        "male": "/assets/audio/male/034.mp3"
+      }
     },
     {
       "type": "letter-name",
       "lesson": "f",
       "text": "F",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/035.mp3",
+        "male": "/assets/audio/male/035.mp3"
+      }
     },
     {
       "type": "letter-sound",
       "lesson": "f",
       "text": "F",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/036.mp3",
+        "male": "/assets/audio/male/036.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "f",
       "text": "fish",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/037.mp3",
+        "male": "/assets/audio/male/037.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "f",
       "text": "frog",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/038.mp3",
+        "male": "/assets/audio/male/038.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "f",
       "text": "flower",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/039.mp3",
+        "male": "/assets/audio/male/039.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "f",
       "text": "fork",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/040.mp3",
+        "male": "/assets/audio/male/040.mp3"
+      }
     },
     {
       "type": "alphabet-sentence",
       "lesson": "f",
       "text": "I see a fish.",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/041.mp3",
+        "male": "/assets/audio/male/041.mp3"
+      }
     },
     {
       "type": "letter-name",
       "lesson": "g",
       "text": "G",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/042.mp3",
+        "male": "/assets/audio/male/042.mp3"
+      }
     },
     {
       "type": "letter-sound",
       "lesson": "g",
       "text": "G",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/043.mp3",
+        "male": "/assets/audio/male/043.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "g",
       "text": "goat",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/044.mp3",
+        "male": "/assets/audio/male/044.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "g",
       "text": "grapes",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/045.mp3",
+        "male": "/assets/audio/male/045.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "g",
       "text": "gift",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/046.mp3",
+        "male": "/assets/audio/male/046.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "g",
       "text": "guitar",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/047.mp3",
+        "male": "/assets/audio/male/047.mp3"
+      }
     },
     {
       "type": "alphabet-sentence",
       "lesson": "g",
       "text": "This is a goat.",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/048.mp3",
+        "male": "/assets/audio/male/048.mp3"
+      }
     },
     {
       "type": "letter-name",
       "lesson": "h",
       "text": "H",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/049.mp3",
+        "male": "/assets/audio/male/049.mp3"
+      }
     },
     {
       "type": "letter-sound",
       "lesson": "h",
       "text": "H",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/050.mp3",
+        "male": "/assets/audio/male/050.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "h",
       "text": "hat",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/051.mp3",
+        "male": "/assets/audio/male/051.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "h",
       "text": "house",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/052.mp3",
+        "male": "/assets/audio/male/052.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "h",
       "text": "horse",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/053.mp3",
+        "male": "/assets/audio/male/053.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "h",
       "text": "hand",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/054.mp3",
+        "male": "/assets/audio/male/054.mp3"
+      }
     },
     {
       "type": "alphabet-sentence",
       "lesson": "h",
       "text": "I see a hat.",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/055.mp3",
+        "male": "/assets/audio/male/055.mp3"
+      }
     },
     {
       "type": "letter-name",
       "lesson": "i",
       "text": "I",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/056.mp3",
+        "male": "/assets/audio/male/056.mp3"
+      }
     },
     {
       "type": "letter-sound",
       "lesson": "i",
       "text": "I",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/057.mp3",
+        "male": "/assets/audio/male/057.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "i",
       "text": "island",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/058.mp3",
+        "male": "/assets/audio/male/058.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "i",
       "text": "iguana",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/059.mp3",
+        "male": "/assets/audio/male/059.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "i",
       "text": "ice cream",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/060.mp3",
+        "male": "/assets/audio/male/060.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "i",
       "text": "insect",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/061.mp3",
+        "male": "/assets/audio/male/061.mp3"
+      }
     },
     {
       "type": "alphabet-sentence",
       "lesson": "i",
       "text": "I see an iguana.",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/062.mp3",
+        "male": "/assets/audio/male/062.mp3"
+      }
     },
     {
       "type": "letter-name",
       "lesson": "j",
       "text": "J",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/063.mp3",
+        "male": "/assets/audio/male/063.mp3"
+      }
     },
     {
       "type": "letter-sound",
       "lesson": "j",
       "text": "J",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/064.mp3",
+        "male": "/assets/audio/male/064.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "j",
       "text": "juice",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/065.mp3",
+        "male": "/assets/audio/male/065.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "j",
       "text": "jacket",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/066.mp3",
+        "male": "/assets/audio/male/066.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "j",
       "text": "jellyfish",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/067.mp3",
+        "male": "/assets/audio/male/067.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "j",
       "text": "jam",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/068.mp3",
+        "male": "/assets/audio/male/068.mp3"
+      }
     },
     {
       "type": "alphabet-sentence",
       "lesson": "j",
       "text": "This is a jacket.",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/069.mp3",
+        "male": "/assets/audio/male/069.mp3"
+      }
     },
     {
       "type": "letter-name",
       "lesson": "k",
       "text": "K",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/070.mp3",
+        "male": "/assets/audio/male/070.mp3"
+      }
     },
     {
       "type": "letter-sound",
       "lesson": "k",
       "text": "K",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/071.mp3",
+        "male": "/assets/audio/male/071.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "k",
       "text": "kite",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/072.mp3",
+        "male": "/assets/audio/male/072.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "k",
       "text": "key",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/073.mp3",
+        "male": "/assets/audio/male/073.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "k",
       "text": "kitten",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/074.mp3",
+        "male": "/assets/audio/male/074.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "k",
       "text": "kangaroo",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/075.mp3",
+        "male": "/assets/audio/male/075.mp3"
+      }
     },
     {
       "type": "alphabet-sentence",
       "lesson": "k",
       "text": "I see a kite.",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/076.mp3",
+        "male": "/assets/audio/male/076.mp3"
+      }
     },
     {
       "type": "letter-name",
       "lesson": "l",
       "text": "L",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/077.mp3",
+        "male": "/assets/audio/male/077.mp3"
+      }
     },
     {
       "type": "letter-sound",
       "lesson": "l",
       "text": "L",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/078.mp3",
+        "male": "/assets/audio/male/078.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "l",
       "text": "lion",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/079.mp3",
+        "male": "/assets/audio/male/079.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "l",
       "text": "lemon",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/080.mp3",
+        "male": "/assets/audio/male/080.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "l",
       "text": "leaf",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/081.mp3",
+        "male": "/assets/audio/male/081.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "l",
       "text": "lamp",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/082.mp3",
+        "male": "/assets/audio/male/082.mp3"
+      }
     },
     {
       "type": "alphabet-sentence",
       "lesson": "l",
       "text": "This is a lion.",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/083.mp3",
+        "male": "/assets/audio/male/083.mp3"
+      }
     },
     {
       "type": "letter-name",
       "lesson": "m",
       "text": "M",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/084.mp3",
+        "male": "/assets/audio/male/084.mp3"
+      }
     },
     {
       "type": "letter-sound",
       "lesson": "m",
       "text": "M",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/085.mp3",
+        "male": "/assets/audio/male/085.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "m",
       "text": "moon",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/086.mp3",
+        "male": "/assets/audio/male/086.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "m",
       "text": "milk",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/087.mp3",
+        "male": "/assets/audio/male/087.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "m",
       "text": "monkey",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/088.mp3",
+        "male": "/assets/audio/male/088.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "m",
       "text": "mouse",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/089.mp3",
+        "male": "/assets/audio/male/089.mp3"
+      }
     },
     {
       "type": "alphabet-sentence",
       "lesson": "m",
       "text": "This is a monkey.",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/090.mp3",
+        "male": "/assets/audio/male/090.mp3"
+      }
     },
     {
       "type": "letter-name",
       "lesson": "n",
       "text": "N",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/091.mp3",
+        "male": "/assets/audio/male/091.mp3"
+      }
     },
     {
       "type": "letter-sound",
       "lesson": "n",
       "text": "N",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/092.mp3",
+        "male": "/assets/audio/male/092.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "n",
       "text": "nest",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/093.mp3",
+        "male": "/assets/audio/male/093.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "n",
       "text": "nose",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/094.mp3",
+        "male": "/assets/audio/male/094.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "n",
       "text": "net",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/095.mp3",
+        "male": "/assets/audio/male/095.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "n",
       "text": "night",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/096.mp3",
+        "male": "/assets/audio/male/096.mp3"
+      }
     },
     {
       "type": "alphabet-sentence",
       "lesson": "n",
       "text": "I see a nest.",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/097.mp3",
+        "male": "/assets/audio/male/097.mp3"
+      }
     },
     {
       "type": "letter-name",
       "lesson": "o",
       "text": "O",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/098.mp3",
+        "male": "/assets/audio/male/098.mp3"
+      }
     },
     {
       "type": "letter-sound",
       "lesson": "o",
       "text": "O",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/099.mp3",
+        "male": "/assets/audio/male/099.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "o",
       "text": "orange",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/100.mp3",
+        "male": "/assets/audio/male/100.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "o",
       "text": "octopus",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/101.mp3",
+        "male": "/assets/audio/male/101.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "o",
       "text": "ocean",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/102.mp3",
+        "male": "/assets/audio/male/102.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "o",
       "text": "otter",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/103.mp3",
+        "male": "/assets/audio/male/103.mp3"
+      }
     },
     {
       "type": "alphabet-sentence",
       "lesson": "o",
       "text": "I see an octopus.",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/104.mp3",
+        "male": "/assets/audio/male/104.mp3"
+      }
     },
     {
       "type": "letter-name",
       "lesson": "p",
       "text": "P",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/105.mp3",
+        "male": "/assets/audio/male/105.mp3"
+      }
     },
     {
       "type": "letter-sound",
       "lesson": "p",
       "text": "P",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/106.mp3",
+        "male": "/assets/audio/male/106.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "p",
       "text": "pig",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/107.mp3",
+        "male": "/assets/audio/male/107.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "p",
       "text": "pen",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/108.mp3",
+        "male": "/assets/audio/male/108.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "p",
       "text": "pizza",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/109.mp3",
+        "male": "/assets/audio/male/109.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "p",
       "text": "panda",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/110.mp3",
+        "male": "/assets/audio/male/110.mp3"
+      }
     },
     {
       "type": "alphabet-sentence",
       "lesson": "p",
       "text": "This is a panda.",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/111.mp3",
+        "male": "/assets/audio/male/111.mp3"
+      }
     },
     {
       "type": "letter-name",
       "lesson": "q",
       "text": "Q",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/112.mp3",
+        "male": "/assets/audio/male/112.mp3"
+      }
     },
     {
       "type": "letter-sound",
       "lesson": "q",
       "text": "Q",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/113.mp3",
+        "male": "/assets/audio/male/113.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "q",
       "text": "queen",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/114.mp3",
+        "male": "/assets/audio/male/114.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "q",
       "text": "quilt",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/115.mp3",
+        "male": "/assets/audio/male/115.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "q",
       "text": "quail",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/116.mp3",
+        "male": "/assets/audio/male/116.mp3"
+      }
     },
     {
       "type": "alphabet-sentence",
       "lesson": "q",
       "text": "This is a queen.",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/117.mp3",
+        "male": "/assets/audio/male/117.mp3"
+      }
     },
     {
       "type": "letter-name",
       "lesson": "r",
       "text": "R",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/118.mp3",
+        "male": "/assets/audio/male/118.mp3"
+      }
     },
     {
       "type": "letter-sound",
       "lesson": "r",
       "text": "R",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/119.mp3",
+        "male": "/assets/audio/male/119.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "r",
       "text": "rabbit",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/120.mp3",
+        "male": "/assets/audio/male/120.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "r",
       "text": "robot",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/121.mp3",
+        "male": "/assets/audio/male/121.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "r",
       "text": "rain",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/122.mp3",
+        "male": "/assets/audio/male/122.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "r",
       "text": "rainbow",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/123.mp3",
+        "male": "/assets/audio/male/123.mp3"
+      }
     },
     {
       "type": "alphabet-sentence",
       "lesson": "r",
       "text": "I see a rainbow.",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/124.mp3",
+        "male": "/assets/audio/male/124.mp3"
+      }
     },
     {
       "type": "letter-name",
       "lesson": "s",
       "text": "S",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/125.mp3",
+        "male": "/assets/audio/male/125.mp3"
+      }
     },
     {
       "type": "letter-sound",
       "lesson": "s",
       "text": "S",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/126.mp3",
+        "male": "/assets/audio/male/126.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "s",
       "text": "sun",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/127.mp3",
+        "male": "/assets/audio/male/127.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "s",
       "text": "star",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/128.mp3",
+        "male": "/assets/audio/male/128.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "s",
       "text": "sock",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/129.mp3",
+        "male": "/assets/audio/male/129.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "s",
       "text": "spoon",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/130.mp3",
+        "male": "/assets/audio/male/130.mp3"
+      }
     },
     {
       "type": "alphabet-sentence",
       "lesson": "s",
       "text": "This is a star.",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/131.mp3",
+        "male": "/assets/audio/male/131.mp3"
+      }
     },
     {
       "type": "letter-name",
       "lesson": "t",
       "text": "T",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/132.mp3",
+        "male": "/assets/audio/male/132.mp3"
+      }
     },
     {
       "type": "letter-sound",
       "lesson": "t",
       "text": "T",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/133.mp3",
+        "male": "/assets/audio/male/133.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "t",
       "text": "tiger",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/134.mp3",
+        "male": "/assets/audio/male/134.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "t",
       "text": "train",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/135.mp3",
+        "male": "/assets/audio/male/135.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "t",
       "text": "tree",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/136.mp3",
+        "male": "/assets/audio/male/136.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "t",
       "text": "turtle",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/137.mp3",
+        "male": "/assets/audio/male/137.mp3"
+      }
     },
     {
       "type": "alphabet-sentence",
       "lesson": "t",
       "text": "I see a train.",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/138.mp3",
+        "male": "/assets/audio/male/138.mp3"
+      }
     },
     {
       "type": "letter-name",
       "lesson": "u",
       "text": "U",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/139.mp3",
+        "male": "/assets/audio/male/139.mp3"
+      }
     },
     {
       "type": "letter-sound",
       "lesson": "u",
       "text": "U",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/140.mp3",
+        "male": "/assets/audio/male/140.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "u",
       "text": "umbrella",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/141.mp3",
+        "male": "/assets/audio/male/141.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "u",
       "text": "uncle",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/142.mp3",
+        "male": "/assets/audio/male/142.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "u",
       "text": "up",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/143.mp3",
+        "male": "/assets/audio/male/143.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "u",
       "text": "under",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/144.mp3",
+        "male": "/assets/audio/male/144.mp3"
+      }
     },
     {
       "type": "alphabet-sentence",
       "lesson": "u",
       "text": "This is an umbrella.",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/145.mp3",
+        "male": "/assets/audio/male/145.mp3"
+      }
     },
     {
       "type": "letter-name",
       "lesson": "v",
       "text": "V",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/146.mp3",
+        "male": "/assets/audio/male/146.mp3"
+      }
     },
     {
       "type": "letter-sound",
       "lesson": "v",
       "text": "V",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/147.mp3",
+        "male": "/assets/audio/male/147.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "v",
       "text": "van",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/148.mp3",
+        "male": "/assets/audio/male/148.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "v",
       "text": "vase",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/149.mp3",
+        "male": "/assets/audio/male/149.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "v",
       "text": "violin",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/150.mp3",
+        "male": "/assets/audio/male/150.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "v",
       "text": "vegetables",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/151.mp3",
+        "male": "/assets/audio/male/151.mp3"
+      }
     },
     {
       "type": "alphabet-sentence",
       "lesson": "v",
       "text": "This is a van.",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/152.mp3",
+        "male": "/assets/audio/male/152.mp3"
+      }
     },
     {
       "type": "letter-name",
       "lesson": "w",
       "text": "W",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/153.mp3",
+        "male": "/assets/audio/male/153.mp3"
+      }
     },
     {
       "type": "letter-sound",
       "lesson": "w",
       "text": "W",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/154.mp3",
+        "male": "/assets/audio/male/154.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "w",
       "text": "whale",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/155.mp3",
+        "male": "/assets/audio/male/155.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "w",
       "text": "watermelon",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/156.mp3",
+        "male": "/assets/audio/male/156.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "w",
       "text": "window",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/157.mp3",
+        "male": "/assets/audio/male/157.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "w",
       "text": "watch",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/158.mp3",
+        "male": "/assets/audio/male/158.mp3"
+      }
     },
     {
       "type": "alphabet-sentence",
       "lesson": "w",
       "text": "I see a whale.",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/159.mp3",
+        "male": "/assets/audio/male/159.mp3"
+      }
     },
     {
       "type": "letter-name",
       "lesson": "x",
       "text": "X",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/160.mp3",
+        "male": "/assets/audio/male/160.mp3"
+      }
     },
     {
       "type": "letter-sound",
       "lesson": "x",
       "text": "X",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/161.mp3",
+        "male": "/assets/audio/male/161.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "x",
       "text": "x-ray",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/162.mp3",
+        "male": "/assets/audio/male/162.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "x",
       "text": "xylophone",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/163.mp3",
+        "male": "/assets/audio/male/163.mp3"
+      }
     },
     {
       "type": "alphabet-sentence",
       "lesson": "x",
       "text": "This is an x-ray.",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/164.mp3",
+        "male": "/assets/audio/male/164.mp3"
+      }
     },
     {
       "type": "alphabet-sentence",
       "lesson": "x",
       "text": "This is a xylophone.",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/165.mp3",
+        "male": "/assets/audio/male/165.mp3"
+      }
     },
     {
       "type": "letter-name",
       "lesson": "y",
       "text": "Y",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/166.mp3",
+        "male": "/assets/audio/male/166.mp3"
+      }
     },
     {
       "type": "letter-sound",
       "lesson": "y",
       "text": "Y",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/167.mp3",
+        "male": "/assets/audio/male/167.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "y",
       "text": "yo-yo",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/168.mp3",
+        "male": "/assets/audio/male/168.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "y",
       "text": "yogurt",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/169.mp3",
+        "male": "/assets/audio/male/169.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "y",
       "text": "yellow",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/170.mp3",
+        "male": "/assets/audio/male/170.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "y",
       "text": "yak",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/171.mp3",
+        "male": "/assets/audio/male/171.mp3"
+      }
     },
     {
       "type": "alphabet-sentence",
       "lesson": "y",
       "text": "This is a yo-yo.",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/172.mp3",
+        "male": "/assets/audio/male/172.mp3"
+      }
     },
     {
       "type": "letter-name",
       "lesson": "z",
       "text": "Z",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/173.mp3",
+        "male": "/assets/audio/male/173.mp3"
+      }
     },
     {
       "type": "letter-sound",
       "lesson": "z",
       "text": "Z",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/174.mp3",
+        "male": "/assets/audio/male/174.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "z",
       "text": "zebra",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/175.mp3",
+        "male": "/assets/audio/male/175.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "z",
       "text": "zoo",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/176.mp3",
+        "male": "/assets/audio/male/176.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "z",
       "text": "zipper",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/177.mp3",
+        "male": "/assets/audio/male/177.mp3"
+      }
     },
     {
       "type": "word",
       "lesson": "z",
       "text": "zero",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/178.mp3",
+        "male": "/assets/audio/male/178.mp3"
+      }
     },
     {
       "type": "alphabet-sentence",
       "lesson": "z",
       "text": "This is a zebra.",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/179.mp3",
+        "male": "/assets/audio/male/179.mp3"
+      }
     },
     {
       "type": "everyday-sentence",
       "lesson": "feelings",
       "text": "I'm happy.",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/180.mp3",
+        "male": "/assets/audio/male/180.mp3"
+      }
     },
     {
       "type": "everyday-sentence",
       "lesson": "feelings",
       "text": "I'm sad.",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/181.mp3",
+        "male": "/assets/audio/male/181.mp3"
+      }
     },
     {
       "type": "everyday-sentence",
       "lesson": "feelings",
       "text": "I'm angry.",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/182.mp3",
+        "male": "/assets/audio/male/182.mp3"
+      }
     },
     {
       "type": "everyday-sentence",
       "lesson": "feelings",
       "text": "I'm scared.",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/183.mp3",
+        "male": "/assets/audio/male/183.mp3"
+      }
     },
     {
       "type": "everyday-sentence",
       "lesson": "hungry",
       "text": "I'm hungry.",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/184.mp3",
+        "male": "/assets/audio/male/184.mp3"
+      }
     },
     {
       "type": "everyday-sentence",
       "lesson": "hungry",
       "text": "Can I have a snack, please?",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/185.mp3",
+        "male": "/assets/audio/male/185.mp3"
+      }
     },
     {
       "type": "everyday-sentence",
       "lesson": "thirsty",
       "text": "I'm thirsty.",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/186.mp3",
+        "male": "/assets/audio/male/186.mp3"
+      }
     },
     {
       "type": "everyday-sentence",
       "lesson": "thirsty",
       "text": "Can I have some water, please?",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/187.mp3",
+        "male": "/assets/audio/male/187.mp3"
+      }
     },
     {
       "type": "everyday-sentence",
       "lesson": "bathroom",
       "text": "I need to go to the bathroom.",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/188.mp3",
+        "male": "/assets/audio/male/188.mp3"
+      }
     },
     {
       "type": "everyday-sentence",
       "lesson": "bathroom",
       "text": "Can I go to the bathroom, please?",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/189.mp3",
+        "male": "/assets/audio/male/189.mp3"
+      }
     },
     {
       "type": "everyday-sentence",
       "lesson": "bathroom",
       "text": "I wash my hands.",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/190.mp3",
+        "male": "/assets/audio/male/190.mp3"
+      }
     },
     {
       "type": "everyday-sentence",
       "lesson": "my-family",
       "text": "This is my family.",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/191.mp3",
+        "male": "/assets/audio/male/191.mp3"
+      }
     },
     {
       "type": "everyday-sentence",
       "lesson": "my-family",
       "text": "This is my mom.",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/192.mp3",
+        "male": "/assets/audio/male/192.mp3"
+      }
     },
     {
       "type": "everyday-sentence",
       "lesson": "my-family",
       "text": "This is my dad.",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/193.mp3",
+        "male": "/assets/audio/male/193.mp3"
+      }
     },
     {
       "type": "everyday-sentence",
       "lesson": "my-family",
       "text": "This is my brother.",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/194.mp3",
+        "male": "/assets/audio/male/194.mp3"
+      }
     },
     {
       "type": "everyday-sentence",
       "lesson": "my-family",
       "text": "This is my sister.",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/195.mp3",
+        "male": "/assets/audio/male/195.mp3"
+      }
     },
     {
       "type": "everyday-sentence",
       "lesson": "hello-about-me",
       "text": "Hello!",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/196.mp3",
+        "male": "/assets/audio/male/196.mp3"
+      }
     },
     {
       "type": "everyday-sentence",
       "lesson": "hello-about-me",
       "text": "My name is ______.",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/197.mp3",
+        "male": "/assets/audio/male/197.mp3"
+      }
     },
     {
       "type": "everyday-sentence",
       "lesson": "hello-about-me",
       "text": "What's your name?",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/198.mp3",
+        "male": "/assets/audio/male/198.mp3"
+      }
     },
     {
       "type": "everyday-sentence",
       "lesson": "hello-about-me",
       "text": "Goodbye!",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/199.mp3",
+        "male": "/assets/audio/male/199.mp3"
+      }
     },
     {
       "type": "everyday-sentence",
       "lesson": "at-school",
       "text": "I'm at school.",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/200.mp3",
+        "male": "/assets/audio/male/200.mp3"
+      }
     },
     {
       "type": "everyday-sentence",
       "lesson": "at-school",
       "text": "This is my teacher.",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/201.mp3",
+        "male": "/assets/audio/male/201.mp3"
+      }
     },
     {
       "type": "everyday-sentence",
       "lesson": "at-school",
       "text": "I have a book.",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/202.mp3",
+        "male": "/assets/audio/male/202.mp3"
+      }
     },
     {
       "type": "everyday-sentence",
       "lesson": "at-school",
       "text": "I have a pencil.",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/203.mp3",
+        "male": "/assets/audio/male/203.mp3"
+      }
     },
     {
       "type": "everyday-sentence",
       "lesson": "can-i-have",
       "text": "Can I have _____, please?",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/204.mp3",
+        "male": "/assets/audio/male/204.mp3"
+      }
     },
     {
       "type": "everyday-sentence",
       "lesson": "can-i-have",
       "text": "Can I have the ball, please?",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/205.mp3",
+        "male": "/assets/audio/male/205.mp3"
+      }
     },
     {
       "type": "everyday-sentence",
       "lesson": "can-i-have",
       "text": "Can I have the book, please?",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/206.mp3",
+        "male": "/assets/audio/male/206.mp3"
+      }
     },
     {
       "type": "everyday-sentence",
       "lesson": "can-i-have",
       "text": "Can I have some water, please?",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/207.mp3",
+        "male": "/assets/audio/male/207.mp3"
+      }
     },
     {
       "type": "everyday-sentence",
       "lesson": "likes-and-dislikes",
       "text": "I like pizza.",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/208.mp3",
+        "male": "/assets/audio/male/208.mp3"
+      }
     },
     {
       "type": "everyday-sentence",
       "lesson": "likes-and-dislikes",
       "text": "I like bananas.",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/209.mp3",
+        "male": "/assets/audio/male/209.mp3"
+      }
     },
     {
       "type": "everyday-sentence",
       "lesson": "likes-and-dislikes",
       "text": "I don't like milk.",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/210.mp3",
+        "male": "/assets/audio/male/210.mp3"
+      }
     },
     {
       "type": "everyday-sentence",
       "lesson": "likes-and-dislikes",
       "text": "I don't like yogurt.",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/211.mp3",
+        "male": "/assets/audio/male/211.mp3"
+      }
     },
     {
       "type": "everyday-sentence",
       "lesson": "can-you-help",
       "text": "Can you help me, please?",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/212.mp3",
+        "male": "/assets/audio/male/212.mp3"
+      }
     },
     {
       "type": "everyday-sentence",
       "lesson": "can-you-help",
       "text": "I don't understand.",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/213.mp3",
+        "male": "/assets/audio/male/213.mp3"
+      }
     },
     {
       "type": "everyday-sentence",
       "lesson": "can-you-help",
       "text": "Say it again, please.",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/214.mp3",
+        "male": "/assets/audio/male/214.mp3"
+      }
     },
     {
       "type": "everyday-sentence",
       "lesson": "can-you-help",
       "text": "Please open the box.",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/215.mp3",
+        "male": "/assets/audio/male/215.mp3"
+      }
     },
     {
       "type": "everyday-sentence",
       "lesson": "can-you-help",
       "text": "Please close the door.",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/216.mp3",
+        "male": "/assets/audio/male/216.mp3"
+      }
     },
     {
       "type": "everyday-sentence",
       "lesson": "polite-words",
       "text": "Please.",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/217.mp3",
+        "male": "/assets/audio/male/217.mp3"
+      }
     },
     {
       "type": "everyday-sentence",
       "lesson": "polite-words",
       "text": "Thank you.",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/218.mp3",
+        "male": "/assets/audio/male/218.mp3"
+      }
     },
     {
       "type": "everyday-sentence",
       "lesson": "polite-words",
       "text": "I'm sorry.",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/219.mp3",
+        "male": "/assets/audio/male/219.mp3"
+      }
     },
     {
       "type": "everyday-sentence",
       "lesson": "polite-words",
       "text": "Excuse me.",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/220.mp3",
+        "male": "/assets/audio/male/220.mp3"
+      }
     },
     {
       "type": "everyday-sentence",
       "lesson": "polite-words",
       "text": "You're welcome.",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/221.mp3",
+        "male": "/assets/audio/male/221.mp3"
+      }
     },
     {
       "type": "everyday-sentence",
       "lesson": "lets-play",
       "text": "Let's play.",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/222.mp3",
+        "male": "/assets/audio/male/222.mp3"
+      }
     },
     {
       "type": "everyday-sentence",
       "lesson": "lets-play",
       "text": "Can I play with you?",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/223.mp3",
+        "male": "/assets/audio/male/223.mp3"
+      }
     },
     {
       "type": "everyday-sentence",
       "lesson": "lets-play",
       "text": "My turn.",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/224.mp3",
+        "male": "/assets/audio/male/224.mp3"
+      }
     },
     {
       "type": "everyday-sentence",
       "lesson": "lets-play",
       "text": "Your turn.",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/225.mp3",
+        "male": "/assets/audio/male/225.mp3"
+      }
     },
     {
       "type": "everyday-sentence",
       "lesson": "lets-play",
       "text": "Let's share.",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/226.mp3",
+        "male": "/assets/audio/male/226.mp3"
+      }
     },
     {
       "type": "everyday-sentence",
       "lesson": "my-body",
       "text": "My head hurts.",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/227.mp3",
+        "male": "/assets/audio/male/227.mp3"
+      }
     },
     {
       "type": "everyday-sentence",
       "lesson": "my-body",
       "text": "My tummy hurts.",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/228.mp3",
+        "male": "/assets/audio/male/228.mp3"
+      }
     },
     {
       "type": "everyday-sentence",
       "lesson": "my-body",
       "text": "My hand hurts.",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/229.mp3",
+        "male": "/assets/audio/male/229.mp3"
+      }
     },
     {
       "type": "everyday-sentence",
       "lesson": "my-body",
       "text": "I'm tired.",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/230.mp3",
+        "male": "/assets/audio/male/230.mp3"
+      }
     },
     {
       "type": "everyday-sentence",
       "lesson": "my-body",
       "text": "I'm sick.",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/231.mp3",
+        "male": "/assets/audio/male/231.mp3"
+      }
     },
     {
       "type": "everyday-sentence",
       "lesson": "daily-routine",
       "text": "I wake up.",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/232.mp3",
+        "male": "/assets/audio/male/232.mp3"
+      }
     },
     {
       "type": "everyday-sentence",
       "lesson": "daily-routine",
       "text": "I brush my teeth.",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/233.mp3",
+        "male": "/assets/audio/male/233.mp3"
+      }
     },
     {
       "type": "everyday-sentence",
       "lesson": "daily-routine",
       "text": "I get dressed.",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/234.mp3",
+        "male": "/assets/audio/male/234.mp3"
+      }
     },
     {
       "type": "everyday-sentence",
       "lesson": "daily-routine",
       "text": "I eat breakfast.",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/235.mp3",
+        "male": "/assets/audio/male/235.mp3"
+      }
     },
     {
       "type": "everyday-sentence",
       "lesson": "daily-routine",
       "text": "I go to school.",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/236.mp3",
+        "male": "/assets/audio/male/236.mp3"
+      }
     },
     {
       "type": "everyday-sentence",
       "lesson": "daily-routine",
       "text": "I go to bed.",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/237.mp3",
+        "male": "/assets/audio/male/237.mp3"
+      }
     },
     {
       "type": "everyday-sentence",
       "lesson": "stay-safe",
       "text": "Stop.",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/238.mp3",
+        "male": "/assets/audio/male/238.mp3"
+      }
     },
     {
       "type": "everyday-sentence",
       "lesson": "stay-safe",
       "text": "Wait.",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/239.mp3",
+        "male": "/assets/audio/male/239.mp3"
+      }
     },
     {
       "type": "everyday-sentence",
       "lesson": "stay-safe",
       "text": "No, thank you.",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/240.mp3",
+        "male": "/assets/audio/male/240.mp3"
+      }
     },
     {
       "type": "everyday-sentence",
       "lesson": "stay-safe",
       "text": "Help me, please.",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/241.mp3",
+        "male": "/assets/audio/male/241.mp3"
+      }
     },
     {
       "type": "everyday-sentence",
       "lesson": "stay-safe",
       "text": "I need my mom.",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/242.mp3",
+        "male": "/assets/audio/male/242.mp3"
+      }
     },
     {
       "type": "everyday-sentence",
       "lesson": "stay-safe",
       "text": "I need my dad.",
-      "asset": null,
-      "status": "awaiting-review"
+      "voices": {
+        "female": "/assets/audio/female/243.mp3",
+        "male": "/assets/audio/male/243.mp3"
+      }
     }
   ]
 }

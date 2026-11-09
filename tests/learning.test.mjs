@@ -44,7 +44,7 @@ test('production build includes all learning paths',()=>{
  for(const file of ['dist/index.html','dist/learn/index.html','dist/learn/alphabet/a/index.html',
  'dist/learn/alphabet/m/index.html','dist/learn/alphabet/z/index.html',
  'dist/learn/sentences/index.html','dist/learn/sentences/feelings/index.html',
- 'dist/books/alphabet/index.html','dist/preview/index.html','dist/CNAME',
+ 'dist/books/alphabet/index.html','dist/preview/index.html','dist/learn/words/index.html','dist/CNAME',
  'dist/assets/letter-m.webp']){
    assert.ok(existsSync(new URL(file,root)),file);
  }
@@ -61,10 +61,10 @@ test('all 41 routes and direct navigation',()=>{
   assert.deepEqual(entry.printedPages,entry.pdfPages.map(n=>n-3));
  }
 });
-test('audio stays explicitly unapproved until reviewed',()=>{
+test('owner-approved dual audio is wired to lesson recordings',()=>{
  assert.equal(audio.recordings.length,244);
- assert.equal(audio.status,'awaiting-reviewed-audio');
- assert.ok(audio.recordings.every(r=>r.asset===null));
+ assert.equal(audio.status,'approved-by-site-owner');
+ assert.ok(audio.recordings.every(r=>r.voices?.female&&r.voices?.male));
 });
 test('assets and scripts are wired',()=>{
  for(const f of ['learn/index.html','preview/index.html','books/alphabet/index.html','learn/alphabet/a/index.html','learn/sentences/feelings/index.html']){

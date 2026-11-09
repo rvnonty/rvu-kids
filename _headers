@@ -1,6 +1,10 @@
+/assets/*
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+/audio-review/neural/*
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+/learn/*
+  Cache-Control: public, max-age=300, must-revalidate
 /*
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
-  X-Frame-Options: DENY
   Permissions-Policy: camera=(), microphone=(), geolocation=()
-  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'

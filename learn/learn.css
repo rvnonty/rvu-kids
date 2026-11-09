@@ -268,3 +268,26 @@ html[lang="ar"] .sitebar nav,html[lang="en"] .sitebar nav{line-height:1.65}
  .sitebar nav a{font-size:.8rem}
  .sitebar nav .lang-switch{font-size:.75rem}
 }
+
+/* Touchable vocabulary thumbnails. Only transform and opacity are animated. */
+.voice-picker{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:#f0f9f2;padding:12px 14px;margin:18px 0;border-radius:17px;border:1px solid #d3e8d7}
+.voice-label{font-weight:800}.voice-choice,.audio-play{background:#fff;border:1px solid #aed2bd;border-radius:999px;padding:8px 14px;min-height:44px;font:inherit;font-weight:800;color:#164c39;cursor:pointer}
+.voice-choice[aria-pressed=true]{background:#164c39;color:#fff}.audio-play{font-size:.84rem}.audio-play.audio-playing{background:#d1f0e1}
+.word-card{min-height:225px;contain:layout style;overflow:visible}
+.word-zoom{display:grid;place-items:center;padding:0;background:transparent;border:0;min-width:100px;min-height:100px;border-radius:22px;cursor:zoom-in;touch-action:manipulation}
+.word-zoom.zoomed{cursor:zoom-out}
+.word-zoom .word-visual{transition:transform .24s ease,box-shadow .24s ease;will-change:auto}
+.word-zoom.zoomed .word-visual{transform:scale(1.25) rotate(-3deg);z-index:2;box-shadow:0 13px 26px #30584524}
+.word-visual.story-visual{width:100px;height:100px;border-radius:20px;overflow:visible;background:transparent;border:0;box-shadow:none}
+.word-visual.story-visual::before{content:none!important}
+.word-image{display:block;width:100%;height:100%;object-fit:contain;aspect-ratio:1;border-radius:20px}
+.word-icon{font-size:3.15rem}
+.phonics-line,.letter-name{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.phrase-card{flex-wrap:wrap}.phrase-card .audio-play{margin-inline-start:auto}
+.quiz-picture .word-visual{width:68px;height:68px}
+.library-grid{margin-top:20px}.word-help{margin:12px 0}
+@media(hover:hover) and (prefers-reduced-motion:no-preference){.word-zoom:hover .word-visual{transform:scale(1.1) rotate(2deg)}}
+.word-zoom:active .word-visual{transform:scale(1.08)}
+.word-zoom:focus-visible,.audio-play:focus-visible,.voice-choice:focus-visible{outline:3px solid #d97847;outline-offset:3px}
+@media(max-width:530px){.word-card{min-height:208px;padding:12px 8px}.word-zoom{min-width:84px;min-height:84px}.word-visual.story-visual{width:84px;height:84px}.library-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.audio-play{font-size:.76rem}}
+@media(prefers-reduced-motion:reduce){.word-zoom .word-visual{transition:none!important}.word-zoom.zoomed .word-visual{transform:scale(1.07)}}

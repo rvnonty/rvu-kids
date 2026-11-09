@@ -9,4 +9,4 @@ for(const file of ['index.html','style.css','app.js','favicon.svg','robots.txt',
 for(const dir of ['assets','learn','preview','books','parents','audio-review'])
   await cp(dir,`dist/${dir}`,{recursive:true});
 
-console.log('Built RVU Kids storefront, lessons, and separate draft audio review studio. Child-facing audio remains disabled pending approval.');
+console.log('Built RVU Kids storefront, lessons, and separate draft audio review studio. Owner-approved dual-voice audio is linked in child-facing lessons.');

@@ -2,7 +2,7 @@ name: RVU Kids Quality Checks
 
 on:
   push:
-    branches: [main, feature/production-learning-60-words]
+    branches: [main]
   workflow_dispatch:
 
 permissions:

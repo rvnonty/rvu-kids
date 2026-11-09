@@ -11,11 +11,13 @@ test('all 244 audio targets are approved by the site owner and exist',()=>{
   assert.ok(existsSync('.'+path),path);assert.ok(statSync('.'+path).size>2300,path)
  }
 });
-test('60 first picture words are unique and all linked to an asset',()=>{
- const words=curriculum.alphabet.flatMap(a=>a.words).slice(0,60);
- assert.equal(words.length,60);assert.equal(new Set(words).size,60);
+test('all 101 curriculum words are uniquely illustrated in first and second groups',()=>{
+ const words=curriculum.alphabet.flatMap(a=>a.words);
+ assert.equal(words.length,101);assert.equal(new Set(words).size,101);
  for(const w of words){const file='assets/words/'+w.replaceAll(' ','-')+'.svg';assert.ok(existsSync(file),file);assert.ok(statSync(file).size<2000,file)}
  assert.ok(existsSync('learn/words/index.html'));assert.ok(existsSync('dist/learn/words/index.html'));
+ const js=read('learn/learn.js');assert.ok(js.includes('words-61-101'));assert.ok(js.includes('ALL_WORDS.slice(start,end)'));
+ assert.equal(words.slice(60).length,41);
 });
 test('playback loads on click and photos respect reduced-motion',()=>{
  const js=read('learn/learn.js'),css=read('learn/learn.css');

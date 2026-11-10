@@ -1,7 +1,6 @@
 import {SCENES,makeActivityData} from './activity-data.mjs';
 
-/* Accessible, tiny game UI. Never uses remote APIs, saved personal data,
-   forced timers, sound autoplay, or engagement pressure. */
+
 const say=(lang,ar,en)=>lang==='ar'?ar:en;
 function el(tag,cls,text){
  const node=document.createElement(tag);
@@ -153,8 +152,8 @@ function spellingGame(rounds,lang,wordVisual){
 export function mountActivities(root,{type,lesson,lang,playButton,wordVisual}){
  if(!root||!lesson||!['alphabet','sentences'].includes(type))return;
  const data=makeActivityData(type,lesson);
- // Give every sentence its own playful illustration, including exercises that
- // contain new context not present in the printed book.
+
+
  if(type==='sentences'){
   const shell=root.closest('.lesson-card');
   if(shell){

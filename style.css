@@ -3,9 +3,7 @@
 @media(min-width:1500px){.hero-art{min-height:600px}.book{width:330px}}@media(max-width:1000px){.wrap{width:calc(100% - 48px)}.header nav{gap:20px}.hero{gap:25px;padding-top:45px}.hero-art{min-height:490px}.book{width:270px}.pages-badge{left:0;bottom:28px;min-width:95px;min-height:95px}.star-one{left:0;top:13px}.hero-actions{gap:17px;flex-wrap:wrap}h1{font-size:2.8rem}.order-grid{gap:35px}.order-form{padding:23px}.faq-section{gap:40px}.learning-grid{gap:20px}.preview-grid{gap:16px}.preview-card .preview-frame{padding:12px}}@media(max-width:720px){.wrap{width:calc(100% - 36px)}.announcement{font-size:.8rem}.header{padding-block:18px;gap:13px;flex-wrap:wrap}.header nav{display:flex;order:3;flex:0 0 100%;width:100%;overflow-x:auto;overscroll-behavior-x:contain;white-space:nowrap;gap:16px;align-items:center;padding:7px 2px 5px;scrollbar-width:thin}.header nav a{font-size:.82rem;flex-shrink:0}.brand-rvu{font-size:1.85rem}.brand-kids{font-size:.67rem}.header-actions{gap:9px}.button.small{padding:9px 13px;font-size:.8rem}.language{font-size:.82rem}.hero{grid-template-columns:1fr;gap:16px;padding-block:32px 40px}.hero-copy{max-width:510px}.hero .eyebrow{margin-bottom:16px}h1{font-size:clamp(2.55rem,9vw,3.5rem);line-height:1.4}.intro{font-size:1rem;margin-top:20px}.hero-actions{margin-top:24px}.hero-price{margin-top:20px}.hero-note{font-size:.75rem}.hero-art{min-height:440px;max-width:440px;width:100%;margin:auto}.book{width:245px}.book-orbit{inset:23px 20px 25px}.pages-badge{left:20px;bottom:32px}.star-one{left:20px;top:12px;font-size:3.6rem}.star-two{right:20px;font-size:2.7rem}.benefits-grid{grid-template-columns:1fr 1fr;gap:13px;font-size:.8rem;padding-block:20px}.benefits-grid span:nth-child(2){border:0}.section{padding-block:53px}.section-top{display:block;margin-bottom:28px}.section-top>p{margin-top:18px;max-width:100%}h2{font-size:1.95rem}.eyebrow{font-size:.8rem;margin-bottom:11px}.learning-grid{grid-template-columns:1fr 1fr;gap:30px 22px}.feature-index{margin-bottom:15px}.learning-grid article{padding-top:15px}.learning-grid article h3{font-size:1.05rem}.learning-grid article p{font-size:.875rem}.preview-grid{grid-template-columns:1fr 1fr;gap:25px 15px}.preview-card .preview-frame{padding:10px}.preview-card strong{font-size:.91rem;margin-top:11px}.preview-card>span{font-size:.75rem}.steps{grid-template-columns:1fr 1fr;gap:28px 23px}.steps h3{font-size:1.05rem}.steps p{font-size:.875rem}.steps li>span{margin-bottom:15px}.order-grid{grid-template-columns:1fr;gap:30px}.order-story{position:static}.order-story>p{max-width:none;margin-top:18px}.order-product{padding-block:21px;margin-top:22px}.order-form{padding:22px 18px}.form-heading{align-items:start}.form-heading>span{max-width:130px;line-height:1.6}.form-row{gap:13px}.summary{padding:13px}.faq-section{grid-template-columns:1fr;gap:30px}.faq-list details{padding-block:18px}.faq-list summary{font-size:.95rem}.footer-top{gap:22px;flex-wrap:wrap}.footer-top p{font-size:.85rem;max-width:200px}.footer-privacy{margin:0}.footer-bottom{gap:15px;flex-wrap:wrap;font-size:.75rem}}@media(max-width:360px){.wrap{width:calc(100% - 28px)}.form-row{grid-template-columns:1fr;gap:0}.hero-actions{gap:13px}.text-link{font-size:.85rem}.button{padding-inline:20px}.hero-art{min-height:410px}.book{width:220px}.pages-badge{left:4px}.learning-grid,.steps{gap:25px 15px}.learning-grid h3{font-size:1rem}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
 
 
-/* Horizontal overflow repair: size tracks by available space, not min-content.
-   The previous two-column hero and wide multi-column sections expanded at
-   intermediate viewport widths and browser zoom, producing a page-wide scrollbar. */
+
 html,body{max-width:100%;overflow-x:clip}
 .wrap{width:min(1220px,calc(100% - 64px));max-width:100%;min-width:0}
 header,main,footer,section,.wrap,.hero,.hero-copy,.hero-art,
@@ -78,7 +76,7 @@ header,main,footer,section,.wrap,.hero,.hero-copy,.hero-art,
 }
 
 
-/* Preview: artwork must meet the existing pastel frames without white paper gutters. */
+
 .preview-card .preview-frame{padding:11px;border-radius:16px;overflow:hidden}
 .preview-card img{width:100%;height:auto;aspect-ratio:auto;object-fit:contain;display:block;
   box-shadow:0 5px 18px rgba(18,48,36,.13);border-radius:9px}
@@ -90,7 +88,7 @@ header,main,footer,section,.wrap,.hero,.hero-copy,.hero-art,
 @media(max-width:720px){.preview-card .preview-frame{padding:9px}.preview-card img{border-radius:7px}}
 
 
-/* Four-step learning proposition — distinct from the existing inside-the-book features. */
+
 .why-different{background:linear-gradient(130deg,#eef2e9 0%,#f7f4e9 58%,#f4e8dd 100%);border-block:1px solid #dce3d8}
 .why-different .section-top{align-items:end}
 .why-different .section-top>p{max-width:440px}
@@ -111,7 +109,7 @@ header,main,footer,section,.wrap,.hero,.hero-copy,.hero-art,
 @media(max-width:520px){.why-grid{grid-template-columns:minmax(0,1fr);gap:12px}.why-grid article{padding:22px}.why-mark{width:53px;height:53px;font-size:1.3rem;margin-bottom:12px}.why-audio .why-mark{font-size:1.7rem}}
 
 
-/* RVU cover presentation: calm editorial credit below the physical cover */
+
 .hero-art .book{transform:translateY(18px) rotate(-6deg);border:1px solid rgba(255,255,255,.72);box-shadow:10px 20px 0 #ad8e5426,21px 32px 45px #3d40202b}
 .hero-art .pages-badge{bottom:83px}
 .hero-art .art-credit{position:absolute;bottom:5px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:4px;z-index:2;white-space:nowrap;text-align:center;background:#fffdf8ed;border:1px solid #dfe4d4;border-radius:99px;padding:8px 19px;box-shadow:0 6px 17px #20372911}
@@ -127,15 +125,13 @@ header,main,footer,section,.wrap,.hero,.hero-copy,.hero-art,
 @media(prefers-reduced-motion:reduce){.preview-dialog img.page-turn{animation:none!important}}
 
 
-/* Keep the creator line genuinely BELOW the rotated physical book at all widths,
-   instead of letting it float over the last part of the cover. */
+
 @media(min-width:1101px){.hero-art{min-height:clamp(610px,47vw,680px)}}
 @media(min-width:851px) and (max-width:1100px){.hero-art{min-height:595px}}
 @media(min-width:431px) and (max-width:850px){.hero-art{min-height:600px}}
 
 
-/* Visually center the physical cover INSIDE its yellow backdrop, instead of
-   letting the oversized ellipse read as an empty shape on one side. */
+
 .hero-art .book-orbit{
   inset:auto;
   top:50%;
@@ -152,8 +148,7 @@ header,main,footer,section,.wrap,.hero,.hero-copy,.hero-art,
 }
 
 
-/* Approved cover composition — book breaks through a smaller cream backdrop.
-   All text stays real HTML, and the original book-cover asset stays untouched. */
+
 .hero-art{min-height:565px}
 .hero-art .book{
   width:min(315px,67%);
@@ -231,8 +226,7 @@ header,main,footer,section,.wrap,.hero,.hero-copy,.hero-art,
 }
 
 
-/* Compact learning paths: replace the duplicate text-heavy sections with two
-   big tap targets. No new images or book pages are published. */
+
 .explore-section{padding-block:60px 66px}
 .explore-heading{margin-bottom:25px}
 .explore-kicker{display:block;color:#8b5c3c;font-size:.79rem;font-weight:800;letter-spacing:.02em;margin-bottom:4px}
@@ -263,7 +257,7 @@ header,main,footer,section,.wrap,.hero,.hero-copy,.hero-art,
 @media(max-width:620px){.explore-grid{grid-template-columns:minmax(0,1fr);gap:14px}.explore-card{grid-template-columns:78px minmax(0,1fr);min-height:155px;padding:19px 18px}.explore-icon{width:78px;height:78px}.explore-title{font-size:1.24rem}.explore-desc{font-size:.86rem}.explore-link{margin-top:5px}.why-different.section{padding-block:48px 54px}.why-grid{gap:12px}}
 @media(prefers-reduced-motion:reduce){.explore-card{transition:none!important}.explore-card:hover{transform:none}}
 
-/* Compact parent guide invite: one clear link instead of a long homepage section. */
+
 .parents-teaser{background:#fffdf8;padding-block:30px}
 .parents-teaser-inner{display:flex;gap:22px;align-items:center;background:linear-gradient(100deg,#f4eddb,#e8f1e7);border:1px solid #e0e3d5;border-radius:22px;padding:23px 27px}
 .parents-teaser-badge{width:72px;height:72px;flex:0 0 auto;display:grid;place-items:center;border-radius:21px;background:#f0d28e;color:#174338;font-size:1.6rem;font-family:'Manrope',sans-serif;font-weight:900;position:relative;transform:rotate(-4deg)}
@@ -277,7 +271,7 @@ header,main,footer,section,.wrap,.hero,.hero-copy,.hero-art,
 @media(max-width:650px){.parents-teaser-inner{flex-wrap:wrap;gap:12px;padding:19px}.parents-teaser-badge{width:52px;height:52px;font-size:1.23rem;border-radius:15px}.parents-teaser-copy{flex:1 1 calc(100% - 75px)}.parents-teaser-link{width:100%;margin-top:3px}.parents-teaser{padding-block:19px}}
 @media(prefers-reduced-motion:reduce){.parents-teaser-link{transition:none!important}.parents-teaser-link:hover{transform:none}}
 
-/* Balance the 96-page seal with the book cover: gently rightward and smaller. */
+
 .hero-art .pages-badge{
   left:22px;
   width:98px;
@@ -299,8 +293,7 @@ header,main,footer,section,.wrap,.hero,.hero-copy,.hero-art,
   .hero-art .pages-badge span{font-size:.64rem}
 }
 
-/* Uniform book-page previews: the M page uses the same physical page frame.
-   Motion is limited to fine-pointer hover; touch stays stable. */
+
 .preview-grid{align-items:stretch}
 .preview-card{min-width:0;position:relative}
 .preview-card .preview-frame{
@@ -330,7 +323,7 @@ header,main,footer,section,.wrap,.hero,.hero-copy,.hero-art,
   .preview-card:hover .preview-frame,.preview-card:hover img{transform:none}
 }
 
-/* Approved RVU Kids wordmark — same logo in header/footer, no font-dependent glyphs. */
+
 .header .brand,.footer .brand{
   display:block;flex:0 0 auto;position:relative;
   width:110px;height:69px;min-width:110px;
@@ -354,15 +347,15 @@ header,main,footer,section,.wrap,.hero,.hero-copy,.hero-art,
  .header-actions .button.small{padding-inline:11px}
 }
 
-/* Lower the book-cover credit pill slightly below the cover, per approved layout. */
+
 .hero-art .art-credit{bottom:-15px}
 @media(max-width:430px){.hero-art .art-credit{bottom:-10px}}
 
-/* Enlarge only the cream book backdrop by precisely 15%, keeping it centered. */
+
 .hero-art .book-orbit{transform:translate(-50%,-50%) rotate(-6deg) scale(1.15)}
 
 
-/* RVU Kids header: compact, evenly spaced and clear at every width. */
+
 .header{
  display:grid;
  grid-template-columns:138px minmax(0,1fr) auto;
@@ -445,8 +438,7 @@ header,main,footer,section,.wrap,.hero,.hero-copy,.hero-art,
  .header .language{padding:7px 8px}
  .header .button.small{padding:9px 10px}
 }
-/* Keep the whole cover credit BELOW the book but INSIDE its clipping box.
-   A negative bottom offset used to cut the last line off. */
+
 .hero-art{min-height:625px}
 .hero-art .art-credit{
  bottom:22px;
@@ -468,8 +460,7 @@ header,main,footer,section,.wrap,.hero,.hero-copy,.hero-art,
 }
 
 
-/* RVU Kids — site-wide finishing pass, November 2026.
-   One rhythm and shared visual language across book, learning and order pages. */
+
 :root{
  --rvu-radius-sm:14px;--rvu-radius-md:22px;--rvu-radius-lg:30px;
  --rvu-edge:#e0e6db;--rvu-quiet:#f4f7ef;--rvu-cream:#fffdf7;
@@ -591,3 +582,7 @@ button,select,a{touch-action:manipulation}
  .button,.header-actions .language,.order-form :is(input,select,textarea){transition:none!important}
  .button:hover,.preview-card:hover .preview-frame{transform:none}
 }
+
+.order-whatsapp-link{display:inline-flex;align-items:center;justify-content:center;min-height:46px;max-width:100%;padding:10px 18px;margin-top:13px;border:1px solid #9ccaaa;border-radius:999px;background:#e3f5e7;color:#164b35;font-weight:850;text-decoration:none;text-align:center;line-height:1.55;transition:background-color .2s ease,transform .2s ease}
+.order-whatsapp-link:hover{background:#ccebd2;transform:translateY(-2px)}
+@media(prefers-reduced-motion:reduce){.order-whatsapp-link{transition:none!important}.order-whatsapp-link:hover{transform:none}}

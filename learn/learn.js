@@ -411,6 +411,20 @@ try{
   document.documentElement.classList.add('rvu-motion-off');
  }
 }catch{}
+/* Reuse the exact approved audio pipeline for the A–Z picture-listen controls.
+   Never synthesize a fallback for a clip awaiting pronunciation review. */
+window.RVU_WORD_AUDIO={
+ available(lesson,word){
+  const key='word|'+lesson+'|'+word;
+  return voiceRows.has(key)&&!REPORTED_WRONG_WORD_AUDIO.has(word);
+ },
+ play(lesson,word){
+  const b=playButton('word',lesson,word);
+  if(!b||b.disabled)return false;
+  b.click();
+  return true;
+ }
+};
 renderNavLang();
 translateStatic();
 if(['hub','alphabet-index','lesson','words'].includes(document.body.dataset.page)){

@@ -9,7 +9,7 @@
  const copy={
   ar:{
    eyebrow:'دليل عام لكل أولياء الأمور',title:'تعلم مفتوح، من غير حسابات',
-   intro:'كل طفل يقدر يفتح أي حرف أو موقف ويتعلم بالصور والصوت مباشرة. لا نسجل أسماء أطفال أو زيارات أو درجات أو إنجازات، ومفيش لوحة متابعة لأي طالب.',
+   intro:'كل طفل يقدر يفتح أي حرف أو موقف ويتعلم بالصور والصوت مباشرة. مفيش حسابات للأطفال، ولا نحفظ داخل الموقع سجل فتح الدروس أو نتائج الألعاب أو الإنجازات.',
    backToPlay:'افتح عالم التعلّم',letters:'حرف وصور ناطقة',exploreLetters:'استكشف الحروف',
    situations:'درس مواقف إنجليزية',exploreSituations:'استكشف المواقف',
    freeTitle:'مفتوح للجميع',freeDescription:'من غير تسجيل أو تقدّم محفوظ',start:'جرّب حرف A',
@@ -21,7 +21,7 @@
   },
   en:{
    eyebrow:'A public guide for all parents',title:'Open learning, no accounts',
-   intro:'Every child can open any letter or everyday situation and learn through pictures and recorded voices. No child names, lesson visits, grades or achievements are collected or tracked.',
+   intro:'Every child can open any letter or everyday situation and learn through pictures and recorded voices. There are no child accounts, and the site does not save lesson history, game results or achievements.',
    backToPlay:'Open the learning world',letters:'Letters and speaking pictures',exploreLetters:'Explore letters',
    situations:'Everyday English lessons',exploreSituations:'Explore situations',
    freeTitle:'Open to everyone',freeDescription:'No sign-up or saved lesson progress',start:'Try letter A',

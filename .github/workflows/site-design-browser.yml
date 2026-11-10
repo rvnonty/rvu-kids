@@ -1,0 +1,47 @@
+name: Visual design smoke checks
+
+on:
+  push:
+    branches: [feature/sitewide-spacing-polish]
+    paths:
+      - style.css
+      - learn/learn.css
+      - parents/guide.css
+      - index.html
+      - app.js
+      - tests/site-design.test.mjs
+      - scripts/site-design-browser-check.mjs
+      - .github/workflows/site-design-browser.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  browser-layout-check:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Build and test the site
+        run: |
+          npm run build
+          npm test
+          node scripts/static-check.mjs
+      - name: Install Chromium smoke-test dependencies
+        run: |
+          npm install --no-save --no-package-lock playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Test mobile tablet and desktop layouts
+        run: node scripts/site-design-browser-check.mjs
+      - name: Upload design screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rvu-sitewide-design-screenshots
+          path: artifacts/site-design/*.png
+          retention-days: 14
+          if-no-files-found: ignore

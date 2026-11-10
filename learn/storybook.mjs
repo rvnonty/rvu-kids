@@ -142,7 +142,11 @@
   const [message,character]=messages[mood];
   guide.dataset.mood=mood;
   const face=guide.querySelector('.storybook-guide-face');
-  if(face)face.className='storybook-guide-face character-portrait '+character;
+  if(face){
+   face.className='storybook-guide-face character-portrait '+character;
+   void face.offsetWidth;
+   face.classList.add('guide-moment');
+  }
   const line=guide.querySelector('.storybook-guide-text');
   if(line&&line.textContent!==message)line.textContent=message;
  }

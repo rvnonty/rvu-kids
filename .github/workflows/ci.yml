@@ -18,7 +18,5 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Check JavaScript and learning behavior
+      - name: Build site and run complete regression suite
         run: npm test
-      - name: Build static learning site
-        run: npm run build

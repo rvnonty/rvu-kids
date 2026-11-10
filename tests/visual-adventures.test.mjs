@@ -44,7 +44,7 @@ class FakeElement {
  }
  setAttribute(name,value){this.attrs[name]=String(value)}
  getAttribute(name){return this.attrs[name]??this[name]??null}
- addEventListener(type,callback){this.handlers[type]=callback}
+ addEventListener(type,callback){const previous=this.handlers[type];this.handlers[type]=previous?((...args)=>{previous(...args);callback(...args)}):callback}
  querySelectorAll(selector){
   const found=[];
   const isMatch=element=>selector[0]==='.'?

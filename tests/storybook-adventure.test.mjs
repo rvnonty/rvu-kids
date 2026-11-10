@@ -70,13 +70,15 @@ function mount(page,path,initialStorage={}){
   createElement:tag=>new Element(tag),
   getElementById:id=>id==='letter-grid'&&page==='hub'?map:null,
   querySelector:selector=>selector==='.hero'?hero:selector==='.lesson-card'?card:null,
-  addEventListener:(event,handler)=>{listeners[event]=handler}
+  addEventListener:(event,handler)=>{listeners[event]=handler},
+  dispatchEvent:event=>listeners[event.type]?.(event)
  };
  runInNewContext(script,{
   window:{RVU_CURRICULUM:curriculum},
   document,
   location:{pathname:path},
-  localStorage:storage
+  localStorage:storage,
+  CustomEvent:class {constructor(type,options){this.type=type;this.detail=options?.detail}}
  },{timeout:1000});
  return {map,hero,card,values,listeners};
 }

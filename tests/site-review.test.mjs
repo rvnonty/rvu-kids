@@ -34,8 +34,8 @@ test('alphabet index and selected lesson previews are wired',()=>{
  assert.ok(alphabet.includes('data-page="alphabet-index"'));
  assert.ok(hub.includes('href="/learn/alphabet/"'));
  assert.ok(js.includes("p==='alphabet-index'"));
- assert.ok(js.includes("d.id==='a'||d.id==='m'"));
- assert.ok(js.includes('/assets/letter-m.webp'));
+ assert.ok(!js.includes("d.id==='a'||d.id==='m'"),'full printed pages are no longer duplicated inside lessons');
+ assert.ok(read('preview/index.html').includes('/assets/letter-m.webp'));
 });
 test('English and Arabic switching is coherent on main and learning pages',()=>{
  const app=read('app.js'), learn=read('learn/learn.js'),html=read('index.html');
@@ -49,7 +49,8 @@ test('no imaginary live checkout or audio assets',()=>{
  const conf=read('wrangler.jsonc');
  assert.equal(JSON.parse(conf).vars.ORDERS_ENABLED,'false');
  const audio=JSON.parse(read('learn/audio-manifest.json'));
- assert.equal(audio.status,'approved-by-site-owner');
+ assert.equal(audio.status,'partially-reviewed-not-final');
+ assert.equal(audio.pronunciationQA.humanSignoffComplete,false);
  assert.ok(audio.recordings.every(r=>r.voices?.female&&r.voices?.male));
 });
 
@@ -189,7 +190,7 @@ test('main storefront sections have descriptive metadata and exact canonical URL
 test('bilingual parent guide ships in build and links from storefront and hub',()=>{
  const page=read('parents/index.html'),css=read('parents/guide.css'),js=read('parents/guide.js');
  assert.ok(read('index.html').includes('href="/parents/"'));
- assert.ok(read('learn/index.html').includes('href="/parents/"'));
+ assert.ok(read('learn/index.html').includes('href="/parents/#parent-dashboard"'));
  assert.ok(page.includes('3–4')&&page.includes('5–6'));
  assert.ok(page.includes('I see an apple.'));
  assert.ok(page.includes('قيد التجهيز'));
@@ -198,7 +199,7 @@ test('bilingual parent guide ships in build and links from storefront and hub',(
  assert.ok(js.includes("sessionStorage.setItem('rvu-lang',lang)"));
  assert.ok(css.includes('@media(max-width:620px)'));
  assert.ok(read('app.js').includes("parentGuideTitle:'Where should we start?'"));
- assert.ok(read('learn/learn.js').includes('data-hub-parent-title'));
+ assert.ok(read('learn/learn.js').includes('parent-nav-link'));
  assert.ok(read('build.mjs').includes("'parents'"));
  assert.ok(read('sitemap.xml').includes('<loc>https://rvu-kids.company/parents/</loc>'));
  assert.equal((read('preview/index.html').match(/<figure>/g)||[]).length,5);

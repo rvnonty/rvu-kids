@@ -61,11 +61,11 @@ test('all built content pages preconnect font servers only once',()=>{
  }
 });
 
-test('shipped stylesheet sources and core game JS are free of explanatory code comments',()=>{
+test('production CSS and game bundles remove explanatory code comments',()=>{
  for(const path of ['style.css','learn/learn.css','learn/activities.css','parents/guide.css']){
-  assert.ok(!read(path).includes('/*'),'CSS comment in '+path);
+  assert.ok(!read('dist/'+path).includes('/*'),'CSS comment in dist/'+path);
  }
  for(const path of ['learn/activities.mjs','learn/activity-data.mjs']){
-  assert.ok(!read(path).includes('/*'),'JS block comment '+path);
+  assert.ok(!read('dist/'+path).includes('/*'),'JS block comment in dist/'+path);
  }
 });

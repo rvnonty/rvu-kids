@@ -32,8 +32,10 @@ test('all letter lessons keep alphabet name audio but no longer render phonics a
 });
 
 test('both audio voice choices use original book boy and girl, labels and existing switching',()=>{
- assert.ok(learning.includes("['female','girl','👧','بنت','Girl']"));
- assert.ok(learning.includes("['male','boy','👦','ولد','Boy']"));
+ assert.ok(learning.includes("['female','girl','بنت','Girl']"));
+ assert.ok(!learning.includes('👧')&&!learning.includes('👦'));
+
+ assert.ok(learning.includes("['male','boy','ولد','Boy']"));
  assert.ok(learning.includes("el('span','character-portrait voice-avatar '+kind)"));
  assert.ok(learning.includes("b.setAttribute('aria-pressed'"));
  assert.ok(learning.includes("localStorage.setItem('rvu-voice',id)"));
@@ -56,8 +58,8 @@ test('actual book lizard participates in games with distinct happy and retry moo
  assert.ok(games.includes("setMascot(panel,lang,ok?'correct':'retry')"));
  assert.ok(games.includes("mood==='correct'"));
  assert.ok(games.includes("mood==='retry'"));
- assert.ok(games.includes("'😢 أوه! مش مشكلة، حاول تاني!'"));
- assert.ok(games.includes("'🌟 ييي! برافو عليك!'"));
+ assert.ok(games.includes("'حاول مرة تانية براحتك.'"));
+ assert.ok(games.includes("'برافو عليك!'"));
  assert.ok(games.includes("['girl','lizard','boy']"));
  assert.ok(gamesCss.includes('.rvu-game-panel[data-mood="correct"]'));
  assert.ok(gamesCss.includes('.rvu-game-panel[data-mood="retry"]'));

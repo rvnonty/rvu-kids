@@ -63,7 +63,7 @@ test('all 41 routes and direct navigation',()=>{
 });
 test('owner-approved dual audio is wired to lesson recordings',()=>{
  assert.equal(audio.recordings.length,244);
- assert.equal(audio.status,'approved-by-site-owner');
+ assert.equal(audio.status,'partially-reviewed-not-final');
  assert.ok(audio.recordings.every(r=>r.voices?.female&&r.voices?.male));
 });
 test('assets and scripts are wired',()=>{

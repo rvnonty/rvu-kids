@@ -2,9 +2,10 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync,existsSync,statSync} from 'node:fs';
 const audio=JSON.parse(readFileSync('learn/audio-manifest.json','utf8'));
-test('244 owner-approved American voice rows are linked to 488 production files',()=>{
- assert.equal(audio.status,'approved-by-site-owner');
+test('244 recorded but partially reviewed American voice rows are linked to 488 production files',()=>{
+ assert.equal(audio.status,'partially-reviewed-not-final');
  assert.equal(audio.recordings.length,244);
+ assert.equal(audio.pronunciationQA.humanSignoffComplete,false);
  const set=new Set();
  for(const item of audio.recordings){
   for(const voice of ['female','male']){

@@ -24,4 +24,20 @@ async function optimizeHtml(dir){
  }
 }
 await optimizeHtml('dist');
+
+async function stripShippedComments(dir){
+ for(const item of await readdir(dir,{withFileTypes:true})){
+  const file=dir+'/'+item.name;
+  if(item.isDirectory()){await stripShippedComments(file);continue}
+  if(!item.isFile())continue;
+  const isCss=item.name.endsWith('.css');
+  const isLearningModule=file.endsWith('/learn/activities.mjs')||file.endsWith('/learn/activity-data.mjs');
+  if(!isCss&&!isLearningModule)continue;
+  const source=await readFile(file,'utf8');
+  const stripped=source.replace(/\/\*[\s\S]*?\*\//g,'');
+  if(stripped!==source)await writeFile(file,stripped);
+ }
+}
+await stripShippedComments('dist');
+
 console.log('Built RVU Kids static pages and optimized font connections.');

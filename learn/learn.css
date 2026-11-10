@@ -3,7 +3,7 @@
 
 .sitebar nav .lang-switch{cursor:pointer;border:1px solid #adc8bd;border-radius:999px;padding:.38rem .85rem;background:#fff;color:var(--ink);font-family:inherit;font-size:.86rem;font-weight:700;line-height:1.4;white-space:nowrap}
 .tile-letter{display:flex!important;flex-direction:column;align-items:center;justify-content:center;gap:0!important;font-size:1.05rem!important}.tile-letter strong{font-size:1.4rem;line-height:1.05}.tile-letter small{font-size:.85rem;color:#738a80}
-.tile-arrow{float:inline-end;font-weight:900;color:#55947f}.lesson-card{max-width:1024px;margin:auto}.lesson-sub{margin:.1rem 0 1.7rem}.letter-name{display:inline-flex;gap:.5rem;align-items:center;background:#f4eac3;padding:.6rem 1rem;border-radius:999px;color:var(--ink);font-size:.93rem;margin:0 0 .8rem}.phonics-note{font-size:.9rem;color:#687d72;margin:.1rem 0 1.5rem}.minor-heading{font-size:clamp(1.32rem,2.3vw,1.8rem);color:var(--ink);margin:30px 0 17px}
+.tile-arrow{float:inline-end;font-weight:900;color:#55947f}.lesson-card{max-width:1024px;margin:auto}.lesson-sub{margin:.1rem 0 1.7rem}.letter-name{display:inline-flex;gap:.5rem;align-items:center;background:#f4eac3;padding:.6rem 1rem;border-radius:999px;color:var(--ink);font-size:.93rem;margin:0 0 .8rem}.minor-heading{font-size:clamp(1.32rem,2.3vw,1.8rem);color:var(--ink);margin:30px 0 17px}
 .word-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.word-card{position:relative;min-height:194px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;background:#fbf9f1;border:1px solid #e5e3d9;border-radius:21px;padding:17px 10px}.word-visual{width:98px;height:98px;display:grid;place-items:center;border-radius:22px;background:#eef4ea;font-size:3.3rem;line-height:1}.word-visual.no-icon{font-size:2.6rem;font-weight:900;color:#3e7161}.english-word{display:block;font-size:1.18rem;color:#1c4035;text-align:center;overflow-wrap:anywhere}.word-counter{position:absolute;top:11px;inset-inline-start:13px;color:#7b8b84;font-size:.7rem;font-weight:900}
 .phrase-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.phrase-card{display:flex;align-items:center;gap:16px;background:#f6f1e7;border:1px solid #eee7d9;border-radius:16px;padding:19px}.phrase-card .number{flex:0 0 31px;width:31px;height:31px;background:#fff;border-radius:50%;display:grid;place-items:center;font-size:.77rem;font-weight:900;color:#537065}.phrase-text{font-weight:770;font-size:clamp(1rem,1.7vw,1.14rem);line-height:1.5;text-align:start;white-space:normal}
 .audio-notice{margin:26px 0;border:1px solid #e7d7a2;background:#fff8e5;border-radius:18px;padding:15px 19px;display:flex;gap:12px;align-items:center;color:#5b5337}.audio-notice p{margin:0;font-size:.9rem}.audio-mark{width:30px;height:30px;display:grid;place-items:center;border-radius:50%;border:2px solid #cdbb83;font-size:1.3rem}
@@ -163,7 +163,7 @@ body{line-height:1.8;text-rendering:optimizeLegibility}
 .hero h1,.product-copy h1{line-height:1.16;letter-spacing:-.038em;overflow-wrap:normal}
 .hero h1 em{font-style:normal;color:#a7553f}
 .hero p,.path-card p,.unit-card p,.product-copy p,.three p,
-.phase-note,.phonics-note,.audio-notice p,.hub-parents-guide p{
+.phase-note,.audio-notice p,.hub-parents-guide p{
   line-height:1.85;overflow-wrap:break-word
 }
 .hero p{max-width:690px;margin:18px 0 0;font-size:clamp(1rem,1.45vw,1.1rem)}
@@ -281,7 +281,7 @@ html[lang="ar"] .sitebar nav,html[lang="en"] .sitebar nav{line-height:1.65}
 .word-visual.story-visual::before{content:none!important}
 .word-image{display:block;width:100%;height:100%;object-fit:contain;aspect-ratio:1;border-radius:20px}
 .word-icon{font-size:3.15rem}
-.phonics-line,.letter-name{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.letter-name{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 .phrase-card{flex-wrap:wrap}.phrase-card .audio-play{margin-inline-start:auto}
 .quiz-picture .word-visual{width:68px;height:68px}
 .library-grid{margin-top:20px}.word-help{margin:12px 0}
@@ -459,3 +459,42 @@ footer{gap:clamp(12px,2.3vw,24px);align-items:center;line-height:1.65;padding:cl
  .button,.word-card,.unit-card,.lesson-nav a,.letter-grid a{transition:none!important}
  .unit-card:hover,.word-card:hover,.letter-grid a:hover{transform:none}
 }
+
+.voice-picker{display:flex;align-items:center;gap:clamp(10px,2vw,22px);padding:clamp(13px,2vw,19px) clamp(14px,2.5vw,25px);border-radius:23px}
+.voice-picker .voice-label{font-size:clamp(1.05rem,2vw,1.3rem);min-width:max-content}
+.voice-picker .voice-choice{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:7px 17px 7px 8px;border-radius:20px;min-height:64px;font-size:1.04rem;transition:transform .2s ease,box-shadow .2s ease,background-color .2s ease}
+.voice-picker .voice-choice[aria-pressed="true"]{box-shadow:0 6px 14px rgba(19,79,56,.2)}
+.voice-picker .voice-choice:active{transform:scale(.97)}
+.voice-picker .voice-avatar.character-portrait{display:inline-block;width:45px;height:45px;flex:0 0 45px;border:2px solid #fdf9e7;box-shadow:0 2px 5px #194c351b;border-radius:15px;margin:0;transform:none;aspect-ratio:1;background-size:350% auto}
+.voice-picker .voice-choice[aria-pressed="true"] .voice-avatar{border-color:#fff;background-color:#f7efcf}
+.voice-choice-label{white-space:nowrap;line-height:1.5;letter-spacing:normal}
+.lesson-words-link{display:inline-flex;align-items:center;justify-content:center;gap:13px;max-width:100%;width:fit-content;margin:19px 0 23px;padding:13px 21px;font-size:clamp(.95rem,1.6vw,1.12rem);line-height:1.55;font-weight:850;text-align:center;white-space:normal;border-radius:20px;color:#174d39;background:#e4f5e8;border:1px solid #b8dac3;box-shadow:0 6px 15px rgba(29,73,51,.09);transition:transform .2s ease,background-color .2s ease,box-shadow .2s ease}
+.lesson-words-link:hover{background:#d5efd9;transform:translateY(-2px);box-shadow:0 10px 23px rgba(29,73,51,.16)}
+.lesson-words-icon{font-size:1.3rem;line-height:1;flex:0 0 auto}
+.letter-name{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:clamp(18px,3vw,42px);align-items:center;max-width:100%;width:min(100%,740px);padding:clamp(16px,2.7vw,24px);margin:7px 0 29px;border-radius:25px;background:linear-gradient(110deg,#fbf0c9,#f6e7b2);border:1px solid #eadfae;box-shadow:0 5px 15px #997d2520;font-size:1rem}
+.letter-name-copy{display:flex;flex-wrap:wrap;align-items:center;gap:12px;min-width:0}
+.letter-name-label{font-size:clamp(.94rem,1.7vw,1.12rem);line-height:1.65;color:#3e4d37;font-weight:750}
+.letter-name-value{font-size:clamp(1.12rem,2.2vw,1.5rem);line-height:1.2;font-weight:900;color:#153e33;display:inline-block;background:#fff9e5;padding:7px 14px;border:1px solid #e3d6a5;border-radius:13px;white-space:nowrap}
+.letter-name-action{display:flex;justify-content:flex-end;min-width:max-content}
+.letter-name-action .audio-play{min-height:50px;min-width:112px;white-space:nowrap;margin:0;padding:10px 20px;box-shadow:0 4px 12px rgba(32,82,55,.1)}
+@media(max-width:650px){
+ .voice-picker{justify-content:center;gap:10px;padding:12px}
+ .voice-picker .voice-label{width:100%;text-align:center}
+ .voice-picker .voice-choice{flex:1 1 130px;padding:6px 10px;min-height:59px;gap:8px}
+ .voice-picker .voice-avatar.character-portrait{width:40px;height:40px;flex-basis:40px}
+ .lesson-words-link{width:100%;font-size:.95rem;justify-content:center}
+ .letter-name{grid-template-columns:minmax(0,1fr);gap:14px;margin-bottom:25px;padding:17px}
+ .letter-name-action{justify-content:stretch}
+ .letter-name-action .audio-play{width:100%}
+}
+@media(max-width:380px){
+ .voice-picker .voice-choice{flex-basis:120px;font-size:.93rem;gap:5px}
+ .voice-picker .voice-avatar.character-portrait{width:35px;height:35px;flex-basis:35px}
+}
+@media(prefers-reduced-motion:reduce){
+ .voice-picker .voice-choice,.lesson-words-link{transition:none!important}
+ .lesson-words-link:hover{transform:none}
+}
+
+.compact-cast .cast-note{flex:0 1 auto;width:max-content;max-width:min(100%,430px);min-width:0;text-align:center;padding:10px 17px}
+@media(max-width:560px){.compact-cast .cast-note{flex:1 1 100%;width:auto;max-width:100%;padding:8px 11px}}

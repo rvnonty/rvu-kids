@@ -2,12 +2,15 @@ name: Browser-test all 41 playful lesson pages
 
 on:
   push:
-    branches: [feature/playful-practice-all-lessons]
+    branches: [main]
     paths:
       - learn/activities.mjs
       - learn/activity-data.mjs
       - learn/activities.css
       - learn/learn.js
+      - learn/learn.css
+      - index.html
+      - tests/book-mascots.test.mjs
       - scripts/lesson-browser-smoke.mjs
       - .github/workflows/lesson-browser-smoke.yml
   workflow_dispatch:

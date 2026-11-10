@@ -35,10 +35,19 @@ try{
  await page.locator('.rvu-game-tab').first().waitFor({timeout:15000});
  if(await page.locator('.rvu-game-tab').count()!==4)throw Error('Polite words missing 4 game types');
  if(await page.locator('.rvu-scene-emoji').count()<1)throw Error('No scenario illustration');
+ const current=page.locator('.rvu-game-panel:not([hidden])');
+ if(await current.locator('.rvu-lizard-avatar').count()!==1)throw Error('Book lizard missing from question');
+ if(await current.getAttribute('data-mood')!=='ready')throw Error('Lizard should start neutral');
+ await current.locator('.rvu-choice').filter({hasNotText:'Thank you.'}).first().click();
+ if(await current.getAttribute('data-mood')!=='retry')throw Error('Lizard did not react sadly to a wrong answer');
+ if(!(await current.locator('.rvu-lizard-speech').innerText()).includes('😢'))throw Error('Lizard retry speech missing');
  await page.locator('.rvu-game-panel:not([hidden]) .rvu-choice').filter({hasText:'Thank you.'}).click();
  await page.locator('.rvu-game-panel:not([hidden]) .rvu-feedback[data-result="correct"]').waitFor();
+ if(await current.getAttribute('data-mood')!=='correct')throw Error('Lizard did not celebrate the correct answer');
+ if(!(await current.locator('.rvu-lizard-speech').innerText()).includes('🌟'))throw Error('Lizard success speech missing');
  if(await page.locator('.rvu-burst-piece').count()<6)throw Error('Confetti missing after correct answer');
  await page.locator('.rvu-game-panel:not([hidden]) .rvu-game-next:visible').first().click();
+ if(await current.getAttribute('data-mood')!=='ready')throw Error('Lizard mood failed to reset for next question');
  await page.locator('.rvu-game-tab').nth(1).click();
  if(await page.locator('.rvu-game-panel:not([hidden]) .rvu-choice').count()<2)throw Error('Listen exercise missing');
  await page.locator('.rvu-game-tab').nth(2).click();
@@ -57,6 +66,34 @@ try{
  await page.locator('.rvu-game-panel:not([hidden]) .rvu-choice').filter({hasText:'apple'}).click();
  await page.locator('.rvu-game-panel:not([hidden]) .rvu-feedback[data-result="correct"]').waitFor();
  await page.screenshot({path:'artifacts/alphabet-a-mobile.png',fullPage:true});
+ if(await page.locator('.voice-picker .voice-avatar.girl').count()!==1||
+    await page.locator('.voice-picker .voice-avatar.boy').count()!==1)
+   throw Error('Original book boy/girl portraits missing from voice selector');
+ await page.goto(base+'/learn/alphabet/x/',{waitUntil:'domcontentloaded'});
+ await page.locator('.letter-name-action .audio-play').waitFor({timeout:10000});
+ if((await page.locator('.letter-name-value').innerText()).trim()!=='ex')throw Error('X letter name ex was altered');
+ if(await page.locator('.phonics-line,.phonics-note').count()!==0)throw Error('Removed phonics section is still visible');
+ if(await page.locator('a.lesson-words-link[href="/learn/words/#letter-x"]').count()!==1)throw Error('X page spread link missing');
+ const copyBox=await page.locator('.letter-name-copy').boundingBox();
+ const soundBox=await page.locator('.letter-name-action .audio-play').boundingBox();
+ if(!copyBox||!soundBox||soundBox.y<copyBox.y+copyBox.height+8)
+   throw Error('Letter name and listen button overlap on phone');
+ const overflow=await page.evaluate(()=>document.documentElement.scrollWidth>document.documentElement.clientWidth+3);
+ if(overflow)throw Error('X page has horizontal overflow');
+ await page.screenshot({path:'artifacts/alphabet-x-mobile.png',fullPage:true});
+ await page.setViewportSize({width:1280,height:800});
+ const copyWide=await page.locator('.letter-name-copy').boundingBox();
+ const buttonWide=await page.locator('.letter-name-action .audio-play').boundingBox();
+ if(!copyWide||!buttonWide)throw Error('Desktop letter name card is not measurable');
+ const desktopGap=Math.max(
+  copyWide.x-(buttonWide.x+buttonWide.width),
+  buttonWide.x-(copyWide.x+copyWide.width)
+ );
+ if(desktopGap<14)throw Error('X letter audio and ex label collide on desktop: '+desktopGap);
+ const castNote=await page.locator('.compact-cast .cast-note').boundingBox();
+ if(!castNote||castNote.width>435)throw Error('Desktop characters note stretches too wide');
+ await page.screenshot({path:'artifacts/alphabet-x-desktop.png',fullPage:true});
+ await page.setViewportSize({width:390,height:844});
  await page.emulateMedia({reducedMotion:'reduce'});
  const prefers=await page.locator('.rvu-deco-item').first().evaluate(node=>getComputedStyle(node).animationName);
  if(prefers!=='none')throw Error('Reduced-motion did not disable decorative animation: '+prefers);

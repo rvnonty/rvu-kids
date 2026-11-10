@@ -83,7 +83,7 @@ test('book preview cards do not introduce white picture frames',()=>{
 });
 
 
-test('whatsapp orders use the international recipient number and never fake submission',()=>{
+test('whatsapp orders use approved international recipient number and never fake submission',()=>{
  const page=read('index.html'),js=read('app.js');
  assert.ok(page.includes('value="instapay"'));
  assert.ok(page.includes('value="vodafone_cash"'));
@@ -92,6 +92,7 @@ test('whatsapp orders use the international recipient number and never fake subm
  assert.ok(page.includes('واتساب مع Ramez'));
  assert.ok(page.includes('https://wa.me/201012809358'));
  assert.ok(!page.includes('@n2nty'));
+ assert.ok(!js.includes('@n2nty'));
  assert.ok(js.includes("'https://wa.me/201012809358?text='"));
  assert.ok(js.includes('encodeURIComponent(fields.join('));
  assert.ok(js.includes('window.location.assign(url)'));
@@ -231,11 +232,9 @@ test('all preview cards have the same print ratio, modest hover and touch fallba
 
 test('cover credit stays inside artwork and header remains compact on phones',()=>{
  const css=read('style.css');
- assert.ok(css.includes('.header{
- display:grid;'));
+ assert.ok(css.includes('.header{\n display:grid;'));
  assert.ok(css.includes('grid-template-columns:138px minmax(0,1fr) auto'));
- assert.ok(css.includes('.hero-art .art-credit{
- bottom:22px;'));
+ assert.ok(css.includes('.hero-art .art-credit{\n bottom:22px;'));
  assert.ok(css.includes('.hero-art{min-height:625px}'));
  assert.ok(css.includes('.hero-art .art-credit{bottom:17px;'));
 });

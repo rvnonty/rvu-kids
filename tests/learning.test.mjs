@@ -24,7 +24,7 @@ test('locked content counts',()=>{
 test('exactly five UNIQUE real preview pages, including A and M',()=>{
  const preview=text('preview/index.html');
  assert.equal((preview.match(/<figure>/g)||[]).length,5);
- const photos=[...preview.matchAll(/<figure><img src="\/assets\/([a-z-]+\.webp)"/g)].map(m=>m[1]);
+ const photos=[...preview.matchAll(/<figure><img\b[^>]*\bsrc="\/assets\/([a-z-]+\.webp)"/g)].map(m=>m[1]);
  assert.deepEqual(photos,['cover.webp','letter-a.webp','practice-a.webp','feelings.webp','letter-m.webp']);
  const publicImages=['cover.webp','letter-a.webp','practice-a.webp','feelings.webp','letter-m.webp'];
  assert.ok(publicImages.every(name=>existsSync(new URL('assets/'+name,root))));

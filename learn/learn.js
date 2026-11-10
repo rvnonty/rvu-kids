@@ -58,13 +58,25 @@ const voiceRows=new Map(AUDIO_ROWS.map((r,i)=>[r[0]+'|'+r[1]+'|'+r[2],i]));
 const audioUrl=(id,voice)=>'/assets/audio/'+voice+'/'+String(id).padStart(3,'0')+'.mp3';
 const cachedAudio=new Map();
 const CACHE_LIMIT=4;
+const SPEED_OPTIONS=[
+ [0.7,'بطيء جدًا','Very slow'],
+ [0.85,'بطيء','Slow'],
+ [1,'طبيعي','Normal'],
+ [1.15,'أسرع','Faster']
+];
+const storedSpeed=Number(localStorage.getItem('rvu-playback-speed'));
+let playbackSpeed=SPEED_OPTIONS.some(option=>option[0]===storedSpeed)?storedSpeed:1;
+function applyPlaybackSpeed(player){
+ player.playbackRate=playbackSpeed;
+ if('preservesPitch' in player)player.preservesPitch=true;
+}
 let activeButton=null;
 function audioFor(url){
  if(cachedAudio.has(url)){
   const existing=cachedAudio.get(url);
-  cachedAudio.delete(url);cachedAudio.set(url,existing);return existing;
+  cachedAudio.delete(url);cachedAudio.set(url,existing);applyPlaybackSpeed(existing);return existing;
  }
- const player=new Audio();player.preload='auto';player.src=url;
+ const player=new Audio();player.preload='auto';player.src=url;applyPlaybackSpeed(player);
  cachedAudio.set(url,player);
  if(cachedAudio.size>CACHE_LIMIT){
   for(const [key,candidate] of cachedAudio){
@@ -83,20 +95,42 @@ function stopAudio(){
 const REPORTED_WRONG_WORD_AUDIO=new Set(['fish','fork']);
 let preferredVoice=localStorage.getItem('rvu-voice')==='male'?'male':'female';
 let currentAudio=null;
+function pronunciationSpeedPicker(){
+ const field=el('label','pronunciation-speed');
+ const label=el('span','speed-label',lang==='ar'?'سرعة النطق':'Pronunciation speed');
+ const select=el('select','speed-select');
+ select.setAttribute('aria-label',label.textContent);
+ for(const [rate,ar,en] of SPEED_OPTIONS){
+  const option=el('option',null,(lang==='ar'?ar:en)+' · '+rate+'×');
+  option.value=String(rate);
+  select.append(option);
+ }
+ select.value=String(playbackSpeed);
+ select.addEventListener('change',()=>{
+  const next=Number(select.value);
+  if(!SPEED_OPTIONS.some(option=>option[0]===next))return;
+  playbackSpeed=next;
+  localStorage.setItem('rvu-playback-speed',String(next));
+  for(const player of cachedAudio.values())applyPlaybackSpeed(player);
+  document.querySelectorAll('.speed-select').forEach(control=>{control.value=String(next)});
+ });
+ field.append(label,select);
+ return field;
+}
 function voicePicker(){
  const section=el('section','voice-picker');
  section.setAttribute('aria-label',lang==='ar'?'اختيار صوت النطق':'Choose the lesson voice');
  section.append(el('span','voice-label',lang==='ar'?'اختار الصوت':'Choose voice'));
- for(const [id,kind,emoji,ar,en] of [
-  ['female','girl','👧','بنت','Girl'],
-  ['male','boy','👦','ولد','Boy']
+ for(const [id,kind,ar,en] of [
+  ['female','girl','بنت','Girl'],
+  ['male','boy','ولد','Boy']
  ]){
   const b=el('button','voice-choice');b.type='button';b.dataset.voice=id;
   b.setAttribute('aria-pressed',String(preferredVoice===id));
   b.setAttribute('aria-label',lang==='ar'?'صوت '+ar:en+' voice');
   const portrait=el('span','character-portrait voice-avatar '+kind);
   portrait.setAttribute('aria-hidden','true');
-  const label=el('span','voice-choice-label',emoji+' '+(lang==='ar'?ar:en));
+  const label=el('span','voice-choice-label',lang==='ar'?ar:en);
   b.append(portrait,label);
   b.addEventListener('click',()=>{
    preferredVoice=id;localStorage.setItem('rvu-voice',id);stopAudio();
@@ -106,6 +140,7 @@ function voicePicker(){
   });
   section.append(b);
  }
+ section.append(pronunciationSpeedPicker());
  return section;
 }
 function playButton(type,lesson,value){
@@ -372,10 +407,21 @@ function translateStatic(){
  }
 }
 
+function mountStandaloneSpeedPicker(){
+ const page=document.body.dataset.page;
+ const parts=location.pathname.split('/').filter(Boolean);
+ if(page!=='hub'&&page!=='alphabet-index'&&!(page==='lesson'&&!parts[2]))return;
+ const hero=document.querySelector('.hero');
+ if(!hero)return;
+ const wrapper=el('div','standalone-speed-picker');
+ wrapper.append(pronunciationSpeedPicker());
+ hero.append(wrapper);
+}
 renderNavLang();
 translateStatic();
 decorateLearning();
 const p=document.body.dataset.page;if(p==='hub'||p==='alphabet-index')hub();if(p==='lesson')lessons();if(p==='words')wordLibrary();if(p==='preview')preview();
+mountStandaloneSpeedPicker();
 function enableStoryMotion(){
  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches||!('IntersectionObserver' in window))return;
  const targets=[...document.querySelectorAll('.word-card,.unit-card,.tile-letter,.path-card,.preview-five figure,.story-character')];

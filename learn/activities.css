@@ -100,5 +100,5 @@ body[data-page="lesson"]{--rvu-card-border:#d7e7df;--rvu-lesson-accent:#f3d479}
 @media(prefers-reduced-motion:reduce){.lesson-top .phrase-card{animation:none!important}}
 
 /* Hide the keyboard skip link until it is visibly focused; avoids floating text in long screenshots. */
-body[data-page="lesson"] .skip:not(:focus-visible){top:-120px;transform:none}
-body[data-page="lesson"] .skip:focus-visible{top:1rem;transform:none}
+body[data-page="lesson"] .skip:not(:focus-visible){top:-120px;transform:none;opacity:0;pointer-events:none}
+body[data-page="lesson"] .skip:focus-visible{top:1rem;transform:none;opacity:1;pointer-events:auto}

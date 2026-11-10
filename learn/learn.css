@@ -667,3 +667,10 @@ body:is([data-page="hub"],[data-page="alphabet-index"]) .storybook-guide-face{
  body:is([data-page="hub"],[data-page="alphabet-index"]) .path-card:hover,
  body:is([data-page="hub"],[data-page="alphabet-index"]) .unit-card:hover{transform:none}
 }
+
+/* Parent controls can disable nonessential learning animations across lessons. */
+html.rvu-motion-off *,html.rvu-motion-off *::before,html.rvu-motion-off *::after{
+ animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important
+}
+.sitebar .parent-nav-link{margin-inline-start:6px;padding:7px 12px;border:1px solid #bad2c0;border-radius:12px;background:#f4f8ef;color:#245740;font-weight:800}
+.sitebar .parent-nav-link:focus-visible{outline:3px solid #dcb267;outline-offset:3px}

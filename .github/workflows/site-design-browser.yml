@@ -2,7 +2,7 @@ name: Visual design smoke checks
 
 on:
   push:
-    branches: [feature/sitewide-spacing-polish]
+    branches: [main]
     paths:
       - style.css
       - learn/learn.css

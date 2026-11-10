@@ -46,7 +46,7 @@ self.addEventListener('message',event=>{
   let result;
   try{
    result=event.data.type==='SAVE_BEGINNER_PACK'?
-    await savePack():{ok:await caches.delete(CACHE),cleared:true};
+    await savePack():{ok:true,removed:await caches.delete(CACHE),cleared:true};
   }catch(error){result={ok:false,error:String(error.message||error)}}
   port?.postMessage(result);
  })());

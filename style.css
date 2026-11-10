@@ -586,3 +586,26 @@ button,select,a{touch-action:manipulation}
 .order-whatsapp-link{display:inline-flex;align-items:center;justify-content:center;min-height:46px;max-width:100%;padding:10px 18px;margin-top:13px;border:1px solid #9ccaaa;border-radius:999px;background:#e3f5e7;color:#164b35;font-weight:850;text-decoration:none;text-align:center;line-height:1.55;transition:background-color .2s ease,transform .2s ease}
 .order-whatsapp-link:hover{background:#ccebd2;transform:translateY(-2px)}
 @media(prefers-reduced-motion:reduce){.order-whatsapp-link{transition:none!important}.order-whatsapp-link:hover{transform:none}}
+
+/* Storybook Adventure — shared visual identity for the storefront */
+:root{
+ --ink:#184c3a;--green:#184c3a;--paper:#fbf7ee;--yellow:#f7d76a;--pink:#f6c7b8;--line:#e0e1d7;
+ --rvu-forest:#184c3a;--rvu-cream:#fbf7ee;--rvu-mint:#dff2e7;--rvu-peach:#f6c7b8;--rvu-sky:#cfe8f9;
+}
+body{background:#fbf7ee}
+.explore-card,.why-grid article,.faq-item,.preview-card{box-shadow:0 7px 20px rgba(24,76,58,.07)}
+.explore-alphabet{background:#eef6ee}
+.explore-sentences{background:#fff3ed}
+.storybook-spotlight{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:clamp(14px,2.6vw,28px);margin-top:22px;padding:clamp(18px,3vw,28px);background:linear-gradient(115deg,#fffdf7,#edf6ed);border:1px solid #dde8d9;border-radius:28px;box-shadow:0 8px 22px #184c3a12}
+.storybook-spotlight-art{display:flex;align-items:center;justify-content:center;gap:4px}
+.storybook-spotlight-art img{width:clamp(54px,6vw,81px);height:clamp(54px,6vw,81px);padding:5px;border:1px solid #e7e5dc;border-radius:19px;background:#fff;object-fit:contain;box-shadow:0 4px 11px #184c3a12}
+.storybook-spotlight-art img:nth-child(2){translate:0 -11px;background:#fff6e8}
+.storybook-spotlight-kicker{display:block;color:#587b68;font:800 .75rem "DM Sans",sans-serif;letter-spacing:.07em}
+.storybook-spotlight-copy h3{margin:6px 0;font-size:clamp(1.2rem,2vw,1.65rem);color:#184c3a;line-height:1.35}
+.storybook-spotlight-copy p{margin:0;color:#50695d;line-height:1.8;font-size:.94rem}
+.storybook-spotlight-link{display:inline-flex;align-items:center;justify-content:center;padding:12px 17px;min-height:48px;border-radius:999px;background:#184c3a;color:#fff;text-decoration:none;font-weight:800;text-align:center;white-space:nowrap}
+.storybook-spotlight-link:hover{background:#286c51}
+.storybook-spotlight-link:focus-visible{outline:3px solid #d9a34f;outline-offset:3px}
+@media(max-width:850px){.storybook-spotlight{grid-template-columns:auto minmax(0,1fr)}.storybook-spotlight-link{grid-column:1/-1;justify-self:start}}
+@media(max-width:520px){.storybook-spotlight{grid-template-columns:1fr;padding:19px}.storybook-spotlight-art{justify-content:flex-start}.storybook-spotlight-art img{width:63px;height:63px}.storybook-spotlight-link{grid-column:auto;justify-self:stretch}}
+@media(prefers-reduced-motion:reduce){.storybook-spotlight-art img:nth-child(2){translate:0 0}.storybook-spotlight-link{transition:none!important}}

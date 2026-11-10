@@ -17,6 +17,7 @@
    settingsNote:'الاختيارات دي تخص المتصفح اللي بتستخدمه فقط، ومش بتغيّر الموقع عند أي حد تاني.',
    speed:'سرعة النطق',speed70:'بطيء جدًا 0.70×',speed85:'بطيء 0.85×',
    speed100:'طبيعي 1.00×',speed115:'أسرع 1.15×',motion:'قلّل الحركة والمؤثرات',
+   buyText:'النسخة المطبوعة تضم 96 صفحة. السعر 300 جنيه مصري للنسخة شامل مصاريف الشحن والتوصيل لباب المنزل، من غير رسوم شحن إضافية. الشراء منفصل عن ألعاب الطفل.',
    saved:'تم حفظ اختيارك على المتصفح ده فقط.'
   },
   en:{
@@ -29,6 +30,7 @@
    settingsNote:'These preferences affect only this browser and never change the website for another visitor.',
    speed:'Pronunciation speed',speed70:'Very slow 0.70×',speed85:'Slow 0.85×',
    speed100:'Normal 1.00×',speed115:'Faster 1.15×',motion:'Reduce motion and effects',
+   buyText:'The 96-page printed book costs 300 EGP per copy, including shipping and delivery to your doorstep, with no extra delivery fees. Purchasing is separate from children’s games.',
    saved:'Preference saved on this browser only.'
   }
  };
@@ -41,7 +43,7 @@
  const write=(key,value)=>{try{localStorage.setItem(key,value)}catch{}};
  const show=()=>{feedback.textContent=t('saved')};
  function translate(){
-  root.querySelectorAll('[data-public]').forEach(element=>{
+  document.querySelectorAll('[data-public]').forEach(element=>{
    const value=t(element.dataset.public);
    if(value)element.textContent=value;
   });

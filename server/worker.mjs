@@ -10,11 +10,10 @@ export function validateOrder(b){
  return {name:b.name.trim(),phone,city:b.city.trim(),address:b.address.trim(),governorate:b.governorate,quantity:b.quantity,payment:b.payment,notes:(b.notes??'').trim(),locale:b.locale==='en'?'en':'ar'};
 }
 async function hash(value){return [...new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(value)))].map(v=>v.toString(16).padStart(2,'0')).join('');}
+const BOOK_PRICE_EGP=300;
 async function config(env){
- if(!env.DB||env.ORDERS_ENABLED!=='true'||!env.RATE_LIMIT_SECRET)return {acceptingOrders:false,shippingRates:{}};
- const {results}=await env.DB.prepare('SELECT governorate, amount_egp FROM shipping_rates WHERE enabled = 1').all();
- const shippingRates={};for(const row of results)if(GOVS.has(row.governorate)&&Number.isSafeInteger(row.amount_egp)&&row.amount_egp>=0)shippingRates[row.governorate]=row.amount_egp;
- return {acceptingOrders:true,shippingRates};
+ const acceptingOrders=Boolean(env.DB&&env.ORDERS_ENABLED==='true'&&env.RATE_LIMIT_SECRET);
+ return {acceptingOrders,unitPriceEgp:BOOK_PRICE_EGP,shippingIncluded:true,shippingRates:{}};
 }
 async function readLimitedJSON(request){
  const reader=request.body?.getReader();if(!reader)throw Error('body');let size=0;const chunks=[];
@@ -41,9 +40,9 @@ export default {async fetch(request,env){
   const bucket=await hash(`${env.RATE_LIMIT_SECRET}:${hour}:${ip}`);
   const rate=await env.DB.prepare('INSERT INTO request_limits (bucket, attempts, expires_at) VALUES (?, 1, ?) ON CONFLICT(bucket) DO UPDATE SET attempts = attempts + 1 RETURNING attempts').bind(bucket,Date.now()+7200000).first();
   if(rate.attempts>8)return json({error:'rate_limited'},429);
-  const shipping=cfg.shippingRates[order.governorate]??null,subtotal=order.quantity*200;
+  const shipping=0,subtotal=order.quantity*BOOK_PRICE_EGP;
   const reference='RVK-'+crypto.randomUUID().replaceAll('-','').slice(0,16).toUpperCase();
-  await env.DB.prepare(`INSERT INTO orders (reference, request_key, body_hash, parent_name, phone, governorate, city, address, quantity, payment_method, notes, locale, unit_price_egp, subtotal_egp, shipping_egp, total_egp, status, created_at, consent_version) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 200, ?, ?, ?, 'pending_review', ?, '2026-09-21') ON CONFLICT(request_key) DO NOTHING`).bind(reference,key,bodyHash,order.name,order.phone,order.governorate,order.city,order.address,order.quantity,order.payment,order.notes,order.locale,subtotal,shipping,shipping===null?null:subtotal+shipping,new Date().toISOString()).run();
+  await env.DB.prepare(`INSERT INTO orders (reference, request_key, body_hash, parent_name, phone, governorate, city, address, quantity, payment_method, notes, locale, unit_price_egp, subtotal_egp, shipping_egp, total_egp, status, created_at, consent_version) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 300, ?, ?, ?, 'pending_review', ?, '2026-09-21') ON CONFLICT(request_key) DO NOTHING`).bind(reference,key,bodyHash,order.name,order.phone,order.governorate,order.city,order.address,order.quantity,order.payment,order.notes,order.locale,subtotal,shipping,subtotal,new Date().toISOString()).run();
   const saved=await env.DB.prepare('SELECT reference, body_hash FROM orders WHERE request_key = ?').bind(key).first();
   if(!saved||saved.body_hash!==bodyHash)return json({error:'request_conflict'},409);
   return json({reference:saved.reference,status:'pending_review'},201);

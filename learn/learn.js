@@ -22,8 +22,8 @@ bathroom:'🚻',wash:'🫧',hands:'👐',family:'👨‍👩‍👧‍👦',mom:
 brother:'👦',sister:'👧',teacher:'👩‍🏫',book:'📖',pencil:'✏️',school:'🏫',water:'💧'
 };
 const i18n={
-ar:{hub:'التعلّم',preview:'المعاينة',book:'الكتاب',listen:'الاستماع',alph:'الحروف والكلمات',sent:'Everyday English — الجمل',words:'كلمات الدرس',sentences:'جمل الدرس',pages:'أرقام الصفحات المطبوعة في الكتاب',say:'اسم الحرف في الكتاب',sound:'صوت الحرف',hint:'اسم الحرف مختلف عن صوته، اسمع الاتنين.',remember:'اختبار صغير',question:'اضغط على الكلمة المطلوبة',correct:'إجابة صحيحة!',retry:'جرّب تاني',next:'التالي',prev:'السابق',all:'كل الحروف',allSent:'كل الوحدات',buy:'اطلب الكتاب',practice:'شوف واسمع وكرر مع ولي الأمر',learn:'مكتبة التعلّم',units:'الوحدات',previewPages:'صفحات مختارة',live:'المحتوى مطابق للمنهج المعتمد',learning:'اتعلّم مع كتابك',childHint:'استخدم الصور مع الكتاب الأصلي لتثبيت معنى الكلمات.',sample:'لمن يشاهد النموذج فقط',castWelcome:'صحابك في مغامرة التعلّم!',more:'افتح الوحدة التالية',begin:'ابدأ',switch:'English'},
-en:{hub:'Learning Hub',preview:'Preview',book:'The Book',listen:'Audio',alph:'Alphabet & Words',sent:'Everyday English — Sentences',words:'Lesson Words',sentences:'Target Sentences',pages:'Printed page numbers in your book',say:'Letter name in the book',sound:'Letter sound',hint:'The letter name is different from its phonics sound. Listen to both.',remember:'A little word check',question:'Choose the requested word',correct:'Well done!',retry:'Try again',next:'Next',prev:'Previous',all:'All letters',allSent:'All units',buy:'Order the Book',practice:'Look, say and practice with a parent',learn:'Learning Hub',units:'Units',previewPages:'Selected pages',live:'Matches the approved curriculum',learning:'Learn alongside your book',childHint:'Use the illustrations alongside the printed book to learn each word.',sample:'Preview only',castWelcome:'Your friends on every adventure!',more:'Open the next lesson',begin:'Start',switch:'العربية'}
+ar:{hub:'التعلّم',preview:'المعاينة',book:'الكتاب',listen:'الاستماع',alph:'الحروف والكلمات',sent:'Everyday English — الجمل',words:'كلمات الدرس',sentences:'جمل الدرس',pages:'أرقام الصفحات المطبوعة في الكتاب',say:'اسم الحرف في الكتاب',remember:'اختبار صغير',question:'اضغط على الكلمة المطلوبة',correct:'إجابة صحيحة!',retry:'جرّب تاني',next:'التالي',prev:'السابق',all:'كل الحروف',allSent:'كل الوحدات',buy:'اطلب الكتاب',practice:'شوف واسمع وكرر مع ولي الأمر',learn:'مكتبة التعلّم',units:'الوحدات',previewPages:'صفحات مختارة',live:'المحتوى مطابق للمنهج المعتمد',learning:'اتعلّم مع كتابك',childHint:'استخدم الصور مع الكتاب الأصلي لتثبيت معنى الكلمات.',sample:'لمن يشاهد النموذج فقط',castWelcome:'صحابك في مغامرة التعلّم!',more:'افتح الوحدة التالية',begin:'ابدأ',switch:'English'},
+en:{hub:'Learning Hub',preview:'Preview',book:'The Book',listen:'Audio',alph:'Alphabet & Words',sent:'Everyday English — Sentences',words:'Lesson Words',sentences:'Target Sentences',pages:'Printed page numbers in your book',say:'Letter name in the book',remember:'A little word check',question:'Choose the requested word',correct:'Well done!',retry:'Try again',next:'Next',prev:'Previous',all:'All letters',allSent:'All units',buy:'Order the Book',practice:'Look, say and practice with a parent',learn:'Learning Hub',units:'Units',previewPages:'Selected pages',live:'Matches the approved curriculum',learning:'Learn alongside your book',childHint:'Use the illustrations alongside the printed book to learn each word.',sample:'Preview only',castWelcome:'Your friends on every adventure!',more:'Open the next lesson',begin:'Start',switch:'العربية'}
 };
 const getParam=new URLSearchParams(location.search).get('lang');
 let lang=getParam==='en'||getParam==='ar'?getParam:(sessionStorage.getItem('rvu-lang')||'ar');
@@ -85,15 +85,28 @@ let preferredVoice=localStorage.getItem('rvu-voice')==='male'?'male':'female';
 let currentAudio=null;
 function voicePicker(){
  const section=el('section','voice-picker');
+ section.setAttribute('aria-label',lang==='ar'?'اختيار صوت النطق':'Choose the lesson voice');
  section.append(el('span','voice-label',lang==='ar'?'اختار الصوت':'Choose voice'));
- [['female','👧 بنت','👧 Girl'],['male','👦 ولد','👦 Boy']].forEach(([id,ar,en])=>{
-  const b=el('button','voice-choice',lang==='ar'?ar:en);b.type='button';b.dataset.voice=id;
+ for(const [id,kind,emoji,ar,en] of [
+  ['female','girl','👧','بنت','Girl'],
+  ['male','boy','👦','ولد','Boy']
+ ]){
+  const b=el('button','voice-choice');b.type='button';b.dataset.voice=id;
   b.setAttribute('aria-pressed',String(preferredVoice===id));
-  b.addEventListener('click',()=>{preferredVoice=id;localStorage.setItem('rvu-voice',id);
-   stopAudio()
-   document.querySelectorAll('[data-voice]').forEach(n=>n.setAttribute('aria-pressed',String(n.dataset.voice===id)));
-  });section.append(b)
- });return section;
+  b.setAttribute('aria-label',lang==='ar'?'صوت '+ar:en+' voice');
+  const portrait=el('span','character-portrait voice-avatar '+kind);
+  portrait.setAttribute('aria-hidden','true');
+  const label=el('span','voice-choice-label',emoji+' '+(lang==='ar'?ar:en));
+  b.append(portrait,label);
+  b.addEventListener('click',()=>{
+   preferredVoice=id;localStorage.setItem('rvu-voice',id);stopAudio();
+   document.querySelectorAll('[data-voice]').forEach(node=>
+    node.setAttribute('aria-pressed',String(node.dataset.voice===id))
+   );
+  });
+  section.append(b);
+ }
+ return section;
 }
 function playButton(type,lesson,value){
  const id=voiceRows.get(type+'|'+lesson+'|'+value);if(id===undefined)return null;
@@ -274,13 +287,21 @@ function lessonTemplate(type,d,idx){
    const pages=printedPages(d.pages);
    const jump=link('/learn/words/#letter-'+d.id,
      lang==='ar'?'شوف كلمات الصفحتين '+pages.join('–')+' بالصور':'See pictures for pages '+pages.join('–'),
-     'spread-lesson-link');
+     'spread-lesson-link lesson-words-link');
+   const jumpIcon=el('span','lesson-words-icon','📖');jumpIcon.setAttribute('aria-hidden','true');
+   jump.prepend(jumpIcon);
    shell.append(jump);
   }
  if(type==='alphabet'){
   if(d.id==='a'||d.id==='m'){const page=el('img','real-page');page.src=d.id==='a'?'/assets/letter-a.webp':'/assets/letter-m.webp';page.alt='Actual teaching page from Rvu Alphabet Book — letter '+d.letter;page.loading='lazy';shell.append(page)}
-  const syll=el('div','letter-name');syll.append(el('span',null,t('say')+': '));const b=el('b',null,d.letterName);b.dir='ltr';syll.append(b);const nameSound=playButton('letter-name',d.id,d.letter);if(nameSound)syll.append(nameSound);shell.append(syll);const phonics=playButton('letter-sound',d.id,d.letter);if(phonics){const line=el('div','phonics-line');line.append(el('span',null,t('sound')+': '),phonics);shell.append(line)}
-  shell.append(el('p','phonics-note',t('hint')));
+  const letterCard=el('div','letter-name');
+  const nameText=el('div','letter-name-copy');
+  nameText.append(el('span','letter-name-label',t('say')));
+  const value=el('b','letter-name-value',d.letterName);value.dir='ltr';value.lang='en';
+  nameText.append(value);letterCard.append(nameText);
+  const nameSound=playButton('letter-name',d.id,d.letter);
+  if(nameSound){const action=el('div','letter-name-action');action.append(nameSound);letterCard.append(action)}
+  shell.append(letterCard);
  }
  const title=el('h2','minor-heading',type==='alphabet'?t('words'):t('sentences'));shell.append(title);
  if(type==='alphabet'){

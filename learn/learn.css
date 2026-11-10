@@ -224,3 +224,8 @@ html.rvu-motion-off *,html.rvu-motion-off *::before,html.rvu-motion-off *::after
  content:" · الصورة غير متاحة حاليًا";color:#a04c40;font-size:.78rem
 }
 @media(prefers-reduced-motion:reduce){.preview-five figure::before{animation:none!important}}
+
+.storybook-map-actions{display:flex;align-items:center;justify-content:flex-end;min-height:56px;flex:0 1 auto}
+.storybook-map-actions .storybook-resume{min-height:47px;display:inline-flex;align-items:center;justify-content:center;padding:9px 18px;border-radius:15px;text-decoration:none}
+.storybook-map-actions .storybook-resume:focus-visible{outline:3px solid #dba34a;outline-offset:3px}
+@media(max-width:650px){.storybook-map-actions{justify-content:stretch;width:100%}.storybook-map-actions .storybook-resume{flex:1;width:100%}}

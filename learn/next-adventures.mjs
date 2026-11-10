@@ -1,4 +1,5 @@
 import {getPictureCues,pictureSource} from './scene-data.mjs';
+import {mountStoryJourney} from './story-journey.mjs';
 
 const curriculum=window.RVU_CURRICULUM;
 const allWords=curriculum?.alphabet?.flatMap(lesson=>lesson.words)||[];
@@ -440,6 +441,7 @@ export function mountAdventureExtras({playButton}={}){
  mountLessonReward();
  if(typeof playButton==='function'){
   mountInteractiveScene(playButton);
+  mountStoryJourney(playButton);
   mountPictureFirstChallenge(playButton);
   mountGardenVocabulary();
   activateGardenMotion();

@@ -358,6 +358,17 @@ function lessons(){
 }
 function preview(){
  const figs=[...document.querySelectorAll('.preview-five figure')];
+ /* Reserve the exact 900:1273 page ratio; show a branded miniature behind each
+    image until the actual WebP is painted, including during lazy scrolling. */
+ for(const figure of figs){
+  const img=figure.querySelector('img');
+  if(!img)continue;
+  const loaded=()=>figure.classList.remove('preview-image-failed');
+  const failed=()=>figure.classList.add('preview-image-failed');
+  if(img.complete){if(img.naturalWidth>0)loaded();else failed();}
+  img.addEventListener('load',loaded,{once:true});
+  img.addEventListener('error',failed,{once:true});
+ }
  let index=0;const dlg=el('dialog','page-dialog');const btn=el('button','dialog-close','×');btn.type='button';btn.setAttribute('aria-label','Close preview');const image=el('img','dialog-image');const cap=el('p','dialog-caption');const controls=el('div','dialog-controls');const prev=el('button','button ghost','←');const next=el('button','button ghost','→');prev.type='button';next.type='button';controls.append(prev,next);dlg.append(btn,image,cap,controls);document.body.append(dlg);
  function show(i){index=(i+figs.length)%figs.length;image.classList.remove('page-turn');image.src=figs[index].querySelector('img').src;image.alt=figs[index].querySelector('img').alt;cap.textContent=(index+1)+' / '+figs.length+' — '+figs[index].querySelector('figcaption').textContent;if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){void image.offsetWidth;image.classList.add('page-turn')}}
  btn.addEventListener('click',()=>dlg.close());dlg.addEventListener('click',e=>{if(e.target===dlg)dlg.close()});prev.addEventListener('click',()=>show(index-1));next.addEventListener('click',()=>show(index+1));dlg.addEventListener('keydown',e=>{if(e.key==='ArrowRight')show(index+1);else if(e.key==='ArrowLeft')show(index-1)});

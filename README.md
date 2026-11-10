@@ -1,6 +1,22 @@
 # RVU Kids
 A bilingual English-learning storefront and static learning site for the Rvu Alphabet Book.
 
+## Public learning — no student accounts or tracking
+
+All 26 alphabet lessons and 15 Everyday English lessons are public. There
+are no student logins, personal profiles, completion counters, saved stars,
+or tracking of lesson visits. Correct-answer feedback lasts only within the
+current activity. A parent-facing **public guide** explains the book,
+pronunciation controls and buying information.
+
+Audio speed, voice and reduced-motion settings stay inside the current
+browser. An optional A/B offline learning pack is cached only on the device
+after a parent deliberately requests it; this is not a student record.
+1,000 independent synthetic browser sessions are verified by
+`tests/public-stateless.test.mjs`, in addition to the repository test suite.
+A passing state-isolation test does not establish a server concurrency or
+live-site performance guarantee.
+
 ## Published learning assets
 - 26 alphabet lessons, 101 curriculum words, 15 Everyday English units and 64 daily sentences.
 - All **101** curriculum vocabulary entries have compact SVG thumbnails, touch-to-enlarge, and are organized by the printed book's **facing page pairs**. Letter A is pages **1–2**, B **3–4**, through Z **51–52**. Selecting either page number opens that letter's words.
@@ -42,13 +58,13 @@ The homepage links to the A–Z Storybook World.
 - The **original characters from the book cover** introduce lessons, explain
   practice, and give supportive feedback after game answers. Character motion
   is subtle and respects reduced-motion preferences.
-- The site remembers **visited** and explicitly **completed** stations
-  separately in on-device localStorage (key: rvu-story-progress-v1).
-  Visiting a page never automatically marks a lesson as completed.
-  No personal child data is collected for these on-device milestones.
-- Each lesson has a manual completion button and a next-station link.
-  The alphabet map shows a completed count and resumes at the next
-  unfinished letter.
+- The site is **public and stateless for children**. No accounts, saved
+  lesson visits, completed-station records, dashboards, scores, or star albums.
+- Every letter and Everyday English activity is available immediately to
+  every visitor. Each lesson includes navigation to the next lesson and the
+  complete A–Z map always looks the same for everyone.
+- Earlier progress keys are deleted from the visitor's browser when the
+  learning pages or parent guide load.
 - Existing audio files, voice choices, and saved playback speed remain.
   Storybook enhancements load from /learn/storybook.mjs after original
   lesson rendering. If unavailable, the existing letter grid still works.
@@ -73,8 +89,7 @@ Live-browser mobile, audio, and caching checks remain necessary on host.
   drifting clouds, water ripples and a subtly animated character. Motion is
   paused when scenery is offscreen, where IntersectionObserver is supported,
   and reduced-motion preferences are respected.
-- Mobile styling avoids heavy blur and continuous animations in the sticker
-  album. Animations use mostly transforms and opacity.
+- Mobile styling avoids heavy blur and continuous animations. Motion uses mostly transforms and opacity.
 - **Full book spreads or full PDF are never published.** The preview retains
   exactly five individually selected images: cover, letter A, A practice,
   feelings, and letter M. Full-page images formerly embedded in lessons

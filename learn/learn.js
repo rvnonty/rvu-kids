@@ -224,6 +224,7 @@ function lessonTemplate(type,d,idx){
  const root=document.querySelector('#lesson-root');root.replaceChildren();
  const head=el('section','lesson-top');head.append(lessonBreadcrumb(type==='alphabet'?t('alph'):t('sent')));
  const shell=el('div','lesson-card');
+ shell.style.setProperty('--rvu-lesson-accent',['#fdd76b','#97d6c6','#f3aca5','#8fc5e6','#e0c2f3','#ecc686'][idx%6]);
  const caption=el('span','lesson-kicker',(type==='alphabet'?'ALPHABET & WORDS':'EVERYDAY ENGLISH')+' · '+t('pages')+': '+printedPages(d.pages).join('–'));
  const heading=el('h1','lesson-title',type==='alphabet'?d.letter+' '+d.letter.toLowerCase():d.title);heading.dir='ltr';heading.lang='en';
  const sub=el('p','lesson-sub',type==='alphabet'?(lang==='ar'?'حرف '+d.letter:'Letter '+d.letter):(lang==='ar'?d.titleAr:'Unit '+String(idx+1).padStart(2,'0')));
@@ -248,25 +249,20 @@ function lessonTemplate(type,d,idx){
   if(d.words.length){const labels=el('div','support-words');labels.append(el('p',null,lang==='ar'?'كلمات موجودة في الدرس:':'Vocabulary in this lesson:'));d.words.forEach(w=>{const word=el('span',null,w);word.lang='en';word.dir='ltr';labels.append(word)});shell.append(labels)}
  }
  if(d.sentences?.length){if(type==='alphabet')shell.append(el('h2','minor-heading',t('sentences')));const g=el('div','phrase-grid');d.sentences.forEach((s,i)=>{const c=el('div','phrase-card');c.append(el('span','number',String(i+1).padStart(2,'0')));const p=el('strong','phrase-text',s);p.lang='en';p.dir='ltr';c.append(p);const play=playButton(type==='alphabet'?'alphabet-sentence':'everyday-sentence',d.id,s);if(play)c.append(play);g.append(c)});shell.append(g)}
- if(type==='alphabet'){const practice=buildPractice(d);if(practice)shell.append(practice)}
+ // Mini-games are loaded only on an individual lesson. Core content still works if the optional code fails.
+ const gameMount=el('div','rvu-game-mount');shell.append(gameMount);
+ if(!document.querySelector('link[data-rvu-game-style]')){
+   const sheet=el('link');sheet.rel='stylesheet';sheet.href='/learn/activities.css';
+   sheet.dataset.rvuGameStyle='true';document.head.append(sheet);
+ }
+ import('/learn/activities.mjs').then(module=>{
+   module.mountActivities(gameMount,{type,lesson:d,lang,playButton,wordVisual});
+ }).catch(()=>{gameMount.remove()});
  const prev=type==='alphabet'?alphabet[idx-1]:units[idx-1],next=type==='alphabet'?alphabet[idx+1]:units[idx+1];
  const nav=el('nav','lesson-nav');nav.setAttribute('aria-label','Lesson navigation');nav.append(link(prev?(type==='alphabet'?urlLetter(prev):urlUnit(prev)):(type==='alphabet'?'/learn/alphabet/':'/learn/sentences/'),'← '+(prev?(type==='alphabet'?prev.letter:prev.title):t('learn'))));nav.append(link(type==='alphabet'?'/learn/alphabet/':'/learn/sentences/',type==='alphabet'?t('all'):t('allSent')));nav.append(link(next?(type==='alphabet'?urlLetter(next):urlUnit(next)):(type==='alphabet'?'/learn/sentences/':'/learn/'),(next?(type==='alphabet'?next.letter:next.title):t('learn'))+' →'));shell.append(nav);
  head.append(shell);root.append(head)
 }
-function buildPractice(d){
- const usable=d.words.filter(w=>Boolean(icons[w]||illustratedWords.has(w)));
- if(usable.length<2)return null;
- const box=el('section','quiz');box.append(el('span','lesson-kicker','WORD CHECK'));box.append(el('h2',null,t('remember')));
- const prompt=el('p','quiz-prompt');const options=el('div','quiz-options');const feedback=el('p','quiz-feedback');feedback.setAttribute('role','status');
- const next=el('button','button quiz-next',t('next'));next.type='button';next.hidden=true;
- let index=0;
- function show(){
-  const w=usable[index];box.classList.remove('celebrate');prompt.replaceChildren();prompt.append(document.createTextNode(lang==='ar'?'اختار الكلمة اللي بتعبّر عنها الصورة: ':'Choose the word matching this picture: '));const picture=el('span','quiz-picture');picture.append(wordVisual(w));picture.setAttribute('role','img');picture.setAttribute('aria-label',w);prompt.append(picture);feedback.textContent='';options.replaceChildren();next.hidden=true;
-  const choice=[...d.words].sort((a,b)=>((a.length*7+index*11)%17)-((b.length*7+index*11)%17));
-  choice.forEach(option=>{const b=el('button','quiz-choice',option);b.type='button';b.lang='en';b.dir='ltr';b.addEventListener('click',()=>{if(option===w){feedback.textContent=t('correct');box.classList.add('celebrate');b.classList.add('right');options.querySelectorAll('button').forEach(x=>x.disabled=true);next.hidden=false}else{feedback.textContent=t('retry');b.classList.add('wrong')}});options.append(b)});
- }
- next.addEventListener('click',()=>{index=(index+1)%usable.length;show()});box.append(prompt,options,feedback,next);show();return box;
-}
+
 function lessons(){
  const path=location.pathname.split('/').filter(Boolean);
  if(path[1]==='alphabet'&&path[2]){const idx=alphabet.findIndex(l=>l.id===path[2]);if(idx>=0){lessonTemplate('alphabet',alphabet[idx],idx);return}}

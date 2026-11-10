@@ -17,7 +17,7 @@ r2Title:'قولوا',r2Text:'اختاروا كلمة أو جملة واقرأو�
 r3Title:'جرّبوا',r3Text:'شاوروا، اختاروا أو اكتبوا حسب العمر والاستعداد.',
 r4Title:'ارجعوا لها',r4Text:'اسأل عن الكلمة تاني في وقت مختلف واحتفل بالمحاولة.',
 gentle:'لو طفلك اتلخبط، ساعده من غير اختبار أو مقارنة. المهم يحب يرجع للكتاب.',
-nextEyebrow:'جرّبوا دلوقتي',nextTitle:'ابدأوا بحرف A أو مشاعرنا.',nextText:'استخدموا صور الكتاب مع الكلمات والجمل الموجودة في مكتبة التعلّم. تسجيلات النطق الأمريكي قيد التجهيز ومش متاحة للاستماع حاليًا.',
+nextEyebrow:'جرّبوا دلوقتي',nextTitle:'ابدأوا بحرف A أو مشاعرنا.',nextText:'استخدموا صور الكتاب مع الكلمات والجمل الموجودة في مكتبة التعلّم. اسمعوا التسجيلات الأمريكية داخل الدروس واختاروا سرعة النطق المناسبة.',
 linkA:'درس حرف A ↗',linkFeelings:'درس المشاعر ↗',linkOrder:'اطلب الكتاب ↗',footerBook:'ارجع للكتاب ↗'
 },
 en:{
@@ -37,7 +37,7 @@ r2Title:'Say',r2Text:'Choose a word or sentence and read it together.',
 r3Title:'Try',r3Text:'Point, choose or write according to readiness.',
 r4Title:'Revisit',r4Text:'Ask about the word again later and celebrate the effort.',
 gentle:'If your child gets stuck, help without turning it into a test or a comparison. Enjoying the book matters.',
-nextEyebrow:'Try it together',nextTitle:'Start with A or Feelings.',nextText:'Use the printed illustrations alongside the Learning Hub words and sentences. Reviewed American English recordings are being prepared and are not available to play yet.',
+nextEyebrow:'Try it together',nextTitle:'Start with A or Feelings.',nextText:'Use the printed illustrations alongside the Learning Hub words and sentences. Play the available American English recordings in lessons and choose a suitable pronunciation speed.',
 linkA:'Letter A lesson ↗',linkFeelings:'Feelings lesson ↗',linkOrder:'Order the book ↗',footerBook:'Back to the book ↗'
 }};
 const button=document.querySelector('#guide-language');
@@ -53,6 +53,7 @@ function changeLanguage(value){
  button.lang=lang==='en'?'ar':'en';
  document.title=lang==='en'?'Parent Guide | RVU Kids':'دليل الأهل | RVU Kids';
  sessionStorage.setItem('rvu-lang',lang);
+ document.dispatchEvent(new CustomEvent('rvu:parent-language',{detail:{lang}}));
 }
 const query=new URLSearchParams(location.search);
 const explicit=query.get('lang');

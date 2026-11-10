@@ -697,3 +697,86 @@ html.rvu-motion-off .storybook-guide .storybook-guide-face.guide-moment{animatio
  .storybook-guide[data-mood] .storybook-guide-face.guide-moment{animation:none!important}
 }
 html.rvu-motion-off .storybook-guide[data-mood] .storybook-guide-face.guide-moment{animation:none!important}
+
+
+/* Picture-first alphabet stations: one large lesson link and a separate audio control. */
+.letter-grid.storybook-map>.storybook-stop{
+ position:relative;z-index:1;display:flex;flex-direction:column;
+ min-width:0;min-height:250px;padding:0 10px 10px;overflow:hidden;
+ background:linear-gradient(180deg,#fff,#fffcf7);
+ border:1px solid #dce7dd;border-radius:24px;
+ box-shadow:0 5px 14px #184c3a12;
+ transition:transform .2s ease,box-shadow .2s ease
+}
+.letter-grid.storybook-map>.storybook-stop::before{
+ content:"";position:absolute;inset:0 0 auto;height:7px;background:var(--station-accent);
+ pointer-events:none
+}
+.letter-grid.storybook-map>.storybook-stop:hover{
+ transform:translateY(-4px);box-shadow:0 11px 24px #184c3a1a
+}
+.letter-grid.storybook-map .storybook-stop>.storybook-station{
+ display:flex;position:relative;flex:1;min-height:185px;min-width:0;
+ flex-direction:column;align-items:center;justify-content:center;gap:5px;
+ padding:21px 5px 5px;text-decoration:none;color:#184c3a
+}
+.letter-grid.storybook-map .storybook-stop .storybook-station-picture{
+ display:grid;place-items:center;width:clamp(76px,9vw,104px);height:clamp(76px,9vw,104px);
+ max-width:90%;margin:3px auto;border-radius:22px;overflow:hidden
+}
+.letter-grid.storybook-map .storybook-stop .storybook-station-image{
+ width:96%;height:96%;object-fit:contain
+}
+.letter-grid.storybook-map .storybook-stop>.storybook-station-listen{
+ display:flex;align-items:center;justify-content:center;gap:6px;
+ flex:0 0 auto;min-height:46px;width:100%;margin-top:auto;
+ padding:8px 7px;border-radius:14px;background:#e6f3e9;color:#19563e;
+ border:1px solid #a7cfb5;font:800 .85rem "Noto Sans Arabic","DM Sans",sans-serif;
+ cursor:pointer;transition:background .18s ease
+}
+.letter-grid.storybook-map .storybook-stop>.storybook-station-listen::before{
+ content:"";width:13px;height:13px;display:inline-block;flex:0 0 13px;
+ border-radius:50%;border:3px solid currentColor;
+ box-shadow:4px 0 0 -2px currentColor
+}
+.letter-grid.storybook-map .storybook-stop>.storybook-station-listen:disabled{
+ background:#f6f5f0;color:#7a8d82;border-color:#e2e3da;cursor:not-allowed;
+ font-size:.75rem
+}
+.letter-grid.storybook-map .storybook-stop>.storybook-station-listen:disabled::before{display:none}
+.letter-grid.storybook-map .storybook-stop>.storybook-station-listen:not(:disabled):hover{background:#cdebd7}
+.letter-grid.storybook-map .storybook-stop :is(.storybook-station,.storybook-station-listen):focus-visible{
+ outline:3px solid #dba34a;outline-offset:2px
+}
+.letter-grid.storybook-map .storybook-stop[data-status="completed"]{
+ border-color:#8fc8a1;background:linear-gradient(180deg,#fafffa,#f0f8ee)
+}
+.letter-grid.storybook-map .storybook-stop.is-listening .storybook-station-picture{
+ animation:rvu-picture-tap .55s ease-out 1
+}
+@keyframes rvu-picture-tap{
+ 0%,100%{transform:scale(1)}
+ 40%{transform:scale(1.06) rotate(-3deg)}
+ 74%{transform:scale(1.02) rotate(2deg)}
+}
+@media(min-width:901px){
+ .letter-grid.storybook-map>.storybook-stop:nth-child(6n+2),
+ .letter-grid.storybook-map>.storybook-stop:nth-child(6n+5){margin-top:12px}
+}
+@media(max-width:650px){
+ .letter-grid.storybook-map>.storybook-stop{min-height:231px;padding:0 7px 7px;border-radius:20px}
+ .letter-grid.storybook-map .storybook-stop>.storybook-station{min-height:169px}
+ .letter-grid.storybook-map .storybook-stop .storybook-station-picture{width:89px;height:89px}
+ .letter-grid.storybook-map .storybook-stop>.storybook-station-listen{min-height:48px;font-size:.79rem}
+}
+@media(max-width:420px){
+ .letter-grid.storybook-map>.storybook-stop{min-height:244px}
+ .letter-grid.storybook-map .storybook-stop>.storybook-station{min-height:180px}
+ .letter-grid.storybook-map .storybook-stop .storybook-station-picture{width:96px;height:96px}
+}
+@media(prefers-reduced-motion:reduce){
+ .letter-grid.storybook-map>.storybook-stop{transition:none}
+ .letter-grid.storybook-map>.storybook-stop:hover{transform:none}
+ .letter-grid.storybook-map .storybook-stop.is-listening .storybook-station-picture{animation:none}
+}
+html.rvu-motion-off .letter-grid.storybook-map .storybook-stop.is-listening .storybook-station-picture{animation:none}

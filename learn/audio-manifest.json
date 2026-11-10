@@ -1,7 +1,7 @@
 {
-  "version": 4,
+  "version": 5,
   "locale": "en-US",
-  "status": "approved-by-site-owner",
+  "status": "partially-reviewed-not-final",
   "requiredRecordings": 244,
   "voices": [
     "female",
@@ -348,7 +348,8 @@
       "voices": {
         "female": "/assets/audio/female/037.mp3",
         "male": "/assets/audio/male/037.mp3"
-      }
+      },
+      "pronunciationStatus": "blocked-pending-human-review"
     },
     {
       "type": "word",
@@ -375,7 +376,8 @@
       "voices": {
         "female": "/assets/audio/female/040.mp3",
         "male": "/assets/audio/male/040.mp3"
-      }
+      },
+      "pronunciationStatus": "blocked-pending-human-review"
     },
     {
       "type": "alphabet-sentence",
@@ -2204,5 +2206,14 @@
         "male": "/assets/audio/male/243.mp3"
       }
     }
-  ]
+  ],
+  "pronunciationQA": {
+    "locale": "en-US",
+    "releaseBlockers": [
+      "word|f|fish",
+      "word|f|fork"
+    ],
+    "approvalPolicy": "Requires documented human listening of both voices at normal and supported playback speeds",
+    "humanSignoffComplete": false
+  }
 }

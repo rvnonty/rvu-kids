@@ -4,8 +4,8 @@ import {readFileSync,existsSync,statSync} from 'node:fs';
 const read=p=>readFileSync(p,'utf8');
 const curriculum=JSON.parse(read('learn/content.js').match(/window.RVU_CURRICULUM=(\{[\s\S]*\});/)[1]);
 const audio=JSON.parse(read('learn/audio-manifest.json'));
-test('all 244 audio targets are approved by the site owner and exist',()=>{
- assert.equal(audio.status,'approved-by-site-owner');assert.equal(audio.recordings.length,244);
+test('all 244 audio mappings exist, while pronunciation QA remains pending',()=>{
+ assert.equal(audio.status,'partially-reviewed-not-final');assert.equal(audio.recordings.length,244);assert.equal(audio.pronunciationQA.humanSignoffComplete,false);
  for(const r of audio.recordings)for(const voice of ['female','male']){
   const path=r.voices[voice];assert.match(path,/^\/assets\/audio\/(female|male)\/\d{3}\.mp3$/);
   assert.ok(existsSync('.'+path),path);assert.ok(statSync('.'+path).size>2300,path)

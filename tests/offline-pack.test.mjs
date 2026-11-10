@@ -39,3 +39,11 @@ test('service worker never auto-installs or auto-downloads from regular lessons'
  assert.match(source,/event\.data\?\.type/);
  assert.match(source,/['"]SAVE_BEGINNER_PACK['"]/);
 });
+
+test('offline pack cannot keep serving obsolete tracking-era lesson JavaScript',()=>{
+ assert.match(source,/rvu-learning-a-b-v3/);
+ assert.match(source,/PREVIOUS_PREFIX/);
+ assert.match(source,/code=\/\\\.\(\?:js\|mjs\|css\)/);
+ assert.match(source,/fetch\(request,\{cache:'no-cache'\}\)/);
+ assert.match(source,/await caches\.open\(CACHE\)/);
+});

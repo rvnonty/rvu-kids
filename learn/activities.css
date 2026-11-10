@@ -157,3 +157,9 @@ body[data-page="lesson"] .skip:focus-visible{top:1rem;transform:none;opacity:1;p
  .rvu-arcade-deco .rvu-deco-item,.rvu-scene-art.character-portrait{animation:none!important}
  .rvu-game-tab:hover{transform:none}
 }
+
+
+/* Short celebration characters are CSS/SVG-style symbols, not emoji. */
+.rvu-burst-piece[data-effect="notes"],.rvu-burst-piece[data-effect="letters"]{font:900 1.1rem/1 "DM Sans",sans-serif;display:grid;place-items:center;color:#21785b;background:transparent;filter:drop-shadow(0 3px 3px #184c3a20)}
+.rvu-burst-piece[data-effect="notes"]{font-size:1.34rem;color:#4a95b0}
+.rvu-burst-piece[data-effect="star"]{clip-path:polygon(50% 0,62% 35%,98% 35%,69% 58%,80% 95%,50% 75%,20% 95%,31% 58%,2% 35%,38% 35%);width:13px;height:13px;border-radius:0}

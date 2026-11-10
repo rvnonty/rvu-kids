@@ -10,29 +10,27 @@ runInNewContext(from('learn/content.js'),{window:curriculumWindow});
 const curriculum=curriculumWindow.RVU_CURRICULUM;
 const audioRows=from('learn/learn.js');
 const home=from('index.html'),parents=from('parents/index.html');
-const dashboard=from('parents/dashboard.js');
+const settings=from('parents/settings.js');
 const journey=from('learn/story-journey.mjs');
 const game=from('learn/activities.mjs');
 const css=from('learn/story-journey.css');
 
 test('first screen offers accessible distinct parent and child routes',()=>{
  assert.match(home,/class="hero-routes"/);
- assert.match(home,/href="\/parents\/#parent-dashboard"/);
+ assert.match(home,/href="\/parents\/#parent-guide"/);
  assert.match(home,/href="\/learn\/" class="hero-route hero-route-kids"/);
 });
 
-test('Parent Mode keeps progress, settings, guidance and commerce separate',()=>{
- assert.match(parents,/id="parent-dashboard"/);
- for(const key of ['parent-letter-visited','parent-letter-completed','parent-unit-completed',
-  'parent-stars-count','parent-next-link','parent-playback-speed','parent-reduce-motion',
-  'parent-sticker-album','parent-reset-progress','parent-buying']){
-  assert.ok(parents.includes('id="'+key+'"'),'Parent control missing: '+key);
+test('public parents guide keeps voice controls and commerce but no child tracking',()=>{
+ assert.match(parents,/id="parent-guide"/);
+ for(const key of ['parent-playback-speed','parent-reduce-motion','parent-buying','parent-offline-save']){
+  assert.ok(parents.includes('id="'+key+'"'), 'Parent control missing: '+key);
  }
- assert.match(parents,/href="\/#order"/);
- assert.match(dashboard,/rvu-story-progress-v1/);
- assert.match(dashboard,/rvu-playback-speed/);
- assert.match(dashboard,/rvu-motion-off/);
- assert.match(dashboard,/window\.confirm/);
+ assert.doesNotMatch(parents,/parent-letter-visited|parent-unit-completed|parent-reset-progress|parent-sticker-album/);
+ assert.match(parents,/href="\/\#order"/);
+ assert.match(settings,/rvu-playback-speed/);
+ assert.match(settings,/rvu-motion-off/);
+ assert.doesNotMatch(settings,/saveProgress|lastVisited|completedLessons/);
 });
 
 test('four book-based Everyday English journeys have three approved scenes each',()=>{
@@ -72,7 +70,7 @@ test('learning area no longer displays direct purchasing calls to action',()=>{
  const hub=from('learn/index.html');
  assert.doesNotMatch(hub,/href="\/#order"/);
  assert.doesNotMatch(hub,/<section class="cta">/);
- assert.match(hub,/href="\/parents\/#parent-dashboard"/);
+ assert.match(hub,/href="\/parents\/#parent-guide"/);
  const learning=from('learn/learn.js');
  assert.match(learning,/document\.querySelectorAll\('\.cta'\)/);
 });

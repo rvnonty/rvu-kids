@@ -1,6 +1,6 @@
 /* Parent-opted beginner offline pack. Deliberately does not cache the book PDF
    or the two specifically flagged Fish/Fork clips. Change version when approved audio changes. */
-const CACHE='rvu-learning-a-b-v2';
+const CACHE='rvu-learning-a-b-v3';
 const PREVIOUS_PREFIX='rvu-learning-a-b-';
 const WORDS=['apple','ant','airplane','alligator','ball','bear','banana','boat'];
 const FILES=[
@@ -58,14 +58,21 @@ self.addEventListener('fetch',event=>{
  if(url.origin!==self.location.origin)return;
  if(request.mode==='navigate'&&url.pathname.startsWith('/learn/')){
   event.respondWith((async()=>{
-   try{const network=await fetch(request);if(network.ok)return network}catch{}
-   return (await caches.match(request,{ignoreSearch:true}))||Response.error();
+   try{const network=await fetch(request,{cache:'no-cache'});if(network.ok)return network}catch{}
+   const pack=await caches.open(CACHE);
+   return (await pack.match(request,{ignoreSearch:true}))||Response.error();
   })());
   return;
  }
  if(!ALLOWED.has(url.pathname))return;
  event.respondWith((async()=>{
-  const cached=await caches.match(request,{ignoreSearch:true});
+  const pack=await caches.open(CACHE);
+  const cached=await pack.match(request,{ignoreSearch:true});
+  const code=/\.(?:js|mjs|css)$/.test(url.pathname);
+  if(code){
+   try{const network=await fetch(request,{cache:'no-cache'});if(network.ok)return network}catch{}
+   return cached||Response.error();
+  }
   return cached||fetch(request);
  })());
 });

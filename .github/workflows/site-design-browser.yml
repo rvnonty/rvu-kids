@@ -17,6 +17,16 @@ on:
       - tests/site-design.test.mjs
       - scripts/site-design-browser-check.mjs
       - .github/workflows/site-design-browser.yml
+  pull_request:
+    paths:
+      - learn/storybook.mjs
+      - learn/next-adventures.mjs
+      - parents/index.html
+      - parents/settings.js
+      - learn/learn.js
+      - learn/learn.css
+      - learn/next-adventures.css
+      - .github/workflows/site-design-browser.yml
   workflow_dispatch:
 
 permissions:

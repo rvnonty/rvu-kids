@@ -1,5 +1,8 @@
 # RVU Kids launch readiness — 2026-11-10
 
+> **Historical audit:** This document describes the previous implementation and is not the current student-data policy. Current RVU Kids is public and does **not** save student progress, completion status, stars or accounts. See [Public Learning Architecture](public-learning-architecture.md).
+
+
 ## Decision
 
 **Theme:** Keep the warm, light Storybook Garden design as the default.

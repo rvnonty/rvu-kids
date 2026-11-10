@@ -137,18 +137,12 @@ test('illustrated scene taps play sound and visual game needs no text choices',(
  assert.ok(choices.every(button=>button.querySelector('img')&&!button.textContent));
 });
 
-test('optional album displays 41 lesson slots and only completed stars',()=>{
- const page=mount('stickers','/learn/stickers/',{
-  'rvu-story-progress-v1':JSON.stringify({completed:{alphabet:['a'],sentences:['feelings']}})
- });
- const toggle=page.galleryRoot.querySelector('input');
- assert.ok(toggle);assert.equal(toggle.checked,false);
- assert.equal(page.galleryRoot.querySelectorAll('.rvu-sticker-card').length,0);
- toggle.checked=true;toggle.handlers.change();
- const cards=page.galleryRoot.querySelectorAll('.rvu-sticker-card');
- assert.equal(cards.length,41);
- assert.equal(cards.filter(card=>card.className.includes('earned')).length,2);
- assert.equal(page.cache.get('rvu-star-album-enabled'),'true');
+test('interactive picture games do not create student records or star galleries',()=>{
+ const page=mount('lesson','/learn/alphabet/a/');
+ assert.ok(page.card.querySelector('.rvu-visual-scene'));
+ assert.equal(page.card.querySelector('.rvu-sticker-earned'),null);
+ assert.equal(page.cache.has('rvu-story-progress-v1'),false);
+ assert.equal(page.cache.has('rvu-star-album-enabled'),false);
 });
 
 test('flip book presents original five pages, supports next and previous',()=>{

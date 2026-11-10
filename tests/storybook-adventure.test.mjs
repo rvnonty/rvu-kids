@@ -58,7 +58,7 @@ const curriculum={alphabet:letters,sentences:[{id:'feelings',sentences:["I'm hap
 function mount(page,path,initialStorage={}){
  const values=new Map(Object.entries(initialStorage));
  const listeners={};
- const storage={getItem:key=>values.get(key)||null,setItem:(key,value)=>values.set(key,value)};
+ const storage={getItem:key=>values.get(key)||null,setItem:(key,value)=>values.set(key,value),removeItem:key=>values.delete(key)};
  const map=new Element('div','letter-grid');
  const section=new Element('section','section');section.append(map);
  const hero=new Element('section','hero');
@@ -94,18 +94,17 @@ test('storybook alphabet map renders 26 accessible lesson links with book illust
  assert.ok(page.hero.querySelector('.storybook-guide'));
 });
 
-test('a lesson visit and explicit completion persist without changing other letters',()=>{
+test('lessons stay public and never save visits or completed state',()=>{
  const page=mount('lesson','/learn/alphabet/a/');
- let state=JSON.parse(page.values.get('rvu-story-progress-v1'));
- assert.ok(state.visited.alphabet.includes('a'));
- assert.ok(!state.completed.alphabet.includes('a'));
- const done=page.card.querySelector('.storybook-finish-button');
- assert.equal(typeof done.handlers.click,'function');
- done.handlers.click();
- state=JSON.parse(page.values.get('rvu-story-progress-v1'));
- assert.ok(state.completed.alphabet.includes('a'));
- assert.ok(!state.completed.alphabet.includes('b'));
- assert.equal(done.disabled,true);
+ assert.equal(page.values.size,0);
+ assert.ok(page.card.querySelector('.storybook-next-link'));
+ assert.equal(page.card.querySelector('.storybook-finish-button'),null);
+ const legacy=mount('hub','/learn/',{
+  'rvu-story-progress-v1':'old activity','rvu-star-album-enabled':'true'
+ });
+ assert.ok(!legacy.values.has('rvu-story-progress-v1'));
+ assert.ok(!legacy.values.has('rvu-star-album-enabled'));
+ assert.equal(legacy.map.children.length,26);
 });
 
 test('guide responds to correct answers and gentle retries',()=>{
@@ -117,7 +116,9 @@ test('guide responds to correct answers and gentle retries',()=>{
  assert.match(guide.textContent,/جرب مرة تانية/);
 });
 
-test('malformed saved progress does not break the page',()=>{
- const page=mount('hub','/learn/',{'rvu-story-progress-v1':'not JSON'});
- assert.equal(page.map.children.length,26);
+test('all children see the same letter map regardless of old data',()=>{
+ const standard=mount('hub','/learn/');
+ const old=mount('hub','/learn/',{'rvu-story-progress-v1':'not JSON'});
+ assert.equal(standard.map.children.length,old.map.children.length);
+ assert.equal(old.values.size,0);
 });

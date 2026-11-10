@@ -84,9 +84,11 @@ function mount(page,path,initialStorage={}){
 test('storybook alphabet map renders 26 accessible lesson links with book illustrations',()=>{
  const page=mount('hub','/learn/');
  assert.equal(page.map.children.length,26);
- assert.equal(page.map.children[0].href,'/learn/alphabet/a/');
- assert.equal(page.map.children[25].href,'/learn/alphabet/z/');
+ assert.equal(page.map.children[0].querySelector('.storybook-station').href,'/learn/alphabet/a/');
+ assert.equal(page.map.children[25].querySelector('.storybook-station').href,'/learn/alphabet/z/');
  assert.equal(page.map.children[0].querySelector('.storybook-station-image').src,'/assets/words/apple.svg');
+ assert.ok(page.map.children[0].querySelector('.storybook-station-listen'));
+ assert.ok(page.map.children[0].querySelector('.storybook-station-listen').disabled,'No speech playback without approved word-audio pipeline');
  assert.ok(page.hero.querySelector('.storybook-guide'));
 });
 

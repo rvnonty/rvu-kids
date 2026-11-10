@@ -2,7 +2,7 @@ name: RVU Kids Quality Checks
 
 on:
   push:
-    branches: [main, feature/page-pairs-and-audio-quality-gate]
+    branches: [main]
   workflow_dispatch:
 
 permissions:

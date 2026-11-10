@@ -171,3 +171,13 @@ html.rvu-motion-off *,html.rvu-motion-off *::before,html.rvu-motion-off *::after
 .parent-offline-actions button:disabled{opacity:.6;cursor:wait}
 #parent-offline-status{flex:1 1 100%;font-size:.84rem;color:#426a54}
 @media(max-width:620px){.parent-offline{padding:14px}.parent-offline-actions{width:100%}.parent-offline-actions button{flex:1 1 140px}}
+
+.public-learning-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:22px 0 28px}
+.public-learning-grid article{display:flex;flex-direction:column;gap:10px;align-items:start;min-width:0;min-height:170px;padding:19px;border:1px solid #d5e5d8;border-radius:20px;background:linear-gradient(140deg,#f4faf3,#fff8ed)}
+.public-learning-grid article>strong{font-size:clamp(1.2rem,3vw,2.1rem);font-weight:900;color:#184c3a}
+.public-learning-grid article>span{color:#517161;font-weight:750;line-height:1.7}
+.public-learning-grid article>a{margin-top:auto;min-height:44px;display:inline-flex;align-items:center;padding:8px 13px;border:1px solid #b9d7c4;border-radius:13px;color:#195d42;background:#fffdf9;font-weight:800;text-decoration:none}
+.public-learning-grid article>a:focus-visible{outline:3px solid #d8a34a;outline-offset:3px}
+.public-settings-note{margin:0 0 15px;color:#5d7767;font-size:.9rem;line-height:1.8}
+#parent-settings-feedback:not(:empty){margin:12px 0;color:#245c41;font-weight:800}
+@media(max-width:720px){.public-learning-grid{grid-template-columns:1fr;gap:10px}.public-learning-grid article{min-height:125px;padding:15px}}

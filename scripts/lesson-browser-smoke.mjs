@@ -34,7 +34,7 @@ try{
  await page.goto(base+'/learn/sentences/polite-words/',{waitUntil:'domcontentloaded'});
  await page.locator('.rvu-game-tab').first().waitFor({timeout:15000});
  if(await page.locator('.rvu-game-tab').count()!==4)throw Error('Polite words missing 4 game types');
- if(await page.locator('.rvu-visual-scene .rvu-scene-item').count()<1)throw Error('No illustrated scenario objects');
+ await page.locator('.rvu-visual-scene .rvu-scene-item').first().waitFor({state:'attached',timeout:15000}).catch(()=>{throw Error('No illustrated scenario objects after the learning scene module loaded: '+errors.slice(-5).join(' | '))});
  const current=page.locator('.rvu-game-panel:not([hidden])');
  if(await current.locator('.rvu-lizard-avatar').count()!==1)throw Error('Book lizard missing from question');
  if(await current.getAttribute('data-mood')!=='ready')throw Error('Lizard should start neutral');

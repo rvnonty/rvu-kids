@@ -25,6 +25,8 @@ jobs:
           done
           cat /tmp/rvu-web.log
           exit 1
+      - name: Prepare report folder
+        run: mkdir -p reports
       - name: Run Lighthouse - home
         run: npx --yes lighthouse@12.6.0 http://127.0.0.1:4173/ --chrome-flags="--headless=new --no-sandbox --disable-dev-shm-usage" --only-categories=performance,accessibility --output=json --output-path=reports/home.json --quiet
       - name: Run Lighthouse - alphabet

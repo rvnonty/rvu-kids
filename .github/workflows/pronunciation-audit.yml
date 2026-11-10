@@ -1,0 +1,47 @@
+name: Audition American English pronunciation (never auto-publish)
+on:
+  push:
+    branches: [feature/page-pairs-and-audio-quality-gate]
+    paths:
+      - .github/workflows/pronunciation-audit.yml
+      - scripts/build-pronunciation-candidates.py
+      - scripts/pronunciation-audit.py
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audition:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Audio codecs and English phonemizer
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends ffmpeg espeak-ng libsndfile1
+      - name: Install CPU neural voice and independent transcription engines
+        run: |
+          python -m pip install -U pip
+          python -m pip install torch==2.6.0 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install "kokoro==0.9.4" "transformers>=4.49,<5" "numpy>=1.24,<3" "faster-whisper==1.2.1" "soundfile>=0.12,<1"
+      - name: Synthesize phonetic replacements for pronunciation review
+        run: python -u scripts/build-pronunciation-candidates.py
+      - name: Audit every existing word plus replacement candidates
+        run: python -u scripts/pronunciation-audit.py
+      - name: Upload original-vs-new listen-and-review package
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rvu-american-english-pronunciation-audit
+          path: |
+            audio-qa/candidates/
+            audio-qa/candidates.json
+            audio-qa/pronunciation-report.json
+            audio-qa/pronunciation-report.csv
+          if-no-files-found: warn
+          retention-days: 14

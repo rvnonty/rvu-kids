@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="/parents/guide.css">
 <script src="/learn/content.js" defer></script>
 <script src="/parents/guide.js" defer></script>
-<script src="/parents/dashboard.js" defer></script>
+<script src="/parents/settings.js" defer></script>
 <script src="/parents/offline.js" defer></script>
 </head>
 <body>
@@ -26,49 +26,43 @@
 <div class="guide-hero-actions"><a class="button" href="#ages" data-guide="start">اختار عمر طفلك ↓</a><a class="guide-text-link" href="/learn/" data-guide="visitHub">افتح مكتبة التعلّم ↗</a></div></div>
 <div class="guide-characters" aria-label="شخصيات الكتاب"><span class="character-portrait boy" role="img" aria-label="الولد من غلاف الكتاب"></span><span class="character-portrait lizard" role="img" aria-label="الليزرد الزرقاء من الغلاف"></span><span class="character-portrait girl" role="img" aria-label="البنت من غلاف الكتاب"></span><span class="guide-characters-note" data-guide="withYou">مغامرتكم سوا أحلى!</span></div>
 </section>
-<section class="parent-dashboard" id="parent-dashboard" aria-labelledby="parent-dashboard-title">
+<section class="parent-dashboard" id="parent-guide" aria-labelledby="parent-guide-title">
  <div class="parent-dashboard-head">
-  <div><span class="guide-eyebrow" data-parent="eyebrow">مساحة الأهل · بيانات على جهازك</span>
-  <h2 id="parent-dashboard-title" data-parent="title">تابعوا التقدّم بهدوء</h2>
-  <p data-parent="intro">هنا تشوفوا الدروس التي تمت زيارتها أو إكمالها. البيانات محفوظة على هذا الجهاز فقط، ومش تقييم لمستوى الطفل.</p></div>
-  <a class="parent-back-to-play" href="/learn/" data-parent="backToPlay">ارجع لمغامرة الطفل</a>
+  <div>
+   <span class="guide-eyebrow" data-public="eyebrow">دليل عام لكل أولياء الأمور</span>
+   <h2 id="parent-guide-title" data-public="title">تعلم مفتوح، من غير حسابات</h2>
+   <p data-public="intro">كل طفل يقدر يفتح أي حرف أو موقف ويتعلم بالصور والصوت مباشرة. لا نسجل أسماء أطفال أو زيارات أو درجات أو إنجازات، ومفيش لوحة متابعة لأي طالب.</p>
+  </div>
+  <a class="parent-back-to-play" href="/learn/" data-public="backToPlay">افتح عالم التعلّم</a>
  </div>
- <div class="parent-stats" role="group" aria-label="تقدم الدروس">
-  <article class="parent-stat"><span data-parent="visited">حروف اتفتحت</span><strong id="parent-letter-visited" dir="ltr">0 / 26</strong></article>
-  <article class="parent-stat"><span data-parent="letters">حروف مكتملة</span><strong id="parent-letter-completed" dir="ltr">0 / 26</strong><div class="parent-track"><i id="parent-letter-meter"></i></div></article>
-  <article class="parent-stat"><span data-parent="sentences">مواقف مكتملة</span><strong id="parent-unit-completed" dir="ltr">0 / 15</strong><div class="parent-track"><i id="parent-unit-meter"></i></div></article>
-  <article class="parent-stat"><span data-parent="stars">نجوم مكتسبة</span><strong id="parent-stars-count" dir="ltr">0</strong></article>
- </div>
- <div class="parent-guidance">
-  <div><h3 data-parent="nextHeading">نكمل منين؟</h3><p id="parent-next-description"></p>
-   <a id="parent-next-link" class="parent-primary-link" href="/learn/alphabet/a/" data-parent="nextLink">افتح الدرس التالي</a></div>
-  <div><h3 data-parent="lastHeading">آخر درس اتفتح</h3><p id="parent-last-description"></p>
-   <p class="parent-local-note" data-parent="localNote">التقدّم محلي داخل المتصفح؛ مش متزامن بين الأجهزة.</p></div>
+ <div class="public-learning-grid">
+  <article><strong>26</strong><span data-public="letters">حرف وصور ناطقة</span><a href="/learn/alphabet/" data-public="exploreLetters">استكشف الحروف</a></article>
+  <article><strong>15</strong><span data-public="situations">درس مواقف إنجليزية</span><a href="/learn/sentences/" data-public="exploreSituations">استكشف المواقف</a></article>
+  <article><strong data-public="freeTitle">مفتوح للجميع</strong><span data-public="freeDescription">من غير تسجيل أو تقدّم محفوظ</span><a href="/learn/alphabet/a/" data-public="start">جرّب حرف A</a></article>
  </div>
  <div class="parent-settings" id="parent-settings">
-  <h3 data-parent="settings">إعدادات التعلّم</h3>
+  <h3 data-public="settings">التحكم في الصوت والحركة على جهازك</h3>
+  <p class="public-settings-note" data-public="settingsNote">الاختيارات دي تخص المتصفح اللي بتستخدمه فقط، ومش بتغيّر الموقع عند أي حد تاني.</p>
   <div class="parent-settings-grid">
-   <label class="parent-field"><span data-parent="speed">سرعة النطق الافتراضية</span>
+   <label class="parent-field"><span data-public="speed">سرعة النطق</span>
     <select id="parent-playback-speed">
-     <option value="0.7" data-parent="speed70">بطيء جدًا 0.70×</option>
-     <option value="0.85" data-parent="speed85">بطيء 0.85×</option>
-     <option value="1" data-parent="speed100">طبيعي 1.00×</option>
-     <option value="1.15" data-parent="speed115">أسرع 1.15×</option>
+     <option value="0.7" data-public="speed70">بطيء جدًا 0.70×</option>
+     <option value="0.85" data-public="speed85">بطيء 0.85×</option>
+     <option value="1" data-public="speed100">طبيعي 1.00×</option>
+     <option value="1.15" data-public="speed115">أسرع 1.15×</option>
     </select>
    </label>
-   <label class="parent-setting-toggle"><input type="checkbox" id="parent-reduce-motion"><span data-parent="motion">قلّل الحركة والمؤثرات البصرية</span></label>
-   <label class="parent-setting-toggle"><input type="checkbox" id="parent-sticker-album"><span data-parent="album">تشغيل ألبوم النجوم الاختياري</span></label>
+   <label class="parent-setting-toggle"><input type="checkbox" id="parent-reduce-motion"><span data-public="motion">قلّل الحركة والمؤثرات</span></label>
   </div>
+  <p role="status" aria-live="polite" id="parent-settings-feedback"></p>
   <div class="parent-offline" id="parent-offline">
-  <div><h4>دروس يمكن حفظها بدون إنترنت</h4>
-   <p>اختياري للأهل: احفظ درسَي A وB فقط، مع صور الكلمات والتسجيلات المرتبطة بهما. لن يتم تحميل الكتاب كاملًا.</p></div>
-  <div class="parent-offline-actions">
-   <button type="button" id="parent-offline-save">حفظ الدرسين على الجهاز</button>
-   <button type="button" id="parent-offline-clear">حذف النسخة المحفوظة</button>
+   <div><h4>دروس يمكن حفظها بدون إنترنت</h4><p>اختياري للأهل: احفظ درسَي A وB وصورهما وتسجيلاتهما فقط، من غير تحميل الكتاب بالكامل.</p></div>
+   <div class="parent-offline-actions">
+    <button type="button" id="parent-offline-save">حفظ الدرسين على الجهاز</button>
+    <button type="button" id="parent-offline-clear">حذف النسخة المحفوظة</button>
+   </div>
+   <p role="status" aria-live="polite" id="parent-offline-status">التحميل الأول يحتاج إنترنت ومساحة كافية.</p>
   </div>
-  <p role="status" aria-live="polite" id="parent-offline-status">يتطلب التحميل الأول اتصالًا بالإنترنت ومساحة تخزين متاحة.</p>
- </div>
- <div class="parent-settings-actions"><button type="button" id="parent-reset-progress" data-parent="reset">ابدأ التقدّم من جديد</button><p role="status" aria-live="polite" id="parent-settings-feedback"></p></div>
  </div>
 </section>
 <section class="guide-ages" id="ages" aria-labelledby="ages-title">

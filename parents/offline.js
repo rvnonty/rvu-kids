@@ -100,4 +100,20 @@
  document.addEventListener('rvu:parent-language',render);
  try{if(localStorage.getItem('rvu-beginner-pack-ready')==='true')state='saved'}catch{}
  render();
+ if(state==='saved'&&'caches' in window){
+  (async()=>{
+   try{
+    const cache=await caches.open('rvu-learning-a-b-v2');
+    const required=['/learn/alphabet/a/','/learn/alphabet/b/','/learn/learn.js','/learn/storybook.mjs'];
+    for(const path of required){
+     if(!await cache.match(path)){
+      try{localStorage.removeItem('rvu-beginner-pack-ready')}catch{}
+      setState('initial');return;
+     }
+    }
+   }catch{
+    setState('initial');
+   }
+  })();
+ }
 })();

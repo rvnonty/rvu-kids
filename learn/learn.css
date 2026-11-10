@@ -163,7 +163,7 @@ body{line-height:1.8;text-rendering:optimizeLegibility}
 .hero h1,.product-copy h1{line-height:1.16;letter-spacing:-.038em;overflow-wrap:normal}
 .hero h1 em{font-style:normal;color:#a7553f}
 .hero p,.path-card p,.unit-card p,.product-copy p,.three p,
-.phase-note,.phonics-note,.audio-notice p,.hub-parents-guide p{
+.phase-note,.audio-notice p,.hub-parents-guide p{
   line-height:1.85;overflow-wrap:break-word
 }
 .hero p{max-width:690px;margin:18px 0 0;font-size:clamp(1rem,1.45vw,1.1rem)}
@@ -495,3 +495,6 @@ footer{gap:clamp(12px,2.3vw,24px);align-items:center;line-height:1.65;padding:cl
  .voice-picker .voice-choice,.lesson-words-link{transition:none!important}
  .lesson-words-link:hover{transform:none}
 }
+
+.compact-cast .cast-note{flex:0 1 auto;width:max-content;max-width:min(100%,430px);min-width:0;text-align:center;padding:10px 17px}
+@media(max-width:560px){.compact-cast .cast-note{flex:1 1 100%;width:auto;max-width:100%;padding:8px 11px}}

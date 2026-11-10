@@ -25,6 +25,7 @@ test('all letter lessons keep alphabet name audio but no longer render phonics a
  assert.ok(learning.includes("el('div','letter-name-action')"));
  assert.ok(!learning.includes("playButton('letter-sound',d.id,d.letter)"));
  assert.ok(!learning.includes("phonics-note"));
+ assert.ok(!lessonCss.includes('.phonics-note'));
  assert.ok(!learning.includes("phonics-line"));
  assert.ok(!learning.includes('اسم الحرف مختلف عن صوته، اسمع الاتنين.'));
  assert.ok(!learning.includes('The letter name is different from its phonics sound.'));

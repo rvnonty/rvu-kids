@@ -109,7 +109,7 @@ body[data-page="lesson"] .skip:focus-visible{top:1rem;transform:none;opacity:1;p
 .rvu-game-panel[data-mood="correct"] .rvu-lizard-avatar.character-portrait{animation:rvuLizardCelebrate .72s cubic-bezier(.25,.6,.3,1.2) both}
 .rvu-game-panel[data-mood="retry"] .rvu-lizard-guide{background:#fff5e9;border-color:#f0d8ae}
 .rvu-game-panel[data-mood="retry"] .rvu-lizard-avatar.character-portrait{transform:translateY(5px) rotate(10deg) scale(.95);filter:saturate(.72)}
-.rvu-arcade-friends{position:absolute;inset-inline-end:clamp(14px,2.3vw,27px);bottom:clamp(15px,2vw,25px);display:flex;align-items:flex-end;gap:7px;pointer-events:none;z-index:0;opacity:.95}
+.rvu-arcade-friends{position:relative;inset:auto;display:flex;align-items:flex-end;justify-content:flex-end;gap:7px;width:100%;margin-top:16px;pointer-events:none;z-index:0;opacity:.95}
 .rvu-arcade-friends .character-portrait{width:clamp(52px,6.3vw,78px);height:clamp(52px,6.3vw,78px);border-width:3px;box-shadow:0 4px 0 #cee5c8,0 9px 15px #1b5b3920;aspect-ratio:1;background-size:350% auto}
 .rvu-arcade-friends .character-portrait.lizard{z-index:1;transform:translateY(-8px)}
 @keyframes rvuLizardCelebrate{

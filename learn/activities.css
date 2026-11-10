@@ -1,5 +1,4 @@
-/* RVU Kids original activity visual system — loaded only for lesson pages.
-   GPU-friendly transform/opacity animations; small amount of DOM; no dependencies. */
+
 body[data-page="lesson"]{--rvu-card-border:#d7e7df;--rvu-lesson-accent:#f3d479}
 .lesson-top .lesson-card{position:relative;isolation:isolate;overflow:visible;background:
  radial-gradient(circle at 96% 3%,color-mix(in srgb,var(--rvu-lesson-accent) 35%,transparent) 0 70px,transparent 71px),
@@ -87,7 +86,7 @@ body[data-page="lesson"]{--rvu-card-border:#d7e7df;--rvu-lesson-accent:#f3d479}
 @media(hover:none){.rvu-choice:hover:not(:disabled),.rvu-tile:hover:not(:disabled),.rvu-game-tab:hover{transform:none}}
 @media(prefers-reduced-motion:reduce){.lesson-top .compact-cast .character-portrait,.rvu-deco-item,.rvu-scene-emoji,.rvu-game-picture,.rvu-feedback,.rvu-chosen-token,.rvu-success-pop,.rvu-burst,.rvu-burst-piece{animation:none!important}.lesson-top .phrase-card,.lesson-top .audio-play,.rvu-game-tab,.rvu-choice,.rvu-tile,.rvu-game-fill{transition:none!important}.rvu-burst{display:none!important}.rvu-choice:hover,.rvu-tile:hover{transform:none!important}}
 
-/* Emotional cue stickers on sentence cards: beautiful but optional to understanding. */
+
 .lesson-top .phrase-card{position:relative;gap:12px;animation:rvuCardIn .35s ease both}
 .lesson-top .phrase-card:nth-child(2){animation-delay:.05s}
 .lesson-top .phrase-card:nth-child(3){animation-delay:.1s}
@@ -99,6 +98,6 @@ body[data-page="lesson"]{--rvu-card-border:#d7e7df;--rvu-lesson-accent:#f3d479}
 @media(max-width:600px){.rvu-phrase-sticker{width:40px;height:40px;font-size:1.2rem}.lesson-top .phrase-card{gap:7px}}
 @media(prefers-reduced-motion:reduce){.lesson-top .phrase-card{animation:none!important}}
 
-/* Hide the keyboard skip link until it is visibly focused; avoids floating text in long screenshots. */
+
 body[data-page="lesson"] .skip:not(:focus-visible){top:-120px;transform:none;opacity:0;pointer-events:none}
 body[data-page="lesson"] .skip:focus-visible{top:1rem;transform:none;opacity:1;pointer-events:auto}

@@ -4,6 +4,11 @@ on:
   push:
     branches: [main]
     paths:
+      - app.js
+      - build.mjs
+      - learn/learn.js
+      - preview/index.html
+      - scripts/media-browser-smoke.mjs
       - style.css
       - learn/learn.css
       - parents/guide.css
@@ -36,7 +41,9 @@ jobs:
           npm install --no-save --no-package-lock playwright@1.56.1
           npx playwright install --with-deps chromium
       - name: Test mobile tablet and desktop layouts
-        run: node scripts/site-design-browser-check.mjs
+        run: |
+          node scripts/site-design-browser-check.mjs
+          node scripts/media-browser-smoke.mjs
       - name: Upload design screenshots
         if: always()
         uses: actions/upload-artifact@v4

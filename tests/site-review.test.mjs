@@ -7,7 +7,7 @@ const has=p=>existsSync(new URL(p,base));
 test('five unique physical preview images across home and preview',()=>{
  const preview=read('preview/index.html');
  const expected=['cover.webp','letter-a.webp','practice-a.webp','feelings.webp','letter-m.webp'];
- const listed=[...preview.matchAll(/<figure><img src="\/assets\/([a-z-]+\.webp)"/g)].map(m=>m[1]);
+ const listed=[...preview.matchAll(/<figure><img\b[^>]*\bsrc="\/assets\/([a-z-]+\.webp)"/g)].map(m=>m[1]);
  assert.deepEqual(listed,expected);
  assert.equal(listed.length,5);
  assert.equal(new Set(listed).size,5);
@@ -83,15 +83,17 @@ test('book preview cards do not introduce white picture frames',()=>{
 });
 
 
-test('whatsapp orders are enabled, use the approved username and never fake submission',()=>{
+test('whatsapp orders use approved international recipient number and never fake submission',()=>{
  const page=read('index.html'),js=read('app.js');
  assert.ok(page.includes('value="instapay"'));
  assert.ok(page.includes('value="vodafone_cash"'));
  assert.ok(!page.includes('value="bank"'));
  assert.ok(page.includes('id="submit-order" class="button full" data-i18n="submitOrder"'));
- assert.ok(page.includes('@n2nty'));
- assert.ok(!page.includes('الطلب هيفتح على واتساب @n2nty برسالة جاهزة.'));
- assert.ok(js.includes("'https://wa.me/n2nty?text='"));
+ assert.ok(page.includes('واتساب مع Ramez'));
+ assert.ok(page.includes('https://wa.me/201012809358'));
+ assert.ok(!page.includes('@n2nty'));
+ assert.ok(!js.includes('@n2nty'));
+ assert.ok(js.includes("'https://wa.me/201012809358?text='"));
  assert.ok(js.includes('encodeURIComponent(fields.join('));
  assert.ok(js.includes('window.location.assign(url)'));
  assert.ok(js.includes('payload.payment'));

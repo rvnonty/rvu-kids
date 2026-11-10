@@ -1,5 +1,4 @@
-/* Extra original practice scenes for all 15 Everyday English units.
-   The sentences remain the book-approved exact text; activities go beyond it. */
+
 export const SCENES={
  feelings:[['😄','أنت فرحان.','You feel happy.',0],['😔','أنت زعلان.','You feel sad.',1],['😨','أنت خايف.','You feel scared.',3]],
  hungry:[['🍽️','حاسس بالجوع.','You feel hungry.',0],['🍌','عايز تطلب سناك بأدب.','Politely ask for a snack.',1]],

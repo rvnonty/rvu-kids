@@ -7,7 +7,7 @@ A bilingual English-learning storefront and static learning site for the Rvu Alp
 - 244 lesson clips in **two** American English synthetic voices: 488 MP3 files.
 - The site owner approved publishing these clips. They are AI-generated neural voices, **not real human actor recordings**.
 - Audio streams are requested only when Listen is clicked; images have lazy-loading, and transitions respect reduced-motion preferences.
-- Orders still open WhatsApp; there is no backend checkout or order tracking enabled.
+- Orders open the official phone-number click-to-chat link (recipient +201012809358, displayed as WhatsApp with Ramez); there is no backend checkout or order tracking enabled.
 
 ## Deploy and scale
 Run `npm run build && npm test`. The built static output is `dist/`.

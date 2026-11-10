@@ -21,7 +21,7 @@ test('all 101 curriculum words are uniquely illustrated in first and second grou
 });
 test('playback loads on click and photos respect reduced-motion',()=>{
  const js=read('learn/learn.js'),css=read('learn/learn.css');
- assert.ok(js.includes('new Audio(url)'));
+ assert.ok(js.includes('const player=new Audio()'));
  assert.ok(js.includes("image.loading='lazy'"));
  assert.ok(js.includes('function wordLibrary()'));
  assert.ok(css.includes('prefers-reduced-motion:reduce'));

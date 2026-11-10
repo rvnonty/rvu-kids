@@ -1,4 +1,4 @@
-/* Compact RVU Kids parent guide, matching the existing printed-book palette */
+
 .parent-shell{padding-bottom:52px}
 .guide-header nav{align-items:center}
 .guide-lang{border:1px solid #bcd0c2;background:#fffef9;border-radius:999px;padding:8px 13px;min-height:42px;color:var(--ink);font:inherit;font-size:.84rem;font-weight:800;cursor:pointer}
@@ -59,8 +59,7 @@
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}.character-portrait{transition:none!important}}
 
 
-/* Parent guide: keep the polished RVU Kids sitewide rhythm without losing
-   its calmer, grown-up reading style and age-appropriate activity details. */
+
 .parent-shell{padding-bottom:clamp(55px,7vw,92px)}
 .guide-header{padding-inline:clamp(18px,3vw,30px)}
 .guide-header nav{gap:clamp(11px,2vw,23px)}

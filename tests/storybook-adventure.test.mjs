@@ -76,7 +76,8 @@ function mount(page,path,initialStorage={}){
   window:{RVU_CURRICULUM:curriculum},
   document,
   location:{pathname:path},
-  localStorage:storage
+  localStorage:storage,
+  CustomEvent:class {constructor(type,options){this.type=type;this.detail=options?.detail}}
  },{timeout:1000});
  return {map,hero,card,values,listeners};
 }

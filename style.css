@@ -609,3 +609,34 @@ body{background:#fbf7ee}
 @media(max-width:850px){.storybook-spotlight{grid-template-columns:auto minmax(0,1fr)}.storybook-spotlight-link{grid-column:1/-1;justify-self:start}}
 @media(max-width:520px){.storybook-spotlight{grid-template-columns:1fr;padding:19px}.storybook-spotlight-art{justify-content:flex-start}.storybook-spotlight-art img{width:63px;height:63px}.storybook-spotlight-link{grid-column:auto;justify-self:stretch}}
 @media(prefers-reduced-motion:reduce){.storybook-spotlight-art img:nth-child(2){translate:0 0}.storybook-spotlight-link{transition:none!important}}
+
+
+/* Storybook Garden storefront motion: restrained, fast and reduced-motion-aware. */
+:root{--rvu-story-motion:cubic-bezier(.2,.72,.22,1)}
+.hero{isolation:isolate;overflow:hidden}
+.hero::before{
+ content:"";position:absolute;pointer-events:none;z-index:-1;
+ width:min(38vw,370px);height:min(38vw,370px);border-radius:50%;
+ inset:auto -7% -34% auto;
+ background:radial-gradient(circle,#d9eac987,#ffffff00 69%);
+}
+.explore-card,.hero-actions .button,.button,.why-grid article{
+ transition:transform .32s var(--rvu-story-motion),box-shadow .32s var(--rvu-story-motion),background-color .32s ease
+}
+.explore-card:hover,.why-grid article:hover{transform:translateY(-5px);box-shadow:0 14px 29px #184c3a17}
+.hero-art .book{animation:rvu-home-book-drift 7.5s ease-in-out infinite;transform-origin:center 85%}
+.explore-card .explore-icon{transition:transform .4s var(--rvu-story-motion)}
+.explore-card:hover .explore-icon{transform:translateY(-4px) rotate(-5deg)}
+@keyframes rvu-home-book-drift{
+ 0%,100%{translate:0 0;rotate:0deg}
+ 50%{translate:0 -5px;rotate:-.6deg}
+}
+@media(max-width:700px){
+ .hero-art .book{animation-duration:9s}
+ .explore-card:hover,.why-grid article:hover{transform:none}
+}
+@media(prefers-reduced-motion:reduce){
+ .hero-art .book{animation:none!important}
+ .explore-card,.hero-actions .button,.button,.why-grid article,.explore-card .explore-icon{transition:none!important}
+ .explore-card:hover,.why-grid article:hover,.explore-card:hover .explore-icon{transform:none}
+}

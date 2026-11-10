@@ -90,9 +90,8 @@ body[data-page="lesson"],body[data-page="hub"],body[data-page="alphabet-index"]{
  box-shadow:0 7px 0 #385f4511,0 14px 22px #29584112;
  backdrop-filter:blur(5px);
  transition:transform .28s cubic-bezier(.19,.75,.28,1.1),box-shadow .28s ease;
- animation:rvu-seed-rise .7s both;
- animation-play-state:paused;
-}.rvu-garden-words.rvu-motion-visible .word-card{animation-play-state:running}.rvu-garden-words .word-card:nth-of-type(2){animation-delay:.08s}.rvu-garden-words .word-card:nth-of-type(3){animation-delay:.15s}.rvu-garden-words .word-card:nth-of-type(4){animation-delay:.22s}.rvu-garden-words .word-card::before{
+ animation:none;
+}.rvu-garden-words.rvu-motion-visible .word-card{animation:rvu-seed-rise .7s both}.rvu-garden-words .word-card:nth-of-type(2){animation-delay:.08s}.rvu-garden-words .word-card:nth-of-type(3){animation-delay:.15s}.rvu-garden-words .word-card:nth-of-type(4){animation-delay:.22s}.rvu-garden-words .word-card::before{
  content:"";position:absolute;z-index:0;bottom:5px;right:9px;
  width:23px;height:27px;border-radius:80% 0 75% 0;
  background:var(--garden-leaf);opacity:.45;rotate:26deg;pointer-events:none;

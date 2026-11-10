@@ -153,3 +153,8 @@
 @media(max-width:950px){.parent-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.parent-settings-grid{grid-template-columns:1fr 1fr}.parent-field{grid-column:1/-1}}
 @media(max-width:580px){.parent-dashboard{padding:16px;border-radius:20px}.parent-stat{min-height:108px;padding:12px;border-radius:15px}.parent-stat strong{font-size:1.52rem}.parent-guidance{grid-template-columns:1fr}.parent-settings-grid{grid-template-columns:1fr}.parent-field{grid-column:auto}.parent-buying img{width:110px}.parent-buy-actions>a{flex:1 1 100%}}
 @media(prefers-reduced-motion:reduce){.parent-track i{transition:none}}
+
+
+html.rvu-motion-off *,html.rvu-motion-off *::before,html.rvu-motion-off *::after{
+ animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important
+}

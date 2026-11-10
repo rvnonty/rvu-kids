@@ -664,3 +664,10 @@ body{background:#fbf7ee}
 html.rvu-motion-off *,html.rvu-motion-off *::before,html.rvu-motion-off *::after{
  animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important
 }
+
+/* Book-first storefront: one calm purchase CTA instead of an adult/child path chooser. */
+.purchase-actions{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:22px}
+.purchase-actions .button{min-height:54px}
+.purchase-actions .text-link{display:inline-flex;align-items:center;min-height:50px;font-weight:800}
+.hero-delivery{color:#275e45;background:#edf8ea;border:1px solid #c2dfc6;border-radius:15px;padding:10px 15px;margin-top:15px;line-height:1.7;font-weight:850}
+@media(max-width:640px){.purchase-actions{display:grid;grid-template-columns:1fr;gap:9px}.purchase-actions>*{justify-content:center;text-align:center;width:100%}}

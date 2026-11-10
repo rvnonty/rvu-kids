@@ -63,13 +63,9 @@ function initMapIntro(grid){
  copy.append(el('span','storybook-kicker',lang==='ar'?'رحلة من 26 محطة':'26 stops to explore'));
  copy.append(el('h3','storybook-map-title',lang==='ar'?'كل حرف محطة جديدة':'Every letter is a new adventure'));
  copy.append(el('p','storybook-map-description',lang==='ar'?'اختار محطة، شوف صورتها، واسمع الكلمات.':'Choose a station, explore its pictures and hear its words.'));
- const count=el('div','storybook-map-progress');
- count.append(el('span','storybook-progress-label',lang==='ar'?'محطات خلصتها':'Stations completed'));
- count.append(el('strong','storybook-progress-number','0 / 26'));
- const track=el('div','storybook-progress-track');track.append(el('span','storybook-progress-fill'));count.append(track);
- const go=link('/learn/alphabet/a/',lang==='ar'?'ابدأ أو كمّل الرحلة':'Start or continue','storybook-resume');
- count.append(go);
- intro.append(copy,count);grid.before(intro);
+ const actions=el('div','storybook-map-actions');
+ actions.append(link('/learn/alphabet/a/',lang==='ar'?'ابدأ بحرف A':'Start with A','storybook-resume'));
+ intro.append(copy,actions);grid.before(intro);
 }
 function printedPages(pages){return pages.map(page=>page-3)}
 function cardUnit(u,i){

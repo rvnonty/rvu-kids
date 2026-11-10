@@ -150,3 +150,228 @@
 
 .rvu-sticker-earned{display:inline-flex;align-items:center;gap:9px;padding:9px 14px;margin:12px 0;border:1px solid #e8d7a3;border-radius:15px;background:#fff7d7;color:#184c3a;font-size:.88rem;font-weight:800}
 .rvu-sticker-earned .rvu-sticker-star{width:35px;height:35px;fill:#e4ac32;stroke:#b48628}
+
+
+/* Living Book Garden: illustration-led letter palettes and GPU-friendly motion. */
+body[data-page="lesson"],body[data-page="hub"],body[data-page="alphabet-index"]{
+ background:radial-gradient(circle at 85% 12%,#eaf4e9 0,transparent 27%),
+ radial-gradient(circle at 10% 74%,#fff3da 0,transparent 25%),#fbf7ee;
+}
+.rvu-garden-lesson{
+ --garden-sky:#deeff4;--garden-grass:#d3eacb;
+ --garden-bloom:#edbb98;--garden-leaf:#84b497;
+ position:relative;isolation:isolate;
+}
+.rvu-garden-lesson::before{
+ content:"";position:absolute;z-index:-1;inset:0 0 auto;height:230px;
+ border-radius:30px 30px 0 0;pointer-events:none;opacity:.73;
+ background:radial-gradient(ellipse at 86% 12%,var(--garden-sky) 0,transparent 41%);
+}
+.rvu-garden-heading{
+ position:relative;z-index:1;max-width:750px;margin:18px 0 10px;
+ padding:0 0 0 4px;
+}
+.rvu-garden-heading h2{
+ margin:0;color:#184c3a;font-size:clamp(1.3rem,2.7vw,1.9rem);line-height:1.3;
+}
+.rvu-garden-heading p{
+ margin:7px 0 0;color:#4e685c;font-size:.92rem;line-height:1.8;
+}
+.word-grid.rvu-garden-words{
+ --garden-sky:#deeff4;--garden-grass:#d3eacb;
+ --garden-bloom:#edbb98;--garden-leaf:#84b497;
+ position:relative;isolation:isolate;overflow:hidden;
+ padding:clamp(19px,2.8vw,30px) clamp(11px,2.2vw,24px) clamp(33px,4vw,46px);
+ border:1px solid #d5e4d6;border-radius:30px;
+ background:
+  radial-gradient(circle at 88% 17%,#fffbdab0 0 5%,transparent 5.2%),
+  radial-gradient(ellipse 15% 8% at 18% 14%,#ffffffb3 0 100%,transparent 101%),
+  radial-gradient(ellipse 12% 6% at 58% 22%,#ffffffa1 0 100%,transparent 101%),
+  linear-gradient(180deg,var(--garden-sky) 0 53%,var(--garden-grass) 54% 100%);
+ box-shadow:inset 0 2px 20px #ffffff70,0 8px 28px #184c3a0b;
+ gap:clamp(10px,1.8vw,18px);
+}
+.word-grid.rvu-garden-words::before,
+.word-grid.rvu-garden-words::after{
+ content:"";position:absolute;z-index:-1;pointer-events:none;
+ inset:auto -6% -28% -6%;height:53%;border-radius:50% 50% 0 0;
+ background:linear-gradient(180deg,var(--garden-leaf),var(--garden-grass));
+ opacity:.39;
+}
+.word-grid.rvu-garden-words::after{
+ inset:auto -15% -35% 27%;height:59%;opacity:.35;transform:rotate(-7deg);
+ background:var(--garden-leaf);
+}
+.rvu-garden-words .word-card{
+ --flower-size:20px;
+ display:flex;position:relative;z-index:1;
+ background:linear-gradient(180deg,#ffffffea,#fffdf6e8);
+ border:1px solid #ffffffed;border-radius:25px;
+ min-height:205px;
+ box-shadow:0 7px 0 #385f4511,0 14px 22px #29584112;
+ backdrop-filter:blur(5px);
+ transition:transform .28s cubic-bezier(.19,.75,.28,1.1),box-shadow .28s ease;
+ animation:rvu-seed-rise .7s both;
+ animation-play-state:paused;
+}
+.rvu-garden-words.rvu-motion-visible .word-card{animation-play-state:running}
+.rvu-garden-words .word-card:nth-of-type(2){animation-delay:.08s}
+.rvu-garden-words .word-card:nth-of-type(3){animation-delay:.15s}
+.rvu-garden-words .word-card:nth-of-type(4){animation-delay:.22s}
+.rvu-garden-words .word-card::before{
+ content:"";position:absolute;z-index:0;bottom:5px;right:9px;
+ width:23px;height:27px;border-radius:80% 0 75% 0;
+ background:var(--garden-leaf);opacity:.45;rotate:26deg;pointer-events:none;
+}
+.rvu-garden-words .word-card::after{
+ content:"";position:absolute;z-index:0;bottom:9px;left:10px;
+ width:14px;height:20px;border-radius:10% 80% 0 80%;
+ background:var(--garden-leaf);opacity:.5;rotate:-22deg;pointer-events:none;
+}
+.rvu-garden-words .word-card:hover,.rvu-garden-words .word-card:focus-within{
+ transform:translateY(-6px) rotate(-1deg);
+ box-shadow:0 11px 0 #385f450f,0 19px 31px #29584118;
+}
+.rvu-garden-words .word-visual.story-visual{
+ background:radial-gradient(circle at 50% 60%,#fffdf7 0 55%,#ffffff00 75%);
+ border-radius:28px;position:relative;
+}
+.rvu-garden-words .word-image{
+ transform-origin:50% 82%;transition:transform .4s cubic-bezier(.25,.7,.2,1.25);
+ filter:drop-shadow(0 8px 6px #1e48301a);
+}
+.rvu-garden-words .word-card:hover .word-image,
+.rvu-garden-words .word-card:focus-within .word-image{transform:translateY(-6px) rotate(-4deg) scale(1.055)}
+.rvu-garden-words .english-word{color:#204e3b;font-weight:850}
+.rvu-garden-words .audio-play{
+ border:1px solid #a9cbb5;background:#fff;box-shadow:0 3px 8px #184c3a12;
+}
+.rvu-garden-words .word-zoom:focus-visible,.rvu-garden-words .audio-play:focus-visible{
+ outline:3px solid var(--garden-bloom);outline-offset:3px
+}
+.rvu-garden-flora{
+ position:absolute;z-index:0;inset:0;pointer-events:none;overflow:hidden;
+}
+.rvu-garden-stem{
+ position:absolute;bottom:-13px;left:var(--flora-offset);
+ width:4px;height:70px;border-radius:50% 50% 1px 1px;
+ transform-origin:bottom center;background:var(--garden-leaf);opacity:.65;
+ animation:rvu-breeze-stem 5.5s ease-in-out infinite;animation-play-state:paused;
+ animation-delay:calc(var(--flora-index) * -.8s);
+}
+.rvu-garden-words.rvu-motion-visible .rvu-garden-stem{animation-play-state:running}
+.rvu-garden-stem::before{
+ content:"";position:absolute;left:-10px;top:-8px;
+ width:24px;height:24px;border-radius:50%;
+ background:
+ radial-gradient(circle at 50% 4%,var(--garden-bloom) 0 22%,transparent 23%),
+ radial-gradient(circle at 95% 48%,var(--garden-bloom) 0 22%,transparent 23%),
+ radial-gradient(circle at 50% 95%,var(--garden-bloom) 0 22%,transparent 23%),
+ radial-gradient(circle at 5% 48%,var(--garden-bloom) 0 22%,transparent 23%),
+ radial-gradient(circle at 50% 50%,#f9d573 0 24%,transparent 25%);
+}
+.rvu-garden-stem::after{
+ content:"";position:absolute;left:0;top:26px;width:19px;height:12px;
+ border-radius:0 100% 0 100%;background:var(--garden-leaf);
+}
+.rvu-visual-scene{
+ --garden-sky:#d9eef2;--garden-grass:#d1ecd6;
+ --garden-bloom:#edc6ab;--garden-leaf:#88b39c;
+ background:linear-gradient(155deg,#fffdf9,var(--garden-sky));
+ border-color:var(--garden-leaf);
+}
+.rvu-visual-scene .rvu-scene-stage{
+ background:linear-gradient(180deg,var(--garden-sky) 0 52%,var(--garden-grass) 52% 100%);
+ border-color:var(--garden-leaf);
+ box-shadow:inset 0 10px 40px #ffffff77;
+}
+.rvu-visual-scene .rvu-scene-hill.first{background:var(--garden-leaf);opacity:.55}
+.rvu-visual-scene .rvu-scene-hill.second{background:var(--garden-grass)}
+.rvu-visual-scene .rvu-scene-sun{background:var(--garden-bloom);box-shadow:0 0 0 19px color-mix(in srgb,var(--garden-bloom) 25%,transparent)}
+.rvu-visual-scene .rvu-scene-object.audio-play{
+ border-color:#ffffffda;
+ transform:translateY(0);
+ animation:rvu-scene-idle 5.6s ease-in-out infinite;
+ animation-delay:calc(var(--scene-index) * -.65s);
+ animation-play-state:paused;
+}
+.rvu-scene-stage.rvu-motion-visible .rvu-scene-object.audio-play{animation-play-state:running}
+.rvu-visual-scene .rvu-scene-object.audio-play:hover:not(:disabled){animation-play-state:paused;transform:translateY(-7px) scale(1.035)}
+.rvu-visual-scene .rvu-scene-object.is-touched{
+ animation:rvu-picture-wiggle .55s ease;animation-play-state:running;
+ border-color:var(--garden-leaf);
+}
+.rvu-visual-scene .rvu-scene-character{
+ animation:rvu-mascot-breathe 5.5s ease-in-out infinite;animation-play-state:paused;
+}
+.rvu-scene-stage.rvu-motion-visible .rvu-scene-character{animation-play-state:running}
+.rvu-visual-scene .rvu-scene-object:focus-visible{outline:3px solid var(--garden-bloom);outline-offset:3px}
+.rvu-picture-challenge{border-color:var(--garden-leaf);background:linear-gradient(160deg,#fffdf8,var(--garden-sky))}
+.rvu-garden-phrases{position:relative;isolation:isolate;overflow:hidden;padding:18px;border:1px solid #e3e9df;border-radius:23px;background:linear-gradient(145deg,var(--garden-sky),#fffdf9)}
+.rvu-garden-phrases .phrase-card{border-color:var(--garden-leaf);background:#fffdfbea}
+.letter-grid.storybook-map > a.storybook-station{
+ --garden-bloom:#f2bf8f;--garden-leaf:#95bb9a;--garden-grass:#d6edd5;
+ background:linear-gradient(180deg,#fffefd,#fbfff9)!important;
+ border-color:var(--garden-leaf)!important;
+}
+.letter-grid.storybook-map > a.storybook-station::before{
+ background:var(--garden-bloom)!important;height:8px
+}
+.letter-grid.storybook-map > a.storybook-station .storybook-station-picture{
+ background:radial-gradient(circle at 50% 68%,#fffdf9,var(--garden-grass))!important;
+ border:1px solid var(--garden-leaf)
+}
+.letter-grid.storybook-map > a.storybook-station:hover{
+ transform:translateY(-6px) rotate(-1deg);
+ box-shadow:0 15px 27px #184c3a22
+}
+.rvu-sticker-card.earned .rvu-sticker-star{animation:rvu-star-glow 4.2s ease-in-out infinite}
+body[data-page="hub"] .storybook-guide,
+body[data-page="alphabet-index"] .storybook-guide{
+ background:radial-gradient(circle at 95% 50%,#fff2d1,transparent 35%),linear-gradient(130deg,#fffdf9,#e9f5e9);
+}
+@keyframes rvu-seed-rise{
+ from{opacity:0;transform:translateY(18px) scale(.96)}
+ to{opacity:1;transform:translateY(0) scale(1)}
+}
+@keyframes rvu-breeze-stem{
+ 0%,100%{transform:rotate(-3deg)}
+ 45%{transform:rotate(8deg)}
+ 75%{transform:rotate(-5deg)}
+}
+@keyframes rvu-scene-idle{
+ 0%,100%{translate:0 0}
+ 50%{translate:0 -5px}
+}
+@keyframes rvu-mascot-breathe{
+ 0%,100%{translate:0 0}
+ 50%{translate:0 -4px}
+}
+@keyframes rvu-star-glow{
+ 0%,100%{filter:drop-shadow(0 0 0 transparent)}
+ 50%{filter:drop-shadow(0 2px 7px #f2c56a88)}
+}
+@media(max-width:850px){
+ .word-grid.rvu-garden-words{padding:18px 12px 38px}
+ .rvu-garden-words .word-card{min-height:180px}
+}
+@media(max-width:560px){
+ .rvu-garden-heading{padding:0 3px}
+ .word-grid.rvu-garden-words{border-radius:20px;gap:11px}
+ .rvu-garden-words .word-card{min-height:158px;border-radius:19px}
+ .rvu-garden-words .word-image{filter:none}
+ .rvu-garden-flora{opacity:.6}
+ .rvu-garden-stem{height:48px}
+ .rvu-garden-phrases{padding:9px}
+}
+@media(prefers-reduced-motion:reduce){
+ .rvu-garden-words .word-card,
+ .rvu-garden-stem,
+ .rvu-visual-scene .rvu-scene-object.audio-play,
+ .rvu-visual-scene .rvu-scene-character,
+ .rvu-sticker-card.earned .rvu-sticker-star{animation:none!important}
+ .rvu-garden-words .word-card:hover{transform:none}
+ .rvu-garden-words .word-image{transition:none!important}
+ .rvu-garden-words .word-card:hover .word-image{transform:none}
+ .rvu-visual-scene .rvu-scene-object.audio-play:hover:not(:disabled){transform:none}
+}

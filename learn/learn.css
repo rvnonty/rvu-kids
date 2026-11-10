@@ -624,3 +624,46 @@ body{background:#fbf7ee;color:#17392f}
 .letter-grid.storybook-map .storybook-route-line path{fill:none;stroke:#90b49b;stroke-width:4;stroke-dasharray:4 12;stroke-linecap:round;opacity:.65}
 .letter-grid.storybook-map > a.storybook-station{z-index:1}
 @media(prefers-reduced-motion:reduce){.letter-grid.storybook-map .storybook-route-line path{animation:none}}
+
+
+/* Calm garden motion system for the learning hub and A–Z index. */
+body:is([data-page="hub"],[data-page="alphabet-index"]) .hero{
+ background:radial-gradient(circle at 88% 17%,#fff0be,transparent 25%),
+ radial-gradient(circle at 15% 95%,#d5eddd,transparent 33%),
+ linear-gradient(130deg,#fffdf8,#f1f9ee);
+ overflow:hidden;
+}
+body:is([data-page="hub"],[data-page="alphabet-index"]) .hero::before{
+ content:"";position:absolute;z-index:-1;pointer-events:none;inset:auto -15% -52% -15%;
+ height:75%;border-radius:50% 50% 0 0;background:linear-gradient(180deg,#c6e6cb88,#e7f2da4d)
+}
+body:is([data-page="hub"],[data-page="alphabet-index"]) .hero::after{
+ content:"";position:absolute;pointer-events:none;inset:auto 4% 10px auto;
+ width:60px;height:43px;border-radius:50% 50% 4px 4px;
+ background:radial-gradient(circle at 35% 45%,#f5cc749c 0 12%,transparent 13%),
+ radial-gradient(circle at 62% 36%,#e9b99b96 0 10%,transparent 11%),
+ radial-gradient(circle at 53% 70%,#a4cda9ad 0 13%,transparent 14%);
+ opacity:.7
+}
+body:is([data-page="hub"],[data-page="alphabet-index"]) .path-card,
+body:is([data-page="hub"],[data-page="alphabet-index"]) .unit-card{
+ transition:transform .28s cubic-bezier(.2,.7,.2,1),box-shadow .28s ease
+}
+body:is([data-page="hub"],[data-page="alphabet-index"]) .path-card:hover,
+body:is([data-page="hub"],[data-page="alphabet-index"]) .unit-card:hover{
+ transform:translateY(-4px);box-shadow:0 13px 28px #184c3a18
+}
+body:is([data-page="hub"],[data-page="alphabet-index"]) .storybook-guide-face{
+ animation:rvu-intro-float 7s ease-in-out infinite
+}
+@keyframes rvu-intro-float{
+ 0%,100%{translate:0 0}
+ 50%{translate:0 -5px}
+}
+@media(prefers-reduced-motion:reduce){
+ body:is([data-page="hub"],[data-page="alphabet-index"]) .storybook-guide-face{animation:none!important}
+ body:is([data-page="hub"],[data-page="alphabet-index"]) .path-card,
+ body:is([data-page="hub"],[data-page="alphabet-index"]) .unit-card{transition:none!important}
+ body:is([data-page="hub"],[data-page="alphabet-index"]) .path-card:hover,
+ body:is([data-page="hub"],[data-page="alphabet-index"]) .unit-card:hover{transform:none}
+}

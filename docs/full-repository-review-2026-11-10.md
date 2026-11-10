@@ -1,5 +1,8 @@
 # RVU Kids — full source and asset integrity review (2026-11-10)
 
+> **Historical audit:** This document describes the previous implementation and is not the current student-data policy. Current RVU Kids is public and does **not** save student progress, completion status, stars or accounts. See [Public Learning Architecture](public-learning-architecture.md).
+
+
 ## Verified CI and merge
 - Audit PR: https://github.com/rvnonty/rvu-kids/pull/13
 - Successful PR CI run: https://github.com/rvnonty/rvu-kids/actions/runs/42842157454

@@ -528,3 +528,21 @@ body[data-page="alphabet-index"] .storybook-guide{
 @media(prefers-reduced-motion:reduce){
  .rvu-sticker-card.earned:is(:hover,:focus-visible) .rvu-sticker-star{animation:none}
 }
+
+
+/* Revised picture-first A–Z cards retain each lesson's custom garden colors. */
+.letter-grid.storybook-map>.storybook-stop[data-garden]{
+ border-color:var(--garden-leaf);
+ background:linear-gradient(165deg,#fffefa,var(--garden-sky))
+}
+.letter-grid.storybook-map>.storybook-stop[data-garden]::before{
+ background:var(--garden-bloom)
+}
+.letter-grid.storybook-map>.storybook-stop[data-garden] .storybook-station-picture{
+ background:radial-gradient(circle at 50% 65%,#fffdf8,var(--garden-grass));
+ border:1px solid var(--garden-leaf)
+}
+.letter-grid.storybook-map>.storybook-stop[data-garden]>.storybook-station-listen:not(:disabled){
+ background:linear-gradient(100deg,#fff,var(--garden-grass));
+ border-color:var(--garden-leaf)
+}

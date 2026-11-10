@@ -659,3 +659,8 @@ body{background:#fbf7ee}
 @media(max-width:960px){.hero-routes{grid-template-columns:1fr;max-width:520px}.hero-route{min-height:110px}}
 @media(max-width:560px){.hero-routes{gap:10px;margin-top:19px}.hero-route{padding:12px 13px;min-height:105px;border-radius:19px}.hero-route-art{flex-basis:54px}.hero-route-art .character-portrait,.route-paper{width:54px;height:54px;border-radius:15px}.hero-route-copy strong{font-size:1.14rem}}
 @media(prefers-reduced-motion:reduce){.hero-route{transition:none}.hero-route:hover{transform:none}}
+
+
+html.rvu-motion-off *,html.rvu-motion-off *::before,html.rvu-motion-off *::after{
+ animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important
+}

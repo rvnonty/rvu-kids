@@ -38,7 +38,7 @@ try{
  await page.locator('.rvu-game-panel:not([hidden]) .rvu-choice').filter({hasText:'Thank you.'}).click();
  await page.locator('.rvu-game-panel:not([hidden]) .rvu-feedback[data-result="correct"]').waitFor();
  if(await page.locator('.rvu-burst-piece').count()<6)throw Error('Confetti missing after correct answer');
- await page.locator('.rvu-game-next').filter({visible:true}).first().click();
+ await page.locator('.rvu-game-panel:not([hidden]) .rvu-game-next:visible').first().click();
  await page.locator('.rvu-game-tab').nth(1).click();
  if(await page.locator('.rvu-game-panel:not([hidden]) .rvu-choice').count()<2)throw Error('Listen exercise missing');
  await page.locator('.rvu-game-tab').nth(2).click();
@@ -54,7 +54,6 @@ try{
  await page.locator('.rvu-game-panel:not([hidden]) .rvu-feedback[data-result="correct"]').waitFor();
  await page.screenshot({path:'artifacts/alphabet-a-mobile.png',fullPage:true});
  // All 41 exact curriculum lessons must initialize their extra exercises.
- const {default:unused}=await import('node:assert').catch(()=>({default:null}));
  const source=await readFile('learn/content.js','utf8');
  const obj=JSON.parse(source.match(/window.RVU_CURRICULUM=(\{[\s\S]*\});/)[1]);
  for(const letter of obj.alphabet){

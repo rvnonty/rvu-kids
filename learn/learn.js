@@ -1,4 +1,11 @@
 'use strict';
+/* Remove old parent-only offline settings and locally saved lesson packs. */
+if(typeof navigator!=='undefined'&&'serviceWorker' in navigator){
+ navigator.serviceWorker.getRegistration('/learn/').then(registration=>registration?.unregister()).catch(()=>{});
+}
+if(typeof window!=='undefined'&&window.caches){
+ window.caches.keys().then(keys=>Promise.all(keys.filter(key=>key.startsWith('rvu-learning-a-b-')).map(key=>window.caches.delete(key)))).catch(()=>{});
+}
 const C=window.RVU_CURRICULUM;
 if(!C)throw Error('Curriculum unavailable');
 try{localStorage.removeItem('rvu-story-progress-v1');localStorage.removeItem('rvu-star-album-enabled')}catch{}

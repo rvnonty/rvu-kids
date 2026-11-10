@@ -3,16 +3,16 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 const read=path=>readFileSync(new URL('../'+path,import.meta.url),'utf8');
 const home=read('index.html'),app=read('app.js'),book=read('books/alphabet/index.html');
-const parents=read('parents/index.html'),settings=read('parents/settings.js'),worker=read('server/worker.mjs');
+const parents=read('parents/index.html'),preview=read('preview/index.html'),worker=read('server/worker.mjs');
 
 test('the published book has a fixed 300 EGP delivered price throughout Arabic and English public pages',()=>{
  assert.match(home,/300 جنيه شامل الشحن والتوصيل لباب المنزل/);
  assert.match(home,/300 جنيه للنسخة، من غير أي رسوم شحن إضافية/);
  assert.match(home,/id="subtotal">300 جنيه/);
- assert.match(book,/300 <small>EGP<\/small>/);
- assert.match(book,/شامل الشحن والتوصيل لباب المنزل/);
- assert.match(parents,/300 جنيه مصري للنسخة شامل مصاريف الشحن والتوصيل لباب المنزل/);
- assert.match(settings,/300 EGP per copy, including shipping and delivery to your doorstep/);
+ assert.match(book,/content="0;url=\/#order"/);
+ assert.match(preview,/300 جنيه شامل الشحن والتوصيل لباب المنزل/);
+ assert.match(parents,/300 جنيه للنسخة، شامل مصاريف الشحن والتوصيل لباب المنزل/);
+ assert.match(parents,/content="0;url=\/#order"/);
  assert.match(app,/price:'300 EGP/);
  for(const file of [home,book,parents])assert.doesNotMatch(file,/200 (?:جنيه|EGP)|الشحن حسب المحافظة|plus shipping/);
 });

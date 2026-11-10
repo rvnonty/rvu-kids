@@ -33,22 +33,13 @@ const printed={
  y:['yo-yo','yak','yellow','yogurt'],
  z:['zoo','zebra','zipper','zero']
 };
-const expectedDifferences={
- c:{site:['cup'],book:['carrot']},d:{site:['doll'],book:['drum']},
- e:{site:['ear','elbow'],book:['engine','envelope']},
- f:{site:['fork'],book:['fox']},i:{site:['island'],book:['igloo']},
- j:{site:['jam'],book:['jeep']},k:{site:['kangaroo'],book:['king']},
- n:{site:['night'],book:['nurse']},o:{site:['ocean','otter'],book:['owl','ox']},
- p:{site:['pen'],book:['pencil']},r:{site:['rain'],book:['rose']},
- s:{site:['sock','spoon'],book:['snake','strawberry']}
-};
 const alphabet=Array.from({length:26},(_,i)=>String.fromCharCode(i+97));
 test('exact printed book word baseline is reviewed and complete',()=>{
  assert.deepEqual(Object.keys(printed).sort(),alphabet);
  const total=Object.values(printed).reduce((n,words)=>n+words.length,0);
  assert.equal(total,101);
 });
-test('known vocabulary fidelity discrepancies are explicitly tracked (not approved)',()=>{
+test('all 101 book words match the latest print curriculum with no missing or extra entries',()=>{
  const differences={};
  for(const unit of actual){
   const book=new Set(printed[unit.id]),site=new Set(unit.words);
@@ -56,9 +47,18 @@ test('known vocabulary fidelity discrepancies are explicitly tracked (not approv
   const missing=printed[unit.id].filter(x=>!site.has(x)).sort();
   if(extra.length||missing.length)differences[unit.id]={site:extra,book:missing};
  }
- assert.deepEqual(JSON.parse(JSON.stringify(differences)),expectedDifferences);
- assert.equal(Object.keys(differences).length,12);
- assert.equal(Object.values(differences).reduce((n,item)=>n+item.site.length,0),15);
- // This passing test means the known discrepancies are still *tracked*,
- // not that the site's alphabet content matches the book.
+ assert.deepEqual(differences,{});
+ assert.equal(Object.keys(differences).length,0);
+});
+
+test('printed lesson example sentences match the revised book A through Z',()=>{
+ const examples=[
+  'I see an apple.','I see a ball.','I see a cat.','I see a dog.','I see an egg.',
+  'I see a fish.','I see a goat.','I see a hat.','I see ice cream.','I see juice.',
+  'I see a kite.','I see a lion.','I see a monkey.','I see a nest.','I see an orange.',
+  'I see a panda.','I see a queen.','I see a rainbow.','I see a star.','I see a tiger.',
+  'I see an umbrella.','I see a van.','I see a whale.','I see a xylophone.',
+  'I see a yo-yo.','I see a zebra.'
+ ];
+ assert.deepEqual(Array.from(actual,l=>l.sentences[0]),examples);
 });

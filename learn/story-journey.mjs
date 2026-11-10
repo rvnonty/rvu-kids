@@ -28,7 +28,7 @@ const phrasePictures={
  'I have a book.':'book',
  'I have a pencil.':'pencil'
 };
-const approvedWordArt=new Set(['ball','gift','hand','door','cup']);
+const approvedWordArt=new Set(['ball','gift','hand','door']);
 function drawArt(name){
  if(approvedWordArt.has(name)){
   const img=el('img','rvu-story-object-image');
@@ -40,6 +40,10 @@ function drawArt(name){
  if(name==='book'){
   shape('path',{d:'M72 37 Q44 19 17 34 V105 Q47 93 72 112 Q95 93 127 105 V34 Q100 19 72 37Z',fill:'#fff7e1',stroke:'#3a7b67','stroke-width':5,'stroke-linejoin':'round'});
   shape('path',{d:'M72 37V112 M32 48Q52 43 64 50 M80 50Q99 43 114 48 M32 65Q52 60 64 67 M80 67Q99 60 114 65',stroke:'#67a3a1','stroke-width':3,fill:'none','stroke-linecap':'round'});
+ }else if(name==='cup'){
+  shape('path',{d:'M30 48H106L97 112Q72 123 39 112Z',fill:'#e4f7ff',stroke:'#4b9fc3','stroke-width':5,'stroke-linejoin':'round'});
+  shape('path',{d:'M106 60Q133 54 130 77Q127 96 101 94',fill:'none',stroke:'#4b9fc3','stroke-width':8,'stroke-linecap':'round'});
+  shape('path',{d:'M37 73H99L95 107Q73 116 44 107Z',fill:'#a3dfff',opacity:.85});
  }else if(name==='pencil'){
   shape('path',{d:'M32 111L26 121L38 117L112 43L98 29Z',fill:'#f3c262',stroke:'#ad7b4e','stroke-width':4,'stroke-linejoin':'round'});
   shape('path',{d:'M98 29L107 20L123 36L112 43Z',fill:'#f5a3a3',stroke:'#ad7b4e','stroke-width':3});

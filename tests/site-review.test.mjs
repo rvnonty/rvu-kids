@@ -79,7 +79,10 @@ test('book preview cards do not introduce white picture frames',()=>{
  assert.ok(main.includes('.preview-card .preview-frame{padding:11px'));
  assert.ok(learn.includes('.preview-five figure{background:transparent;padding:0'));
  for(const name of ['cover','letter-a','practice-a','feelings','letter-m']){
-   assert.ok(readFileSync(new URL('assets/'+name+'.webp',base)).length>150000,name+' is too small for a preview');
+   const image=readFileSync(new URL('assets/'+name+'.webp',base));
+    assert.ok(image.length>55000,name+' preview image is missing or truncated');
+    assert.equal(image.toString('ascii',0,4),'RIFF');
+    assert.equal(image.toString('ascii',8,12),'WEBP');
  }
 });
 
@@ -90,8 +93,9 @@ test('whatsapp orders use approved international recipient number and never fake
  assert.ok(page.includes('value="vodafone_cash"'));
  assert.ok(!page.includes('value="bank"'));
  assert.ok(page.includes('id="submit-order" class="button full" data-i18n="submitOrder"'));
- assert.ok(page.includes('واتساب مع Ramez'));
- assert.ok(page.includes('https://wa.me/201012809358'));
+ assert.ok(!page.includes('واتساب مع Ramez'));
+ assert.ok(!page.includes('https://wa.me/'));
+ assert.ok(!page.includes('+201012809358'));
  assert.ok(!page.includes('@n2nty'));
  assert.ok(!js.includes('@n2nty'));
  assert.ok(js.includes("'https://wa.me/201012809358?text='"));
@@ -144,23 +148,22 @@ test('order heading is uncluttered and hero artwork is optically centered',()=>{
 });
 
 
-test('home learning discovery is concise, bilingual and free of redundant text grids',()=>{
- const html=read('index.html'),css=read('style.css'),app=read('app.js');
- assert.equal((html.match(/class="explore-card /g)||[]).length,2);
- assert.ok(html.includes('href="/learn/alphabet/"'));
- assert.ok(html.includes('href="/learn/sentences/"'));
- assert.ok(html.includes('id="inside" class="explore-section'));
+test('home is an uncluttered book storefront and lessons have a separate child-only home',()=>{
+ const html=read('index.html'),app=read('app.js'),hub=read('learn/index.html');
+ assert.equal((html.match(/class="explore-card /g)||[]).length,0);
+ assert.ok(html.includes('class="hero-actions purchase-actions"'));
+ assert.ok(html.includes('href="#order"'));
  assert.ok(html.includes('id="why-different"'));
  assert.ok(html.includes('id="preview"'));
- assert.ok(!html.includes('01 / Aa'));
- assert.ok(!html.includes('05</span><h3>Book Preview'));
- assert.ok(!html.includes('الكتاب مش واقف عند الورق'));
- assert.ok(css.includes('.explore-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))'));
- assert.ok(css.includes('.explore-card:focus-visible'));
- assert.ok(app.includes("digitalEyebrow:'Keep exploring'"));
- assert.ok(app.includes("digitalTitle:'The learning continues online.'"));
+ assert.ok(html.includes('id="order-form"'));
+ assert.ok(!html.includes('class="hero-routes"'));
+ assert.ok(!html.includes('href="/parents/'));
+ assert.ok(!html.includes('id="inside"'));
+ assert.match(hub,/href="\/learn\/alphabet\//);
+ assert.match(hub,/href="\/learn\/sentences\//);
+ assert.ok(!hub.includes('/parents/'));
+ assert.ok(app.includes("heroDelivery:'300 EGP per copy"));
 });
-
 
 test('order form has no mandatory consent paragraph but privacy remains accessible in footer',()=>{
  const html=read('index.html'),app=read('app.js');
@@ -174,34 +177,26 @@ test('order form has no mandatory consent paragraph but privacy remains accessib
 });
 
 
-test('main storefront sections have descriptive metadata and exact canonical URLs',()=>{
- for(const [path,canonical] of [
+test('main storefront and learning pages retain canonical URL metadata while removed pages redirect',()=>{
+ for(const [file,canonical] of [
   ['index.html','https://rvu-kids.company/'],
   ['learn/index.html','https://rvu-kids.company/learn/'],
-  ['preview/index.html','https://rvu-kids.company/preview/'],
-  ['books/alphabet/index.html','https://rvu-kids.company/books/alphabet/']
+  ['preview/index.html','https://rvu-kids.company/preview/']
  ]){
-  const html=read(path);
-  assert.ok(html.includes('<link rel="canonical" href="'+canonical+'">'),path);
-  assert.ok(html.includes('<meta name="description" content="'),path);
+  const html=read(file);
+  assert.ok(html.includes('<link rel="canonical" href="'+canonical+'">'),file);
+  assert.ok(html.includes('<meta name="description" content="'),file);
  }
-});
-
-test('bilingual parent guide ships in build and links from storefront and hub',()=>{
- const page=read('parents/index.html'),css=read('parents/guide.css'),js=read('parents/guide.js');
- assert.ok(read('index.html').includes('href="/parents/"'));
- assert.ok(read('learn/index.html').includes('href="/parents/#parent-guide"'));
- assert.ok(page.includes('3–4')&&page.includes('5–6'));
- assert.ok(page.includes('I see an apple.'));
- assert.ok(page.includes('قيد التجهيز'));
- assert.ok(page.includes('href="/learn/alphabet/a/"'));
- assert.ok(page.includes('href="/learn/sentences/feelings/"'));
- assert.ok(js.includes("sessionStorage.setItem('rvu-lang',lang)"));
- assert.ok(css.includes('@media(max-width:620px)'));
- assert.ok(read('app.js').includes("parentGuideTitle:'Where should we start?'"));
- assert.ok(read('learn/learn.js').includes('parent-nav-link'));
- assert.ok(read('build.mjs').includes("'parents'"));
- assert.ok(read('sitemap.xml').includes('<loc>https://rvu-kids.company/parents/</loc>'));
+ for(const file of ['books/alphabet/index.html','parents/index.html']){
+  const html=read(file);
+  assert.match(html,/noindex,follow/);
+  assert.match(html,/content="0;url=\/#order"/);
+  assert.ok(html.includes('<link rel="canonical" href="https://rvu-kids.company/">'));
+ }
+ assert.ok(!has('parents/guide.js'));
+ assert.ok(!has('parents/settings.js'));
+ assert.ok(!has('parents/guide.css'));
+ assert.ok(!read('sitemap.xml').includes('<loc>https://rvu-kids.company/parents/</loc>'));
  assert.equal((read('preview/index.html').match(/<figure>/g)||[]).length,5);
 });
 

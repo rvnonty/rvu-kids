@@ -5,7 +5,6 @@ import {runInNewContext} from 'node:vm';
 const read=file=>readFileSync(new URL('../'+file,import.meta.url),'utf8');
 const storybook=read('learn/storybook.mjs');
 const parent=read('parents/index.html');
-const parentSettings=read('parents/settings.js');
 const letters='abcdefghijklmnopqrstuvwxyz'.split('').map(id=>({id,letter:id.toUpperCase(),words:[id==='a'?'apple':'cat']}));
 const curriculum={alphabet:letters,sentences:[{id:'feelings',sentences:["I'm happy."]}]};
 function anonymousSession(seed={}){
@@ -38,35 +37,34 @@ test('1,000 independent visitors leave no student progress, account or completio
  assert.equal(sessions[0].removes.length,2);
  assert.equal(sessions[999].removes.length,2);
 });
-test('no hidden progress dashboard, star album or student identifier in public pages',()=>{
+test('there are no child profiles, parent settings or adult/child chooser anywhere in the learning UI',()=>{
  const home=read('index.html'),hub=read('learn/index.html');
- assert.match(home,/\/parents\/#parent-guide/);
- assert.match(hub,/\/parents\/#parent-guide/);
- assert.match(parent,/id="parent-guide"/);
- assert.doesNotMatch(parent,/parent-letter-completed|parent-reset-progress|parent-sticker-album|parent-next-link/);
- assert.doesNotMatch(hub,/href="\/learn\/stickers\/"/);
- assert.doesNotMatch(home,/parent-dashboard/);
- assert.ok(!existsSync(new URL('../parents/dashboard.js',import.meta.url)));
+ assert.doesNotMatch(home,/hero-route-parents|hero-route-kids|parent-dashboard|href="\/parents\//);
+ assert.doesNotMatch(hub,/href="\/parents\//);
+ assert.match(parent,/content="0;url=\/#order"/);
+ assert.doesNotMatch(parent,/parent-letter-completed|parent-settings|parent-sticker-album|id="parent-guide"/);
+ for(const old of ['parents/settings.js','parents/offline.js','parents/dashboard.js'])
+  assert.equal(existsSync(new URL('../'+old,import.meta.url)),false);
  const deprecated=read('learn/stickers/index.html');
  assert.match(deprecated,/<meta http-equiv="refresh" content="0;url=\/learn\/"/);
  assert.match(read('sitemap.xml'),/\/learn\/alphabet\//);
  assert.doesNotMatch(read('sitemap.xml'),/\/learn\/stickers\//);
 });
-test('individual listening preferences cannot modify other visitors or student records',()=>{
- assert.doesNotMatch(parentSettings,/setItem\(['"]rvu-story-progress/);
- assert.doesNotMatch(parentSettings,/setItem\(['"]rvu-star-album/);
- assert.match(parentSettings,/rvu-playback-speed/);
- assert.match(parentSettings,/rvu-motion-off/);
+
+test('lesson speech speed is local and no student data are persisted or shared',()=>{
  const learning=read('learn/learn.js');
+ assert.match(learning,/rvu-playback-speed/);
+ assert.match(learning,/rvu-voice/);
  assert.doesNotMatch(learning,/setItem\(['"]rvu-story-progress/);
  assert.doesNotMatch(read('learn/next-adventures.mjs'),/completedLessons|mountAlbum|lesson-completed/);
  assert.doesNotMatch(storybook,/saveProgress|readProgress|progressStats|lastVisited/);
 });
+
 test('parent order flow remains separate and does not create child profiles',()=>{
  const worker=read('server/worker.mjs');
  assert.match(worker,/ORDERS_ENABLED/);
  assert.match(worker,/\/api\/orders/);
  assert.doesNotMatch(worker,/\/api\/(?:users|students|accounts|progress|achievements)/);
- assert.match(parent,/id="parent-buying"/);
- assert.match(parent,/id="parent-offline"/);
+ assert.match(read('index.html'),/id="order-form"/);
+ assert.match(parent,/content="0;url=\/#order"/);
 });

@@ -15,7 +15,9 @@ test('remove only the requested home order timing statement, in Arabic and Engli
  assert.ok(!home.includes('data-i18n="howIntro"'));
  assert.ok(!translation.includes("howIntro:'Printed on demand"));
  assert.ok(home.includes('data-i18n="step1Title"'),'order steps stay intact');
- assert.ok(home.includes('data-i18n="whatsappContact"'),'WhatsApp remains available');
+ assert.ok(home.includes('id="submit-order"'),'WhatsApp order form remains available');
+ assert.ok(!home.includes('https://wa.me/'),'phone number is not exposed as a public link');
+ assert.ok(translation.includes("'https://wa.me/201012809358?text='"),'order submit still opens WhatsApp');
 });
 
 test('all letter lessons keep alphabet name audio but no longer render phonics audio or explanation',()=>{

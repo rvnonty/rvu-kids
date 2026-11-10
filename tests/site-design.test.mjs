@@ -11,7 +11,7 @@ test('requested Arabic and English preview disclaimer is fully removed from site
  assert.ok(html.includes('id="preview-grid"'), 'keep the actual book previews');
 });
 test('shared spacing system and mobile focus treatments are present on main and lesson pages',()=>{
- const home=file('style.css'),learn=file('learn/learn.css'),guide=file('parents/guide.css');
+ const home=file('style.css'),learn=file('learn/learn.css');
  for(const css of [home,learn]){
   assert.ok(css.includes('--rvu-radius-md'));
   assert.ok(css.includes('--rvu-shadow'));
@@ -19,8 +19,10 @@ test('shared spacing system and mobile focus treatments are present on main and 
   assert.ok(css.includes('prefers-reduced-motion'));
   assert.ok(css.includes('max-width:'));
  }
- assert.ok(guide.includes('guide-age-card'));
- assert.ok(guide.includes('max-width:620px'));
+ assert.ok(home.includes('.purchase-actions'));
+ assert.ok(learn.includes('.voice-picker'));
+ assert.ok(!existsSync('parents/settings.js'));
+ assert.ok(!existsSync('parents/guide.css'));
 });
 test('all primary pages remain intact and have a responsive viewport declaration',()=>{
  const pages=[

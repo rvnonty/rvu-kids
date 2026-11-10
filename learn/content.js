@@ -1,6 +1,6 @@
-/* RVU Kids: exact approved curriculum; original audio assets not included. */
+/* Curriculum transcribed from the supplied 96-page RVU Alphabet Book; original approved audio mappings stay separate. */
 window.RVU_CURRICULUM={
-  "source": "Ramez Alphabet Book — locked Phase 1.1, with Phase 1.2 micro-corrections",
+  "source": "RVU_BOOk(1).pdf, 96 pages, SHA-256 c739601bc7cc4ef243760b4d008be33f8d23b51be3bab2b557b15be8529c5ebd",
   "bookPages": 96,
   "alphabet": [
     {
@@ -47,10 +47,10 @@ window.RVU_CURRICULUM={
         "cat",
         "car",
         "cake",
-        "cup"
+        "carrot"
       ],
       "sentences": [
-        "This is a cat."
+        "I see a cat."
       ],
       "pages": [
         8,
@@ -62,10 +62,10 @@ window.RVU_CURRICULUM={
       "letter": "D",
       "letterName": "dee",
       "words": [
+        "door",
         "dog",
         "duck",
-        "doll",
-        "door"
+        "drum"
       ],
       "sentences": [
         "I see a dog."
@@ -80,13 +80,13 @@ window.RVU_CURRICULUM={
       "letter": "E",
       "letterName": "ee",
       "words": [
-        "elephant",
         "egg",
-        "ear",
-        "elbow"
+        "elephant",
+        "envelope",
+        "engine"
       ],
       "sentences": [
-        "This is an elephant."
+        "I see an egg."
       ],
       "pages": [
         12,
@@ -99,9 +99,9 @@ window.RVU_CURRICULUM={
       "letterName": "ef",
       "words": [
         "fish",
-        "frog",
         "flower",
-        "fork"
+        "frog",
+        "fox"
       ],
       "sentences": [
         "I see a fish."
@@ -118,11 +118,11 @@ window.RVU_CURRICULUM={
       "words": [
         "goat",
         "grapes",
-        "gift",
-        "guitar"
+        "guitar",
+        "gift"
       ],
       "sentences": [
-        "This is a goat."
+        "I see a goat."
       ],
       "pages": [
         16,
@@ -152,13 +152,13 @@ window.RVU_CURRICULUM={
       "letter": "I",
       "letterName": "eye",
       "words": [
-        "island",
-        "iguana",
         "ice cream",
-        "insect"
+        "insect",
+        "iguana",
+        "igloo"
       ],
       "sentences": [
-        "I see an iguana."
+        "I see ice cream."
       ],
       "pages": [
         20,
@@ -173,10 +173,10 @@ window.RVU_CURRICULUM={
         "juice",
         "jacket",
         "jellyfish",
-        "jam"
+        "jeep"
       ],
       "sentences": [
-        "This is a jacket."
+        "I see juice."
       ],
       "pages": [
         22,
@@ -190,8 +190,8 @@ window.RVU_CURRICULUM={
       "words": [
         "kite",
         "key",
-        "kitten",
-        "kangaroo"
+        "king",
+        "kitten"
       ],
       "sentences": [
         "I see a kite."
@@ -206,13 +206,13 @@ window.RVU_CURRICULUM={
       "letter": "L",
       "letterName": "el",
       "words": [
-        "lion",
-        "lemon",
         "leaf",
-        "lamp"
+        "lion",
+        "lamp",
+        "lemon"
       ],
       "sentences": [
-        "This is a lion."
+        "I see a lion."
       ],
       "pages": [
         26,
@@ -225,12 +225,12 @@ window.RVU_CURRICULUM={
       "letterName": "em",
       "words": [
         "moon",
-        "milk",
         "monkey",
+        "milk",
         "mouse"
       ],
       "sentences": [
-        "This is a monkey."
+        "I see a monkey."
       ],
       "pages": [
         28,
@@ -243,9 +243,9 @@ window.RVU_CURRICULUM={
       "letterName": "en",
       "words": [
         "nest",
-        "nose",
+        "nurse",
         "net",
-        "night"
+        "nose"
       ],
       "sentences": [
         "I see a nest."
@@ -260,13 +260,13 @@ window.RVU_CURRICULUM={
       "letter": "O",
       "letterName": "oh",
       "words": [
+        "owl",
+        "ox",
         "orange",
-        "octopus",
-        "ocean",
-        "otter"
+        "octopus"
       ],
       "sentences": [
-        "I see an octopus."
+        "I see an orange."
       ],
       "pages": [
         32,
@@ -278,13 +278,13 @@ window.RVU_CURRICULUM={
       "letter": "P",
       "letterName": "pee",
       "words": [
+        "pencil",
+        "panda",
         "pig",
-        "pen",
-        "pizza",
-        "panda"
+        "pizza"
       ],
       "sentences": [
-        "This is a panda."
+        "I see a panda."
       ],
       "pages": [
         34,
@@ -297,11 +297,11 @@ window.RVU_CURRICULUM={
       "letterName": "cue",
       "words": [
         "queen",
-        "quilt",
-        "quail"
+        "quail",
+        "quilt"
       ],
       "sentences": [
-        "This is a queen."
+        "I see a queen."
       ],
       "pages": [
         36,
@@ -313,10 +313,10 @@ window.RVU_CURRICULUM={
       "letter": "R",
       "letterName": "ar",
       "words": [
+        "rainbow",
         "rabbit",
         "robot",
-        "rain",
-        "rainbow"
+        "rose"
       ],
       "sentences": [
         "I see a rainbow."
@@ -333,11 +333,11 @@ window.RVU_CURRICULUM={
       "words": [
         "sun",
         "star",
-        "sock",
-        "spoon"
+        "strawberry",
+        "snake"
       ],
       "sentences": [
-        "This is a star."
+        "I see a star."
       ],
       "pages": [
         40,
@@ -349,13 +349,13 @@ window.RVU_CURRICULUM={
       "letter": "T",
       "letterName": "tee",
       "words": [
+        "tree",
         "tiger",
         "train",
-        "tree",
         "turtle"
       ],
       "sentences": [
-        "I see a train."
+        "I see a tiger."
       ],
       "pages": [
         42,
@@ -367,13 +367,13 @@ window.RVU_CURRICULUM={
       "letter": "U",
       "letterName": "you",
       "words": [
+        "up",
         "umbrella",
         "uncle",
-        "up",
         "under"
       ],
       "sentences": [
-        "This is an umbrella."
+        "I see an umbrella."
       ],
       "pages": [
         44,
@@ -391,7 +391,7 @@ window.RVU_CURRICULUM={
         "vegetables"
       ],
       "sentences": [
-        "This is a van."
+        "I see a van."
       ],
       "pages": [
         46,
@@ -404,9 +404,9 @@ window.RVU_CURRICULUM={
       "letterName": "double-you",
       "words": [
         "whale",
-        "watermelon",
         "window",
-        "watch"
+        "watch",
+        "watermelon"
       ],
       "sentences": [
         "I see a whale."
@@ -425,8 +425,7 @@ window.RVU_CURRICULUM={
         "xylophone"
       ],
       "sentences": [
-        "This is an x-ray.",
-        "This is a xylophone."
+        "I see a xylophone."
       ],
       "pages": [
         50,
@@ -439,12 +438,12 @@ window.RVU_CURRICULUM={
       "letterName": "why",
       "words": [
         "yo-yo",
-        "yogurt",
+        "yak",
         "yellow",
-        "yak"
+        "yogurt"
       ],
       "sentences": [
-        "This is a yo-yo."
+        "I see a yo-yo."
       ],
       "pages": [
         52,
@@ -456,13 +455,13 @@ window.RVU_CURRICULUM={
       "letter": "Z",
       "letterName": "zee",
       "words": [
-        "zebra",
         "zoo",
+        "zebra",
         "zipper",
         "zero"
       ],
       "sentences": [
-        "This is a zebra."
+        "I see a zebra."
       ],
       "pages": [
         54,

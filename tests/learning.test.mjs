@@ -14,7 +14,7 @@ test('locked content counts',()=>{
  assert.equal(d.alphabet.reduce((n,a)=>n+a.words.length,0),101);
  assert.equal(d.sentences.length,15);
  assert.equal(d.sentences.reduce((n,a)=>n+a.sentences.length,0),64);
- assert.deepEqual(Array.from(d.alphabet[16].words),['queen','quilt','quail']);
+ assert.deepEqual(Array.from(d.alphabet[16].words),['queen','quail','quilt']);
  assert.deepEqual(Array.from(d.alphabet[23].words),['x-ray','xylophone']);
  assert.ok(d.sentences[3].sentences.includes('I wash my hands.'));
  assert.ok(d.sentences[4].sentences.includes('This is my family.'));
@@ -67,11 +67,12 @@ test('owner-approved dual audio is wired to lesson recordings',()=>{
  assert.ok(audio.recordings.every(r=>r.voices?.female&&r.voices?.male));
 });
 test('assets and scripts are wired',()=>{
- for(const f of ['learn/index.html','preview/index.html','books/alphabet/index.html','learn/alphabet/a/index.html','learn/sentences/feelings/index.html']){
+ for(const f of ['learn/index.html','preview/index.html','learn/alphabet/a/index.html','learn/sentences/feelings/index.html']){
   const html=text(f);
   assert.ok(html.includes('/learn/content.js'),f);
   assert.ok(html.includes('/learn/learn.js'),f);
  }
+ assert.match(text('books/alphabet/index.html'),/content="0;url=\/#order"/);
  assert.ok(existsSync(new URL('CNAME',root)));
 });
 

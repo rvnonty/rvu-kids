@@ -30,12 +30,13 @@ page.on('request',request=>{
 });
 try{
  await page.goto(base+'/',{waitUntil:'domcontentloaded'});
- const contact=page.locator('.order-whatsapp-link');
+ const contact=page.locator('#submit-order');
  await contact.waitFor();
- if(await contact.getAttribute('href')!=='https://wa.me/201012809358')throw Error('Incorrect direct WhatsApp recipient');
- if(!(await contact.innerText()).includes('واتساب مع Ramez'))throw Error('Arabic WhatsApp label missing');
+ if(await page.locator('.order-whatsapp-link').count()!==0)throw Error('Old public WhatsApp link still visible');
+ if((await page.locator('body').innerText()).includes('+201012809358'))throw Error('Phone number exposed in UI');
+ if(!(await contact.innerText()).includes('كمّل طلبك على واتساب'))throw Error('Arabic order CTA missing');
  await page.locator('#language').click();
- if(!(await contact.innerText()).includes('WhatsApp with Ramez'))throw Error('English WhatsApp translation missing');
+ if(!(await contact.innerText()).includes('Continue on WhatsApp'))throw Error('English order CTA translation missing');
  await page.locator('#language').click();
 
  let openedUrl='';
@@ -67,7 +68,7 @@ try{
  await page.waitForTimeout(400);
  if(!requests.some(url=>/\/assets\/audio\/male\/\d{3}\.mp3$/.test(url)))throw Error('Male audio was never requested');
  if(errors.length)throw Error('Browser JS errors: '+errors.slice(0,7).join(' | '));
- console.log(JSON.stringify({result:'PASS',whatsapp:'phone and bilingual labels validated',audio:'female and male loaded on demand',words:'illustrations present',pageErrors:errors.length}));
+ console.log(JSON.stringify({result:'PASS',whatsapp:'phone hidden and bilingual submit CTA verified',audio:'female and male loaded on demand',words:'illustrations present',pageErrors:errors.length}));
 }finally{
  await page.close();await browser.close();await new Promise(done=>server.close(done));
 }

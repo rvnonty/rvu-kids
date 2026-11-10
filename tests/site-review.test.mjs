@@ -7,7 +7,7 @@ const has=p=>existsSync(new URL(p,base));
 test('five unique physical preview images across home and preview',()=>{
  const preview=read('preview/index.html');
  const expected=['cover.webp','letter-a.webp','practice-a.webp','feelings.webp','letter-m.webp'];
- const listed=[...preview.matchAll(/<figure><img src="\/assets\/([a-z-]+\.webp)"/g)].map(m=>m[1]);
+ const listed=[...preview.matchAll(/<figure><img\b[^>]*\bsrc="\/assets\/([a-z-]+\.webp)"/g)].map(m=>m[1]);
  assert.deepEqual(listed,expected);
  assert.equal(listed.length,5);
  assert.equal(new Set(listed).size,5);

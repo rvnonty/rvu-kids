@@ -1,0 +1,50 @@
+/* RVU Kids — scene-based, audio-led Everyday English stories. */
+.rvu-story-journey{--scene-green:#184c3a;--scene-cream:#fffdf7;margin:26px 0;padding:clamp(16px,3vw,28px);border-radius:28px;border:1px solid #d5e6db;background:linear-gradient(125deg,#fffdf7,#f4f7ed);box-shadow:0 8px 26px #184c3a12}
+.rvu-story-kicker{font-size:.76rem;font-weight:900;color:#567d65;letter-spacing:.04em}
+.rvu-story-journey h2{margin:7px 0 5px;color:#184c3a;font-size:clamp(1.35rem,2.7vw,2rem)}
+.rvu-story-description{margin:0 0 19px;color:#557064;font-size:.94rem;line-height:1.85}
+.rvu-story-stage{max-width:980px;margin:auto}
+.rvu-story-progress{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:0 0 14px;color:#355e48;font-weight:800}
+.rvu-story-bar{display:block;flex:1 1 auto;height:9px;border-radius:999px;background:#d6e5d9;overflow:hidden}
+.rvu-story-bar i{display:block;width:33.3%;height:100%;border-radius:999px;background:#75b798;transition:width .2s ease}
+.rvu-story-scene{position:relative;isolation:isolate;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;min-height:265px;border-radius:25px;border:2px solid #c1deca;background:linear-gradient(180deg,#d9edf6 0 54%,#d5ecd3 54% 100%)}
+.rvu-story-scene[data-location="home"]{background:linear-gradient(180deg,#f6e5d4 0 57%,#ddcfbd 57% 100%)}
+.rvu-story-scene[data-location="school"],.rvu-story-scene[data-location="classroom"]{background:linear-gradient(180deg,#e6f1f7 0 57%,#e6e3d3 57% 100%)}
+.rvu-story-scene[data-location="playground"]{background:linear-gradient(180deg,#e6f3f5 0 54%,#cfebcf 54% 100%)}
+.rvu-story-atmosphere{position:absolute;inset:0;z-index:-1;pointer-events:none}
+.rvu-story-atmosphere::before{content:"";position:absolute;top:19px;inset-inline-end:16%;width:57px;height:57px;background:#ffde8f;border-radius:50%;box-shadow:0 0 0 14px #ffde8f38}
+.rvu-story-atmosphere::after{content:"";position:absolute;bottom:-56px;left:-10%;width:120%;height:122px;border-radius:50%;background:#a8d3b4aa}
+.rvu-story-scene[data-location="school"] .rvu-story-atmosphere::before,.rvu-story-scene[data-location="classroom"] .rvu-story-atmosphere::before{width:155px;height:83px;top:21px;inset-inline-end:8%;border:7px solid #cda883;border-radius:12px;background:#4f9a87;box-shadow:0 7px 0 #184c3a1e}
+.rvu-story-scene[data-location="home"] .rvu-story-atmosphere::before{width:98px;height:83px;top:20px;inset-inline-end:9%;border:8px solid #fffaf1;border-radius:12px;background:linear-gradient(90deg,#c2e5ed 48%,#fffaf1 49% 51%,#c2e5ed 52%);box-shadow:0 7px 0 #184c3a1a}
+.rvu-story-cast{display:flex;align-items:flex-end;justify-content:space-around;gap:15px;min-height:170px;margin:31px 5% 0}
+.rvu-story-cast .character-portrait{position:relative;z-index:2;display:block;width:clamp(81px,16vw,133px);height:clamp(81px,16vw,133px);border:4px solid #fffaf1;border-radius:33%;box-shadow:0 8px 0 #7ea99035,0 15px 26px #184c3a15;animation:rvu-story-welcome .55s ease-out both}
+.rvu-story-cast .rvu-story-friend{animation-delay:.12s}
+.rvu-story-focus{position:absolute;z-index:3;top:23px;left:50%;transform:translateX(-50%);width:clamp(75px,15vw,119px);height:clamp(75px,15vw,119px);display:grid;place-items:center;border:3px solid #fff9e5;background:#fffdf8eb;border-radius:28px;box-shadow:0 9px 19px #184c3a1c}
+.rvu-story-object-image,.rvu-story-object-svg{width:95%;height:95%;max-width:130px;max-height:130px;object-fit:contain}
+.rvu-story-prompt{position:relative;z-index:4;max-width:780px;margin:0 auto 0;padding:13px 20px;background:#fffdf9ed;color:#24533e;font-size:clamp(.92rem,1.9vw,1.15rem);font-weight:850;line-height:1.8;text-align:center;border-radius:20px 20px 0 0;box-shadow:0 -3px 12px #184c3a0b}
+.rvu-story-listening{margin:15px 0 16px;text-align:center}
+.rvu-story-audio{min-height:46px;min-width:145px;padding:9px 16px;border:1px solid #8fbea2;border-radius:15px;background:#fff;color:#225b40;font:800 .92rem "Noto Sans Arabic","DM Sans",sans-serif;cursor:pointer}
+.rvu-story-listening .rvu-story-audio{min-height:53px;background:#184c3a;color:white;border-color:#184c3a}
+.rvu-story-audio:disabled{opacity:.68;cursor:not-allowed}
+.rvu-story-options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.rvu-story-option{display:flex;flex-direction:column;justify-content:space-between;min-width:0;background:#fff;border:2px solid #e1e8dd;border-radius:22px;overflow:hidden;box-shadow:0 5px 12px #184c3a0d;transition:transform .2s ease,box-shadow .2s ease}
+.rvu-story-option:hover{transform:translateY(-4px);box-shadow:0 10px 19px #184c3a14}
+.rvu-story-pick{display:grid;place-items:center;gap:8px;width:100%;min-height:147px;padding:13px 8px 9px;border:0;background:transparent;color:#184c3a;cursor:pointer}
+.rvu-story-pick>*:first-child{width:clamp(58px,8vw,82px);height:clamp(58px,8vw,82px);object-fit:contain}
+.rvu-story-phrase{display:block;font:800 clamp(.78rem,1.5vw,.96rem)/1.4 "DM Sans",sans-serif;text-align:center;overflow-wrap:anywhere}
+.rvu-story-option-audio{margin:0 10px 10px;min-height:40px;background:#f2f8f3;border-color:#c8dece;border-radius:13px}
+.rvu-story-pick.is-correct{background:#e5f4e6;outline:3px solid #74ba91;outline-offset:-3px}
+.rvu-story-pick.is-try-again{background:#fff3ec;opacity:.65}
+.rvu-story-pick:disabled{cursor:default}
+.rvu-story-feedback{min-height:28px;margin:14px 0;font-weight:850;line-height:1.7;color:#34634c;text-align:center}
+.rvu-story-next{display:block;margin:8px auto 0;min-height:47px;padding:9px 24px;background:#184c3a;color:white;font:800 .95rem "Noto Sans Arabic","DM Sans",sans-serif;border:0;border-radius:15px;cursor:pointer}
+.rvu-story-next[hidden]{display:none}
+.rvu-story-journey[data-mood="success"] .rvu-story-focus{animation:rvu-story-success .65s ease-in-out}
+.rvu-story-journey[data-mood="success"] .rvu-story-actor{animation:rvu-story-cheer .65s ease}
+.rvu-story-pick:focus-visible,.rvu-story-audio:focus-visible,.rvu-story-next:focus-visible{outline:3px solid #d69a49;outline-offset:3px}
+@keyframes rvu-story-welcome{from{opacity:.5;transform:translateY(11px)}to{opacity:1;transform:translateY(0)}}
+@keyframes rvu-story-success{0%,100%{transform:translateX(-50%) scale(1)}50%{transform:translateX(-50%) scale(1.08)}}
+@keyframes rvu-story-cheer{0%,100%{transform:rotate(0deg)}40%{transform:rotate(-7deg)}75%{transform:rotate(5deg)}}
+@media(max-width:700px){.rvu-story-options{gap:7px}.rvu-story-option{border-radius:16px}.rvu-story-pick{min-height:115px}.rvu-story-phrase{font-size:.79rem}.rvu-story-option-audio{margin:0 6px 7px;font-size:.74rem;padding:6px}}
+@media(max-width:480px){.rvu-story-journey{padding:13px;border-radius:20px}.rvu-story-scene{min-height:227px;border-radius:18px}.rvu-story-cast{min-height:140px;margin-top:44px}.rvu-story-cast .character-portrait{width:78px;height:78px}.rvu-story-focus{width:79px;height:79px;top:14px}.rvu-story-prompt{padding:9px 12px}.rvu-story-options{grid-template-columns:1fr}.rvu-story-option{display:grid;grid-template-columns:1fr auto;align-items:center;gap:0}.rvu-story-pick{display:flex;gap:14px;min-height:88px;justify-content:flex-start;padding:8px 10px;text-align:start}.rvu-story-pick>*:first-child{width:65px;height:65px}.rvu-story-option-audio{margin:0 8px;padding:7px;min-width:88px}.rvu-story-phrase{font-size:.87rem}}
+@media(prefers-reduced-motion:reduce){.rvu-story-option{transition:none}.rvu-story-option:hover{transform:none}.rvu-story-cast .character-portrait,.rvu-story-journey[data-mood="success"] .rvu-story-focus,.rvu-story-journey[data-mood="success"] .rvu-story-actor{animation:none!important}}

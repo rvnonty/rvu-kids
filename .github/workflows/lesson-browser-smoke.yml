@@ -1,0 +1,46 @@
+name: Browser-test all 41 playful lesson pages
+
+on:
+  push:
+    branches: [feature/playful-practice-all-lessons]
+    paths:
+      - learn/activities.mjs
+      - learn/activity-data.mjs
+      - learn/activities.css
+      - learn/learn.js
+      - scripts/lesson-browser-smoke.mjs
+      - .github/workflows/lesson-browser-smoke.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  browser-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check JS and build static site
+        run: |
+          node --check learn/activities.mjs
+          node --check learn/activity-data.mjs
+          npm run build
+          npm test
+      - name: Install browser-only test dependencies
+        run: |
+          npm install --no-save --no-package-lock playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Exercise every letter and sentence game in mobile Chrome
+        run: node scripts/lesson-browser-smoke.mjs
+      - name: Store mobile screenshots for visual inspection
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rvu-kids-playful-lesson-mobile-previews
+          path: artifacts/*.png
+          retention-days: 14
+          if-no-files-found: ignore

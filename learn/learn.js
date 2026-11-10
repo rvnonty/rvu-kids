@@ -222,6 +222,13 @@ function lessonTemplate(type,d,idx){
  const heading=el('h1','lesson-title',type==='alphabet'?d.letter+' '+d.letter.toLowerCase():d.title);heading.dir='ltr';heading.lang='en';
  const sub=el('p','lesson-sub',type==='alphabet'?(lang==='ar'?'حرف '+d.letter:'Letter '+d.letter):(lang==='ar'?d.titleAr:'Unit '+String(idx+1).padStart(2,'0')));
  shell.append(caption,heading,sub,createCast(true),voicePicker());
+  if(type==='alphabet'){
+   const pages=printedPages(d.pages);
+   const jump=link('/learn/words/#letter-'+d.id,
+     lang==='ar'?'شوف كلمات الصفحتين '+pages.join('–')+' بالصور':'See pictures for pages '+pages.join('–'),
+     'spread-lesson-link');
+   shell.append(jump);
+  }
  if(type==='alphabet'){
   if(d.id==='a'||d.id==='m'){const page=el('img','real-page');page.src=d.id==='a'?'/assets/letter-a.webp':'/assets/letter-m.webp';page.alt='Actual teaching page from Rvu Alphabet Book — letter '+d.letter;page.loading='lazy';shell.append(page)}
   const syll=el('div','letter-name');syll.append(el('span',null,t('say')+': '));const b=el('b',null,d.letterName);b.dir='ltr';syll.append(b);const nameSound=playButton('letter-name',d.id,d.letter);if(nameSound)syll.append(nameSound);shell.append(syll);const phonics=playButton('letter-sound',d.id,d.letter);if(phonics){const line=el('div','phonics-line');line.append(el('span',null,t('sound')+': '),phonics);shell.append(line)}

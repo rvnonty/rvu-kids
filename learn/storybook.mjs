@@ -133,6 +133,7 @@
   explain:[text('بص على الصورة، اسمع الكلمة بسرعة تناسبك، وكررها براحتك.','Look at the picture, listen at your own speed, and say the word again.'),'girl'],
   success:[text('أحسنت! إجابة صحيحة. جرّب كمان سؤال أو كمّل الرحلة.','Well done! That is correct. Try another question or keep exploring.'),'lizard'],
   retry:[text('جرب مرة تانية. تقدر تسمع الكلمة بهدوء قبل ما تختار.','Try again. Listen carefully to the word before choosing.'),'girl'],
+  point:[text('بص للمشهد واسمع الجملة، وبعدين اختار الصورة المناسبة.','Look at the scene, hear the sentence, then choose a picture.'),'girl'],
   finish:[text('خلصت المحطة! تقدر تكمل اللي بعدها أو تراجع اللي اتعلمته.','Station complete! Move to the next stop or review what you learned.'),'boy']
  };
  let guide=null;
@@ -232,5 +233,8 @@
  addLessonCompletion(current);
  document.addEventListener('rvu:activity-feedback',event=>{
   if(event.detail&&typeof event.detail.ok==='boolean')setGuideMood(event.detail.ok?'success':'retry');
+ });
+ document.addEventListener('rvu:story-stage',event=>{
+  if(event.detail?.state==='point')setGuideMood('point');
  });
 })();

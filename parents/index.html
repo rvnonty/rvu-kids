@@ -9,7 +9,9 @@
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/learn/learn.css">
 <link rel="stylesheet" href="/parents/guide.css">
+<script src="/learn/content.js" defer></script>
 <script src="/parents/guide.js" defer></script>
+<script src="/parents/dashboard.js" defer></script>
 </head>
 <body>
 <a class="skip" href="#main" data-guide="skip">انتقل للمحتوى</a>
@@ -22,6 +24,42 @@
 <p data-guide="intro">نفس الكتاب يناسب أعمار مختلفة. اختار النشاط حسب استعداد طفلك، مش عدد الصفحات اللي لازم تخلصوها.</p>
 <div class="guide-hero-actions"><a class="button" href="#ages" data-guide="start">اختار عمر طفلك ↓</a><a class="guide-text-link" href="/learn/" data-guide="visitHub">افتح مكتبة التعلّم ↗</a></div></div>
 <div class="guide-characters" aria-label="شخصيات الكتاب"><span class="character-portrait boy" role="img" aria-label="الولد من غلاف الكتاب"></span><span class="character-portrait lizard" role="img" aria-label="الليزرد الزرقاء من الغلاف"></span><span class="character-portrait girl" role="img" aria-label="البنت من غلاف الكتاب"></span><span class="guide-characters-note" data-guide="withYou">مغامرتكم سوا أحلى!</span></div>
+</section>
+<section class="parent-dashboard" id="parent-dashboard" aria-labelledby="parent-dashboard-title">
+ <div class="parent-dashboard-head">
+  <div><span class="guide-eyebrow" data-parent="eyebrow">مساحة الأهل · بيانات على جهازك</span>
+  <h2 id="parent-dashboard-title" data-parent="title">تابعوا التقدّم بهدوء</h2>
+  <p data-parent="intro">هنا تشوفوا الدروس التي تمت زيارتها أو إكمالها. البيانات محفوظة على هذا الجهاز فقط، ومش تقييم لمستوى الطفل.</p></div>
+  <a class="parent-back-to-play" href="/learn/" data-parent="backToPlay">ارجع لمغامرة الطفل</a>
+ </div>
+ <div class="parent-stats" role="group" aria-label="تقدم الدروس">
+  <article class="parent-stat"><span data-parent="visited">حروف اتفتحت</span><strong id="parent-letter-visited" dir="ltr">0 / 26</strong></article>
+  <article class="parent-stat"><span data-parent="letters">حروف مكتملة</span><strong id="parent-letter-completed" dir="ltr">0 / 26</strong><div class="parent-track"><i id="parent-letter-meter"></i></div></article>
+  <article class="parent-stat"><span data-parent="sentences">مواقف مكتملة</span><strong id="parent-unit-completed" dir="ltr">0 / 15</strong><div class="parent-track"><i id="parent-unit-meter"></i></div></article>
+  <article class="parent-stat"><span data-parent="stars">نجوم مكتسبة</span><strong id="parent-stars-count" dir="ltr">0</strong></article>
+ </div>
+ <div class="parent-guidance">
+  <div><h3 data-parent="nextHeading">نكمل منين؟</h3><p id="parent-next-description"></p>
+   <a id="parent-next-link" class="parent-primary-link" href="/learn/alphabet/a/" data-parent="nextLink">افتح الدرس التالي</a></div>
+  <div><h3 data-parent="lastHeading">آخر درس اتفتح</h3><p id="parent-last-description"></p>
+   <p class="parent-local-note" data-parent="localNote">التقدّم محلي داخل المتصفح؛ مش متزامن بين الأجهزة.</p></div>
+ </div>
+ <div class="parent-settings" id="parent-settings">
+  <h3 data-parent="settings">إعدادات التعلّم</h3>
+  <div class="parent-settings-grid">
+   <label class="parent-field"><span data-parent="speed">سرعة النطق الافتراضية</span>
+    <select id="parent-playback-speed">
+     <option value="0.7" data-parent="speed70">بطيء جدًا 0.70×</option>
+     <option value="0.85" data-parent="speed85">بطيء 0.85×</option>
+     <option value="1" data-parent="speed100">طبيعي 1.00×</option>
+     <option value="1.15" data-parent="speed115">أسرع 1.15×</option>
+    </select>
+   </label>
+   <label class="parent-setting-toggle"><input type="checkbox" id="parent-reduce-motion"><span data-parent="motion">قلّل الحركة والمؤثرات البصرية</span></label>
+   <label class="parent-setting-toggle"><input type="checkbox" id="parent-sticker-album"><span data-parent="album">تشغيل ألبوم النجوم الاختياري</span></label>
+  </div>
+  <div class="parent-settings-actions"><button type="button" id="parent-reset-progress" data-parent="reset">ابدأ التقدّم من جديد</button><p role="status" aria-live="polite" id="parent-settings-feedback"></p></div>
+ </div>
 </section>
 <section class="guide-ages" id="ages" aria-labelledby="ages-title">
 <div class="guide-section-head"><span class="guide-eyebrow" data-guide="ageLabel">خطوات بسيطة</span><h2 id="ages-title" data-guide="agesTitle">هتستخدم الكتاب إزاي؟</h2><p data-guide="agesIntro">الأعمار إرشادية؛ لو طفلك محتاج يبدأ بصورة أو جاهز للكتابة قبل كده، امشوا حسب قدرته.</p></div>
@@ -46,7 +84,16 @@
 </div><p class="guide-gentle" data-guide="gentle">لو طفلك اتلخبط، ساعده من غير اختبار أو مقارنة. المهم يحب يرجع للكتاب.</p>
 </section>
 <section class="guide-next" aria-labelledby="next-title"><div><span class="guide-eyebrow" data-guide="nextEyebrow">جرّبوا دلوقتي</span><h2 id="next-title" data-guide="nextTitle">ابدأوا بحرف A أو مشاعرنا.</h2><p data-guide="nextText">استخدموا صور الكتاب مع الكلمات والجمل الموجودة في مكتبة التعلّم. تسجيلات النطق الأمريكي قيد التجهيز ومش متاحة للاستماع حاليًا.</p></div>
-<div class="guide-next-links"><a href="/learn/alphabet/a/" data-guide="linkA">درس حرف A ↗</a><a href="/learn/sentences/feelings/" data-guide="linkFeelings">درس المشاعر ↗</a><a href="/#order" data-guide="linkOrder">اطلب الكتاب ↗</a></div></section>
+<div class="guide-next-links"><a href="/learn/alphabet/a/" data-guide="linkA">درس حرف A ↗</a><a href="/learn/sentences/feelings/" data-guide="linkFeelings">درس المشاعر ↗</a><a href="#parent-buying" data-guide="linkOrder">اطلب الكتاب ↗</a></div></section>
+
+<section id="parent-buying" class="parent-buying" aria-labelledby="parent-buying-title">
+ <div class="parent-buying-copy"><span class="guide-eyebrow" data-parent="buyEyebrow">للأهل فقط</span>
+  <h2 id="parent-buying-title" data-parent="buyTitle">الكتاب الورقي والطلب</h2>
+  <p data-parent="buyText">النسخة المطبوعة تضم 96 صفحة. السعر الحالي 200 جنيه مصري، والشحن يحدد حسب المحافظة. الشراء منفصل عن ألعاب الطفل.</p>
+  <div class="parent-buy-actions"><a class="button" href="/preview/" data-parent="preview">شوف الصفحات الخمس المختارة</a><a class="button ghost" href="/#order" data-parent="order">اذهب لصفحة طلب الكتاب</a></div>
+ </div>
+ <img src="/assets/cover.webp" alt="غلاف Rvu Alphabet Book" loading="lazy" width="240" height="340">
+</section>
 </main>
 <footer class="guide-footer"><span>© 2026 RVU Kids</span><a href="/" data-guide="footerBook">ارجع للكتاب ↗</a></footer>
 </body></html>

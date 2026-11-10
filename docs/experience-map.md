@@ -1,90 +1,69 @@
-# RVU Kids — Parent Mode, Child Journey and Everyday Stories
+# RVU Kids — Public Parent Guide and Children's Learning World
 
-## Homepage wireframe (implemented)
-
-On desktop and mobile, the first screen gives two equally clear routes:
+## Homepage wireframe
 
 ```text
-┌────────────────────────────────────────────────┐
-│ RVU KIDS                            Language   │
-│                                                │
-│ A story that grows with your child             │
-│ Choose your journey                            │
-│                                                │
-│ ┌─────────────────┐ ┌─────────────────┐       │
-│ │ FOR PARENTS     │ │ FOR CHILDREN    │       │
-│ │ Progress        │ │ Alphabet World  │       │
-│ │ How to learn    │ │ Picture lessons │       │
-│ │ Preview & order │ │ Everyday stories│       │
-│ └─────────────────┘ └─────────────────┘       │
-│                                    Book cover  │
-└────────────────────────────────────────────────┘
+┌────────────────────────────────────────────┐
+│ RVU Kids                       اللغة       │
+│                                            │
+│ اكتشف الإنجليزية من عالم الكتاب           │
+│                                            │
+│ ┌────────────────┐ ┌────────────────────┐ │
+│ │ للأهل          │ │ للأطفال            │ │
+│ │ دليل الاستخدام │ │ عالم الحروف A–Z    │ │
+│ │ الكتاب والطلب  │ │ القصص والألعاب     │ │
+│ └────────────────┘ └────────────────────┘ │
+│                                            │
+│           Original book cover              │
+└────────────────────────────────────────────┘
 ```
 
-The complete ordering form remains on the storefront. No purchase button or
-price is shown in the children's main lesson flow. Parent entry is clearly
-labeled; it is a UX boundary, not an authentication or access-control wall.
+The storefront has two clear routes: the **public parent guide** at
+`/parents/#parent-guide` and the **open child lesson world** at `/learn/`.
+Parent product information and ordering remain separate from the lesson UI.
 
-## Parent mode (implemented at /parents/#parent-dashboard)
+## Public parent guide
 
-- Local visited alphabet lessons, completed alphabet lessons, completed
-  Everyday English lessons and total earned star stickers
-- "Next lesson" link to the first incomplete letter, then first incomplete
-  everyday situation
-- Last opened lesson, using locally saved lastVisited record
-- Guidance for ages 3–4 and 5–6 with a gentle 5–10-minute practice routine
-- Global pronunciation speed: 0.7×, 0.85×, 1×, 1.15×
-- Reduce-motion preference and optional sticker-album preference
-- Explicit confirmation before local progress reset
-- Separate printed-book preview, price and order route
-- Bilingual Arabic and English content
-- No student accounts, names, analytics export or cross-device synchronization
+- 26 alphabet lessons and 15 everyday situations, both free to open without accounts
+- Explanation of ages, lesson use, pronunciation repetition and suitable short sessions
+- Browser-only voice speed (0.7×, 0.85×, 1×, 1.15×) and reduced motion
+- Optional offline save and removal of the beginner A/B pack
+- Selected five-page book preview and printed-book purchase information
+- Arabic and English presentation
+- **No student profile, progress chart, completed stations, saved star album,
+  scores, child identifier or account signup**
 
-## Story scenes (implemented)
+## Child adventure
 
-All answers and sound clips are taken from the approved connected curriculum.
-New scene-setting prompts are illustrative UI text, not new recordings.
-Each target unit presents three visual situations with the original RVU
-characters, one scene object, a play-the-phrase control, and three visual
-options. Children can hear each option. A wrong answer invites another try;
-a correct answer gives short feedback and unlocks the next situation.
+- Explore any alphabet stop in any order
+- Open any Everyday English situational lesson
+- Listen to book-based vocabulary and correct recorded phrases
+- Use image-first choices, optional hints and short supportive animations
+- Move to the next lesson using a plain navigation link
+- Wrong answers invite another try; correct answers produce short *temporary*
+  feedback only, with nothing stored about the child
+- Old sticker-album URL redirects to `/learn/`
 
-| Everyday English lesson | Scene 1 | Scene 2 | Scene 3 |
+## Four illustrated story scenarios
+
+| Lesson | Situation 1 | Situation 2 | Situation 3 |
 | --- | --- | --- | --- |
-| Polite Words | Borrow a ball: "Please." | Receive a gift: "Thank you." | Apologize: "I'm sorry." |
-| Can I Have | Request a ball | Request a book | Request some water |
-| Can You Help | Ask for help | Say "I don't understand." | Ask to repeat |
-| At School | Arrive at school | Introduce the teacher | Show a book |
+| Polite Words | Borrow a ball | Receive a gift | Apologize |
+| Can I Have | Ask for a ball | Ask for a book | Ask for water |
+| Can You Help | Ask for help | Ask for clarification | Ask to repeat |
+| At School | Arrive at school | Introduce teacher | Show book |
 
-## Animation behavior (implemented)
+Audio stays user-triggered. The original cover characters provide small
+welcome, pointing and correct-answer motions. Reduced-motion settings are
+supported, and tapping/clicking is a full alternative to dragging.
 
-- Initial guide: one short greeting motion
-- Explaining/pointing: one small tilt toward the active scene
-- Success: one short cheer and kind-specific symbolic celebration
-- Listening: notes/stars; spelling: letters; other successes: colored stars
-- Completion: optional star from the existing local completion progress
-- Visual motion does not autoplay audio
-- CSS transforms/opacity used for motion with reduced-motion override
+## Regression and capacity checks
 
-## Development and verification checklist
-
-- [x] Separate parent and child calls to action above the homepage fold
-- [x] Parent progress readout from existing on-device learning data
-- [x] Local voice, motion and sticker preferences
-- [x] Parent book information and order links
-- [x] Remove child-facing purchase CTAs from learning hub
-- [x] Add four 3-step Everyday English scenes from approved phrases
-- [x] Reuse original book characters and existing approved sound files
-- [x] Separate celebration effects by game type
-- [x] Add automated source-level regression checks
-- [ ] Run complete Node test suite in deployment CI
-- [ ] Test real playback and interactions on Android Chrome and iOS Safari
-- [ ] Verify actual publish of all assets and cache invalidation
-
-## Visual integrity
-
-Original cover characters remain the brand artwork; third-party inspiration
-images are not copied into the site. The entire book PDF is not published.
-Only the five existing preview images are shown. Those previews must be
-updated separately from the verified latest book source, if/when authorized,
-without publishing extra pages.
+- CI: `npm test` includes all asset, HTML, lesson, voice mapping, and
+  interaction tests.
+- `tests/public-stateless.test.mjs` simulates 1,000 independent visitors and
+  checks that visits cannot write student history.
+- This is a **state-isolation test**, not proof of hosting capacity for
+  1,000 simultaneous connections. Test that on the production CDN.
+- Content fidelity and human phonetic review are separate release gates;
+  see `docs/book-curriculum-audit.md` and `docs/audio-review.md`.

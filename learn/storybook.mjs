@@ -77,10 +77,12 @@
   root.replaceChildren();
   letters.forEach((lesson,index)=>{
    const visited=stats.visited.has(lesson.id),completed=stats.completed.has(lesson.id);
+   const stop=node('div','storybook-stop');
+   stop.dataset.status=completed?'completed':visited?'visited':'new';
+   stop.style.setProperty('--station-accent',['#f5dfae','#dff2e7','#f5cfbf','#d9edf6'][index%4]);
    const station=node('a','storybook-station');
    station.href=href('alphabet',lesson.id);
-   station.dataset.status=completed?'completed':visited?'visited':'new';
-   station.style.setProperty('--station-accent',['#f5dfae','#dff2e7','#f5cfbf','#d9edf6'][index%4]);
+   station.dataset.status=stop.dataset.status;
    const indexLabel=node('span','storybook-station-index',String(index+1).padStart(2,'0'));
    const letter=node('strong','storybook-station-letter',lesson.letter);
    const visual=node('span','storybook-station-picture');
@@ -96,9 +98,24 @@
    const caption=node('span','storybook-station-status',completed?text('مكتملة','Completed'):visited?text('تمت زيارتها','Visited'):text('اكتشف المحطة','Discover'));
    station.setAttribute('aria-label',text('محطة ','Stop ')+(index+1)+' - '+lesson.letter+' - '+word+' - '+caption.textContent);
    station.append(indexLabel,letter,visual,name,caption);
-   root.append(station);
+   const listen=node('button','storybook-station-listen',text('اسمع','Listen'));
+   listen.type='button';
+   const playable=window.RVU_WORD_AUDIO?.available(lesson.id,word)===true;
+   listen.disabled=!playable;
+   listen.setAttribute('aria-label',playable?
+    text('اسمع نطق كلمة ','Hear the word ')+word:
+    text('نطق كلمة ','Pronunciation for ')+word+text(' قيد المراجعة',' is being reviewed'));
+   if(playable)listen.addEventListener('click',()=>{
+    window.RVU_WORD_AUDIO.play(lesson.id,word);
+    stop.classList.remove('is-listening');
+    void stop.offsetWidth;
+    stop.classList.add('is-listening');
+   });
+   if(!playable)listen.textContent=text('الصوت قيد المراجعة','Audio under review');
+   stop.append(station,listen);
+   root.append(stop);
   });
-  drawMapRoute(root);
+    drawMapRoute(root);
  }
  function drawMapRoute(root){
   if(typeof window.requestAnimationFrame!=='function'||typeof document.createElementNS!=='function')return;
@@ -110,7 +127,7 @@
   route.append(line);
   root.prepend(route);
   const draw=()=>{
-   const stations=[...root.querySelectorAll('.storybook-station')];
+   const stations=[...root.querySelectorAll('.storybook-stop')];
    if(!root.clientWidth||!root.clientHeight||stations.length<2)return;
    route.setAttribute('viewBox','0 0 '+root.clientWidth+' '+root.clientHeight);
    const coordinates=stations.map(station=>[

@@ -2,7 +2,7 @@ name: RVU Kids Quality Checks
 
 on:
   push:
-    branches: [main, feature/letter-name-mascot-interactions]
+    branches: [main]
   workflow_dispatch:
 
 permissions:

@@ -2,7 +2,7 @@ name: Browser-test all 41 playful lesson pages
 
 on:
   push:
-    branches: [main, feature/letter-name-mascot-interactions]
+    branches: [main]
     paths:
       - learn/activities.mjs
       - learn/activity-data.mjs

@@ -2,7 +2,7 @@ name: Visual design smoke checks
 
 on:
   push:
-    branches: [main, feature/fast-media-whatsapp-cleanup]
+    branches: [main]
     paths:
       - app.js
       - build.mjs

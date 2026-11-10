@@ -2,7 +2,7 @@ name: RVU Kids Quality Checks
 
 on:
   push:
-    branches: [main, feature/fast-media-whatsapp-cleanup]
+    branches: [main]
   workflow_dispatch:
 
 permissions:

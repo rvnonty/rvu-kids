@@ -1,0 +1,40 @@
+name: Experiment with contextual American F-word voice corrections
+on:
+  push:
+    branches: [experiment/natural-word-context-audio]
+    paths:
+      - .github/workflows/contextual-f-voice.yml
+      - scripts/contextual-f-voice-experiment.py
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audition:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install speech codec and phonemizer
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends ffmpeg espeak-ng libsndfile1
+      - name: Install neural phonetic model and transcription checker
+        run: |
+          python -m pip install -U pip
+          python -m pip install torch==2.6.0 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install "kokoro==0.9.4" "transformers>=4.49,<5" "numpy>=1.24,<3" "faster-whisper==1.2.1" "soundfile>=0.12,<1"
+      - name: Generate context-cropped phonetic word variants and score text
+        run: python -u scripts/contextual-f-voice-experiment.py
+      - name: Upload listenable, synthetic-only review samples
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rvu-contextual-pronunciation-candidates
+          path: audio-context-lab/
+          if-no-files-found: warn
+          retention-days: 14

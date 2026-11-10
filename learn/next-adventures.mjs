@@ -102,6 +102,7 @@ function mountGardenVocabulary(){
  if(scene)applyGardenPalette(scene,theme);
 }
 function activateGardenMotion(){
+ if(typeof document.querySelectorAll!=='function')return;
  const candidates=[...document.querySelectorAll('.rvu-garden-words,.rvu-scene-stage,.rvu-garden-phrases')];
  const reduced=window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches;
  if(reduced||!('IntersectionObserver' in window)){

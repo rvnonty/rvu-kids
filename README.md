@@ -25,6 +25,12 @@ live-site performance guarantee.
 - Audio streams are requested only when Listen is clicked; images have lazy-loading, and transitions respect reduced-motion preferences.
 - Orders open the official phone-number click-to-chat link (recipient +201012809358, displayed as WhatsApp with Ramez); there is no backend checkout or order tracking enabled.
 
+## Printed book pricing
+- One copy: **300 EGP**, including shipping and delivery to the customer's doorstep.
+- Multiple copies: **300 EGP per copy**, with no additional shipping surcharge.
+- The storefront summary, WhatsApp order message and optional backend use the
+  same inclusive pricing. Payment is arranged separately through WhatsApp.
+
 ## Deploy and scale
 Run `npm run build && npm test`. The built static output is `dist/`.
 GitHub Pages serves the current domain, but it has usage limits and this repo's `_headers` is not applied by GitHub Pages.

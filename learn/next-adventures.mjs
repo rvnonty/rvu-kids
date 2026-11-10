@@ -83,6 +83,22 @@ function mountAlbum(){
  root.replaceChildren(panel);render();
  document.addEventListener('rvu:lesson-completed',render);
 }
+function mountLessonReward(){
+ const active=activeLesson();
+ if(!active)return;
+ const card=document.querySelector('.storybook-finish');
+ if(!card)return;
+ const reward=make('div','rvu-sticker-earned');
+ reward.setAttribute('role','status');
+ reward.append(starShape(),make('span',null,t('نجمة الدرس اتضافت لألبومك','Your lesson star is in the album')));
+ const paint=()=>{
+  const done=completedLessons()[active.type].has(active.lesson.id);
+  if(albumEnabled()&&done&&!reward.isConnected)card.append(reward);
+  else if((!albumEnabled()||!done)&&reward.isConnected)reward.remove();
+ };
+ paint();
+ document.addEventListener('rvu:lesson-completed',paint);
+}
 function mountAlbumLink(){
  const page=document.body.dataset.page;
  if(page!=='hub'&&page!=='lesson')return;
@@ -129,7 +145,14 @@ function mountInteractiveScene(playButton){
  intro.append(make('h2','rvu-scene-title',type==='alphabet'?t('اكتشف صور حرف ','Explore the pictures for ')+lesson.letter:t('الصور بتتكلم','Pictures that speak')));
  intro.append(make('p',null,t('المس أي صورة علشان تسمعها وتتحرك. تقدر تعيد الاستماع على سرعتك المختارة.','Tap a picture to hear it and see it move. Repeat at your chosen playback speed.')));
  const stage=make('div','rvu-scene-stage');
- stage.dataset.theme=type==='alphabet'?'garden':['school','home','garden','room'][lesson.id.length%4];
+ const themes={
+  feelings:'garden',hungry:'home',thirsty:'garden',bathroom:'room',
+  'my-family':'home','hello-about-me':'garden','at-school':'school',
+  'can-i-have':'home','likes-and-dislikes':'home','can-you-help':'school',
+  'polite-words':'garden','lets-play':'garden','my-body':'home',
+  'daily-routine':'home','stay-safe':'school'
+ };
+ stage.dataset.theme=type==='alphabet'?'garden':(themes[lesson.id]||'garden');
  const background=make('div','rvu-scene-landscape');
  background.setAttribute('aria-hidden','true');
  background.append(make('span','rvu-scene-sun'),make('span','rvu-scene-hill first'),make('span','rvu-scene-hill second'));
@@ -306,6 +329,7 @@ export function mountAdventureExtras({playButton}={}){
  }
  mountAlbum();
  mountAlbumLink();
+ mountLessonReward();
  if(typeof playButton==='function'){
   mountInteractiveScene(playButton);
   mountPictureFirstChallenge(playButton);

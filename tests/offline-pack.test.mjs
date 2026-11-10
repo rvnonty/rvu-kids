@@ -43,7 +43,7 @@ test('service worker never auto-installs or auto-downloads from regular lessons'
 test('offline pack cannot keep serving obsolete tracking-era lesson JavaScript',()=>{
  assert.match(source,/rvu-learning-a-b-v3/);
  assert.match(source,/PREVIOUS_PREFIX/);
- assert.match(source,/code=\/\\\.\(\?:js\|mjs\|css\)/);
+ assert.ok(source.includes("const code=/\\.(?:js|mjs|css)$/.test(url.pathname)"));
  assert.match(source,/fetch\(request,\{cache:'no-cache'\}\)/);
  assert.match(source,/await caches\.open\(CACHE\)/);
 });

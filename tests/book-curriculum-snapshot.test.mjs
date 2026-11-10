@@ -60,5 +60,5 @@ test('printed lesson example sentences match the revised book A through Z',()=>{
   'I see an umbrella.','I see a van.','I see a whale.','I see a xylophone.',
   'I see a yo-yo.','I see a zebra.'
  ];
- assert.deepEqual(actual.map(l=>l.sentences[0]),examples);
+ assert.deepEqual(Array.from(actual,l=>l.sentences[0]),examples);
 });

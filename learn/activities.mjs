@@ -1,4 +1,4 @@
-import {makeActivityData,shuffle,REPORTED_BAD_WORDS} from './activity-data.mjs';
+import {SCENES,makeActivityData} from './activity-data.mjs';
 
 /* Accessible, tiny game UI. Never uses remote APIs, saved personal data,
    forced timers, sound autoplay, or engagement pressure. */
@@ -153,6 +153,20 @@ function spellingGame(rounds,lang,wordVisual){
 export function mountActivities(root,{type,lesson,lang,playButton,wordVisual}){
  if(!root||!lesson||!['alphabet','sentences'].includes(type))return;
  const data=makeActivityData(type,lesson);
+ // Give every sentence its own playful illustration, including exercises that
+ // contain new context not present in the printed book.
+ if(type==='sentences'){
+  const shell=root.closest('.lesson-card');
+  if(shell){
+   const cues=new Map((SCENES[lesson.id]||[]).map(scene=>[scene[3],scene[0]]));
+   const extras=['💬','✨','🌷','🌟','🌻','🙂'];
+   shell.querySelectorAll('.phrase-card').forEach((card,i)=>{
+    if(card.querySelector('.rvu-phrase-sticker'))return;
+    const sticker=el('span','rvu-phrase-sticker',cues.get(i)||extras[i%extras.length]);
+    sticker.setAttribute('aria-hidden','true');card.prepend(sticker);
+   });
+  }
+ }
  const colors=['#fdd76b','#97d6c6','#f3aca5','#8fc5e6','#e0c2f3','#ecc686'];
  const index=lesson.letter?lesson.letter.charCodeAt(0)-65:lesson.id.length;
  root.style.setProperty('--rvu-lesson-accent',colors[index%colors.length]);

@@ -158,3 +158,16 @@
 html.rvu-motion-off *,html.rvu-motion-off *::before,html.rvu-motion-off *::after{
  animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important
 }
+
+
+/* Parent-only offline storage controls, no automatic downloads. */
+.parent-offline{display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap;padding:17px 20px;margin:17px 0;border-radius:19px;background:linear-gradient(125deg,#ebf7ee,#fffaf0);border:1px solid #ccdfd0}
+.parent-offline>div:first-child{flex:1 1 280px}
+.parent-offline h4{color:#1b533c;margin:0 0 7px;font-size:1.06rem}
+.parent-offline p{color:#597466;line-height:1.75;font-size:.87rem;margin:0}
+.parent-offline-actions{display:flex;flex-wrap:wrap;gap:9px}
+.parent-offline-actions button{border:1px solid #9cbea9;min-height:45px;padding:8px 15px;border-radius:12px;background:#184c3a;color:white;font:800 .84rem "Noto Sans Arabic","DM Sans",sans-serif;cursor:pointer}
+.parent-offline-actions button:last-child{background:white;color:#396350}
+.parent-offline-actions button:disabled{opacity:.6;cursor:wait}
+#parent-offline-status{flex:1 1 100%;font-size:.84rem;color:#426a54}
+@media(max-width:620px){.parent-offline{padding:14px}.parent-offline-actions{width:100%}.parent-offline-actions button{flex:1 1 140px}}

@@ -19,7 +19,15 @@ function renderNavLang(){
  const sw=el('button','lang-switch',t('switch'));sw.type='button';sw.setAttribute('aria-label',lang==='ar'?'Switch to English':'التغيير إلى العربية');sw.addEventListener('click',()=>{const next=lang==='ar'?'en':'ar';sessionStorage.setItem('rvu-lang',next);const url=new URL(location.href);url.searchParams.set('lang',next);location.assign(url.href)});nav.append(sw);
  document.documentElement.lang=lang;document.documentElement.dir=lang==='ar'?'rtl':'ltr';
  const v=nav.querySelectorAll('a');
- if(v.length>=3){v[0].textContent=t('hub');v[1].textContent=t('preview');v[2].textContent=t('book')}
+ if(v.length>=3){
+  v[0].textContent=t('hub');v[0].href='/learn/';
+  v[1].textContent=lang==='ar'?'الحروف':'Letters';v[1].href='/learn/alphabet/';
+  v[2].textContent=lang==='ar'?'المواقف':'Situations';v[2].href='/learn/sentences/';
+ }
+ if(!nav.querySelector('.parent-nav-link')){
+  const parents=link('/parents/',lang==='ar'?'للأهل':'Parents','parent-nav-link');
+  nav.append(parents);
+ }
 }
 function urlLetter(a){return '/learn/alphabet/'+a.id+'/'}
 function urlUnit(u){return '/learn/sentences/'+u.id+'/'}
@@ -360,7 +368,7 @@ function translateStatic(){
  if(lang!=='en')return;
  if(document.body.dataset.page==='alphabet-index'){
   const hero=document.querySelector('.hero');if(hero){hero.querySelector('h1').innerHTML='Every letter.<br><em>Its own little world.</em>';hero.querySelector('p').textContent='Explore A–Z and the exact words and sentences from Rvu Alphabet Book. Listen to the approved American-English audio inside lessons.';const a=hero.querySelectorAll('.hero-actions a');if(a[0])a[0].textContent='Back to Learning Hub';if(a[1])a[1].textContent='Book Preview'}
-  const title=document.querySelector('#letters-title');if(title)title.textContent='Choose a letter';const cta=document.querySelector('.cta');if(cta){cta.querySelector('h2').textContent='200 EGP + shipping by governorate';cta.querySelector('p').textContent='96 printed pages, made to order.';cta.querySelector('a').textContent='Order the book'}
+  const title=document.querySelector('#letters-title');if(title)title.textContent='Choose a letter';const cta=document.querySelector('.cta');if(cta)cta.remove()
  }
  if(document.body.dataset.page==='hub'){
   const playTitle=document.querySelector('[data-play-title]');if(playTitle)playTitle.textContent='Four playful games in every lesson!';
@@ -398,8 +406,16 @@ function mountStandaloneSpeedPicker(){
  wrapper.append(pronunciationSpeedPicker());
  hero.append(wrapper);
 }
+try{
+ if(localStorage.getItem('rvu-motion-off')==='true'){
+  document.documentElement.classList.add('rvu-motion-off');
+ }
+}catch{}
 renderNavLang();
 translateStatic();
+if(['hub','alphabet-index','lesson','words'].includes(document.body.dataset.page)){
+ for(const cta of document.querySelectorAll('.cta'))cta.remove();
+}
 decorateLearning();
 const p=document.body.dataset.page;if(p==='hub'||p==='alphabet-index')hub();if(p==='lesson')lessons();if(p==='words')wordLibrary();if(p==='preview')preview();
 mountStandaloneSpeedPicker();

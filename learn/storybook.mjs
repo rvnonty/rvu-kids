@@ -28,6 +28,7 @@
   const data=readProgress();
   if(!data[group][type].includes(id))data[group][type].push(id);
   if(group==='completed'&&!data.visited[type].includes(id))data.visited[type].push(id);
+  if(group==='visited')data.lastVisited={type,id};
   memory=data;
   try{localStorage.setItem(storeKey,JSON.stringify(data))}catch{}
  }

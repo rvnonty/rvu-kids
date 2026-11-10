@@ -29,3 +29,32 @@ All 26 alphabet lessons and 15 Everyday English units now include four opt-in mi
 - Correct answers receive brief celebratory shapes and positive bilingual feedback; mistakes invite retries with no timers, tracking, scores or required progression.
 - All animation honors prefers-reduced-motion. The game scripts and stylesheet load only on lesson pages.
 - Existing American-English synthetic voice recordings remain subject to the separate pronunciation audit.
+
+## Storybook Adventure learning experience (November 2026)
+
+The learning pages now share a calmer visual system: forest green, warm cream,
+sunny yellow, soft mint, peach and sky blue, with restrained paper surfaces.
+The homepage links to the A–Z Storybook World.
+
+- All **26 alphabet stops** use existing curriculum letter routes and
+  illustrated SVG vocabulary assets. A responsive dotted route connects stops
+  instead of using unrelated emoji artwork.
+- The **original characters from the book cover** introduce lessons, explain
+  practice, and give supportive feedback after game answers. Character motion
+  is subtle and respects reduced-motion preferences.
+- The site remembers **visited** and explicitly **completed** stations
+  separately in on-device localStorage (key: rvu-story-progress-v1).
+  Visiting a page never automatically marks a lesson as completed.
+  No personal child data is collected for these on-device milestones.
+- Each lesson has a manual completion button and a next-station link.
+  The alphabet map shows a completed count and resumes at the next
+  unfinished letter.
+- Existing audio files, voice choices, and saved playback speed remain.
+  Storybook enhancements load from /learn/storybook.mjs after original
+  lesson rendering. If unavailable, the existing letter grid still works.
+- Game scenes reuse cover character artwork, while celebrations use
+  gentle CSS shapes rather than platform-dependent emojis.
+
+Run npm run build && npm test before deployment. Regression tests for
+storybook controls live in tests/storybook-adventure.test.mjs.
+Live-browser mobile, audio, and caching checks remain necessary on host.

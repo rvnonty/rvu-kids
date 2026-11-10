@@ -56,7 +56,7 @@ test('known vocabulary fidelity discrepancies are explicitly tracked (not approv
   const missing=printed[unit.id].filter(x=>!site.has(x)).sort();
   if(extra.length||missing.length)differences[unit.id]={site:extra,book:missing};
  }
- assert.deepEqual(differences,expectedDifferences);
+ assert.deepEqual(JSON.parse(JSON.stringify(differences)),expectedDifferences);
  assert.equal(Object.keys(differences).length,12);
  assert.equal(Object.values(differences).reduce((n,item)=>n+item.site.length,0),15);
  // This passing test means the known discrepancies are still *tracked*,

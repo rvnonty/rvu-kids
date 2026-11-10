@@ -1,0 +1,73 @@
+import {chromium} from 'playwright';
+import {createServer} from 'node:http';
+import {readFile} from 'node:fs/promises';
+import {resolve,join,sep,extname} from 'node:path';
+
+const root=resolve('dist');
+const mime={'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8',
+ '.js':'text/javascript; charset=utf-8','.mjs':'text/javascript; charset=utf-8',
+ '.json':'application/json','.svg':'image/svg+xml','.webp':'image/webp','.mp3':'audio/mpeg'};
+const server=createServer(async(req,res)=>{
+ const pathname=decodeURIComponent(new URL(req.url,'http://localhost').pathname);
+ let path=resolve(root,'.'+pathname);
+ if(path!==root&&!path.startsWith(root+sep)){res.writeHead(403);res.end();return}
+ if(pathname.endsWith('/')||!extname(pathname))path=join(path,'index.html');
+ try{
+  const buffer=await readFile(path);
+  res.writeHead(200,{'content-type':mime[extname(path)]||'application/octet-stream',
+    'content-length':buffer.length});
+  res.end(buffer);
+ }catch{res.writeHead(404);res.end('Not Found')}
+});
+await new Promise(done=>server.listen(0,'127.0.0.1',done));
+const browser=await chromium.launch({headless:true,args:['--no-sandbox']});
+const base='http://127.0.0.1:'+server.address().port;
+const page=await browser.newPage({viewport:{width:390,height:844}});
+const errors=[],requests=[];
+page.on('pageerror',error=>errors.push(String(error)));
+page.on('request',request=>{
+ if(request.url().startsWith(base)&&/\/assets\/(audio|words|cover)/.test(request.url()))requests.push(request.url());
+});
+try{
+ await page.goto(base+'/',{waitUntil:'domcontentloaded'});
+ const contact=page.locator('.order-whatsapp-link');
+ await contact.waitFor();
+ if(await contact.getAttribute('href')!=='https://wa.me/201012809358')throw Error('Incorrect direct WhatsApp recipient');
+ if(!(await contact.innerText()).includes('واتساب مع Ramez'))throw Error('Arabic WhatsApp label missing');
+ await page.locator('#language').click();
+ if(!(await contact.innerText()).includes('WhatsApp with Ramez'))throw Error('English WhatsApp translation missing');
+ await page.locator('#language').click();
+
+ let openedUrl='';
+ await page.route('https://wa.me/**',route=>{
+  openedUrl=route.request().url();
+  route.fulfill({status:200,contentType:'text/html',body:'<html><body>WhatsApp redirect captured locally</body></html>'});
+ });
+ await page.locator('#order-form input[name="name"]').fill('Test Parent');
+ await page.locator('#order-form input[name="phone"]').fill('01000000000');
+ await page.locator('#order-form select[name="governorate"]').selectOption('C');
+ await page.locator('#order-form input[name="city"]').fill('Test City');
+ await page.locator('#order-form textarea[name="address"]').fill('Example Street 123 Cairo');
+ await page.locator('#order-form select[name="payment"]').selectOption('instapay');
+ await page.locator('#submit-order').click();
+ await page.waitForURL(/wa\.me\/201012809358\?text=/,{timeout:10000});
+ if(!openedUrl.includes('wa.me/201012809358?text='))throw Error('Order chat target incorrect: '+openedUrl);
+ const message=new URL(openedUrl).searchParams.get('text');
+ if(!message.includes('01000000000')||!message.includes('Test Parent'))throw Error('Order message incomplete');
+
+ await page.goto(base+'/learn/alphabet/a/',{waitUntil:'domcontentloaded'});
+ await page.locator('.word-image').first().waitFor({timeout:10000});
+ if(await page.locator('.word-image').count()<4)throw Error('Word thumbnails not available');
+ await page.locator('.audio-play').first().waitFor();
+ await page.locator('.audio-play').first().click();
+ await page.waitForTimeout(400);
+ if(!requests.some(url=>/\/assets\/audio\/female\/\d{3}\.mp3$/.test(url)))throw Error('Female audio was never requested');
+ await page.locator('.voice-choice[data-voice="male"]').first().click();
+ await page.locator('.audio-play').first().click();
+ await page.waitForTimeout(400);
+ if(!requests.some(url=>/\/assets\/audio\/male\/\d{3}\.mp3$/.test(url)))throw Error('Male audio was never requested');
+ if(errors.length)throw Error('Browser JS errors: '+errors.slice(0,7).join(' | '));
+ console.log(JSON.stringify({result:'PASS',whatsapp:'phone and bilingual labels validated',audio:'female and male loaded on demand',words:'illustrations present',pageErrors:errors.length}));
+}finally{
+ await page.close();await browser.close();await new Promise(done=>server.close(done));
+}

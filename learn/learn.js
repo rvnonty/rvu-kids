@@ -25,10 +25,6 @@ function renderNavLang(){
   v[1].textContent=lang==='ar'?'الحروف':'Letters';v[1].href='/learn/alphabet/';
   v[2].textContent=lang==='ar'?'المواقف':'Situations';v[2].href='/learn/sentences/';
  }
- if(!nav.querySelector('.parent-nav-link')){
-  const parents=link('/parents/',lang==='ar'?'للأهل':'Parents','parent-nav-link');
-  nav.append(parents);
- }
 }
 function urlLetter(a){return '/learn/alphabet/'+a.id+'/'}
 function urlUnit(u){return '/learn/sentences/'+u.id+'/'}

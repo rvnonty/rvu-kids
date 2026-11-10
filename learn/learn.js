@@ -311,7 +311,6 @@ function lessonTemplate(type,d,idx){
    shell.append(jump);
   }
  if(type==='alphabet'){
-  if(d.id==='a'||d.id==='m'){const page=el('img','real-page');page.src=d.id==='a'?'/assets/letter-a.webp':'/assets/letter-m.webp';page.alt='Actual teaching page from Rvu Alphabet Book — letter '+d.letter;page.loading='lazy';shell.append(page)}
   const letterCard=el('div','letter-name');
   const nameText=el('div','letter-name-copy');
   nameText.append(el('span','letter-name-label',t('say')));
@@ -325,7 +324,6 @@ function lessonTemplate(type,d,idx){
  if(type==='alphabet'){
   const g=el('div','word-grid');d.words.forEach((w,i)=>g.append(renderWordCard(w,d.id,i)));shell.append(g)
  }else{
-  if(d.id==='feelings'){const image=el('img','real-page');image.src='/assets/feelings.webp';image.alt='Actual feelings page from Rvu Alphabet Book';image.loading='lazy';shell.append(image)}
   if(d.words.length){const labels=el('div','support-words');labels.append(el('p',null,lang==='ar'?'كلمات موجودة في الدرس:':'Vocabulary in this lesson:'));d.words.forEach(w=>{const word=el('span',null,w);word.lang='en';word.dir='ltr';labels.append(word)});shell.append(labels)}
  }
  if(d.sentences?.length){if(type==='alphabet')shell.append(el('h2','minor-heading',t('sentences')));const g=el('div','phrase-grid');d.sentences.forEach((s,i)=>{const c=el('div','phrase-card');c.append(el('span','number',String(i+1).padStart(2,'0')));const p=el('strong','phrase-text',s);p.lang='en';p.dir='ltr';c.append(p);const play=playButton(type==='alphabet'?'alphabet-sentence':'everyday-sentence',d.id,s);if(play)c.append(play);g.append(c)});shell.append(g)}

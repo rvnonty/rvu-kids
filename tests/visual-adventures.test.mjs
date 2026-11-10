@@ -94,9 +94,10 @@ function mount(page,pathname,seed={}){
  };
  const window={RVU_CURRICULUM:curriculum,matchMedia:()=>({matches:true})};
  const mountExtras=new Function('window','document','location','localStorage',
-  'getPictureCues','pictureSource','CustomEvent',adventureScript)(
+  'getPictureCues','pictureSource','CustomEvent','mountStoryJourney',adventureScript)(
    window,document,{pathname},localStorage,getPictureCues,pictureSource,
-   class {constructor(type,options){this.type=type;this.detail=options.detail}}
+   class {constructor(type,options){this.type=type;this.detail=options.detail}},
+   ()=>{}
   );
  const playButton=(kind,id,utterance)=>{
   const button=new FakeElement('button','audio-play');

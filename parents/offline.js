@@ -103,7 +103,7 @@
  if(state==='saved'&&'caches' in window){
   (async()=>{
    try{
-    const cache=await caches.open('rvu-learning-a-b-v2');
+    const cache=await caches.open('rvu-learning-a-b-v3');
     const required=['/learn/alphabet/a/','/learn/alphabet/b/','/learn/learn.js','/learn/storybook.mjs'];
     for(const path of required){
      if(!await cache.match(path)){

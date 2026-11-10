@@ -20,3 +20,12 @@ The `_headers` file is a configuration template for hosts that support it. Stati
 ## American-English pronunciation QA
 
 The existing 244 x 2 public recordings were synthesized using neural TTS, not recorded by human actors. Reports of `fish` sounding like `vish` and unnecessary trailing vowels mean they are **not guaranteed accurate or human-natural**. The `pronunciation-audit.yml` workflow uses independent speech recognition to screen the 101 word tracks in both voices and produces candidate F-word phonetic replacements as downloadable review files. ASR success alone is NOT sufficient to approve a take; human review is required before replacing any production audio. Genuine human speech needs licensed recordings by American-English voice actors.
+
+## Beyond-the-book activities
+
+All 26 alphabet lessons and 15 Everyday English units now include four opt-in mini-games:
+- Alphabet: picture-word recognition, listening choice, building words, and ordering sentences.
+- Everyday English: new situational prompts, listening choice, missing words, and ordering sentences.
+- Correct answers receive brief celebratory shapes and positive bilingual feedback; mistakes invite retries with no timers, tracking, scores or required progression.
+- All animation honors prefers-reduced-motion. The game scripts and stylesheet load only on lesson pages.
+- Existing American-English synthetic voice recordings remain subject to the separate pronunciation audit.

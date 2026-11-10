@@ -310,3 +310,14 @@ html[lang="ar"] .sitebar nav,html[lang="en"] .sitebar nav{line-height:1.65}
 @media(max-width:500px){.spread-picker{padding:11px}.spread-letter-tiles{grid-template-columns:repeat(6,minmax(0,1fr));gap:5px}.spread-letter-button{min-height:52px}.spread-controls{gap:10px}.spread-go{width:100%}}
 
 @media(prefers-reduced-motion:reduce){.story-visible{animation:none!important}}
+
+/* The learning hub introduces extra games without downloading the game engine. */
+.rvu-play-teaser{display:grid;grid-template-columns:1.4fr .6fr;gap:18px;align-items:center;margin:20px 0 38px;padding:clamp(20px,4vw,38px);border-radius:28px;background:linear-gradient(125deg,#fff1c5 0%,#e1f5e9 55%,#e9e7fb 100%);box-shadow:0 12px 35px #1e5a3911}
+.rvu-play-teaser h2{font-size:clamp(1.5rem,3vw,2.4rem);line-height:1.35;color:#245941;margin:.5rem 0}
+.rvu-play-teaser p{max-width:620px;color:#49695a;line-height:1.9;margin:0 0 19px}
+.rvu-play-teaser-icons{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;align-items:center;justify-items:center;pointer-events:none}
+.rvu-play-teaser-icons span{display:grid;place-items:center;aspect-ratio:1;width:min(100%,104px);font-size:clamp(2rem,5vw,3.5rem);border-radius:25px;background:#ffffffbc;box-shadow:0 6px 15px #2c553c11;animation:rvuTeaserFloat 4.5s ease-in-out infinite}
+.rvu-play-teaser-icons span:nth-child(2){animation-delay:-1.2s}.rvu-play-teaser-icons span:nth-child(3){animation-delay:-2.5s}.rvu-play-teaser-icons span:nth-child(4){animation-delay:-3.4s}
+@keyframes rvuTeaserFloat{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-9px) rotate(4deg)}}
+@media(max-width:690px){.rvu-play-teaser{grid-template-columns:1fr;padding:22px}.rvu-play-teaser-icons{grid-template-columns:repeat(4,minmax(0,1fr));gap:7px}.rvu-play-teaser-icons span{border-radius:15px;font-size:2rem}}
+@media(prefers-reduced-motion:reduce){.rvu-play-teaser-icons span{animation:none!important}}

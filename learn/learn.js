@@ -285,6 +285,9 @@ function translateStatic(){
   const title=document.querySelector('#letters-title');if(title)title.textContent='Choose a letter';const cta=document.querySelector('.cta');if(cta){cta.querySelector('h2').textContent='200 EGP + shipping by governorate';cta.querySelector('p').textContent='96 printed pages, made to order.';cta.querySelector('a').textContent='Order the book'}
  }
  if(document.body.dataset.page==='hub'){
+  const title=document.querySelector('[data-play-title]');if(title)title.textContent='Four playful games in every lesson!';
+  const summary=document.querySelector('[data-play-description]');if(summary)summary.textContent='Practise real-life situations, word order, pictures and listening. Correct answers bring gentle stars and cheerful celebrations.';
+  const button=document.querySelector('[data-play-link]');if(button)button.textContent='Try the polite words game 🎉';
   const title=document.querySelector('[data-hub-parent-title]');if(title)title.textContent='Using the book with a child aged 3–6?';
   const help=document.querySelector('[data-hub-parent-text]');if(help)help.textContent='See our short parent guide for age-appropriate, low-pressure activities.';
   const parentLink=document.querySelector('[data-hub-parent-link]');if(parentLink)parentLink.textContent='Parent guide ↗';

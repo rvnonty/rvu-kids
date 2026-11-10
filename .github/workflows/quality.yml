@@ -21,6 +21,8 @@ jobs:
           node --check app.js
           node --check learn/content.js
           node --check learn/learn.js
+          node --check learn/activities.mjs
+          node --check learn/activity-data.mjs
       - name: Build all site sections
         run: npm run build
       - name: Verify book curriculum, routes and previews

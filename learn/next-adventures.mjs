@@ -116,106 +116,6 @@ function activateGardenMotion(){
  candidates.forEach(item=>observer.observe(item));
 }
 
-const progressKey='rvu-story-progress-v1';
-const albumKey='rvu-star-album-enabled';
-function completedLessons(){
- try{
-  const data=JSON.parse(localStorage.getItem(progressKey)||'{}');
-  return {
-   alphabet:new Set(Array.isArray(data?.completed?.alphabet)?data.completed.alphabet:[]),
-   sentences:new Set(Array.isArray(data?.completed?.sentences)?data.completed.sentences:[])
-  };
- }catch{return {alphabet:new Set(),sentences:new Set()}}
-}
-function albumEnabled(){try{return localStorage.getItem(albumKey)==='true'}catch{return false}}
-function setAlbumEnabled(value){try{localStorage.setItem(albumKey,String(value))}catch{}}
-function lessonUrl(type,id){return '/learn/'+type+'/'+id+'/'}
-function starShape(){
- const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');
- svg.setAttribute('viewBox','0 0 48 48');
- svg.setAttribute('aria-hidden','true');svg.classList.add('rvu-sticker-star');
- const polygon=document.createElementNS('http://www.w3.org/2000/svg','path');
- polygon.setAttribute('d','M24 4 30.4 17.1 44.8 19.2 34.4 29.3 36.8 43.7 24 36.9 11.2 43.7 13.6 29.3 3.2 19.2 17.6 17.1Z');
- svg.append(polygon);return svg;
-}
-function galleryCard(type,lesson,done){
- const a=make('a','rvu-sticker-card'+(done?' earned':''));
- a.href=lessonUrl(type,lesson.id);
- const picture=make('span','rvu-sticker-seal');picture.append(starShape());
- const heading=make('strong','rvu-sticker-name',type==='alphabet'?lesson.letter:lesson.title);
- if(type==='sentences'){heading.dir='ltr';heading.lang='en'}
- const label=make('span','rvu-sticker-caption',done?t('نجمة الدرس','Lesson star'):t('لسه قدامك','Ready to explore'));
- a.setAttribute('aria-label',(type==='alphabet'?lesson.letter:lesson.title)+' — '+label.textContent);
- a.append(picture,heading,label);
- return a;
-}
-function mountAlbum(){
- const root=document.getElementById('rvu-star-album');
- if(!root)return;
- const enabled=albumEnabled(),finished=completedLessons();
- const total=finished.alphabet.size+finished.sentences.size;
- const panel=make('section','rvu-album-panel');
- const top=make('div','rvu-album-heading');
- const info=make('div');
- info.append(make('span','rvu-visual-kicker',t('اختياري، بدون نقاط أو منافسة','Optional, no points or competition')));
- info.append(make('h1',null,t('ألبوم نجوم المغامرة','Adventure star album')));
- info.append(make('p',null,t('كل درس تنهيه له نجمة ورقية. الألبوم اختيارك، والنجوم محفوظة على جهازك فقط.','Each completed lesson has a paper star. The album is optional and stored only on this device.')));
- const toggle=make('label','rvu-album-toggle');
- const checkbox=make('input');checkbox.type='checkbox';checkbox.checked=enabled;
- toggle.append(checkbox,make('span',null,t('تفعيل ألبوم النجوم','Enable star album')));
- const summary=make('strong','rvu-album-total');
- top.append(info,toggle);
- const gallery=make('div','rvu-sticker-gallery');
- const render=()=>{
-  gallery.replaceChildren();
-  gallery.hidden=!checkbox.checked;
-  const count=completedLessons();
-  summary.textContent=checkbox.checked?t('النجوم اللي جمعتها: ','Stars collected: ')+(count.alphabet.size+count.sentences.size):
-   t('الألبوم متوقف — الدروس المكتملة محفوظة','Album off — lesson completion is still saved');
-  if(!checkbox.checked)return;
-  for(const [type,items,title] of [
-   ['alphabet',curriculum.alphabet,t('عالم الحروف','Alphabet World')],
-   ['sentences',curriculum.sentences,t('المواقف اليومية','Everyday English')]
-  ]){
-   const group=make('section','rvu-sticker-group');
-   group.append(make('h2',null,title));
-   const grid=make('div','rvu-sticker-grid');
-   items.forEach(lesson=>grid.append(galleryCard(type,lesson,count[type].has(lesson.id))));
-   group.append(grid);gallery.append(group);
-  }
- };
- checkbox.addEventListener('change',()=>{setAlbumEnabled(checkbox.checked);render()});
- panel.append(top,summary,gallery);
- root.replaceChildren(panel);render();
- document.addEventListener('rvu:lesson-completed',render);
-}
-function mountLessonReward(){
- const active=activeLesson();
- if(!active)return;
- const card=document.querySelector('.storybook-finish');
- if(!card)return;
- const reward=make('div','rvu-sticker-earned');
- reward.setAttribute('role','status');
- reward.append(starShape(),make('span',null,t('نجمة الدرس اتضافت لألبومك','Your lesson star is in the album')));
- const paint=()=>{
-  const done=completedLessons()[active.type].has(active.lesson.id);
-  if(albumEnabled()&&done&&!reward.isConnected)card.append(reward);
-  else if((!albumEnabled()||!done)&&reward.isConnected)reward.remove();
- };
- paint();
- document.addEventListener('rvu:lesson-completed',paint);
-}
-function mountAlbumLink(){
- const page=document.body.dataset.page;
- if(page!=='hub'&&page!=='lesson')return;
- const target=page==='hub'?document.querySelector('.rvu-play-teaser'):
-  document.querySelector('.storybook-finish');
- if(!target)return;
- const link=make('a','rvu-album-link');
- link.href='/learn/stickers/';
- link.append(starShape(),make('span',null,albumEnabled()?t('ألبوم النجوم','Star album'):t('ألبوم النجوم الاختياري','Optional star album')));
- if(page==='hub')target.after(link);else target.append(link);
-}
 function pictureButton(cue,lesson,playButton){
  const button=playButton(cue.clipType,lesson.id,cue.utterance);
  if(!button)return null;
@@ -436,9 +336,6 @@ export function mountAdventureExtras({playButton}={}){
   css.dataset.rvuNextAdventures='true';document.head.append(css);
  }
  decorateGardenMap();
- mountAlbum();
- mountAlbumLink();
- mountLessonReward();
  if(typeof playButton==='function'){
   mountInteractiveScene(playButton);
   mountStoryJourney(playButton);

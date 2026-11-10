@@ -212,6 +212,7 @@
    section.classList.add('is-complete');
    content.querySelector('.storybook-finish-title').textContent=text('المحطة مكتملة','Station completed');
    setGuideMood('finish');
+   document.dispatchEvent(new CustomEvent('rvu:lesson-completed',{detail:{type:info.type,id:info.id}}));
   });
   buttons.append(done);
   if(next){

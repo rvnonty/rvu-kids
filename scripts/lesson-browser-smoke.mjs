@@ -81,6 +81,19 @@ try{
  const overflow=await page.evaluate(()=>document.documentElement.scrollWidth>document.documentElement.clientWidth+3);
  if(overflow)throw Error('X page has horizontal overflow');
  await page.screenshot({path:'artifacts/alphabet-x-mobile.png',fullPage:true});
+ await page.setViewportSize({width:1280,height:800});
+ const copyWide=await page.locator('.letter-name-copy').boundingBox();
+ const buttonWide=await page.locator('.letter-name-action .audio-play').boundingBox();
+ if(!copyWide||!buttonWide)throw Error('Desktop letter name card is not measurable');
+ const desktopGap=Math.max(
+  copyWide.x-(buttonWide.x+buttonWide.width),
+  buttonWide.x-(copyWide.x+copyWide.width)
+ );
+ if(desktopGap<14)throw Error('X letter audio and ex label collide on desktop: '+desktopGap);
+ const castNote=await page.locator('.compact-cast .cast-note').boundingBox();
+ if(!castNote||castNote.width>435)throw Error('Desktop characters note stretches too wide');
+ await page.screenshot({path:'artifacts/alphabet-x-desktop.png',fullPage:true});
+ await page.setViewportSize({width:390,height:844});
  await page.emulateMedia({reducedMotion:'reduce'});
  const prefers=await page.locator('.rvu-deco-item').first().evaluate(node=>getComputedStyle(node).animationName);
  if(prefers!=='none')throw Error('Reduced-motion did not disable decorative animation: '+prefers);

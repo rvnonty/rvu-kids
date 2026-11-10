@@ -780,3 +780,30 @@ html.rvu-motion-off .storybook-guide[data-mood] .storybook-guide-face.guide-mome
  .letter-grid.storybook-map .storybook-stop.is-listening .storybook-station-picture{animation:none}
 }
 html.rvu-motion-off .letter-grid.storybook-map .storybook-stop.is-listening .storybook-station-picture{animation:none}
+
+
+/* Lightweight page-shaped preview miniatures while lazy WebP files load. */
+.preview-five figure{position:relative;isolation:isolate;overflow:hidden}
+.preview-five figure::before{
+ content:"RVU";position:absolute;z-index:0;inset:10px 10px auto;
+ display:grid;place-items:center;aspect-ratio:900/1273;
+ border-radius:10px;border:7px solid #fbf6df;
+ background:radial-gradient(circle at 50% 15%,#fff9dd 0 14%,transparent 15%),
+ radial-gradient(ellipse at 10% 88%,#6bbf8a 0 21%,transparent 22%),
+ radial-gradient(ellipse at 91% 92%,#5baa82 0 24%,transparent 25%),
+ linear-gradient(165deg,#7bd4ea,#c2e9d7 70%,#fff0be);
+ color:#1a73bd;font:900 clamp(1.3rem,4vw,2.6rem) "DM Sans",sans-serif;
+ text-shadow:1px 2px #fff,2px 3px 0 #fff;
+ pointer-events:none
+}
+.preview-five figure:nth-child(2)::before{content:"Aa";background-color:#e4f2d5}
+.preview-five figure:nth-child(3)::before{content:"A a";background:linear-gradient(135deg,#fff5cf 0 25%,#ddf0e2 25% 50%,#f8e3e9 50% 75%,#d9e9ff 75%)}
+.preview-five figure:nth-child(4)::before{content:"Feelings";font-size:clamp(1rem,2.4vw,1.5rem);background:linear-gradient(135deg,#fff3d9,#f5d8d5 55%,#deecf8)}
+.preview-five figure:nth-child(5)::before{content:"Mm";background:linear-gradient(170deg,#d5e4fc 0 40%,#cee4d0)}
+.preview-five figure>img{position:relative;z-index:1;display:block;width:100%;height:auto;aspect-ratio:900/1273;object-fit:cover;background:transparent}
+.preview-five figure>figcaption{position:relative;z-index:1}
+.preview-five figure.preview-image-failed>img{visibility:hidden}
+.preview-five figure.preview-image-failed>figcaption::after{
+ content:" · الصورة غير متاحة حاليًا";color:#a04c40;font-size:.78rem
+}
+@media(prefers-reduced-motion:reduce){.preview-five figure::before{animation:none!important}}

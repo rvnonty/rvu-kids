@@ -86,3 +86,31 @@ Live-browser mobile, audio, and caching checks remain necessary on host.
   additional book pages.
 
 Regression checks: tests/garden-identity.test.mjs, with npm test.
+
+## Quality and reliability gate (November 2026)
+
+- **Pronunciation:** Fish and Fork remain disabled pending actual US-English
+  listening review in both voice recordings. Existing files 037.mp3 and
+  040.mp3 have not been silently replaced or approved. See
+  [audio review](docs/audio-review.md).
+- **Image preview:** keeps exactly five book pages. Fixed image aspect ratios
+  and light illustrated placeholders improve lazy loading and make missing
+  images apparent during real scrolling.
+- **Alphabet:** 26 larger picture-led stops with separate, accessible
+  "Listen" actions. Audio plays only through the existing approved word
+  pipeline, using the saved playback rate. Any unreviewed clip stays disabled.
+- **Performance:** manual GitHub Actions Lighthouse audit for storefront,
+  alphabet and preview. LCP target 2.5s and CLS target 0.1 are checked
+  by scripts/check-vitals.mjs. INP target 200ms requires field data
+  (CrUX / Search Console) and must not be inferred from Lighthouse lab tests.
+  See [performance verification](docs/performance.md).
+- **Limited offline lessons:** parents can explicitly save or remove beginner
+  lessons A/B, with their existing voice clips and word illustrations. No
+  automatic full-book download, no caching of Fish/Fork, and no silent
+  pre-download. Real-device offline testing remains required.
+- **Access and motion:** reduced-motion preferences are respected and the
+  alphabet audio actions are separate from navigation links, reachable by
+  keyboard and touch.
+
+These changes have source-level checks and regression tests; browser field
+performance and phonetic quality are not certified by automated source checks.

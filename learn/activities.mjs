@@ -26,22 +26,40 @@ function celebrate(panel){
  panel.append(burst);
  burst.addEventListener('animationend',e=>{if(e.target===burst)burst.remove()});
 }
+function setMascot(panel,lang,mood='ready'){
+ panel.dataset.mood=mood;
+ const speech=panel.querySelector('.rvu-lizard-speech');
+ if(!speech)return;
+ speech.textContent=mood==='correct'?
+  say(lang,'🌟 ييي! برافو عليك!','🌟 Yay! Well done!'):
+  mood==='retry'?
+  say(lang,'😢 أوه! مش مشكلة، حاول تاني!','😢 Oh no! Let’s try again!'):
+  say(lang,'💚 يلا نحلها سوا!','💚 Let’s solve it together!');
+}
 function feedback(panel,lang,ok){
  const line=panel.querySelector('.rvu-feedback');if(!line)return;
  line.dataset.result=ok?'correct':'retry';
  line.textContent=ok?
   say(lang,'🎉 صح! برافو عليك! أحسنت!','🎉 Correct! Fantastic work!'):
   say(lang,'قربت! جرب مرة تانية 🌷','Almost there! Try again 🌷');
+ setMascot(panel,lang,ok?'correct':'retry');
  if(ok)celebrate(panel);
 }
-function panel(title,subtitle,icon){
+function panel(title,subtitle,icon,lang){
  const section=el('section','rvu-game-panel');
  section.append(el('div','rvu-game-tag',icon+' '+title));
  section.append(el('p','rvu-game-hint',subtitle));
+ const guide=el('div','rvu-lizard-guide');
+ guide.setAttribute('aria-hidden','true');
+ const avatar=el('span','character-portrait lizard rvu-lizard-avatar');
+ const speech=el('span','rvu-lizard-speech');
+ guide.append(avatar,speech);
+ section.append(guide);
+ setMascot(section,lang,'ready');
  return section;
 }
 function choiceGame(title,subtitle,icon,rounds,lang,prepare){
- const box=panel(title,subtitle,icon),counter=el('span','rvu-game-counter');
+ const box=panel(title,subtitle,icon,lang),counter=el('span','rvu-game-counter');
  const progress=el('div','rvu-game-progress'),fill=el('span','rvu-game-fill');
  progress.setAttribute('role','progressbar');progress.setAttribute('aria-label',say(lang,'تقدم الأسئلة','Question progress'));progress.setAttribute('aria-valuemin','0');progress.setAttribute('aria-valuemax',String(rounds.length));progress.append(fill);
  const question=el('div','rvu-question'),choices=el('div','rvu-choices'),msg=el('p','rvu-feedback');
@@ -51,7 +69,7 @@ function choiceGame(title,subtitle,icon,rounds,lang,prepare){
  let current=0;
  function render(){
   const round=rounds[current];
-  box.classList.remove('rvu-success-pop');counter.textContent=say(lang,'السؤال ','Question ')+(current+1)+' / '+rounds.length;
+  box.classList.remove('rvu-success-pop');setMascot(box,lang,'ready');counter.textContent=say(lang,'السؤال ','Question ')+(current+1)+' / '+rounds.length;
   progress.setAttribute('aria-valuenow',String(current+1));fill.style.width=(100*(current+1)/rounds.length)+'%';
   question.replaceChildren();choices.replaceChildren();msg.textContent='';msg.dataset.result='';
   next.hidden=true;
@@ -78,7 +96,7 @@ function choiceGame(title,subtitle,icon,rounds,lang,prepare){
 }
 function orderGame(rounds,lang,playButton,type,lesson){
  const box=panel(say(lang,'رتّب الجملة','Put the sentence in order'),
-   say(lang,'المس الكلمات بالترتيب الصحيح. لو محتاج مساعدة افتح التلميح.','Tap the words in the right order. You can open a hint.'),'🧩');
+   say(lang,'المس الكلمات بالترتيب الصحيح. لو محتاج مساعدة افتح التلميح.','Tap the words in the right order. You can open a hint.'),'🧩',lang);
  const counter=el('span','rvu-game-counter'),question=el('div','rvu-question');
  const chosen=el('div','rvu-selected');chosen.setAttribute('aria-label',say(lang,'الكلمات اللي اخترتها','Your selected words'));
  const tiles=el('div','rvu-tiles'),msg=el('p','rvu-feedback');msg.setAttribute('role','status');msg.setAttribute('aria-live','polite');
@@ -88,7 +106,7 @@ function orderGame(rounds,lang,playButton,type,lesson){
  let index=0,picked=[];
  function render(){
   const round=rounds[index];picked=[];question.replaceChildren();chosen.replaceChildren();tiles.replaceChildren();
-  box.classList.remove('rvu-success-pop');msg.textContent='';msg.dataset.result='';next.hidden=true;
+  box.classList.remove('rvu-success-pop');setMascot(box,lang,'ready');msg.textContent='';msg.dataset.result='';next.hidden=true;
   counter.textContent=say(lang,'الجملة ','Sentence ')+(index+1)+' / '+rounds.length;
   question.append(el('p','rvu-question-label',say(lang,'تقدر تركّب الجملة الصح؟','Can you put the sentence in order?')));
   const playback=playButton(type==='alphabet'?'alphabet-sentence':'everyday-sentence',lesson.id,round.sentence);
@@ -117,7 +135,7 @@ function orderGame(rounds,lang,playButton,type,lesson){
 }
 function spellingGame(rounds,lang,wordVisual){
  const box=panel(say(lang,'ركّب الكلمة','Build the word'),
-   say(lang,'بص للصورة، واختار حروف اسمها بالترتيب.','Look at the picture and tap its letters in order.'),'🔡');
+   say(lang,'بص للصورة، واختار حروف اسمها بالترتيب.','Look at the picture and tap its letters in order.'),'🔡',lang);
  const counter=el('span','rvu-game-counter'),question=el('div','rvu-question'),chosen=el('div','rvu-selected');
  const tiles=el('div','rvu-tiles'),msg=el('p','rvu-feedback');msg.setAttribute('role','status');msg.setAttribute('aria-live','polite');
  const controls=el('div','rvu-game-actions'),again=el('button','rvu-game-reset',say(lang,'امسح وجرب تاني','Start over')),next=el('button','rvu-game-next');
@@ -126,7 +144,7 @@ function spellingGame(rounds,lang,wordVisual){
  let index=0,picked=[];
  function render(){
   const round=rounds[index];picked=[];question.replaceChildren();chosen.replaceChildren();tiles.replaceChildren();
-  box.classList.remove('rvu-success-pop');msg.textContent='';msg.dataset.result='';next.hidden=true;
+  box.classList.remove('rvu-success-pop');setMascot(box,lang,'ready');msg.textContent='';msg.dataset.result='';next.hidden=true;
   counter.textContent=say(lang,'كلمة ','Word ')+(index+1)+' / '+rounds.length;
   const picture=wordVisual(round.word);picture.classList.add('rvu-game-picture');question.append(picture);
   round.shuffled.forEach(letterIndex=>{
@@ -178,6 +196,9 @@ export function mountActivities(root,{type,lesson,lang,playButton,wordVisual}){
  intro.append(deco,el('span','rvu-arcade-eyebrow',say(lang,'🌟 العب واتعلّم','🌟 Play & Learn')));
  intro.append(el('h2',null,say(lang,'مغامرة جديدة مستنياك!','A new learning adventure!')));
  intro.append(el('p',null,say(lang,'تمارين إضافية غير اللي في الكتاب، متنوعة وسهلة. اختار لعبة وخد وقتك براحتك.','Extra games beyond the book. Pick an activity and go at your own pace.')));
+ const friends=el('div','rvu-arcade-friends');friends.setAttribute('aria-hidden','true');
+ for(const kind of ['girl','lizard','boy'])friends.append(el('span','character-portrait '+kind));
+ intro.append(friends);
  const games=[],add=(symbol,ar,en,node)=>{if(node)games.push({symbol,ar,en,node})};
  if(type==='sentences'){
   if(data.scene.length>=2)add('🎭','اختار الموقف','Everyday situations',choiceGame(

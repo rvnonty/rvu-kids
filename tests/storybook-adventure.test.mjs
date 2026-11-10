@@ -70,7 +70,8 @@ function mount(page,path,initialStorage={}){
   createElement:tag=>new Element(tag),
   getElementById:id=>id==='letter-grid'&&page==='hub'?map:null,
   querySelector:selector=>selector==='.hero'?hero:selector==='.lesson-card'?card:null,
-  addEventListener:(event,handler)=>{listeners[event]=handler}
+  addEventListener:(event,handler)=>{listeners[event]=handler},
+  dispatchEvent:event=>listeners[event.type]?.(event)
  };
  runInNewContext(script,{
   window:{RVU_CURRICULUM:curriculum},

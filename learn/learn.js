@@ -32,15 +32,51 @@ function renderNavLang(){
 function urlLetter(a){return '/learn/alphabet/'+a.id+'/'}
 function urlUnit(u){return '/learn/sentences/'+u.id+'/'}
 function escaped(s){return String(s).replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]))}
-function cardLetter(a){
- const z=link(urlLetter(a),undefined,'tile-letter');z.innerHTML='<strong>'+a.letter+'</strong><small>'+a.letter.toLowerCase()+'</small>';z.setAttribute('aria-label','Letter '+a.letter);return z
+function cardLetter(a,index=0){
+ const stop=el('div','storybook-stop');
+ stop.dataset.status='new';
+ stop.style.setProperty('--station-accent',['#f5dfae','#dff2e7','#f5cfbf','#d9edf6'][index%4]);
+ const station=link(urlLetter(a),undefined,'storybook-station');
+ station.dataset.status='new';
+ station.setAttribute('aria-label',(lang==='ar'?'افتح درس حرف ':'Open letter lesson ')+a.letter);
+ const number=el('span','storybook-station-index',String(index+1).padStart(2,'0'));
+ const letter=el('strong','storybook-station-letter',a.letter);
+ const picture=el('span','storybook-station-picture');
+ const word=a.words[0]||a.letter;
+ const img=el('img','storybook-station-image');
+ img.src='/assets/words/'+word.replaceAll(' ','-')+'.svg';
+ img.alt='';img.width=112;img.height=112;
+ img.decoding='async';img.loading=index<6?'eager':'lazy';
+ picture.append(img);
+ const name=el('span','storybook-station-word',word);
+ name.lang='en';name.dir='ltr';
+ station.append(number,letter,picture,name,el('span','storybook-station-status',lang==='ar'?'اكتشف المحطة':'Discover'));
+ const listen=el('button','storybook-station-listen',lang==='ar'?'جارٍ تجهيز الاستماع':'Preparing audio');
+ listen.type='button';listen.disabled=true;
+ stop.append(station,listen);
+ return stop;
+}
+function initMapIntro(grid){
+ if(grid.previousElementSibling?.classList?.contains('storybook-map-intro'))return;
+ const intro=el('div','storybook-map-intro');
+ const copy=el('div','storybook-map-copy');
+ copy.append(el('span','storybook-kicker',lang==='ar'?'رحلة من 26 محطة':'26 stops to explore'));
+ copy.append(el('h3','storybook-map-title',lang==='ar'?'كل حرف محطة جديدة':'Every letter is a new adventure'));
+ copy.append(el('p','storybook-map-description',lang==='ar'?'اختار محطة، شوف صورتها، واسمع الكلمات.':'Choose a station, explore its pictures and hear its words.'));
+ const count=el('div','storybook-map-progress');
+ count.append(el('span','storybook-progress-label',lang==='ar'?'محطات خلصتها':'Stations completed'));
+ count.append(el('strong','storybook-progress-number','0 / 26'));
+ const track=el('div','storybook-progress-track');track.append(el('span','storybook-progress-fill'));count.append(track);
+ const go=link('/learn/alphabet/a/',lang==='ar'?'ابدأ أو كمّل الرحلة':'Start or continue','storybook-resume');
+ count.append(go);
+ intro.append(copy,count);grid.before(intro);
 }
 function printedPages(pages){return pages.map(page=>page-3)}
 function cardUnit(u,i){
  const a=link(urlUnit(u),undefined,'unit-card');a.innerHTML='<small>UNIT '+String(i+1).padStart(2,'0')+' · '+(lang==='ar'?'صفحات ':'PAGES ')+printedPages(u.pages).join('–')+'</small><h3 dir="ltr" lang="en">'+escaped(u.title)+'</h3><p>'+escaped(lang==='ar'?u.titleAr:'A lesson from your book')+'</p><span class="tile-arrow">↗</span>';return a;
 }
 function hub(){
- const grid=document.querySelector('#letter-grid');if(grid){grid.replaceChildren();alphabet.forEach(a=>grid.append(cardLetter(a)))}
+ const grid=document.querySelector('#letter-grid');if(grid){grid.classList.add('storybook-map');initMapIntro(grid);grid.replaceChildren();alphabet.forEach((a,i)=>grid.append(cardLetter(a,i)))}
  const unitsGrid=document.querySelector('#unit-grid');if(unitsGrid){unitsGrid.replaceChildren();units.forEach((u,i)=>unitsGrid.append(cardUnit(u,i)))}
 }
 

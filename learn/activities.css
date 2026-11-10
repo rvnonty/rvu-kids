@@ -127,3 +127,33 @@ body[data-page="lesson"] .skip:focus-visible{top:1rem;transform:none;opacity:1;p
  .rvu-game-panel[data-mood="correct"] .rvu-lizard-avatar.character-portrait{animation:none!important}
  .rvu-game-panel[data-mood="retry"] .rvu-lizard-avatar.character-portrait{transform:none;filter:none}
 }
+
+/* Storybook Adventure — game visuals from the book and simple geometric celebration */
+.rvu-lesson-games{border-radius:26px;overflow:hidden;background:#fffdf8;box-shadow:0 7px 20px #184c3a12}
+.rvu-arcade-intro{background:radial-gradient(circle at 85% 15%,#f9e9ba 0,transparent 28%),linear-gradient(120deg,#eff7ee,#fffaf0);border-color:#dde7da}
+.rvu-arcade-intro h2,.rvu-game-panel h3{color:#184c3a}
+.rvu-arcade-eyebrow,.rvu-arcade-total{color:#285f49}
+.rvu-game-tabs{background:#f6f4e9;border-color:#e6e3d9}
+.rvu-game-tab{display:inline-flex;align-items:center;justify-content:center;gap:9px;background:#fffdf9;border:1px solid #d7e5d9;color:#184c3a;box-shadow:none}
+.rvu-game-tab::before{content:"";display:inline-block;flex:0 0 13px;width:13px;height:13px;border-radius:5px;background:#f7d76a;box-shadow:inset 0 0 0 2px #184c3a22}
+.rvu-game-tab[data-game-kind="listen"]::before{background:#cfe8f9;border-radius:50%}
+.rvu-game-tab[data-game-kind="order"]::before{background:#cbe1d5;border-radius:2px}
+.rvu-game-tab[data-game-kind="scene"]::before{background:#f6c7b8}
+.rvu-game-tab[data-game-kind="picture"]::before{background:#d5e7c9;border-radius:50% 50% 5px 5px}
+.rvu-game-tab[data-game-kind="spell"]::before{background:#e2d8ed}
+.rvu-game-tab[aria-selected="true"]{background:#184c3a;color:white;border-color:#184c3a;box-shadow:0 4px 11px #184c3a18}
+.rvu-game-stage{background:#fffdf8}
+.rvu-game-panel{border:1px solid #e4e4d8;background:white;box-shadow:0 5px 18px #184c3a10;border-radius:22px}
+.rvu-game-tag{background:#f7e8bf;color:#5d4a22}
+.rvu-arcade-deco .rvu-deco-item{font-size:0;width:13px;height:13px;border-radius:50%;background:#f7d76a;box-shadow:none;filter:none;opacity:.75;animation:storybookSoftDrift 6s ease-in-out infinite}
+.rvu-arcade-deco .rvu-deco-item:nth-child(2n){background:#bfe3cf;width:10px;height:10px}
+.rvu-arcade-deco .rvu-deco-item:nth-child(3n){background:#f2c2b3}
+.rvu-scene-art.character-portrait{display:block;flex:none;width:clamp(82px,13vw,122px);height:clamp(82px,13vw,122px);margin:4px auto 12px;border:3px solid #fff;border-radius:26px;box-shadow:0 5px 0 #c9dfce,0 10px 18px #184c3a19;animation:storybookSoftDrift 5s ease-in-out infinite}
+.rvu-scene-prompt{color:#1e4e3b}
+.rvu-burst-piece{display:block;width:12px;height:12px;border-radius:45% 55% 40% 60%;box-shadow:0 1px 2px #184c3a15;font-size:0;filter:none}
+.rvu-lizard-speech{background:#fffaf0;color:#315b45}
+@keyframes storybookSoftDrift{0%,100%{translate:0 0}50%{translate:0 -4px}}
+@media(prefers-reduced-motion:reduce){
+ .rvu-arcade-deco .rvu-deco-item,.rvu-scene-art.character-portrait{animation:none!important}
+ .rvu-game-tab:hover{transform:none}
+}

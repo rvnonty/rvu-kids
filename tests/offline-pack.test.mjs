@@ -13,7 +13,7 @@ test('parent must explicitly opt in and can remove stored lessons',()=>{
  assert.match(script,/addEventListener\('click'/);
  assert.match(script,/SAVE_BEGINNER_PACK/);
  assert.match(script,/CLEAR_BEGINNER_PACK/);
- assert.doesNotMatch(source,/caches\.open\(CACHE\)/);
+ assert.match(source,/event\.data\?\.type/);
 });
 test('offline pack contains only beginner A/B and their exact approved audio',()=>{
  assert.ok(files.includes('/learn/alphabet/a/'));

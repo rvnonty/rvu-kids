@@ -268,13 +268,14 @@ function mountFlipBook(){
  function turn(nextIndex){
   if(turning||nextIndex<0||nextIndex>=sources.length||nextIndex===current)return;
   const reduced=window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches;
+  const forward=nextIndex>current;
   const previous=sources[current];
   current=nextIndex;update();
   if(reduced){img.src=sources[current].src;img.alt=sources[current].alt;return}
   turning=true;
   const sheet=make('div','rvu-flip-sheet');
   const old=make('img');old.src=previous.src;old.alt='';old.width=900;old.height=1273;sheet.append(old);
-  sheet.dataset.direction=nextIndex>current-1?'forward':'backward';
+  sheet.dataset.direction=forward?'forward':'backward';
   book.append(sheet);
   img.src=sources[current].src;img.alt=sources[current].alt;
   const cleanup=()=>{sheet.remove();turning=false};
@@ -299,6 +300,10 @@ function mountFlipBook(){
 }
 export function mountAdventureExtras({playButton}={}){
  if(!curriculum)return;
+ if(!document.querySelector('link[data-rvu-next-adventures]')){
+  const css=make('link');css.rel='stylesheet';css.href='/learn/next-adventures.css';
+  css.dataset.rvuNextAdventures='true';document.head.append(css);
+ }
  mountAlbum();
  mountAlbumLink();
  if(typeof playButton==='function'){

@@ -76,6 +76,7 @@ function mountGardenVocabulary(){
  const theme=themeFor(type,lesson);
  applyGardenPalette(card,theme);
  card.classList.add('rvu-garden-lesson');
+ card.dataset.learningGroup=type;
  const grid=card.querySelector('.word-grid');
  if(grid){
   grid.classList.add('rvu-garden-words');
@@ -258,6 +259,7 @@ function mountInteractiveScene(playButton){
  };
  stage.dataset.theme=type==='alphabet'?'garden':(themes[lesson.id]||'garden');
  applyGardenPalette(stage,themeFor(type,lesson));
+ root.dataset.learningGroup=type;
  const background=make('div','rvu-scene-landscape');
  background.setAttribute('aria-hidden','true');
  background.append(make('span','rvu-scene-sun'),make('span','rvu-scene-hill first'),make('span','rvu-scene-hill second'));

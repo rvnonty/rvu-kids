@@ -10,6 +10,109 @@ const make=(tag,cls,value)=>{
  if(value!==undefined)el.textContent=value;
  return el;
 };
+
+/* Letter-specific garden motifs are composed from the approved word illustrations.
+   These palettes are inspired by each lesson's subject, not a reproduction of book pages. */
+const LETTER_GARDENS={
+ a:['orchard','#ffe5d8','#c9e8d1','#f5a88d','#6da889'],
+ b:['playground','#dceefb','#d5ecd4','#f3bf72','#85b7da'],
+ c:['courtyard','#ffe9df','#dcedd2','#eeae97','#8db6a3'],
+ d:['meadow','#e5f3e0','#c2e6ce','#edb888','#8bbb94'],
+ e:['lagoon','#d9edf2','#c9e9df','#a9d6df','#72ada8'],
+ f:['pond','#dcf2f2','#bce5d7','#efca86','#75b8aa'],
+ g:['grove','#e9efd4','#c5e2bd','#d8bf7b','#7da576'],
+ h:['sunflower','#fff1cd','#d1e9c2','#e5ba53','#96b26d'],
+ i:['island','#e1f4fa','#d4eade','#c5a9dd','#8eb8c7'],
+ j:['citrus','#fff0d1','#d8efc9','#e9bd6d','#91b66e'],
+ k:['sky','#e0eefa','#d7e4da','#c3b0ec','#91b6d9'],
+ l:['savanna','#f9e6c3','#e5e6bd','#ddae70','#b5a96a'],
+ m:['moonlight','#dde5f7','#e3e8df','#b9b5e6','#9fb9c8'],
+ n:['woodland','#e4eedf','#cae3c8','#edc7a5','#90ad87'],
+ o:['orangegrove','#ffebce','#d3e9c8','#efb46c','#9fbc84'],
+ p:['bamboo','#e4eedf','#c2e4c9','#e9b3b4','#87b48f'],
+ q:['storybook','#eee4f7','#dbe8e0','#d3b5e8','#a7b0d5'],
+ r:['rainbow','#e9e8f8','#cceaca','#efbda8','#9db8dc'],
+ s:['sunshine','#fff1ce','#ccebc8','#f0bd55','#90b67a'],
+ t:['jungle','#e1f0d7','#b8dfbf','#edc283','#7ca776'],
+ u:['rainy','#deedf8','#d0e9d8','#a7c5ec','#8eabc5'],
+ v:['music','#ebe6f7','#dcead8','#c7b2df','#aab5d2'],
+ w:['ocean','#dbeffa','#c6e4e6','#99cbe2','#8fbdc8'],
+ x:['science','#edf1f3','#dbe7e3','#c5d1db','#a0b7c1'],
+ y:['breakfast','#fff1da','#d7ecd1','#f1c7a0','#a1bf91'],
+ z:['savanna','#f4e8d7','#d7e8d1','#d9bd9a','#99b494']
+};
+const SENTENCE_GARDENS={
+ feelings:'r',hungry:'o',thirsty:'f',bathroom:'i','my-family':'n',
+ 'hello-about-me':'s','at-school':'k','can-i-have':'b',
+ 'likes-and-dislikes':'j','can-you-help':'g','polite-words':'h',
+ 'lets-play':'b','my-body':'p','daily-routine':'m','stay-safe':'u'
+};
+function themeFor(type,lesson){
+ const key=type==='alphabet'?lesson.id:SENTENCE_GARDENS[lesson.id]||'a';
+ const [scene,sky,grass,flower,leaf]=LETTER_GARDENS[key]||LETTER_GARDENS.a;
+ return {scene,sky,grass,flower,leaf,key};
+}
+function applyGardenPalette(element,theme){
+ if(!element)return;
+ const variables={'--garden-sky':theme.sky,'--garden-grass':theme.grass,
+  '--garden-bloom':theme.flower,'--garden-leaf':theme.leaf};
+ for(const [name,value] of Object.entries(variables))element.style.setProperty(name,value);
+ element.dataset.garden=theme.scene;
+}
+function decorateGardenMap(){
+ const map=document.querySelector('.storybook-map');
+ if(!map)return;
+ [...map.querySelectorAll('.storybook-station')].forEach((station,index)=>{
+  const lesson=curriculum.alphabet[index];
+  if(!lesson)return;
+  applyGardenPalette(station,themeFor('alphabet',lesson));
+ });
+}
+function mountGardenVocabulary(){
+ const active=activeLesson();
+ if(!active)return;
+ const {type,lesson}=active,card=document.querySelector('.lesson-card');
+ if(!card)return;
+ const theme=themeFor(type,lesson);
+ applyGardenPalette(card,theme);
+ card.classList.add('rvu-garden-lesson');
+ const grid=card.querySelector('.word-grid');
+ if(grid){
+  grid.classList.add('rvu-garden-words');
+  applyGardenPalette(grid,theme);
+  const flowers=make('div','rvu-garden-flora');
+  flowers.setAttribute('aria-hidden','true');
+  for(let i=0;i<5;i++){
+   const stem=make('span','rvu-garden-stem');
+   stem.style.setProperty('--flora-index',String(i));
+   stem.style.setProperty('--flora-offset',String(i*20)+'%');
+   flowers.append(stem);
+  }
+  grid.prepend(flowers);
+  const intro=make('div','rvu-garden-heading');
+  const name=type==='alphabet'?lesson.letter:(lesson.title||'');
+  intro.append(make('span','rvu-visual-kicker',t('الصور من عالم الكتاب','Pictures from the book world')));
+  intro.append(make('h2',null,t('حديقة حرف ','Letter garden: ')+name));
+  intro.append(make('p',null,t('الكلمات هنا جزء من المشهد. المس الصور فوق علشان تسمع كل كلمة.','The words live in this scene. Tap the pictures above to hear each word.')));
+  grid.before(intro);
+ }
+ const phrases=card.querySelector('.phrase-grid');
+ if(phrases){phrases.classList.add('rvu-garden-phrases');applyGardenPalette(phrases,theme)}
+ const scene=card.querySelector('.rvu-scene-stage');
+ if(scene)applyGardenPalette(scene,theme);
+}
+function activateGardenMotion(){
+ const candidates=[...document.querySelectorAll('.rvu-garden-words,.rvu-scene-stage,.rvu-garden-phrases')];
+ const reduced=window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches;
+ if(reduced||!('IntersectionObserver' in window)){
+  candidates.forEach(item=>item.classList.add('rvu-motion-visible'));return;
+ }
+ const observer=new window.IntersectionObserver(entries=>{
+  for(const entry of entries)entry.target.classList.toggle('rvu-motion-visible',entry.isIntersecting);
+ },{rootMargin:'90px 0px',threshold:0.01});
+ candidates.forEach(item=>observer.observe(item));
+}
+
 const progressKey='rvu-story-progress-v1';
 const albumKey='rvu-star-album-enabled';
 function completedLessons(){
@@ -153,6 +256,7 @@ function mountInteractiveScene(playButton){
   'daily-routine':'home','stay-safe':'school'
  };
  stage.dataset.theme=type==='alphabet'?'garden':(themes[lesson.id]||'garden');
+ applyGardenPalette(stage,themeFor(type,lesson));
  const background=make('div','rvu-scene-landscape');
  background.setAttribute('aria-hidden','true');
  background.append(make('span','rvu-scene-sun'),make('span','rvu-scene-hill first'),make('span','rvu-scene-hill second'));
@@ -327,12 +431,15 @@ export function mountAdventureExtras({playButton}={}){
   const css=make('link');css.rel='stylesheet';css.href='/learn/next-adventures.css';
   css.dataset.rvuNextAdventures='true';document.head.append(css);
  }
+ decorateGardenMap();
  mountAlbum();
  mountAlbumLink();
  mountLessonReward();
  if(typeof playButton==='function'){
   mountInteractiveScene(playButton);
   mountPictureFirstChallenge(playButton);
+  mountGardenVocabulary();
+  activateGardenMotion();
  }
  mountFlipBook();
 }

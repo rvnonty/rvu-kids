@@ -507,3 +507,114 @@ footer{gap:clamp(12px,2.3vw,24px);align-items:center;line-height:1.65;padding:cl
 .standalone-speed-picker{display:inline-flex;max-width:100%;margin-top:24px;padding:12px 16px;border:1px solid #b8d8c3;border-radius:18px;background:#f1f9f3}
 .standalone-speed-picker .pronunciation-speed{min-width:200px}
 @media(max-width:650px){.voice-picker .pronunciation-speed{flex:1 1 100%}.standalone-speed-picker{display:flex;width:100%}.standalone-speed-picker .pronunciation-speed{width:100%}}
+
+/* === Storybook Adventure: unified quiet palette and paper surfaces === */
+:root{
+ --ink:#184c3a;--paper:#fbf7ee;--cream:#f6f0e3;--mint:#dff2e7;
+ --yellow:#f7d76a;--coral:#f6c7b8;--blue:#cfe8f9;--line:#dfdfd5;
+ --rvu-forest:#184c3a;--rvu-cream:#fbf7ee;--rvu-yellow:#f7d76a;
+ --rvu-mint:#dff2e7;--rvu-peach:#f6c7b8;--rvu-sky:#cfe8f9;
+ --rvu-soft-ink:#516b60;--rvu-shadow-sm:0 7px 20px rgba(24,76,58,.07);
+ --rvu-shadow-lg:0 12px 28px rgba(24,76,58,.10);
+}
+body{background:#fbf7ee;color:#17392f}
+.hero,.lesson-card,.path-card,.unit-card,.word-card,.phrase-card,.spread-picker,.quiz,.rvu-play-teaser{
+ box-shadow:var(--rvu-shadow-sm);border-color:#e4e1d6
+}
+.hero{background:radial-gradient(circle at 88% 18%,rgba(247,215,106,.26),transparent 28%),linear-gradient(145deg,#fffdf8,#eff7ee);box-shadow:var(--rvu-shadow-sm)}
+.button,.story-button{transition:background .2s ease,transform .2s ease}
+.button:hover{transform:translateY(-2px)}
+.path-card.alphabet{background:#fffdf9}
+.path-card.sentences{background:#fbede7}
+.path-icon{background:#f7d76a;color:#184c3a}
+.unit-card{background:#fffdf9}
+.letter-name,.phase-note{background:#f6f0e3}
+.word-card{background:#fffdf9;box-shadow:var(--rvu-shadow-sm)}
+.word-visual.story-visual{background:#eef7f0}
+.phrase-card{background:#fcfaf4;box-shadow:var(--rvu-shadow-sm)}
+.voice-picker{background:#f0f8f2;border:1px solid #d4e7d8}
+.audio-play{background:#fff;border-color:#aacdb5}
+.audio-play:hover{background:#e6f4ea}
+.storybook-kicker{color:#527666;font-size:.76rem;font-weight:900;letter-spacing:.07em}
+.storybook-map-intro{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:19px;padding:23px 26px;margin:0 0 17px;border:1px solid #e4e5d9;border-radius:26px;background:linear-gradient(120deg,#fffdf9,#ecf6ed);box-shadow:var(--rvu-shadow-sm)}
+.storybook-map-copy{flex:1 1 380px}
+.storybook-map-title{font-size:clamp(1.35rem,2.5vw,2rem);line-height:1.25;color:#184c3a;margin:6px 0}
+.storybook-map-description{margin:0;color:#516b60;line-height:1.9;max-width:670px}
+.storybook-map-progress{display:grid;gap:6px;flex:0 1 235px;min-width:195px;padding:13px 16px;background:white;border:1px solid #dfebdc;border-radius:19px}
+.storybook-progress-label{font-size:.82rem;font-weight:750;color:#536d5e}
+.storybook-progress-number{font:900 1.4rem "DM Sans",sans-serif;color:#184c3a;direction:ltr;text-align:start}
+.storybook-progress-track{height:10px;background:#e4e9e1;border-radius:999px;overflow:hidden}
+.storybook-progress-fill{display:block;height:100%;background:#49a77b;border-radius:999px;transition:width .3s ease}
+.storybook-resume{display:inline-flex;align-items:center;justify-content:center;min-height:42px;margin-top:6px;padding:7px 12px;border-radius:13px;background:#184c3a;color:white;text-align:center;text-decoration:none;font-size:.86rem;font-weight:800}
+.storybook-resume:hover{background:#286a50}
+.letter-grid.storybook-map{position:relative;isolation:isolate;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:clamp(9px,1.2vw,15px);padding:clamp(12px,2.5vw,23px);border:1px solid #e6e3d8;border-radius:29px;background:radial-gradient(circle at 10% 15%,#f9edcf 0,transparent 22%),radial-gradient(circle at 85% 78%,#dff0e5 0,transparent 25%),#fffdf8;box-shadow:var(--rvu-shadow-sm)}
+.letter-grid.storybook-map::before{content:"";position:absolute;inset:22px;z-index:-1;opacity:.45;pointer-events:none;background-image:radial-gradient(#b8c9b9 1.5px,transparent 2px);background-size:20px 20px;mask-image:linear-gradient(120deg,transparent,#000 20% 80%,transparent)}
+.letter-grid.storybook-map > a.storybook-station{
+ position:relative;display:flex!important;flex-direction:column;align-items:center;justify-content:center;gap:5px;
+ min-height:194px;aspect-ratio:auto!important;min-width:0;padding:14px 8px 12px;
+ background:linear-gradient(180deg,#fff,#fffcf7);color:#184c3a;
+ border:1px solid #e4dfd5;border-radius:23px;text-decoration:none;overflow:hidden;
+ box-shadow:0 5px 13px #184c3a0c;transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease;
+}
+.letter-grid.storybook-map > a.storybook-station::before{content:"";position:absolute;inset:0 0 auto;height:7px;background:var(--station-accent)}
+.letter-grid.storybook-map > a.storybook-station:hover{transform:translateY(-5px);border-color:#9fc8ad;box-shadow:0 10px 24px #184c3a20}
+.storybook-station-index{position:absolute;top:13px;inset-inline-start:13px;font:800 .73rem "DM Sans",sans-serif;color:#718c7e;direction:ltr}
+.letter-grid.storybook-map .storybook-station-letter{font:900 clamp(1.5rem,2.2vw,2rem)/1 "DM Sans",sans-serif;color:#184c3a;letter-spacing:-.03em}
+.storybook-station-picture{display:grid;place-items:center;width:82px;height:79px;max-width:85%;background:var(--station-accent);border-radius:22px;overflow:hidden;margin:2px auto}
+.storybook-station-image{width:92%;height:92%;object-fit:contain;display:block}
+.storybook-picture-fallback{font:bold 2rem Georgia,serif;color:#184c3a}
+.storybook-station-word{font:800 .95rem "DM Sans",sans-serif;color:#194d3b;text-align:center;overflow-wrap:anywhere;line-height:1.25}
+.storybook-station-status{display:inline-flex;align-items:center;justify-content:center;min-height:24px;margin-top:3px;padding:3px 8px;background:#f4f2e9;border-radius:999px;color:#526b5e;font-size:.67rem;line-height:1.2;font-weight:750;white-space:normal;text-align:center}
+.storybook-station[data-status="visited"] .storybook-station-status{background:#e3f2e8;color:#21684c}
+.storybook-station[data-status="completed"]{border-color:#8ec2a0;background:linear-gradient(180deg,#f8fff9,#eff8ee)}
+.storybook-station[data-status="completed"] .storybook-station-status{background:#184c3a;color:white}
+.storybook-guide{display:flex;align-items:center;gap:clamp(10px,2vw,18px);width:100%;max-width:690px;margin:22px 0 14px;padding:13px clamp(14px,2vw,20px);background:linear-gradient(105deg,#fffdf8,#f0f8f2);border:1px solid #dbe9da;border-radius:23px;box-shadow:var(--rvu-shadow-sm)}
+.storybook-guide-face.character-portrait{width:clamp(69px,8vw,91px);height:clamp(69px,8vw,91px);flex:0 0 auto;border-width:3px;border-radius:22px;box-shadow:0 3px 0 #c0dcc3,0 8px 13px #184c3a14;animation:storybook-guide-float 5s ease-in-out infinite}
+.storybook-guide-bubble{flex:1;min-width:0}
+.storybook-guide-title{display:block;margin-bottom:3px;color:#184c3a;font-size:.9rem}
+.storybook-guide-text{margin:0!important;color:#526a5d;font-size:clamp(.87rem,1.4vw,.98rem)!important;line-height:1.85!important}
+.storybook-guide[data-mood="success"]{background:#ecf7ec;border-color:#9fccab}
+.storybook-guide[data-mood="finish"]{background:#fff7db;border-color:#e3d49b}
+.storybook-finish{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;margin:30px 0 15px;padding:22px;border-radius:23px;background:linear-gradient(130deg,#edf6ed,#fffaf0);border:1px solid #d5e6d5}
+.storybook-finish.is-complete{background:linear-gradient(130deg,#e0f4e5,#fffdf7)}
+.storybook-finish-content{flex:1 1 285px}
+.storybook-finish-title{font-size:clamp(1.2rem,2.3vw,1.7rem);color:#184c3a;margin:5px 0}
+.storybook-finish-detail{color:#526b5e;font-size:.93rem;line-height:1.85;margin:0}
+.storybook-finish-actions{display:flex;gap:9px;flex-wrap:wrap;align-items:center}
+.storybook-finish-button,.storybook-next-link{display:inline-flex;align-items:center;justify-content:center;min-height:45px;padding:10px 17px;border-radius:14px;font:800 .91rem "Noto Sans Arabic","DM Sans",sans-serif;text-decoration:none;text-align:center}
+.storybook-finish-button{background:#184c3a;color:white;border:1px solid #184c3a;cursor:pointer}
+.storybook-finish-button:hover:not(:disabled){background:#286c51}
+.storybook-finish-button:disabled{background:#e2f2e6;color:#286b48;border-color:#b8d7bf;cursor:default}
+.storybook-next-link{background:white;color:#184c3a;border:1px solid #b4cfbf}
+.storybook-next-link:hover{background:#f3fcf5}
+.storybook-resume:focus-visible,.storybook-station:focus-visible,.storybook-finish-button:focus-visible,.storybook-next-link:focus-visible{outline:3px solid #ddac52;outline-offset:3px}
+.storybook-teaser-art{display:flex;align-items:center;justify-content:center;gap:clamp(9px,2vw,22px);flex-wrap:wrap}
+.storybook-teaser-art .character-portrait{width:clamp(80px,10vw,130px);height:auto;box-shadow:0 4px 0 #a7c4ad,0 11px 20px #184c3a19}
+.rvu-play-teaser{background:linear-gradient(120deg,#fff8e5,#f0f8ef);box-shadow:var(--rvu-shadow-sm);border:1px solid #e8e6d9}
+@keyframes storybook-guide-float{0%,100%{translate:0 0}50%{translate:0 -4px}}
+@media(min-width:901px){.letter-grid.storybook-map > a.storybook-station:nth-child(6n+2),.letter-grid.storybook-map > a.storybook-station:nth-child(6n+5){margin-top:12px}}
+@media(max-width:950px){.letter-grid.storybook-map{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:650px){
+ .storybook-map-intro{padding:17px;gap:12px}
+ .storybook-map-progress{flex:1 1 100%}
+ .letter-grid.storybook-map{grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;padding:11px}
+ .letter-grid.storybook-map > a.storybook-station{min-height:168px;border-radius:18px;padding:12px 5px 9px}
+ .storybook-station-picture{width:68px;height:68px;border-radius:16px}
+ .storybook-station-word{font-size:.83rem}
+ .storybook-station-status{font-size:.65rem}
+ .storybook-guide{margin-top:17px}
+ .storybook-finish{padding:16px}
+}
+@media(max-width:420px){
+ .letter-grid.storybook-map{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+ .letter-grid.storybook-map > a.storybook-station{min-height:174px}
+ .storybook-station-picture{width:76px;height:73px}
+ .storybook-finish-actions{width:100%;flex-direction:column;align-items:stretch}
+ .storybook-finish-button,.storybook-next-link{width:100%}
+}
+@media(prefers-reduced-motion:reduce){
+ .storybook-guide-face.character-portrait{animation:none!important}
+ .storybook-station,.storybook-progress-fill,.storybook-finish-button,.storybook-next-link,.button{transition:none!important}
+ .letter-grid.storybook-map > a.storybook-station:hover{transform:none}
+ .button:hover{transform:none}
+}

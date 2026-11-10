@@ -66,7 +66,7 @@ function decorateGardenMap(){
  [...map.querySelectorAll('.storybook-station')].forEach((station,index)=>{
   const lesson=curriculum.alphabet[index];
   if(!lesson)return;
-  applyGardenPalette(station,themeFor('alphabet',lesson));
+  applyGardenPalette(station.parentElement||station,themeFor('alphabet',lesson));
  });
 }
 function mountGardenVocabulary(){

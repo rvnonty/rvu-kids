@@ -375,3 +375,89 @@ body[data-page="alphabet-index"] .storybook-guide{
  .rvu-garden-words .word-card:hover .word-image{transform:none}
  .rvu-visual-scene .rvu-scene-object.audio-play:hover:not(:disabled){transform:none}
 }
+
+
+/* Distinct landscape details: every lesson keeps its own illustration-led palette. */
+.rvu-scene-stage[data-garden="moonlight"]{
+ background:linear-gradient(175deg,#b5c6e7 0%,var(--garden-sky) 54%,var(--garden-grass) 54% 100%);
+}
+.rvu-scene-stage[data-garden="moonlight"] .rvu-scene-sun{
+ top:8%;width:57px;height:57px;background:#fff8d2;
+ box-shadow:0 0 25px #fff7be7d;
+}
+.rvu-scene-stage[data-garden="moonlight"] .rvu-scene-sun::after{
+ content:"";position:absolute;top:-9px;left:16px;width:56px;height:56px;border-radius:50%;
+ background:#b5c6e7;
+}
+.rvu-scene-stage[data-garden="pond"],
+.rvu-scene-stage[data-garden="ocean"],
+.rvu-scene-stage[data-garden="lagoon"]{
+ background:linear-gradient(180deg,var(--garden-sky) 0 47%,#b9dfe5 47% 70%,var(--garden-grass) 100%);
+}
+.rvu-scene-stage[data-garden="pond"] .rvu-scene-landscape::after,
+.rvu-scene-stage[data-garden="ocean"] .rvu-scene-landscape::after,
+.rvu-scene-stage[data-garden="lagoon"] .rvu-scene-landscape::after{
+ content:"";position:absolute;bottom:17%;left:-25%;width:150%;height:24%;
+ background:repeating-radial-gradient(ellipse at 50% 120%,transparent 0 21px,#ffffff78 22px 24px,transparent 25px 46px);
+ opacity:.65;animation:rvu-water-drift 9s ease-in-out infinite;
+ animation-play-state:paused;
+}
+.rvu-scene-stage.rvu-motion-visible[data-garden="pond"] .rvu-scene-landscape::after,
+.rvu-scene-stage.rvu-motion-visible[data-garden="ocean"] .rvu-scene-landscape::after,
+.rvu-scene-stage.rvu-motion-visible[data-garden="lagoon"] .rvu-scene-landscape::after{
+ animation-play-state:running
+}
+.rvu-scene-stage[data-garden="sky"] .rvu-scene-landscape::before,
+.rvu-scene-stage[data-garden="rainy"] .rvu-scene-landscape::before,
+.rvu-scene-stage[data-garden="island"] .rvu-scene-landscape::before{
+ content:"";position:absolute;top:14%;left:7%;width:95px;height:26px;
+ border-radius:40px;background:#ffffffad;
+ box-shadow:22px 7px 0 -2px #ffffff82,210px 24px 0 -7px #ffffff91;
+ opacity:.72;animation:rvu-cloud-drift 10s ease-in-out infinite;
+ animation-play-state:paused;
+}
+.rvu-scene-stage.rvu-motion-visible:is([data-garden="sky"],[data-garden="rainy"],[data-garden="island"]) .rvu-scene-landscape::before{
+ animation-play-state:running
+}
+.rvu-scene-stage[data-garden="rainbow"] .rvu-scene-landscape::before{
+ content:"";position:absolute;top:-35%;left:5%;width:230px;height:230px;border-radius:50%;
+ background:conic-gradient(from 230deg,#f6ae9f,#e9cb83,#b6d8aa,#b7d9ee,#d6b8e9,#f6ae9f);
+ -webkit-mask:radial-gradient(farthest-side,transparent 70%,#000 72% 81%,transparent 84%);
+ mask:radial-gradient(farthest-side,transparent 70%,#000 72% 81%,transparent 84%);
+ opacity:.55;
+}
+.rvu-scene-stage[data-garden="savanna"] .rvu-scene-hill.first,
+.rvu-scene-stage[data-garden="sunflower"] .rvu-scene-hill.first,
+.rvu-scene-stage[data-garden="orangegrove"] .rvu-scene-hill.first{
+ background:#e1d6a6;opacity:.7
+}
+.rvu-scene-stage[data-garden="science"] .rvu-scene-landscape::before{
+ content:"";position:absolute;top:11%;left:13%;width:75px;height:75px;border:3px solid #ffffff9c;
+ border-radius:50%;box-shadow:0 0 0 12px #ffffff2e,0 0 0 24px #ffffff2a;
+ transform:rotate(-22deg)
+}
+.rvu-scene-stage[data-garden="jungle"],
+.rvu-scene-stage[data-garden="bamboo"],
+.rvu-scene-stage[data-garden="woodland"]{
+ background:linear-gradient(180deg,#dbeed8 0 53%,var(--garden-grass) 53% 100%)
+}
+.rvu-scene-stage[data-garden="jungle"] .rvu-scene-hill.second,
+.rvu-scene-stage[data-garden="bamboo"] .rvu-scene-hill.second,
+.rvu-scene-stage[data-garden="woodland"] .rvu-scene-hill.second{
+ background:#96bf9b;opacity:.45
+}
+@keyframes rvu-water-drift{
+ 0%,100%{transform:translateX(-2%)}
+ 50%{transform:translateX(2%)}
+}
+@keyframes rvu-cloud-drift{
+ 0%,100%{transform:translateX(-8px)}
+ 50%{transform:translateX(18px)}
+}
+@media(max-width:700px){
+ .rvu-visual-scene .rvu-scene-object.audio-play{backdrop-filter:none}
+ .rvu-garden-words .word-card{backdrop-filter:none}
+}
+@media(prefers-reduced-motion:reduce){
+ .rvu-scene-landscape::before,.rvu-scene-landscape::after{animation:none!important}
+}

@@ -98,3 +98,7 @@ body[data-page="lesson"]{--rvu-card-border:#d7e7df;--rvu-lesson-accent:#f3d479}
 @keyframes rvuCardIn{from{opacity:.2;transform:translateY(9px)}to{opacity:1;transform:translateY(0)}}
 @media(max-width:600px){.rvu-phrase-sticker{width:40px;height:40px;font-size:1.2rem}.lesson-top .phrase-card{gap:7px}}
 @media(prefers-reduced-motion:reduce){.lesson-top .phrase-card{animation:none!important}}
+
+/* Hide the keyboard skip link until it is visibly focused; avoids floating text in long screenshots. */
+body[data-page="lesson"] .skip:not(:focus-visible){top:-120px;transform:none}
+body[data-page="lesson"] .skip:focus-visible{top:1rem;transform:none}

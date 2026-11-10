@@ -30,6 +30,14 @@ live-site performance guarantee.
 - Multiple copies: **300 EGP per copy**, with no additional shipping surcharge.
 - The storefront summary, WhatsApp order message and optional backend use the
   same inclusive pricing. Payment is arranged separately through WhatsApp.
+- **Legacy database note:** existing D1 order databases may have an old
+  `CHECK(unit_price_egp = 200)` constraint. The fresh `server/schema.sql`
+  supports historical prices and new 300 EGP orders. Before enabling
+  database-backed orders on an existing deployment, back up its D1 database,
+  disable new writes, and apply the one-time
+  `server/migrations/20261110_price_300_inclusive.sql` migration. The old
+  orders table is kept as `orders_before_300_egp` for recovery. This
+  migration is **not** automatically run by the static storefront deploy.
 
 ## Deploy and scale
 Run `npm run build && npm test`. The built static output is `dist/`.

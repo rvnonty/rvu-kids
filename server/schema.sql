@@ -4,9 +4,8 @@ CREATE TABLE IF NOT EXISTS shipping_rates (
  enabled INTEGER NOT NULL DEFAULT 0 CHECK(enabled IN (0,1)),
  verified_at TEXT NOT NULL
 );
--- No rates are seeded: no unverified shipping fees or free-shipping assumptions.
--- Rates, when approved, apply per order. If quotes depend on quantity or address,
--- keep the relevant governorate disabled and quote the order individually.
+-- Legacy regional rates are retained for historical records, but new book orders
+-- charge 300 EGP per copy with doorstep shipping included (extra shipping: 0).
 CREATE TABLE IF NOT EXISTS orders (
  reference TEXT PRIMARY KEY,
  request_key TEXT UNIQUE NOT NULL,
@@ -20,7 +19,7 @@ CREATE TABLE IF NOT EXISTS orders (
  payment_method TEXT NOT NULL CHECK(payment_method IN ('instapay','vodafone_cash')),
  notes TEXT NOT NULL DEFAULT '',
  locale TEXT NOT NULL CHECK(locale IN ('ar','en')),
- unit_price_egp INTEGER NOT NULL CHECK(unit_price_egp = 200),
+ unit_price_egp INTEGER NOT NULL CHECK(unit_price_egp > 0),
  subtotal_egp INTEGER NOT NULL,
  shipping_egp INTEGER,
  total_egp INTEGER,

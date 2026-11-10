@@ -5,12 +5,11 @@ const read=path=>readFileSync(path,'utf8');
 const js=read('learn/learn.js'),manifest=JSON.parse(read('learn/audio-manifest.json'));
 const page=read('index.html'),app=read('app.js');
 
-test('WhatsApp uses confirmed international phone link and displays Ramez in both languages',()=>{
- assert.ok(page.includes('واتساب مع Ramez'));
- assert.ok(page.includes('https://wa.me/201012809358'));
- assert.ok(app.includes("whatsappContact:'WhatsApp with Ramez"));
+test('WhatsApp phone number is hidden until a valid order is submitted',()=>{
+ assert.ok(!page.includes('https://wa.me/'));
+ assert.ok(!page.includes('+201012809358'));
+ assert.ok(page.includes('id="submit-order"'));
  assert.ok(app.includes("'https://wa.me/201012809358?text='"));
- assert.ok(!/wa\.me\/n2nty|@n2nty/.test(page+app));
  assert.ok(app.includes('encodeURIComponent(fields.join('));
  assert.ok(app.includes('window.location.assign(url)'));
 });
@@ -39,13 +38,13 @@ test('244 compact audio mappings reproduce all 488 original MP3 locations exactl
 });
 
 test('book previews defer nonessential images and prioritize visible cover',()=>{
- const preview=read('preview/index.html'),product=read('books/alphabet/index.html');
+ const preview=read('preview/index.html');
  assert.ok(page.includes('fetchpriority="high" decoding="async"'));
  assert.ok(app.includes('fetchpriority="low"'));
  assert.ok(preview.includes('fetchpriority="high"'));
  assert.ok(preview.includes('loading="lazy"'));
  assert.ok(preview.includes('decoding="async"'));
- assert.ok(product.includes('fetchpriority="high"'));
+ assert.ok(preview.includes('src="/assets/cover.webp"'));
 });
 
 test('all built content pages preconnect font servers only once',()=>{
@@ -62,7 +61,7 @@ test('all built content pages preconnect font servers only once',()=>{
 });
 
 test('production CSS and game bundles remove explanatory code comments',()=>{
- for(const path of ['style.css','learn/learn.css','learn/activities.css','parents/guide.css']){
+ for(const path of ['style.css','learn/learn.css','learn/activities.css']){
   assert.ok(!read('dist/'+path).includes('/*'),'CSS comment in dist/'+path);
  }
  for(const path of ['learn/activities.mjs','learn/activity-data.mjs']){

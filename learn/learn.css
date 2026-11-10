@@ -618,3 +618,9 @@ body{background:#fbf7ee;color:#17392f}
  .letter-grid.storybook-map > a.storybook-station:hover{transform:none}
  .button:hover{transform:none}
 }
+
+/* The A–Z journey connects illustrated stops with a responsive dotted trail. */
+.letter-grid.storybook-map .storybook-route-line{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;overflow:visible}
+.letter-grid.storybook-map .storybook-route-line path{fill:none;stroke:#90b49b;stroke-width:4;stroke-dasharray:4 12;stroke-linecap:round;opacity:.65}
+.letter-grid.storybook-map > a.storybook-station{z-index:1}
+@media(prefers-reduced-motion:reduce){.letter-grid.storybook-map .storybook-route-line path{animation:none}}

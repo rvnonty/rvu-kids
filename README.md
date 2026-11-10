@@ -105,7 +105,7 @@ Regression checks: tests/garden-identity.test.mjs, with npm test.
   (CrUX / Search Console) and must not be inferred from Lighthouse lab tests.
   See [performance verification](docs/performance.md).
 - **Limited offline lessons:** parents can explicitly save or remove beginner
-  lessons A/B, with their existing voice clips and word illustrations. No
+  lessons A/B, with their existing voice clips and word illustrations (voice quality still needs human review). No
   automatic full-book download, no caching of Fish/Fork, and no silent
   pre-download. Real-device offline testing remains required.
 - **Access and motion:** reduced-motion preferences are respected and the

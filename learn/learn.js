@@ -97,25 +97,84 @@ function renderWordCard(word,lesson,i){
 }
 function wordLibrary(){
  const root=document.getElementById('word-library');if(!root)return;
- const intro=el('h1',null,lang==='ar'?'كل 101 كلمة بالصور':'All 101 picture words');
- const instruction=el('p','word-help',lang==='ar'?'المس الصورة عشان تكبر، واضغط على زر اسمع للنطق الأمريكي.':'Tap a picture to enlarge it, or Listen for American pronunciation.');
- root.replaceChildren(intro,instruction,voicePicker());
- const nav=el('nav','word-jump');nav.setAttribute('aria-label',lang==='ar'?'أقسام الكلمات':'Word groups');
- for(const [url,ar,en] of [['#words-1-60','الكلمات 1–60','Words 1–60'],['#words-61-101','الكلمات 61–101','Words 61–101']]){
-  const a=link(url,lang==='ar'?ar:en,'word-jump-link');nav.append(a)
+ root.replaceChildren(
+  el('h1',null,lang==='ar'?'كلمات الكتاب حسب الصفحات والحروف':'Book words by page and letter'),
+  el('p','word-help',lang==='ar'?'كل صفحتين متقابلتين لهما نفس كلمات الحرف. اختار حرف أو رقم أي صفحة من الصفحتين علشان تسمع الكلمات وتشوف صورها.':'Facing pages share one set of letter words. Choose a letter or either printed page number to view its vocabulary.'),
+  voicePicker()
+ );
+ const picker=el('section','spread-picker');
+ const control=el('div','spread-controls');
+ const letterControl=el('label','spread-field');
+ letterControl.append(el('span',null,lang==='ar'?'اختار الحرف والصفحتين':'Choose letter and facing pages'));
+ const letterSelect=el('select','spread-select');
+ letterSelect.id='letter-spread-select';
+ for(const item of alphabet){
+  const option=el('option',null,(lang==='ar'?'حرف ':'Letter ')+item.letter+' — '+(lang==='ar'?'صفحتا ':'Pages ')+printedPages(item.pages).join('–'));
+  option.value=item.id;letterSelect.append(option);
  }
- root.append(nav);
- for(const [start,end,headingId] of [[0,60,'words-1-60'],[60,101,'words-61-101']]){
-  const section=el('section','word-section');
-  const title=el('h2','minor-heading',lang==='ar'?'الكلمات '+(start+1)+'–'+end:'Words '+(start+1)+'–'+end);
-  title.id=headingId;section.append(title);
+ letterControl.append(letterSelect);control.append(letterControl);
+ const numberControl=el('label','spread-field');
+ numberControl.append(el('span',null,lang==='ar'?'أو اكتب رقم الصفحة':'Or enter a page number'));
+ const pageInput=el('input','spread-page-number');pageInput.type='number';
+ pageInput.min='1';pageInput.max='52';pageInput.step='1';pageInput.inputMode='numeric';
+ pageInput.id='printed-page-input';pageInput.placeholder='1–52';
+ numberControl.append(pageInput);control.append(numberControl);
+ const go=el('button','spread-go',lang==='ar'?'اعرض الصفحة':'Show page');go.type='button';control.append(go);
+ picker.append(control);
+ const message=el('p','spread-message');message.setAttribute('role','status');message.setAttribute('aria-live','polite');picker.append(message);
+ const letters=el('div','spread-letter-tiles');
+ letters.setAttribute('aria-label',lang==='ar'?'اختيار سريع للحروف':'Quick letter selection');
+ const tiles=new Map();
+ for(const item of alphabet){
+  const b=el('button','spread-letter-button');
+  b.type='button';b.dataset.letter=item.id;
+  b.append(el('strong',null,item.letter),el('small',null,printedPages(item.pages).join('–')));
+  b.setAttribute('aria-label',(lang==='ar'?'حرف ':'Letter ')+item.letter+' — '+(lang==='ar'?'صفحتا ':'Pages ')+printedPages(item.pages).join(' و '));
+  letters.append(b);tiles.set(item.id,b);
+ }
+ picker.append(letters);root.append(picker);
+ const display=el('section','spread-result');display.id='selected-book-spread';root.append(display);
+ const initialHash=()=>decodeURIComponent(location.hash.replace(/^#/,'')).toLowerCase();
+ function showSpread(id,changeHash=true){
+  const item=alphabet.find(a=>a.id===id);if(!item)return;
+  const pages=printedPages(item.pages);
+  letterSelect.value=item.id;
+  pageInput.value=String(pages[0]);
+  message.textContent='';
+  for(const [key,b] of tiles)b.setAttribute('aria-pressed',String(key===id));
+  display.replaceChildren();
+  const heading=el('h2','spread-title',(lang==='ar'?'حرف ':'Letter ')+item.letter+' — '+(lang==='ar'?'الصفحتان ':'Pages ')+pages.join('–'));
+  heading.id='spread-heading';display.append(heading);
+  const info=el('p','spread-intro',lang==='ar'?'الكلمات الموجودة في الصفحتين '+pages.join(' و ')+':':'Vocabulary shared by pages '+pages.join(' & ')+':');
+  display.append(info);
   const grid=el('div','word-grid library-grid');
-  ALL_WORDS.slice(start,end).forEach((word,index)=>{
-   const lesson=alphabet.find(a=>a.words.includes(word));
-   if(lesson)grid.append(renderWordCard(word,lesson.id,start+index))
-  });
-  section.append(grid);root.append(section)
+  item.words.forEach((word,i)=>grid.append(renderWordCard(word,item.id,i)));
+  display.append(grid);
+  const lesson=link(urlLetter(item),lang==='ar'?'افتح درس حرف '+item.letter+' كاملًا':'Open the complete '+item.letter+' lesson','spread-lesson-link');
+  display.append(lesson);
+  if(changeHash)history.replaceState(null,'','#letter-'+item.id);
  }
+ letterSelect.addEventListener('change',()=>showSpread(letterSelect.value));
+ for(const item of alphabet)tiles.get(item.id).addEventListener('click',()=>showSpread(item.id));
+ function selectByPage(){
+  const n=Number(pageInput.value);
+  const item=alphabet.find(a=>printedPages(a.pages).includes(n));
+  if(!Number.isInteger(n)||!item){
+   message.textContent=lang==='ar'?'اختار رقم صفحة من 1 إلى 52.':'Enter a page number from 1 to 52.';
+   return;
+  }
+  showSpread(item.id);
+ }
+ go.addEventListener('click',selectByPage);
+ pageInput.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();selectByPage()}});
+ window.addEventListener('hashchange',()=>{
+  const match=/^letter-([a-z])$/.exec(initialHash());
+  if(match)showSpread(match[1],false);
+ });
+ const match=/^letter-([a-z])$/.exec(initialHash());
+ const pageQuery=new URLSearchParams(location.search).get('page');
+ const byPage=alphabet.find(a=>printedPages(a.pages).includes(Number(pageQuery)));
+ showSpread(match?.[1]||byPage?.id||'a',false);
 }
 
 function wordVisual(w){

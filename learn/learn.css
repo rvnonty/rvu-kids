@@ -298,3 +298,19 @@ html[lang="ar"] .sitebar nav,html[lang="en"] .sitebar nav{line-height:1.65}
 .word-jump-link:hover,.word-jump-link:focus-visible{background:#daf0dd;outline-offset:3px}
 .word-section{margin-block:18px 38px;scroll-margin-top:22px}
 .word-section h2{margin-block:20px 10px}
+
+/* Printed-book page pairs: one group for the two facing pages, not 1–60/61–101. */
+.spread-picker{margin:20px 0 24px;padding:17px;background:#f1f8f3;border:1px solid #d5e7d9;border-radius:22px}
+.spread-controls{display:flex;flex-wrap:wrap;gap:12px;align-items:end}
+.spread-field{display:flex;flex-direction:column;gap:7px;min-width:175px;flex:1;color:#244e3d;font-weight:800}
+.spread-select,.spread-page-number{font:inherit;font-weight:700;min-height:48px;padding:10px 12px;border:1px solid #b8d2c4;border-radius:12px;background:white;color:#183e32;width:100%}
+.spread-go{min-height:48px;border:none;background:#184b3a;color:#fff;padding:10px 18px;border-radius:13px;font:inherit;font-weight:800;cursor:pointer}
+.spread-letter-tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(58px,1fr));gap:8px;margin-top:17px}
+.spread-letter-button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;background:#fff;border:1px solid #d8e4d9;border-radius:13px;min-height:61px;color:#1e5040;cursor:pointer}
+.spread-letter-button strong{font-size:1.15rem;line-height:1.1}.spread-letter-button small{font-size:.73rem;font-weight:650}
+.spread-letter-button[aria-pressed=true]{background:#194f3f;border-color:#194f3f;color:#fff}
+.spread-message{min-height:1.4em;color:#a44236;margin:8px 0 0}.spread-result{padding:12px 0 22px}
+.spread-title{font-size:clamp(1.5rem,4vw,2.3rem);color:#183e32;margin:6px 0}
+.spread-intro{color:#4a6d5e;margin:6px 0 12px}.spread-lesson-link{display:inline-block;padding:10px 16px;border-radius:999px;background:#e2efe5;color:#174734;font-weight:750;text-decoration:none;margin-top:16px}
+.spread-go:focus-visible,.spread-select:focus-visible,.spread-page-number:focus-visible,.spread-letter-button:focus-visible{outline:3px solid #da8155;outline-offset:3px}
+@media(max-width:500px){.spread-picker{padding:11px}.spread-letter-tiles{grid-template-columns:repeat(6,minmax(0,1fr));gap:5px}.spread-letter-button{min-height:52px}.spread-controls{gap:10px}.spread-go{width:100%}}

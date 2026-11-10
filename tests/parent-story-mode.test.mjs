@@ -10,27 +10,23 @@ runInNewContext(from('learn/content.js'),{window:curriculumWindow});
 const curriculum=curriculumWindow.RVU_CURRICULUM;
 const audioRows=from('learn/learn.js');
 const home=from('index.html'),parents=from('parents/index.html');
-const settings=from('parents/settings.js');
 const journey=from('learn/story-journey.mjs');
 const game=from('learn/activities.mjs');
 const css=from('learn/story-journey.css');
 
-test('first screen offers accessible distinct parent and child routes',()=>{
- assert.match(home,/class="hero-routes"/);
- assert.match(home,/href="\/parents\/#parent-guide"/);
- assert.match(home,/href="\/learn\/" class="hero-route hero-route-kids"/);
+test('first screen focuses on the printed book and one WhatsApp order form',()=>{
+ assert.match(home,/class="hero-actions purchase-actions"/);
+ assert.match(home,/href="#order"/);
+ assert.match(home,/data-i18n="heroDelivery"/);
+ assert.match(home,/id="submit-order"/);
+ assert.doesNotMatch(home,/class="hero-routes"|hero-route-parents|href="\/parents\//);
+ assert.doesNotMatch(home,/https:\/\/wa\.me\//);
 });
-
-test('public parents guide keeps voice controls and commerce but no child tracking',()=>{
- assert.match(parents,/id="parent-guide"/);
- for(const key of ['parent-playback-speed','parent-reduce-motion','parent-buying','parent-offline-save']){
-  assert.ok(parents.includes('id="'+key+'"'), 'Parent control missing: '+key);
- }
- assert.doesNotMatch(parents,/parent-letter-visited|parent-unit-completed|parent-reset-progress|parent-sticker-album/);
- assert.match(parents,/href="\/\#order"/);
- assert.match(settings,/rvu-playback-speed/);
- assert.match(settings,/rvu-motion-off/);
- assert.doesNotMatch(settings,/saveProgress|lastVisited|completedLessons/);
+test('old parent settings guide redirects to the single book order page',()=>{
+ assert.match(parents,/name="robots" content="noindex,follow"/);
+ assert.match(parents,/content="0;url=\/#order"/);
+ assert.doesNotMatch(parents,/parent-guide|parent-settings|parent-offline-save/);
+ assert.doesNotMatch(home,/href="\/parents\//);
 });
 
 test('four book-based Everyday English journeys have three approved scenes each',()=>{
@@ -70,7 +66,8 @@ test('learning area no longer displays direct purchasing calls to action',()=>{
  const hub=from('learn/index.html');
  assert.doesNotMatch(hub,/href="\/#order"/);
  assert.doesNotMatch(hub,/<section class="cta">/);
- assert.match(hub,/href="\/parents\/#parent-guide"/);
+ assert.doesNotMatch(hub,/href="\/parents\//);
  const learning=from('learn/learn.js');
  assert.match(learning,/document\.querySelectorAll\('\.cta'\)/);
+ assert.doesNotMatch(learning,/parent-nav-link/);
 });

@@ -4,7 +4,7 @@
 
 On desktop and mobile, the first screen gives two equally clear routes:
 
-\`\`\`text
+```text
 ┌────────────────────────────────────────────────┐
 │ RVU KIDS                            Language   │
 │                                                │
@@ -19,7 +19,7 @@ On desktop and mobile, the first screen gives two equally clear routes:
 │ └─────────────────┘ └─────────────────┘       │
 │                                    Book cover  │
 └────────────────────────────────────────────────┘
-\`\`\`
+```
 
 The complete ordering form remains on the storefront. No purchase button or
 price is shown in the children's main lesson flow. Parent entry is clearly

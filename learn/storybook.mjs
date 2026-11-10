@@ -47,7 +47,7 @@
   if(!root||root.classList.contains('storybook-map'))return;
   const stats=progressStats('alphabet'),letters=types.alphabet;
   root.classList.add('storybook-map');
-  root.setAttribute('role','list');
+  root.setAttribute('role','group');
   root.setAttribute('aria-label',text('خريطة مغامرة الحروف من A إلى Z','Alphabet adventure map from A to Z'));
   const intro=node('div','storybook-map-intro');
   const copy=node('div','storybook-map-copy');
@@ -79,7 +79,6 @@
    const station=node('a','storybook-station');
    station.href=href('alphabet',lesson.id);
    station.dataset.status=completed?'completed':visited?'visited':'new';
-   station.setAttribute('role','listitem');
    station.style.setProperty('--station-accent',['#f5dfae','#dff2e7','#f5cfbf','#d9edf6'][index%4]);
    const indexLabel=node('span','storybook-station-index',String(index+1).padStart(2,'0'));
    const letter=node('strong','storybook-station-letter',lesson.letter);
@@ -143,6 +142,9 @@
     const audio=card.querySelector('.voice-picker');
     const component=makeGuide('explain');
     if(audio)audio.after(component);else card.prepend(component);
+   }else{
+    const hero=document.querySelector('.hero');
+    if(hero)hero.append(makeGuide('welcome'));
    }
   }else if(page==='words'){
    const card=document.getElementById('word-library');

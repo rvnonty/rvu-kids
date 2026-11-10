@@ -145,7 +145,7 @@ function voicePicker(){
 }
 function playButton(type,lesson,value){
  const id=voiceRows.get(type+'|'+lesson+'|'+value);if(id===undefined)return null;
- const b=el('button','audio-play',lang==='ar'?'🔊 اسمع':'🔊 Listen');b.type='button';
+ const b=el('button','audio-play',lang==='ar'?'اسمع':'Listen');b.type='button';
  b.setAttribute('aria-label',(lang==='ar'?'استمع إلى ':'Listen to ')+value);
  const blocked=type==='word'&&REPORTED_WRONG_WORD_AUDIO.has(value);
  if(blocked){
@@ -277,7 +277,7 @@ function wordVisual(w){
  if(illustratedWords.has(w)){
   const image=el('img','word-image');image.src='/assets/words/'+w.replaceAll(' ','-')+'.svg';
   image.alt=w;image.loading='lazy';image.decoding='async';image.width=192;image.height=192;box.append(image);
- }else{box.append(el('span','word-icon',icons[w]||w[0].toUpperCase()))}
+ }else{box.append(el('span','word-icon',w[0].toUpperCase()))}
  return box;
 }
 function createCast(compact=false){
@@ -323,7 +323,7 @@ function lessonTemplate(type,d,idx){
    const jump=link('/learn/words/#letter-'+d.id,
      lang==='ar'?'شوف كلمات الصفحتين '+pages.join('–')+' بالصور':'See pictures for pages '+pages.join('–'),
      'spread-lesson-link lesson-words-link');
-   const jumpIcon=el('span','lesson-words-icon','📖');jumpIcon.setAttribute('aria-hidden','true');
+   const jumpIcon=el('span','lesson-words-icon','Aa');jumpIcon.setAttribute('aria-hidden','true');
    jump.prepend(jumpIcon);
    shell.append(jump);
   }
@@ -429,3 +429,4 @@ function enableStoryMotion(){
  for(const target of targets){target.classList.add('story-reveal');observer.observe(target)}
 }
 enableStoryMotion();
+import('/learn/storybook.mjs').catch(error=>{console.warn('Storybook enhancements unavailable',error)});

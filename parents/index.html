@@ -12,6 +12,7 @@
 <script src="/learn/content.js" defer></script>
 <script src="/parents/guide.js" defer></script>
 <script src="/parents/dashboard.js" defer></script>
+<script src="/parents/offline.js" defer></script>
 </head>
 <body>
 <a class="skip" href="#main" data-guide="skip">انتقل للمحتوى</a>
@@ -58,7 +59,16 @@
    <label class="parent-setting-toggle"><input type="checkbox" id="parent-reduce-motion"><span data-parent="motion">قلّل الحركة والمؤثرات البصرية</span></label>
    <label class="parent-setting-toggle"><input type="checkbox" id="parent-sticker-album"><span data-parent="album">تشغيل ألبوم النجوم الاختياري</span></label>
   </div>
-  <div class="parent-settings-actions"><button type="button" id="parent-reset-progress" data-parent="reset">ابدأ التقدّم من جديد</button><p role="status" aria-live="polite" id="parent-settings-feedback"></p></div>
+  <div class="parent-offline" id="parent-offline">
+  <div><h4>دروس يمكن حفظها بدون إنترنت</h4>
+   <p>اختياري للأهل: احفظ درسَي A وB فقط، مع صور الكلمات والتسجيلات المرتبطة بهما. لن يتم تحميل الكتاب كاملًا.</p></div>
+  <div class="parent-offline-actions">
+   <button type="button" id="parent-offline-save">حفظ الدرسين على الجهاز</button>
+   <button type="button" id="parent-offline-clear">حذف النسخة المحفوظة</button>
+  </div>
+  <p role="status" aria-live="polite" id="parent-offline-status">يتطلب التحميل الأول اتصالًا بالإنترنت ومساحة تخزين متاحة.</p>
+ </div>
+ <div class="parent-settings-actions"><button type="button" id="parent-reset-progress" data-parent="reset">ابدأ التقدّم من جديد</button><p role="status" aria-live="polite" id="parent-settings-feedback"></p></div>
  </div>
 </section>
 <section class="guide-ages" id="ages" aria-labelledby="ages-title">

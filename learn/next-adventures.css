@@ -515,3 +515,16 @@ body[data-page="alphabet-index"] .storybook-guide{
  .rvu-garden-lesson[data-learning-group="sentences"] .lesson-title{padding:10px 12px;font-size:clamp(1.6rem,7vw,2.4rem)}
  .rvu-garden-lesson[data-learning-group="alphabet"] .lesson-title{padding:8px 12px}
 }
+
+
+/* Keep long albums and low-power devices smooth: animate only focused rewards. */
+.rvu-sticker-card.earned .rvu-sticker-star{animation:none}
+.rvu-sticker-card.earned:is(:hover,:focus-visible) .rvu-sticker-star{
+ animation:rvu-star-glow 1.7s ease-in-out 1
+}
+@media(hover:none){
+ .rvu-sticker-card.earned .rvu-sticker-star{animation:none}
+}
+@media(prefers-reduced-motion:reduce){
+ .rvu-sticker-card.earned:is(:hover,:focus-visible) .rvu-sticker-star{animation:none}
+}

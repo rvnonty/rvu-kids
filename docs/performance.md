@@ -36,5 +36,5 @@ tests without inventing a score.
 
 Only lessons A and B can optionally be saved by a parent, not the whole book.
 The pack includes necessary pages, scripts, matching word illustrations and
-the currently approved prerecorded audio. Fish and Fork are excluded.
+the existing prerecorded audio (independent phonetic review still pending). Fish and Fork are excluded.
 Test real-device offline behavior before treating it as verified.

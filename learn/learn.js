@@ -55,6 +55,7 @@ function hub(){
 
 const illustratedWords=new Set(ALL_WORDS);
 const voiceRows=new Map(AUDIO_ROWS.map(r=>[r[0]+'|'+r[1]+'|'+r[2],r.slice(3)]));
+const REPORTED_WRONG_WORD_AUDIO=new Set(['fish','fork']); // protect children until reviewed
 let preferredVoice=localStorage.getItem('rvu-voice')==='male'?'male':'female';
 let currentAudio=null;
 function voicePicker(){
@@ -75,6 +76,11 @@ function playButton(type,lesson,value){
  b.setAttribute('aria-label',(lang==='ar'?'استمع إلى ':'Listen to ')+value);
  b.addEventListener('click',()=>{
    if(currentAudio){currentAudio.pause();currentAudio=null}
+   if(type==='word'&&REPORTED_WRONG_WORD_AUDIO.has(value)){
+     b.textContent=lang==='ar'?'النطق قيد التصحيح':'Pronunciation being corrected';
+     b.setAttribute('aria-label',b.textContent+' — '+value);
+     return;
+   }
    const url=urls[preferredVoice==='male'?1:0];
    const player=new Audio(url);player.preload='none';currentAudio=player;b.classList.add('audio-playing');
    const restore=()=>b.classList.remove('audio-playing');

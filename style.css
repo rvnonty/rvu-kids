@@ -640,3 +640,22 @@ body{background:#fbf7ee}
  .explore-card,.hero-actions .button,.button,.why-grid article,.explore-card .explore-icon{transition:none!important}
  .explore-card:hover,.why-grid article:hover,.explore-card:hover .explore-icon{transform:none}
 }
+
+
+/* Two clear journeys: a calm adults' area and a playful children's area. */
+.hero-routes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:26px;max-width:690px}
+.hero-route{display:flex;gap:13px;align-items:center;min-width:0;min-height:145px;padding:16px 17px;border:2px solid #b8d7c4;border-radius:25px;background:#fffdf8;color:#174c39;box-shadow:0 7px 18px #184c3a0e;transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
+.hero-route:hover{transform:translateY(-4px);box-shadow:0 13px 24px #184c3a1c;border-color:#5eaa81}
+.hero-route:focus-visible{outline:3px solid #ce9540;outline-offset:4px}
+.hero-route-kids{background:linear-gradient(150deg,#f0f8f1,#f9f1d7);border-color:#9bcfb2}
+.hero-route-parents{background:linear-gradient(150deg,#fffdf8,#f5ede0);border-color:#ddcfb5}
+.hero-route-art{flex:0 0 64px;display:grid;place-items:center;min-width:0}
+.hero-route-art .character-portrait{display:block;width:64px;height:64px;box-shadow:0 4px 10px #184c3a17;border-radius:18px}
+.route-paper{display:grid;place-items:center;width:64px;height:64px;border-radius:17px;background:#f7dfb6;color:#184c3a;border:2px solid #dbbe91;font:900 1.5rem "DM Sans",sans-serif;box-shadow:4px 5px 0 #184c3a15}
+.hero-route-copy{display:flex;flex-direction:column;align-items:flex-start;gap:5px;min-width:0}
+.hero-route-copy strong{font-size:clamp(1.15rem,2vw,1.42rem);line-height:1.3}
+.hero-route-copy>span{font-size:.85rem;line-height:1.7;color:#546b5e}
+.hero-route-copy em{font-style:normal;font-size:.83rem;font-weight:850;color:#206247;line-height:1.4;border-bottom:1px solid currentColor}
+@media(max-width:960px){.hero-routes{grid-template-columns:1fr;max-width:520px}.hero-route{min-height:110px}}
+@media(max-width:560px){.hero-routes{gap:10px;margin-top:19px}.hero-route{padding:12px 13px;min-height:105px;border-radius:19px}.hero-route-art{flex-basis:54px}.hero-route-art .character-portrait,.route-paper{width:54px;height:54px;border-radius:15px}.hero-route-copy strong{font-size:1.14rem}}
+@media(prefers-reduced-motion:reduce){.hero-route{transition:none}.hero-route:hover{transform:none}}

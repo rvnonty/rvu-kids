@@ -50,9 +50,17 @@ try{
  await page.goto(base+'/learn/alphabet/a/',{waitUntil:'domcontentloaded'});
  await page.locator('.rvu-game-tab').first().waitFor();
  if(await page.locator('.rvu-game-tab').count()!==4)throw Error('A lesson needs 4 game types');
+ const cards=page.locator('.word-card');
+ if(await cards.count()!==4)throw Error('Alphabet A must show four picture word cards');
+ const opacity=await cards.first().evaluate(node=>getComputedStyle(node).opacity);
+ if(opacity!=='1')throw Error('Lesson vocabulary became invisible outside the viewport: '+opacity);
  await page.locator('.rvu-game-panel:not([hidden]) .rvu-choice').filter({hasText:'apple'}).click();
  await page.locator('.rvu-game-panel:not([hidden]) .rvu-feedback[data-result="correct"]').waitFor();
  await page.screenshot({path:'artifacts/alphabet-a-mobile.png',fullPage:true});
+ await page.emulateMedia({reducedMotion:'reduce'});
+ const prefers=await page.locator('.rvu-deco-item').first().evaluate(node=>getComputedStyle(node).animationName);
+ if(prefers!=='none')throw Error('Reduced-motion did not disable decorative animation: '+prefers);
+ await page.emulateMedia({reducedMotion:'no-preference'});
  // All 41 exact curriculum lessons must initialize their extra exercises.
  const source=await readFile('learn/content.js','utf8');
  const obj=JSON.parse(source.match(/window.RVU_CURRICULUM=(\{[\s\S]*\});/)[1]);

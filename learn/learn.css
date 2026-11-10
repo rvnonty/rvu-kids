@@ -690,3 +690,10 @@ html.rvu-motion-off *,html.rvu-motion-off *::before,html.rvu-motion-off *::after
 @keyframes rvu-guide-gentle{0%,100%{transform:rotate(0)}50%{transform:rotate(-4deg)}}
 @media(prefers-reduced-motion:reduce){.storybook-guide .storybook-guide-face.guide-moment{animation:none!important}}
 html.rvu-motion-off .storybook-guide .storybook-guide-face.guide-moment{animation:none!important}
+
+
+/* Explicit opt-out wins over mood-specific one-shot animation declarations. */
+@media(prefers-reduced-motion:reduce){
+ .storybook-guide[data-mood] .storybook-guide-face.guide-moment{animation:none!important}
+}
+html.rvu-motion-off .storybook-guide[data-mood] .storybook-guide-face.guide-moment{animation:none!important}

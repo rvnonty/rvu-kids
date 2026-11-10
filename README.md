@@ -3,7 +3,7 @@ A bilingual English-learning storefront and static learning site for the Rvu Alp
 
 ## Published learning assets
 - 26 alphabet lessons, 101 curriculum words, 15 Everyday English units and 64 daily sentences.
-- All **101** curriculum vocabulary entries have individual compact SVG emoji-style illustration thumbnails (the latest 41 cover P–Z), with accessible labels and touch enlarge.
+- All **101** curriculum vocabulary entries have compact SVG thumbnails, touch-to-enlarge, and are organized by the printed book's **facing page pairs**. Letter A is pages **1–2**, B **3–4**, through Z **51–52**. Selecting either page number opens that letter's words.
 - 244 lesson clips in **two** American English synthetic voices: 488 MP3 files.
 - The site owner approved publishing these clips. They are AI-generated neural voices, **not real human actor recordings**.
 - Audio streams are requested only when Listen is clicked; images have lazy-loading, and transitions respect reduced-motion preferences.
@@ -16,3 +16,7 @@ For traffic spikes, deploy the static build through Cloudflare Workers Static As
 
 ## Cache and media
 The `_headers` file is a configuration template for hosts that support it. Static media: seven-day edge cache, version before longer immutable caching; HTML: shorter TTL. SVG and MP3 are served as independent static assets. Avoid preloading all audio.
+
+## American-English pronunciation QA
+
+The existing 244 x 2 public recordings were synthesized using neural TTS, not recorded by human actors. Reports of `fish` sounding like `vish` and unnecessary trailing vowels mean they are **not guaranteed accurate or human-natural**. The `pronunciation-audit.yml` workflow uses independent speech recognition to screen the 101 word tracks in both voices and produces candidate F-word phonetic replacements as downloadable review files. ASR success alone is NOT sufficient to approve a take; human review is required before replacing any production audio. Genuine human speech needs licensed recordings by American-English voice actors.

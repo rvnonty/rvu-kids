@@ -58,3 +58,31 @@ The homepage links to the A–Z Storybook World.
 Run npm run build && npm test before deployment. Regression tests for
 storybook controls live in tests/storybook-adventure.test.mjs.
 Live-browser mobile, audio, and caching checks remain necessary on host.
+
+## Living Book Garden styling (November 2026)
+
+- Each of the **26 alphabet lessons** has its own carefully selected garden
+  palette, with scenery matched to the vocabulary theme (orchard, pond, sky,
+  woodland, moonlight, ocean, etc.). These are **illustration-inspired themes**,
+  not exact color samples from a revised print-ready book.
+- Everyday English lessons share the same storybook world, but use coordinated
+  speech-bubble headings and themed scene details to distinguish them from
+  letter lessons.
+- Vocabulary appears on a paper-like living landscape with illustrated
+  objects, flowers, soft shadows, movement on tap/hover, swaying foliage,
+  drifting clouds, water ripples and a subtly animated character. Motion is
+  paused when scenery is offscreen, where IntersectionObserver is supported,
+  and reduced-motion preferences are respected.
+- Mobile styling avoids heavy blur and continuous animations in the sticker
+  album. Animations use mostly transforms and opacity.
+- **Full book spreads or full PDF are never published.** The preview retains
+  exactly five individually selected images: cover, letter A, A practice,
+  feelings, and letter M. Full-page images formerly embedded in lessons
+  were removed; interactive vocabulary SVGs remain.
+- **Important:** Those five preview image files have **not** been replaced
+  because a verified copy of the newly revised book was not available to this
+  change. Update only those exact five existing preview assets after receiving
+  the final source and confirming page selection, without publishing any
+  additional book pages.
+
+Regression checks: tests/garden-identity.test.mjs, with npm test.

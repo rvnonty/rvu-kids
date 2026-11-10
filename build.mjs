@@ -1,4 +1,4 @@
-import {mkdir,copyFile,cp,rm} from 'node:fs/promises';
+import {mkdir,copyFile,cp,rm,readFile,writeFile,readdir} from 'node:fs/promises';
 
 await rm('dist',{recursive:true,force:true});
 await mkdir('dist',{recursive:true});
@@ -9,4 +9,19 @@ for(const file of ['index.html','404.html','style.css','app.js','favicon.svg','r
 for(const dir of ['assets','learn','preview','books','parents'])
   await cp(dir,`dist/${dir}`,{recursive:true});
 
-console.log('Built RVU Kids storefront, lessons, and Owner-approved dual-voice audio is linked in child-facing lessons.');
+const fontHints='<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>';
+async function optimizeHtml(dir){
+ for(const entry of await readdir(dir,{withFileTypes:true})){
+  const file=dir+'/'+entry.name;
+  if(entry.isDirectory()){await optimizeHtml(file);continue}
+  if(!entry.isFile()||!entry.name.endsWith('.html'))continue;
+  const original=await readFile(file,'utf8');
+  let output=original.replace(/<!--[\s\S]*?-->/g,'');
+  if(output.includes('<link rel="stylesheet"')&&!output.includes('rel="preconnect"')){
+   output=output.replace(/<head(?:\s[^>]*)?>/i,opening=>opening+'\n'+fontHints);
+  }
+  if(output!==original)await writeFile(file,output);
+ }
+}
+await optimizeHtml('dist');
+console.log('Built RVU Kids static pages and optimized font connections.');

@@ -83,7 +83,7 @@ if candidate_manifest.exists():
             row["candidate_phonemes"] = target["phonemes"]
 
 with (OUT / "pronunciation-report.csv").open("w", encoding="utf-8-sig", newline="") as f:
-    writer = csv.DictWriter(f, fieldnames=list(rows[0]))
+    writer = csv.DictWriter(f, fieldnames=list(dict.fromkeys(k for row in rows for k in row)))
     writer.writeheader()
     writer.writerows(rows)
 from collections import Counter

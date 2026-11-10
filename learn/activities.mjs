@@ -12,13 +12,19 @@ function celebrate(panel){
  panel.classList.remove('rvu-success-pop');
  void panel.offsetWidth;
  panel.classList.add('rvu-success-pop');
- if(window.matchMedia?.('(prefers-reduced-motion: reduce)').matches)return;
+ if(window.matchMedia?.('(prefers-reduced-motion: reduce)').matches||
+ document.documentElement.classList.contains('rvu-motion-off'))return;
  const last=panel.querySelector('.rvu-burst');if(last)last.remove();
  const burst=el('div','rvu-burst');burst.setAttribute('aria-hidden','true');
+ const kind=panel.dataset.gameKind||'other';
  const colors=['#f7d76a','#b8e2c5','#f6c7b8','#cfe8f9','#e0d0ee'];
  Array.from({length:10},(_,i)=>i).forEach(i=>{
+  const partType=kind==='spell'?'letters':kind==='listen'?'notes':'star';
   const piece=el('span','rvu-burst-piece');
-  piece.style.backgroundColor=colors[i%colors.length];
+  piece.dataset.effect=partType;
+  if(partType==='letters')piece.textContent=['A','B','C','★'][i%4];
+  else if(partType==='notes')piece.textContent=['♪','☆','♫','★'][i%4];
+  piece.style.backgroundColor=partType==='star'?colors[i%colors.length]:'transparent';
   piece.style.setProperty('--ray',i*36+'deg');
   piece.style.setProperty('--distance',(70+(i%4)*17)+'px');
   piece.style.setProperty('--turn',(i%2?65:-65)+'deg');
@@ -45,7 +51,7 @@ function feedback(panel,lang,ok){
   say(lang,'قربت! جرب مرة تانية.','Almost there! Try again.');
  setMascot(panel,lang,ok?'correct':'retry');
  if(ok)celebrate(panel);
- document.dispatchEvent(new CustomEvent('rvu:activity-feedback',{detail:{ok}}));
+ document.dispatchEvent(new CustomEvent('rvu:activity-feedback',{detail:{ok,kind:panel.dataset.gameKind||'other'}}));
 }
 function panel(title,subtitle,icon,lang){
  const section=el('section','rvu-game-panel');

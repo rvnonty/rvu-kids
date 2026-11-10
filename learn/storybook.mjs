@@ -97,6 +97,35 @@
    station.append(indexLabel,letter,visual,name,caption);
    root.append(station);
   });
+  drawMapRoute(root);
+ }
+ function drawMapRoute(root){
+  if(typeof window.requestAnimationFrame!=='function'||typeof document.createElementNS!=='function')return;
+  const namespace='http://www.w3.org/2000/svg';
+  const route=document.createElementNS(namespace,'svg');
+  route.setAttribute('class','storybook-route-line');
+  route.setAttribute('aria-hidden','true');
+  const line=document.createElementNS(namespace,'path');
+  route.append(line);
+  root.prepend(route);
+  const draw=()=>{
+   const stations=[...root.querySelectorAll('.storybook-station')];
+   if(!root.clientWidth||!root.clientHeight||stations.length<2)return;
+   route.setAttribute('viewBox','0 0 '+root.clientWidth+' '+root.clientHeight);
+   const coordinates=stations.map(station=>[
+    station.offsetLeft+station.offsetWidth/2,
+    station.offsetTop+station.offsetHeight/2
+   ]);
+   const path=coordinates.map((pair,i)=>(i===0?'M':'L')+pair[0]+' '+pair[1]).join(' ');
+   line.setAttribute('d',path);
+  };
+  window.requestAnimationFrame(draw);
+  if(typeof window.ResizeObserver==='function'){
+   const observer=new window.ResizeObserver(draw);
+   observer.observe(root);
+  }else{
+   window.addEventListener('resize',()=>window.requestAnimationFrame(draw),{passive:true});
+  }
  }
  const messages={
   welcome:[text('أهلًا بيك في عالم الحروف! اختار أول محطة ونبدأ الحكاية.','Welcome to the alphabet world! Choose your first stop.'),'boy'],

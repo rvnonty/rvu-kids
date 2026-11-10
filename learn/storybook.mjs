@@ -45,7 +45,8 @@
  }
  function renderAlphabetMap(){
   const root=document.getElementById('letter-grid');
-  if(!root||root.classList.contains('storybook-map'))return;
+  if(!root||root.dataset.storybookReady==='true')return;
+  root.dataset.storybookReady='true';
   const stats=progressStats('alphabet'),letters=types.alphabet;
   root.classList.add('storybook-map');
   root.setAttribute('role','group');
@@ -73,7 +74,9 @@
   resume.href=href('alphabet',(pending||letters[0]).id);
   progress.append(node('span','storybook-progress-label',text('محطات خلصتها','Stations completed')),count,meter,resume);
   intro.append(copy,progress);
-  root.before(intro);
+  const previous=root.previousElementSibling;
+  if(previous?.classList?.contains('storybook-map-intro'))previous.replaceChildren(...intro.children);
+  else root.before(intro);
   root.replaceChildren();
   letters.forEach((lesson,index)=>{
    const visited=stats.visited.has(lesson.id),completed=stats.completed.has(lesson.id);
@@ -90,7 +93,7 @@
    const image=node('img','storybook-station-image');
    image.src='/assets/words/'+word.replaceAll(' ','-')+'.svg';
    image.alt='';
-   image.width=112;image.height=112;image.loading='lazy';image.decoding='async';
+   image.width=112;image.height=112;image.loading=index<6?'eager':'lazy';image.decoding='async';
    image.addEventListener('error',()=>{visual.replaceChildren(node('span','storybook-picture-fallback',lesson.letter.toLowerCase()))},{once:true});
    visual.append(image);
    const name=node('span','storybook-station-word',word);

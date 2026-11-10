@@ -1,5 +1,5 @@
 /* Parent-opted beginner offline pack. Deliberately does not cache the book PDF
-   or any unreviewed Fish/Fork clips. Change version when approved audio changes. */
+   or the two specifically flagged Fish/Fork clips. Change version when approved audio changes. */
 const CACHE='rvu-learning-a-b-v1';
 const PREVIOUS_PREFIX='rvu-learning-a-b-';
 const WORDS=['apple','ant','airplane','alligator','ball','bear','banana','boat'];

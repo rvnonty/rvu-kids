@@ -190,7 +190,7 @@ test('main storefront sections have descriptive metadata and exact canonical URL
 test('bilingual parent guide ships in build and links from storefront and hub',()=>{
  const page=read('parents/index.html'),css=read('parents/guide.css'),js=read('parents/guide.js');
  assert.ok(read('index.html').includes('href="/parents/"'));
- assert.ok(read('learn/index.html').includes('href="/parents/#parent-dashboard"'));
+ assert.ok(read('learn/index.html').includes('href="/parents/#parent-guide"'));
  assert.ok(page.includes('3–4')&&page.includes('5–6'));
  assert.ok(page.includes('I see an apple.'));
  assert.ok(page.includes('قيد التجهيز'));

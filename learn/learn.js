@@ -201,6 +201,7 @@ function playButton(type,lesson,value){
  b.addEventListener('focus',prepare);
  b.addEventListener('click',()=>{
   stopAudio();
+  b.textContent=lang==='ar'?'اسمع':'Listen';
   const player=audioFor(audioUrl(id,preferredVoice));
   currentAudio=player;activeButton=b;
   player.currentTime=0;

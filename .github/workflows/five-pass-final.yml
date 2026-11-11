@@ -2,8 +2,6 @@ name: Five-pass final production regression
 on:
   push:
     branches: [main]
-    paths:
-      - .github/workflows/five-pass-final.yml
   workflow_dispatch:
 
 permissions:

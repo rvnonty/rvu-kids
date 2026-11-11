@@ -79,6 +79,19 @@ try{
     const text=await page.locator('body').innerText();
     if(text.includes('المعاينة لصفحات مختارة')||text.includes('درجة الألوان في الطباعة')||
        text.includes('Printed colors may look different'))throw Error('Removed preview disclaimer still visible');
+    const footer=page.locator('footer.footer');
+    const credit=await footer.locator('.footer-credit').innerText();
+    if(!credit.includes('By:')||!credit.includes('Ramez Medhat')||!credit.includes('❤️'))
+      throw Error(viewport.name+' missing footer creator credit: '+credit);
+    const columns=await footer.locator('.footer-top').evaluate(el=>getComputedStyle(el).gridTemplateColumns.trim().split(/\\s+/).length);
+    if(viewport.width>820&&columns!==3)throw Error('Footer should use 3 desktop columns');
+    if(viewport.width<=820&&columns!==1)throw Error('Footer should stack on phone/tablet');
+    await footer.locator('#footer-privacy').click();
+    await page.locator('#privacy-dialog[open]').waitFor({timeout:5000});
+    await page.locator('#privacy-dialog').evaluate(dialog=>dialog.close());
+    if(viewport.name!=='tablet'){
+      await footer.screenshot({path:'artifacts/site-design/'+viewport.name+'-footer.png',animations:'disabled'});
+    }
    }
    if(path==='/preview/'&&viewport.name==='phone'){
     if(await page.locator('.preview-five figure').count()!==5)throw Error('Expected five preview pages');

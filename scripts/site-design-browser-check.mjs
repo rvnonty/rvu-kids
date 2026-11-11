@@ -84,11 +84,31 @@ try{
     if(!credit.includes('By:')||!credit.includes('Ramez Medhat')||!credit.includes('❤️'))
       throw Error(viewport.name+' missing footer creator credit: '+credit);
     const columns=await footer.locator('.footer-top').evaluate(el=>getComputedStyle(el).gridTemplateColumns.trim().split(/\s+/).length);
-    if(viewport.width>820&&columns!==3)throw Error('Footer should use 3 desktop columns');
-    if(viewport.width<=820&&columns!==1)throw Error('Footer should stack on phone/tablet');
-    await footer.locator('#footer-privacy').click();
-    await page.locator('#privacy-dialog[open]').waitFor({timeout:5000});
-    await page.locator('#privacy-dialog').evaluate(dialog=>dialog.close());
+    if(columns!==2)throw Error(viewport.name+' footer must have two columns for left credit and right logo');
+    if(await footer.locator('#footer-privacy, #privacy-dialog').count())throw Error('Removed privacy UI is still present');
+    const geometry=await footer.evaluate(el=>{
+     const box=selector=>{
+      const r=el.querySelector(selector).getBoundingClientRect();
+      return {left:r.left,right:r.right,top:r.top,bottom:r.bottom,centerX:(r.left+r.right)/2};
+     };
+     const brand=el.querySelector('.footer-identity .brand');
+     return {
+      top:box('.footer-top'),credit:box('.footer-credit'),brand:box('.footer-identity .brand'),
+      tagline:box('.footer-tagline'),copyright:box('.footer-bottom > span:first-child'),
+      location:box('.footer-bottom > span[data-i18n="footerPlace"]'),
+      background:getComputedStyle(brand).backgroundImage,
+      logoFont:parseFloat(getComputedStyle(brand.querySelector('.brand-rvu')).fontSize)
+     };
+    });
+    if(geometry.credit.left>=geometry.brand.left)throw Error(viewport.name+' creator credit must be left of RVU KIDS wordmark');
+    if(geometry.background!=='none')throw Error(viewport.name+' footer logo must be text without a background image');
+    if(viewport.width<=820){
+     if(geometry.tagline.top<geometry.credit.bottom-2)throw Error(viewport.name+' tagline must be below the name/logo row');
+     if(Math.abs(geometry.tagline.centerX-geometry.top.centerX)>8)throw Error(viewport.name+' tagline must be horizontally centered');
+     if(geometry.logoFont>24)throw Error(viewport.name+' footer wordmark is oversized');
+    }else if(geometry.copyright.left>=geometry.location.left){
+     throw Error('Copyright must be left and Mansoura printing line must be right on desktop');
+    }
     if(viewport.name!=='tablet'){
       await footer.screenshot({path:'artifacts/site-design/'+viewport.name+'-footer.png',animations:'disabled'});
     }

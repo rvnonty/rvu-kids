@@ -4,6 +4,9 @@ on:
     branches: [main]
     paths:
       - .github/workflows/lighthouse.yml
+      - learn/learn.css
+      - learn/next-adventures.mjs
+      - preview/index.html
   workflow_dispatch:
 
 permissions:

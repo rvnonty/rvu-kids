@@ -270,7 +270,8 @@ function mountFlipBook(){
   caption:figure.querySelector('figcaption')?.textContent||''
  })).filter(item=>item.src);
  if(!strip||sources.length<2)return;
- const viewer=make('section','rvu-flipbook');
+ const viewer=document.querySelector('.rvu-flipbook')||make('section','rvu-flipbook');
+ if(viewer.isConnected)viewer.replaceChildren();
  viewer.setAttribute('aria-label',t('تقليب صفحات الكتاب','Flip through the book'));
  viewer.append(make('span','rvu-visual-kicker',t('معاينة ورقية تفاعلية','Interactive paper-book preview')));
  viewer.append(make('h2',null,t('قلّب صفحات الكتاب','Turn the pages of the book')));
@@ -327,7 +328,8 @@ function mountFlipBook(){
  });
  frame.addEventListener('pointercancel',()=>{fromX=null});
  viewer.append(frame,controls);
- strip.before(viewer);update();
+ if(!viewer.isConnected)strip.before(viewer);
+ update();
 }
 export function mountAdventureExtras({playButton}={}){
  if(!curriculum)return;

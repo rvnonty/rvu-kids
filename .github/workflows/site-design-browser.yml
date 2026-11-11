@@ -7,6 +7,9 @@ on:
       - app.js
       - build.mjs
       - learn/learn.js
+      - learn/storybook.mjs
+      - learn/index.html
+      - learn/alphabet/index.html
       - preview/index.html
       - scripts/media-browser-smoke.mjs
       - style.css

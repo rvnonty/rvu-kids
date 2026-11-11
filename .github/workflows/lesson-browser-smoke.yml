@@ -10,6 +10,9 @@ on:
       - learn/next-adventures.css
       - learn/story-journey.css
       - learn/learn.js
+      - learn/storybook.mjs
+      - learn/index.html
+      - learn/alphabet/index.html
       - learn/learn.css
       - index.html
       - tests/book-mascots.test.mjs

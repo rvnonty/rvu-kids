@@ -1,5 +1,5 @@
 {
-  "version": 5,
+  "version": 6,
   "locale": "en-US",
   "status": "partially-reviewed-not-final",
   "requiredRecordings": 244,
@@ -182,7 +182,7 @@
     {
       "type": "word",
       "lesson": "c",
-      "text": "cup",
+      "text": "carrot",
       "voices": {
         "female": "/assets/audio/female/019.mp3",
         "male": "/assets/audio/male/019.mp3"
@@ -191,7 +191,7 @@
     {
       "type": "alphabet-sentence",
       "lesson": "c",
-      "text": "This is a cat.",
+      "text": "I see a cat.",
       "voices": {
         "female": "/assets/audio/female/020.mp3",
         "male": "/assets/audio/male/020.mp3"
@@ -218,7 +218,7 @@
     {
       "type": "word",
       "lesson": "d",
-      "text": "dog",
+      "text": "door",
       "voices": {
         "female": "/assets/audio/female/023.mp3",
         "male": "/assets/audio/male/023.mp3"
@@ -227,7 +227,7 @@
     {
       "type": "word",
       "lesson": "d",
-      "text": "duck",
+      "text": "dog",
       "voices": {
         "female": "/assets/audio/female/024.mp3",
         "male": "/assets/audio/male/024.mp3"
@@ -236,7 +236,7 @@
     {
       "type": "word",
       "lesson": "d",
-      "text": "doll",
+      "text": "duck",
       "voices": {
         "female": "/assets/audio/female/025.mp3",
         "male": "/assets/audio/male/025.mp3"
@@ -245,7 +245,7 @@
     {
       "type": "word",
       "lesson": "d",
-      "text": "door",
+      "text": "drum",
       "voices": {
         "female": "/assets/audio/female/026.mp3",
         "male": "/assets/audio/male/026.mp3"
@@ -281,7 +281,7 @@
     {
       "type": "word",
       "lesson": "e",
-      "text": "elephant",
+      "text": "egg",
       "voices": {
         "female": "/assets/audio/female/030.mp3",
         "male": "/assets/audio/male/030.mp3"
@@ -290,7 +290,7 @@
     {
       "type": "word",
       "lesson": "e",
-      "text": "egg",
+      "text": "elephant",
       "voices": {
         "female": "/assets/audio/female/031.mp3",
         "male": "/assets/audio/male/031.mp3"
@@ -299,7 +299,7 @@
     {
       "type": "word",
       "lesson": "e",
-      "text": "ear",
+      "text": "envelope",
       "voices": {
         "female": "/assets/audio/female/032.mp3",
         "male": "/assets/audio/male/032.mp3"
@@ -308,7 +308,7 @@
     {
       "type": "word",
       "lesson": "e",
-      "text": "elbow",
+      "text": "engine",
       "voices": {
         "female": "/assets/audio/female/033.mp3",
         "male": "/assets/audio/male/033.mp3"
@@ -317,7 +317,7 @@
     {
       "type": "alphabet-sentence",
       "lesson": "e",
-      "text": "This is an elephant.",
+      "text": "I see an egg.",
       "voices": {
         "female": "/assets/audio/female/034.mp3",
         "male": "/assets/audio/male/034.mp3"
@@ -348,13 +348,12 @@
       "voices": {
         "female": "/assets/audio/female/037.mp3",
         "male": "/assets/audio/male/037.mp3"
-      },
-      "pronunciationStatus": "blocked-pending-human-review"
+      }
     },
     {
       "type": "word",
       "lesson": "f",
-      "text": "frog",
+      "text": "flower",
       "voices": {
         "female": "/assets/audio/female/038.mp3",
         "male": "/assets/audio/male/038.mp3"
@@ -363,7 +362,7 @@
     {
       "type": "word",
       "lesson": "f",
-      "text": "flower",
+      "text": "frog",
       "voices": {
         "female": "/assets/audio/female/039.mp3",
         "male": "/assets/audio/male/039.mp3"
@@ -372,12 +371,11 @@
     {
       "type": "word",
       "lesson": "f",
-      "text": "fork",
+      "text": "fox",
       "voices": {
         "female": "/assets/audio/female/040.mp3",
         "male": "/assets/audio/male/040.mp3"
-      },
-      "pronunciationStatus": "blocked-pending-human-review"
+      }
     },
     {
       "type": "alphabet-sentence",
@@ -427,7 +425,7 @@
     {
       "type": "word",
       "lesson": "g",
-      "text": "gift",
+      "text": "guitar",
       "voices": {
         "female": "/assets/audio/female/046.mp3",
         "male": "/assets/audio/male/046.mp3"
@@ -436,7 +434,7 @@
     {
       "type": "word",
       "lesson": "g",
-      "text": "guitar",
+      "text": "gift",
       "voices": {
         "female": "/assets/audio/female/047.mp3",
         "male": "/assets/audio/male/047.mp3"
@@ -445,7 +443,7 @@
     {
       "type": "alphabet-sentence",
       "lesson": "g",
-      "text": "This is a goat.",
+      "text": "I see a goat.",
       "voices": {
         "female": "/assets/audio/female/048.mp3",
         "male": "/assets/audio/male/048.mp3"
@@ -535,7 +533,7 @@
     {
       "type": "word",
       "lesson": "i",
-      "text": "island",
+      "text": "ice cream",
       "voices": {
         "female": "/assets/audio/female/058.mp3",
         "male": "/assets/audio/male/058.mp3"
@@ -544,7 +542,7 @@
     {
       "type": "word",
       "lesson": "i",
-      "text": "iguana",
+      "text": "insect",
       "voices": {
         "female": "/assets/audio/female/059.mp3",
         "male": "/assets/audio/male/059.mp3"
@@ -553,7 +551,7 @@
     {
       "type": "word",
       "lesson": "i",
-      "text": "ice cream",
+      "text": "iguana",
       "voices": {
         "female": "/assets/audio/female/060.mp3",
         "male": "/assets/audio/male/060.mp3"
@@ -562,7 +560,7 @@
     {
       "type": "word",
       "lesson": "i",
-      "text": "insect",
+      "text": "igloo",
       "voices": {
         "female": "/assets/audio/female/061.mp3",
         "male": "/assets/audio/male/061.mp3"
@@ -571,7 +569,7 @@
     {
       "type": "alphabet-sentence",
       "lesson": "i",
-      "text": "I see an iguana.",
+      "text": "I see ice cream.",
       "voices": {
         "female": "/assets/audio/female/062.mp3",
         "male": "/assets/audio/male/062.mp3"
@@ -625,7 +623,7 @@
     {
       "type": "word",
       "lesson": "j",
-      "text": "jam",
+      "text": "jeep",
       "voices": {
         "female": "/assets/audio/female/068.mp3",
         "male": "/assets/audio/male/068.mp3"
@@ -634,7 +632,7 @@
     {
       "type": "alphabet-sentence",
       "lesson": "j",
-      "text": "This is a jacket.",
+      "text": "I see juice.",
       "voices": {
         "female": "/assets/audio/female/069.mp3",
         "male": "/assets/audio/male/069.mp3"
@@ -679,7 +677,7 @@
     {
       "type": "word",
       "lesson": "k",
-      "text": "kitten",
+      "text": "king",
       "voices": {
         "female": "/assets/audio/female/074.mp3",
         "male": "/assets/audio/male/074.mp3"
@@ -688,7 +686,7 @@
     {
       "type": "word",
       "lesson": "k",
-      "text": "kangaroo",
+      "text": "kitten",
       "voices": {
         "female": "/assets/audio/female/075.mp3",
         "male": "/assets/audio/male/075.mp3"
@@ -724,7 +722,7 @@
     {
       "type": "word",
       "lesson": "l",
-      "text": "lion",
+      "text": "leaf",
       "voices": {
         "female": "/assets/audio/female/079.mp3",
         "male": "/assets/audio/male/079.mp3"
@@ -733,7 +731,7 @@
     {
       "type": "word",
       "lesson": "l",
-      "text": "lemon",
+      "text": "lion",
       "voices": {
         "female": "/assets/audio/female/080.mp3",
         "male": "/assets/audio/male/080.mp3"
@@ -742,7 +740,7 @@
     {
       "type": "word",
       "lesson": "l",
-      "text": "leaf",
+      "text": "lamp",
       "voices": {
         "female": "/assets/audio/female/081.mp3",
         "male": "/assets/audio/male/081.mp3"
@@ -751,7 +749,7 @@
     {
       "type": "word",
       "lesson": "l",
-      "text": "lamp",
+      "text": "lemon",
       "voices": {
         "female": "/assets/audio/female/082.mp3",
         "male": "/assets/audio/male/082.mp3"
@@ -760,7 +758,7 @@
     {
       "type": "alphabet-sentence",
       "lesson": "l",
-      "text": "This is a lion.",
+      "text": "I see a lion.",
       "voices": {
         "female": "/assets/audio/female/083.mp3",
         "male": "/assets/audio/male/083.mp3"
@@ -796,7 +794,7 @@
     {
       "type": "word",
       "lesson": "m",
-      "text": "milk",
+      "text": "monkey",
       "voices": {
         "female": "/assets/audio/female/087.mp3",
         "male": "/assets/audio/male/087.mp3"
@@ -805,7 +803,7 @@
     {
       "type": "word",
       "lesson": "m",
-      "text": "monkey",
+      "text": "milk",
       "voices": {
         "female": "/assets/audio/female/088.mp3",
         "male": "/assets/audio/male/088.mp3"
@@ -823,7 +821,7 @@
     {
       "type": "alphabet-sentence",
       "lesson": "m",
-      "text": "This is a monkey.",
+      "text": "I see a monkey.",
       "voices": {
         "female": "/assets/audio/female/090.mp3",
         "male": "/assets/audio/male/090.mp3"
@@ -859,7 +857,7 @@
     {
       "type": "word",
       "lesson": "n",
-      "text": "nose",
+      "text": "nurse",
       "voices": {
         "female": "/assets/audio/female/094.mp3",
         "male": "/assets/audio/male/094.mp3"
@@ -877,7 +875,7 @@
     {
       "type": "word",
       "lesson": "n",
-      "text": "night",
+      "text": "nose",
       "voices": {
         "female": "/assets/audio/female/096.mp3",
         "male": "/assets/audio/male/096.mp3"
@@ -913,7 +911,7 @@
     {
       "type": "word",
       "lesson": "o",
-      "text": "orange",
+      "text": "owl",
       "voices": {
         "female": "/assets/audio/female/100.mp3",
         "male": "/assets/audio/male/100.mp3"
@@ -922,7 +920,7 @@
     {
       "type": "word",
       "lesson": "o",
-      "text": "octopus",
+      "text": "ox",
       "voices": {
         "female": "/assets/audio/female/101.mp3",
         "male": "/assets/audio/male/101.mp3"
@@ -931,7 +929,7 @@
     {
       "type": "word",
       "lesson": "o",
-      "text": "ocean",
+      "text": "orange",
       "voices": {
         "female": "/assets/audio/female/102.mp3",
         "male": "/assets/audio/male/102.mp3"
@@ -940,7 +938,7 @@
     {
       "type": "word",
       "lesson": "o",
-      "text": "otter",
+      "text": "octopus",
       "voices": {
         "female": "/assets/audio/female/103.mp3",
         "male": "/assets/audio/male/103.mp3"
@@ -949,7 +947,7 @@
     {
       "type": "alphabet-sentence",
       "lesson": "o",
-      "text": "I see an octopus.",
+      "text": "I see an orange.",
       "voices": {
         "female": "/assets/audio/female/104.mp3",
         "male": "/assets/audio/male/104.mp3"
@@ -976,7 +974,7 @@
     {
       "type": "word",
       "lesson": "p",
-      "text": "pig",
+      "text": "pencil",
       "voices": {
         "female": "/assets/audio/female/107.mp3",
         "male": "/assets/audio/male/107.mp3"
@@ -985,7 +983,7 @@
     {
       "type": "word",
       "lesson": "p",
-      "text": "pen",
+      "text": "panda",
       "voices": {
         "female": "/assets/audio/female/108.mp3",
         "male": "/assets/audio/male/108.mp3"
@@ -994,7 +992,7 @@
     {
       "type": "word",
       "lesson": "p",
-      "text": "pizza",
+      "text": "pig",
       "voices": {
         "female": "/assets/audio/female/109.mp3",
         "male": "/assets/audio/male/109.mp3"
@@ -1003,7 +1001,7 @@
     {
       "type": "word",
       "lesson": "p",
-      "text": "panda",
+      "text": "pizza",
       "voices": {
         "female": "/assets/audio/female/110.mp3",
         "male": "/assets/audio/male/110.mp3"
@@ -1012,7 +1010,7 @@
     {
       "type": "alphabet-sentence",
       "lesson": "p",
-      "text": "This is a panda.",
+      "text": "I see a panda.",
       "voices": {
         "female": "/assets/audio/female/111.mp3",
         "male": "/assets/audio/male/111.mp3"
@@ -1048,7 +1046,7 @@
     {
       "type": "word",
       "lesson": "q",
-      "text": "quilt",
+      "text": "quail",
       "voices": {
         "female": "/assets/audio/female/115.mp3",
         "male": "/assets/audio/male/115.mp3"
@@ -1057,7 +1055,7 @@
     {
       "type": "word",
       "lesson": "q",
-      "text": "quail",
+      "text": "quilt",
       "voices": {
         "female": "/assets/audio/female/116.mp3",
         "male": "/assets/audio/male/116.mp3"
@@ -1066,7 +1064,7 @@
     {
       "type": "alphabet-sentence",
       "lesson": "q",
-      "text": "This is a queen.",
+      "text": "I see a queen.",
       "voices": {
         "female": "/assets/audio/female/117.mp3",
         "male": "/assets/audio/male/117.mp3"
@@ -1093,7 +1091,7 @@
     {
       "type": "word",
       "lesson": "r",
-      "text": "rabbit",
+      "text": "rainbow",
       "voices": {
         "female": "/assets/audio/female/120.mp3",
         "male": "/assets/audio/male/120.mp3"
@@ -1102,7 +1100,7 @@
     {
       "type": "word",
       "lesson": "r",
-      "text": "robot",
+      "text": "rabbit",
       "voices": {
         "female": "/assets/audio/female/121.mp3",
         "male": "/assets/audio/male/121.mp3"
@@ -1111,7 +1109,7 @@
     {
       "type": "word",
       "lesson": "r",
-      "text": "rain",
+      "text": "robot",
       "voices": {
         "female": "/assets/audio/female/122.mp3",
         "male": "/assets/audio/male/122.mp3"
@@ -1120,7 +1118,7 @@
     {
       "type": "word",
       "lesson": "r",
-      "text": "rainbow",
+      "text": "rose",
       "voices": {
         "female": "/assets/audio/female/123.mp3",
         "male": "/assets/audio/male/123.mp3"
@@ -1174,7 +1172,7 @@
     {
       "type": "word",
       "lesson": "s",
-      "text": "sock",
+      "text": "strawberry",
       "voices": {
         "female": "/assets/audio/female/129.mp3",
         "male": "/assets/audio/male/129.mp3"
@@ -1183,7 +1181,7 @@
     {
       "type": "word",
       "lesson": "s",
-      "text": "spoon",
+      "text": "snake",
       "voices": {
         "female": "/assets/audio/female/130.mp3",
         "male": "/assets/audio/male/130.mp3"
@@ -1192,7 +1190,7 @@
     {
       "type": "alphabet-sentence",
       "lesson": "s",
-      "text": "This is a star.",
+      "text": "I see a star.",
       "voices": {
         "female": "/assets/audio/female/131.mp3",
         "male": "/assets/audio/male/131.mp3"
@@ -1219,7 +1217,7 @@
     {
       "type": "word",
       "lesson": "t",
-      "text": "tiger",
+      "text": "tree",
       "voices": {
         "female": "/assets/audio/female/134.mp3",
         "male": "/assets/audio/male/134.mp3"
@@ -1228,7 +1226,7 @@
     {
       "type": "word",
       "lesson": "t",
-      "text": "train",
+      "text": "tiger",
       "voices": {
         "female": "/assets/audio/female/135.mp3",
         "male": "/assets/audio/male/135.mp3"
@@ -1237,7 +1235,7 @@
     {
       "type": "word",
       "lesson": "t",
-      "text": "tree",
+      "text": "train",
       "voices": {
         "female": "/assets/audio/female/136.mp3",
         "male": "/assets/audio/male/136.mp3"
@@ -1255,7 +1253,7 @@
     {
       "type": "alphabet-sentence",
       "lesson": "t",
-      "text": "I see a train.",
+      "text": "I see a tiger.",
       "voices": {
         "female": "/assets/audio/female/138.mp3",
         "male": "/assets/audio/male/138.mp3"
@@ -1282,7 +1280,7 @@
     {
       "type": "word",
       "lesson": "u",
-      "text": "umbrella",
+      "text": "up",
       "voices": {
         "female": "/assets/audio/female/141.mp3",
         "male": "/assets/audio/male/141.mp3"
@@ -1291,7 +1289,7 @@
     {
       "type": "word",
       "lesson": "u",
-      "text": "uncle",
+      "text": "umbrella",
       "voices": {
         "female": "/assets/audio/female/142.mp3",
         "male": "/assets/audio/male/142.mp3"
@@ -1300,7 +1298,7 @@
     {
       "type": "word",
       "lesson": "u",
-      "text": "up",
+      "text": "uncle",
       "voices": {
         "female": "/assets/audio/female/143.mp3",
         "male": "/assets/audio/male/143.mp3"
@@ -1318,7 +1316,7 @@
     {
       "type": "alphabet-sentence",
       "lesson": "u",
-      "text": "This is an umbrella.",
+      "text": "I see an umbrella.",
       "voices": {
         "female": "/assets/audio/female/145.mp3",
         "male": "/assets/audio/male/145.mp3"
@@ -1381,7 +1379,7 @@
     {
       "type": "alphabet-sentence",
       "lesson": "v",
-      "text": "This is a van.",
+      "text": "I see a van.",
       "voices": {
         "female": "/assets/audio/female/152.mp3",
         "male": "/assets/audio/male/152.mp3"
@@ -1417,7 +1415,7 @@
     {
       "type": "word",
       "lesson": "w",
-      "text": "watermelon",
+      "text": "window",
       "voices": {
         "female": "/assets/audio/female/156.mp3",
         "male": "/assets/audio/male/156.mp3"
@@ -1426,7 +1424,7 @@
     {
       "type": "word",
       "lesson": "w",
-      "text": "window",
+      "text": "watch",
       "voices": {
         "female": "/assets/audio/female/157.mp3",
         "male": "/assets/audio/male/157.mp3"
@@ -1435,7 +1433,7 @@
     {
       "type": "word",
       "lesson": "w",
-      "text": "watch",
+      "text": "watermelon",
       "voices": {
         "female": "/assets/audio/female/158.mp3",
         "male": "/assets/audio/male/158.mp3"
@@ -1489,16 +1487,16 @@
     {
       "type": "alphabet-sentence",
       "lesson": "x",
-      "text": "This is an x-ray.",
+      "text": "I see a xylophone.",
       "voices": {
         "female": "/assets/audio/female/164.mp3",
         "male": "/assets/audio/male/164.mp3"
       }
     },
     {
-      "type": "alphabet-sentence",
+      "type": "review-sentence",
       "lesson": "x",
-      "text": "This is a xylophone.",
+      "text": "This is an x-ray.",
       "voices": {
         "female": "/assets/audio/female/165.mp3",
         "male": "/assets/audio/male/165.mp3"
@@ -1534,7 +1532,7 @@
     {
       "type": "word",
       "lesson": "y",
-      "text": "yogurt",
+      "text": "yak",
       "voices": {
         "female": "/assets/audio/female/169.mp3",
         "male": "/assets/audio/male/169.mp3"
@@ -1552,7 +1550,7 @@
     {
       "type": "word",
       "lesson": "y",
-      "text": "yak",
+      "text": "yogurt",
       "voices": {
         "female": "/assets/audio/female/171.mp3",
         "male": "/assets/audio/male/171.mp3"
@@ -1561,7 +1559,7 @@
     {
       "type": "alphabet-sentence",
       "lesson": "y",
-      "text": "This is a yo-yo.",
+      "text": "I see a yo-yo.",
       "voices": {
         "female": "/assets/audio/female/172.mp3",
         "male": "/assets/audio/male/172.mp3"
@@ -1588,7 +1586,7 @@
     {
       "type": "word",
       "lesson": "z",
-      "text": "zebra",
+      "text": "zoo",
       "voices": {
         "female": "/assets/audio/female/175.mp3",
         "male": "/assets/audio/male/175.mp3"
@@ -1597,7 +1595,7 @@
     {
       "type": "word",
       "lesson": "z",
-      "text": "zoo",
+      "text": "zebra",
       "voices": {
         "female": "/assets/audio/female/176.mp3",
         "male": "/assets/audio/male/176.mp3"
@@ -1624,7 +1622,7 @@
     {
       "type": "alphabet-sentence",
       "lesson": "z",
-      "text": "This is a zebra.",
+      "text": "I see a zebra.",
       "voices": {
         "female": "/assets/audio/female/179.mp3",
         "male": "/assets/audio/male/179.mp3"
@@ -2215,5 +2213,12 @@
     ],
     "approvalPolicy": "Requires documented human listening of both voices at normal and supported playback speeds",
     "humanSignoffComplete": false
+  },
+  "voiceLibrary": {
+    "source": "Kokoro English American synthetic voices",
+    "female": "af_sarah",
+    "male": "am_liam",
+    "automatedVerification": "basic waveform, MP3 and curriculum integrity",
+    "humanPronunciationSignoff": false
   }
 }

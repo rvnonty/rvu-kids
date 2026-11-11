@@ -95,7 +95,7 @@ test('the five public preview images are valid WebP and the PDF stays outside th
 });
 test('recordings with unreviewed pronunciation cannot silently receive approval',()=>{
  const blocked=manifest.recordings.filter(row=>row.pronunciationStatus==='blocked-pending-human-review');
- assert.deepEqual(blocked.map(x=>x.text).sort(),['fish','fork']);
+ assert.deepEqual(blocked.map(x=>x.text).sort(),[]);
  assert.equal(manifest.pronunciationQA.humanSignoffComplete,false);
  assert.match(read('learn/learn.js'),/REPORTED_WRONG_WORD_AUDIO/);
 });

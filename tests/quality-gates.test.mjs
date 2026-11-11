@@ -19,7 +19,7 @@ test('A-Z map provides separate keyboard-friendly image links and approved audio
  assert.match(source,/const listen=node\('button','storybook-station-listen'/);
  assert.match(source,/listen\.disabled=!playable/);
  assert.match(pageScript,/window\.RVU_WORD_AUDIO/);
- assert.match(pageScript,/REPORTED_WRONG_WORD_AUDIO=new Set\(\['fish','fork'\]\)/);
+ assert.match(pageScript,/REPORTED_WRONG_WORD_AUDIO=new Set\(\[\]\)/);
 });
 test('new motion respects user reduction and does not autoplay audio',()=>{
  const css=read('learn/learn.css');

@@ -1,5 +1,5 @@
 'use strict';
-const CACHE_NAME='rvu-kids-media-v2';
+const CACHE_NAME='rvu-kids-media-v3';
 const MAX_MEDIA_FILES=640;
 const MEDIA_PATH=/^\/assets\/(?:audio\/(?:female|male)\/\d{3}\.mp3|words\/[a-z0-9-]+\.svg|(?:cover|letter-a|practice-a|feelings|letter-m)\.webp)$/;
 self.addEventListener('install',event=>event.waitUntil(self.skipWaiting()));

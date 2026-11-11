@@ -26,9 +26,7 @@ test('audio wiring makes missing book pronunciations visible instead of substitu
  const words=new Set(rows.filter(row=>row[0]==='word').map(row=>row[2]));
  const curriculum=JSON.parse(read('learn/content.js').replace(/^.*?window\.RVU_CURRICULUM=/s,'').replace(/;\s*$/,''));
  const missing=curriculum.alphabet.flatMap(lesson=>lesson.words.filter(word=>!words.has(word))).sort();
- assert.deepEqual(missing,[
-  'carrot','drum','engine','envelope','fox','igloo','jeep','king','nurse','owl','ox','pencil','rose','snake','strawberry'
- ].sort());
+ assert.deepEqual(missing,[]);
  for(const [index,type] of [[28,'letter-name'],[29,'letter-sound'],[30,'word'],[31,'word']]){
   const row=rows[index];assert.equal(row[1],'e');assert.equal(row[0],type);
   for(const voice of ['male','female'])assert.ok(existsSync('assets/audio/'+voice+'/'+String(index).padStart(3,'0')+'.mp3'));

@@ -117,7 +117,6 @@ function audioFor(url){
  return player;
 }
 function stopAudio(){
- if(window.speechSynthesis)window.speechSynthesis.cancel();
  if(currentAudio){
   currentAudio.pause();currentAudio.currentTime=0;
   currentAudio=null;
@@ -177,38 +176,13 @@ function voicePicker(){
 }
 function playButton(type,lesson,value){
  const id=voiceRows.get(type+'|'+lesson+'|'+value);
- const deviceVoice=id===undefined&&['word','alphabet-sentence'].includes(type);
- if(id===undefined&&!deviceVoice)return null;
- if(id===undefined&&(!window.speechSynthesis||typeof window.SpeechSynthesisUtterance!=='function'))return null;
+ if(id===undefined)return null;
  const b=el('button','audio-play',lang==='ar'?'اسمع':'Listen');b.type='button';
  b.setAttribute('aria-label',(lang==='ar'?'استمع إلى ':'Listen to ')+value);
  const blocked=type==='word'&&REPORTED_WRONG_WORD_AUDIO.has(value);
  if(blocked){
   b.disabled=true;b.textContent=lang==='ar'?'النطق قيد التصحيح':'Pronunciation under correction';
   b.setAttribute('aria-label',b.textContent+' — '+value);
-  return b;
- }
- if(deviceVoice){
-  b.classList.add('audio-device-voice');
-  b.textContent=lang==='ar'?'اسمع بصوت الجهاز':'Listen with device voice';
-  b.setAttribute('aria-label',(lang==='ar'?'نطق تقريبي من الجهاز للكلمة: ':'Device-provided pronunciation for ')+value);
-  b.addEventListener('click',()=>{
-   stopAudio();
-   const utterance=new window.SpeechSynthesisUtterance(value);
-   utterance.lang='en-US';utterance.rate=playbackSpeed;
-   const voices=window.speechSynthesis.getVoices();
-   const american=voices.filter(voice=>voice.lang?.toLowerCase().replace('_','-')==='en-us');
-   const english=voices.filter(voice=>voice.lang?.toLowerCase().startsWith('en'));
-   const pool=american.length?american:english;
-   if(pool.length){
-    const desired=preferredVoice==='male'?/david|guy|aaron|male|daniel/i:/samantha|jenny|aria|zira|female|susan/i;
-    utterance.voice=pool.find(voice=>desired.test(voice.name))||pool[0];
-   }
-   activeButton=b;b.classList.add('audio-playing');
-   const done=()=>{b.classList.remove('audio-playing');if(activeButton===b)activeButton=null};
-   utterance.onend=done;utterance.onerror=done;
-   window.speechSynthesis.speak(utterance);
-  });
   return b;
  }
  const prepare=()=>{

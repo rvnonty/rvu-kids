@@ -1,9 +1,13 @@
 'use strict';
-/* Remove old parent-only offline settings and locally saved lesson packs. */
-if(typeof navigator!=='undefined'&&'serviceWorker' in navigator){
- navigator.serviceWorker.getRegistration('/learn/').then(registration=>registration?.unregister()).catch(()=>{});
+if('serviceWorker' in navigator&&location.protocol!=='file:'){
+ navigator.serviceWorker.getRegistration('/learn/').then(async registration=>{
+  if(registration&&![
+   registration.active,registration.waiting,registration.installing
+  ].some(worker=>worker?.scriptURL.endsWith('/learn/media-sw.js')))await registration.unregister();
+  await navigator.serviceWorker.register('/learn/media-sw.js',{scope:'/learn/',updateViaCache:'none'});
+ }).catch(()=>{});
 }
-if(typeof window!=='undefined'&&window.caches){
+if(window.caches){
  window.caches.keys().then(keys=>Promise.all(keys.filter(key=>key.startsWith('rvu-learning-a-b-')).map(key=>window.caches.delete(key)))).catch(()=>{});
 }
 const C=window.RVU_CURRICULUM;
@@ -84,7 +88,7 @@ const illustratedWords=new Set(ALL_WORDS);
 const voiceRows=new Map(AUDIO_ROWS.map((r,i)=>[r[0]+'|'+r[1]+'|'+r[2],i]));
 const audioUrl=(id,voice)=>'/assets/audio/'+voice+'/'+String(id).padStart(3,'0')+'.mp3';
 const cachedAudio=new Map();
-const CACHE_LIMIT=4;
+const CACHE_LIMIT=12;
 const SPEED_OPTIONS=[
  [0.7,'بطيء جدًا','Very slow'],
  [0.85,'بطيء','Slow'],

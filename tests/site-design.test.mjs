@@ -63,3 +63,14 @@ test('responsive footer uses unboxed text wordmark, no privacy button, left cred
  assert.ok(css.includes('.footer-bottom{direction:ltr}'));
  assert.match(css,/@media\(max-width:820px\)/);
 });
+
+test('footer copyright stays left and Mansoura printing line stays right on desktop',()=>{
+ const home=file('index.html'),css=file('style.css'),en=file('app.js');
+ const bottom=home.slice(home.indexOf('class="wrap footer-bottom"'),home.indexOf('</footer>'));
+ assert.ok(bottom.indexOf('id="year"')<bottom.indexOf('data-i18n="footerPlace"'));
+ assert.match(bottom,/يُطبع بحب في المنصورة، مصر/);
+ assert.ok(css.includes('.footer-bottom{direction:ltr}'));
+ assert.ok(css.includes('.footer-bottom [data-i18n="footerPlace"]{direction:rtl}'));
+ assert.ok(css.includes('.footer-bottom{justify-content:center;flex-direction:column'));
+ assert.ok(en.includes("footerPlace:'Printed with love in Mansoura, Egypt'"));
+});

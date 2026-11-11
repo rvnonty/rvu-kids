@@ -19,7 +19,7 @@ test('A-Z map provides separate keyboard-friendly image links and approved audio
  assert.match(source,/const listen=node\('button','storybook-station-listen'/);
  assert.match(source,/listen\.disabled=!playable/);
  assert.match(pageScript,/window\.RVU_WORD_AUDIO/);
- assert.match(pageScript,/REPORTED_WRONG_WORD_AUDIO=new Set\(\[\]\)/);
+ assert.doesNotMatch(pageScript,/REPORTED_WRONG_WORD_AUDIO/);
 });
 test('new motion respects user reduction and does not autoplay audio',()=>{
  const css=read('learn/learn.css');
@@ -31,7 +31,7 @@ test('new motion respects user reduction and does not autoplay audio',()=>{
  assert.match(js,/b\.addEventListener\('click',\(\)=>\{/);
  assert.ok(!js.includes('utterance.lang='));
  assert.match(js,/const id=voiceRows\.get/);
- assert.match(js,/REPORTED_WRONG_WORD_AUDIO/);
+ assert.doesNotMatch(js,/REPORTED_WRONG_WORD_AUDIO/);
 });
 test('performance budgets are stated honestly without claiming a synthetic INP',()=>{
  const script=read('scripts/check-vitals.mjs');

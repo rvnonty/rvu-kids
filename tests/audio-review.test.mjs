@@ -4,7 +4,7 @@ import {readFileSync,existsSync} from 'node:fs';
 const js=readFileSync('learn/learn.js','utf8');
 const manifest=JSON.parse(readFileSync('learn/audio-manifest.json','utf8'));
 test('all approved book words and E pronunciation rows have paired recordings without missing/blocked buttons',()=>{
- assert.match(js,/REPORTED_WRONG_WORD_AUDIO=new Set\(\[\]\)/);
+ assert.doesNotMatch(js,/REPORTED_WRONG_WORD_AUDIO/);
  const rows=JSON.parse(js.match(/^const AUDIO_ROWS=(\[\[.*\]\]);$/m)[1]);
  assert.deepEqual(rows,manifest.recordings.map(row=>[row.type,row.lesson,row.text]));
  const wordRows=manifest.recordings.filter(row=>row.type==='word');

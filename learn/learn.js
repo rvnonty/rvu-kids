@@ -131,7 +131,6 @@ function stopAudio(){
  }
  if(activeButton){activeButton.classList.remove('audio-playing');activeButton=null}
 }
-const REPORTED_WRONG_WORD_AUDIO=new Set([]);
 let preferredVoice=localStorage.getItem('rvu-voice')==='male'?'male':'female';
 let currentAudio=null;
 function pronunciationSpeedPicker(){
@@ -193,12 +192,6 @@ function playButton(type,lesson,value){
  }
  const b=el('button','audio-play',lang==='ar'?'اسمع':'Listen');b.type='button';
  b.setAttribute('aria-label',(lang==='ar'?'استمع إلى ':'Listen to ')+value);
- const blocked=type==='word'&&REPORTED_WRONG_WORD_AUDIO.has(value);
- if(blocked){
-  b.disabled=true;b.textContent=lang==='ar'?'النطق قيد التصحيح':'Pronunciation under correction';
-  b.setAttribute('aria-label',b.textContent+' — '+value);
-  return b;
- }
  const prepare=()=>{
   const connection=navigator.connection;
   if(connection?.saveData||/2g/.test(connection?.effectiveType||''))return;
@@ -481,7 +474,7 @@ try{
 window.RVU_WORD_AUDIO={
  available(lesson,word){
   const key='word|'+lesson+'|'+word;
-  return !REPORTED_WRONG_WORD_AUDIO.has(word)&&(voiceRows.has(key)||wordAudioIds.has(word));
+  return voiceRows.has(key)||wordAudioIds.has(word);
  },
  play(lesson,word){
   const b=playButton('word',lesson,word);

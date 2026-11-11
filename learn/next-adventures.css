@@ -1,4 +1,4 @@
-/* RVU Kids — picture-first learning,interactive picture scenes and paper-page preview */
+
 .rvu-visual-scene,.rvu-picture-challenge,.rvu-flipbook{
  --rvu-forest:#184c3a;--rvu-mint:#dff2e7;--rvu-yellow:#f7d76a;
  --rvu-peach:#f6c7b8;--rvu-sky:#cfe8f9;
@@ -41,7 +41,7 @@
 @media(max-width:560px){.rvu-visual-scene,.rvu-picture-challenge,.rvu-flipbook{border-radius:19px;padding:15px;margin:18px 0}.rvu-scene-stage{min-height:240px;border-radius:17px}.rvu-scene-items{grid-template-columns:repeat(2,minmax(0,1fr));padding:16px 10px 86px;gap:11px}.rvu-scene-object.audio-play{max-width:119px;border-radius:19px}.rvu-scene-character.character-portrait{width:64px;height:64px;bottom:12px;inset-inline-end:12px}.rvu-picture-options{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.rvu-picture-choice{min-height:115px;border-radius:17px}.rvu-flip-frame{padding:13px}.rvu-flip-controls{justify-content:space-between}.rvu-flip-arrow{font-size:.78rem;padding:9px 10px}.rvu-flip-caption{order:3;flex:1 0 100%}
 }
 @media(prefers-reduced-motion:reduce){.rvu-scene-object,.rvu-picture-choice{animation:none!important;transition:none!important}.rvu-scene-wave,.rvu-scene-object.is-touched{animation:none!important}.rvu-picture-choice:hover{transform:none}.rvu-flip-sheet.is-turning{animation:none!important}
-}/* Living Book Garden: illustration-led letter palettes and GPU-friendly motion. */
+}
 body[data-page="lesson"],body[data-page="hub"],body[data-page="alphabet-index"]{
  background:radial-gradient(circle at 85% 12%,#eaf4e9 0,transparent 27%),
  radial-gradient(circle at 10% 74%,#fff3da 0,transparent 25%),#fbf7ee;
@@ -180,7 +180,7 @@ body[data-page="lesson"],body[data-page="hub"],body[data-page="alphabet-index"]{
 @media(max-width:560px){.rvu-garden-heading{padding:0 3px}.word-grid.rvu-garden-words{border-radius:20px;gap:11px}.rvu-garden-words .word-card{min-height:158px;border-radius:19px}.rvu-garden-words .word-image{filter:none}.rvu-garden-flora{opacity:.6}.rvu-garden-stem{height:48px}.rvu-garden-phrases{padding:9px}
 }
 @media(prefers-reduced-motion:reduce){.rvu-garden-words .word-card,.rvu-garden-stem,.rvu-visual-scene .rvu-scene-object.audio-play,.rvu-visual-scene .rvu-scene-character{animation:none!important}.rvu-garden-words .word-card:hover{transform:none}.rvu-garden-words .word-image{transition:none!important}.rvu-garden-words .word-card:hover .word-image{transform:none}.rvu-visual-scene .rvu-scene-object.audio-play:hover:not(:disabled){transform:none}
-}/* Distinct landscape details: every lesson keeps its own illustration-led palette. */
+}
 .rvu-scene-stage[data-garden="moonlight"]{
  background:linear-gradient(175deg,#b5c6e7 0%,var(--garden-sky) 54%,var(--garden-grass) 54% 100%);
 }.rvu-scene-stage[data-garden="moonlight"] .rvu-scene-sun{
@@ -230,7 +230,7 @@ body[data-page="lesson"],body[data-page="hub"],body[data-page="alphabet-index"]{
 @media(max-width:700px){.rvu-visual-scene .rvu-scene-object.audio-play{backdrop-filter:none}.rvu-garden-words .word-card{backdrop-filter:none}
 }
 @media(prefers-reduced-motion:reduce){.rvu-scene-landscape::before,.rvu-scene-landscape::after{animation:none!important}
-}/* Shared book family,distinct treatments for letters and everyday sentences. */
+}
 .rvu-garden-lesson[data-learning-group="alphabet"] .lesson-title{
  display:inline-block;padding:7px 16px 11px;margin-top:12px;
  background:radial-gradient(circle at 85% 30%,#fff9d1,transparent 44%),linear-gradient(130deg,#fffdf8,var(--garden-grass));
@@ -269,7 +269,7 @@ body[data-page="lesson"],body[data-page="hub"],body[data-page="alphabet-index"]{
  background:radial-gradient(circle at 93% 10%,var(--garden-sky),transparent 50%),#fffefaf0;
 }.rvu-garden-phrases .phrase-text{color:#1d4d3a}.rvu-garden-phrases .audio-play{background:#fff;border-color:var(--garden-leaf)}
 @media(max-width:560px){.rvu-garden-lesson[data-learning-group="sentences"] .lesson-title{padding:10px 12px;font-size:clamp(1.6rem,7vw,2.4rem)}.rvu-garden-lesson[data-learning-group="alphabet"] .lesson-title{padding:8px 12px}
-}/* Revised picture-first A–Z cards retain each lesson's custom garden colors. */
+}
 .letter-grid.storybook-map>.storybook-stop[data-garden]{
  border-color:var(--garden-leaf);
  background:linear-gradient(165deg,#fffefa,var(--garden-sky))

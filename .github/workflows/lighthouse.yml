@@ -1,5 +1,9 @@
 name: Performance and accessibility (manual)
 on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/lighthouse.yml
   workflow_dispatch:
 
 permissions:

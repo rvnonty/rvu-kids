@@ -60,15 +60,28 @@ try{
  await page.locator('.word-image').first().waitFor({timeout:10000});
  if(await page.locator('.word-image').count()<4)throw Error('Word thumbnails not available');
  await page.locator('.audio-play').first().waitFor();
+ await page.waitForFunction(()=>navigator.serviceWorker?.controller?.scriptURL.endsWith('/learn/media-sw.js'),null,{timeout:12000});
  await page.locator('.audio-play').first().click();
  await page.waitForTimeout(400);
- if(!requests.some(url=>/\/assets\/audio\/female\/\d{3}\.mp3$/.test(url)))throw Error('Female audio was never requested');
+ const female=requests.find(url=>/\/assets\/audio\/female\/\d{3}\.mp3$/.test(url));
+ if(!female)throw Error('Female audio was never requested');
+ await page.waitForFunction(async url=>{
+  const cache=await caches.open('rvu-kids-media-v1');
+  return Boolean(await cache.match(url));
+ },female,{timeout:10000});
+ await page.context().setOffline(true);
+ const repeat=await page.evaluate(async url=>{
+  const res=await fetch(url,{headers:{Range:'bytes=0-7'}});
+  return {status:res.status,range:res.headers.get('content-range'),bytes:(await res.arrayBuffer()).byteLength};
+ },female);
+ await page.context().setOffline(false);
+ if(repeat.status!==206||repeat.bytes!==8||!repeat.range?.startsWith('bytes 0-7/'))throw Error('Previously played sound is not cached: '+JSON.stringify(repeat));
  await page.locator('.voice-choice[data-voice="male"]').first().click();
  await page.locator('.audio-play').first().click();
  await page.waitForTimeout(400);
  if(!requests.some(url=>/\/assets\/audio\/male\/\d{3}\.mp3$/.test(url)))throw Error('Male audio was never requested');
  if(errors.length)throw Error('Browser JS errors: '+errors.slice(0,7).join(' | '));
- console.log(JSON.stringify({result:'PASS',whatsapp:'phone hidden and bilingual submit CTA verified',audio:'female and male loaded on demand',words:'illustrations present',pageErrors:errors.length}));
+ console.log(JSON.stringify({result:'PASS',whatsapp:'phone hidden and bilingual submit CTA verified',audio:'female and male on demand; offline replay verified',words:'illustrations present',pageErrors:errors.length}));
 }finally{
  await page.close();await browser.close();await new Promise(done=>server.close(done));
 }

@@ -42,3 +42,11 @@ written words to filenames and that the blocked words cannot play. They
 requires actual listening and approval.
 
 Do not count Fish or Fork as fixed until the new files are checked by ear.
+
+## Additional gaps identified on 11 November 2026
+
+The book curriculum and the 244-row audio manifest do not fully agree. The following fifteen **book words currently have no word-specific approved recording in either voice**: carrot, drum, envelope, engine, fox, igloo, jeep, king, nurse, owl, ox, pencil, rose, strawberry, snake. The legacy recordings instead contain cup, doll, ear, elbow, fork, island, jam, kangaroo, night, ocean, otter, pen, rain, sock and spoon. The site now uses recorded word clips across lessons only when the word matches, and labels unrecorded vocabulary as under review. It must not pronounce a different word or silently switch to an operating-system voice.
+
+The owner also flagged the E letter recording for correction. Specifically review **letter-name E at index 028** and **short-e letter-sound at index 029**, in both female and male tracks. The existing **male elephant (030)** and **male egg (031)** are the requested reference speaker for a future unified male re-recording; this is a preference, not evidence that the other male recordings currently match that speaker.
+
+Do not mark the audio library completely corrected until all fifteen missing word pairs have been recorded, E is repaired, any pre-existing phonetic problems are resolved, and each recording has passed a human listening check at all supported playback rates. After replacing a media file, update the service-worker cache version so clients receive the replacement.

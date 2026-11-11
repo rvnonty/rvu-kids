@@ -16,7 +16,7 @@ function mediaWorker(){
  const scope={
   self:{location:{origin:'https://rvu-kids.company'},clients:{claim:async()=>{}},skipWaiting:async()=>{},
    addEventListener:(name,handler)=>events.set(name,handler)},
-  caches:{open:async()=>cache,keys:async()=>['rvu-kids-media-v1']},
+  caches:{open:async()=>cache,keys:async()=>['rvu-kids-media-v2']},
   Request,Response,Headers,URL,
   fetch:async request=>{
    if(offline)throw Error('offline');

@@ -11,10 +11,11 @@ test('retired parents offline service and settings do not ship to visitors',()=>
  assert.match(redirect,/<meta http-equiv="refresh" content="0;url=\/#order">/);
  assert.match(redirect,/noindex,follow/);
 });
-test('kid learning unregisters historical offline workers and removes old caches',()=>{
+test('kid learning replaces legacy offline workers with persistent media caching',()=>{
  const source=read('learn/learn.js');
  assert.match(source,/getRegistration\('\/learn\/'\)/);
- assert.match(source,/registration\?\.unregister\(\)/);
+ assert.match(source,/registration\.unregister\(\)/);
+ assert.match(source,/register\('\/learn\/media-sw\.js'/);
  assert.match(source,/rvu-learning-a-b-/);
  assert.match(source,/window\.caches\.delete\(key\)/);
 });

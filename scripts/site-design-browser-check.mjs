@@ -83,7 +83,7 @@ try{
     const credit=await footer.locator('.footer-credit').innerText();
     if(!credit.includes('By:')||!credit.includes('Ramez Medhat')||!credit.includes('❤️'))
       throw Error(viewport.name+' missing footer creator credit: '+credit);
-    const columns=await footer.locator('.footer-top').evaluate(el=>getComputedStyle(el).gridTemplateColumns.trim().split(/\\s+/).length);
+    const columns=await footer.locator('.footer-top').evaluate(el=>getComputedStyle(el).gridTemplateColumns.trim().split(/\s+/).length);
     if(viewport.width>820&&columns!==3)throw Error('Footer should use 3 desktop columns');
     if(viewport.width<=820&&columns!==1)throw Error('Footer should stack on phone/tablet');
     await footer.locator('#footer-privacy').click();

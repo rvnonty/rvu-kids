@@ -587,7 +587,7 @@ button,select,a{touch-action:manipulation}
 .order-whatsapp-link:hover{background:#ccebd2;transform:translateY(-2px)}
 @media(prefers-reduced-motion:reduce){.order-whatsapp-link{transition:none!important}.order-whatsapp-link:hover{transform:none}}
 
-/* Storybook Adventure — shared visual identity for the storefront */
+
 :root{
  --ink:#184c3a;--green:#184c3a;--paper:#fbf7ee;--yellow:#f7d76a;--pink:#f6c7b8;--line:#e0e1d7;
  --rvu-forest:#184c3a;--rvu-cream:#fbf7ee;--rvu-mint:#dff2e7;--rvu-peach:#f6c7b8;--rvu-sky:#cfe8f9;
@@ -611,7 +611,7 @@ body{background:#fbf7ee}
 @media(prefers-reduced-motion:reduce){.storybook-spotlight-art img:nth-child(2){translate:0 0}.storybook-spotlight-link{transition:none!important}}
 
 
-/* Storybook Garden storefront motion: restrained, fast and reduced-motion-aware. */
+
 :root{--rvu-story-motion:cubic-bezier(.2,.72,.22,1)}
 .hero{isolation:isolate;overflow:hidden}
 .hero::before{
@@ -642,7 +642,7 @@ body{background:#fbf7ee}
 }
 
 
-/* Two clear journeys: a calm adults' area and a playful children's area. */
+
 .hero-routes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:26px;max-width:690px}
 .hero-route{display:flex;gap:13px;align-items:center;min-width:0;min-height:145px;padding:16px 17px;border:2px solid #b8d7c4;border-radius:25px;background:#fffdf8;color:#174c39;box-shadow:0 7px 18px #184c3a0e;transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
 .hero-route:hover{transform:translateY(-4px);box-shadow:0 13px 24px #184c3a1c;border-color:#5eaa81}
@@ -665,7 +665,7 @@ html.rvu-motion-off *,html.rvu-motion-off *::before,html.rvu-motion-off *::after
  animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important
 }
 
-/* Book-first storefront: one calm purchase CTA instead of an adult/child path chooser. */
+
 .purchase-actions{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:22px}
 .purchase-actions .button{min-height:54px}
 .purchase-actions .text-link{display:inline-flex;align-items:center;min-height:50px;font-weight:800}

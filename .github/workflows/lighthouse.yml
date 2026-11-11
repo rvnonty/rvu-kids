@@ -14,7 +14,6 @@ on:
       - learn/index.html
       - learn/alphabet/index.html
       - preview/index.html
-      - learn/critical-preview.css
   workflow_dispatch:
 
 permissions:

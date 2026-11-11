@@ -235,3 +235,5 @@ html.rvu-motion-off *,html.rvu-motion-off *::before,html.rvu-motion-off *::after
 .preview-five figure{position:relative}
 .preview-open{position:absolute;inset:0;display:block;width:100%;height:100%;border:0;background:transparent;cursor:zoom-in;border-radius:inherit}
 .preview-open:focus-visible{outline:3px solid #bd672e;outline-offset:-4px}
+
+@supports(content-visibility:auto){.preview-five figure{content-visibility:auto;contain-intrinsic-size:auto 320px}}

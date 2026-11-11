@@ -87,7 +87,7 @@ function cardUnit(u,i){
  const a=link(urlUnit(u),undefined,'unit-card');a.innerHTML='<small>UNIT '+String(i+1).padStart(2,'0')+' · '+(lang==='ar'?'صفحات ':'PAGES ')+printedPages(u.pages).join('–')+'</small><h3 dir="ltr" lang="en">'+escaped(u.title)+'</h3><p>'+escaped(lang==='ar'?u.titleAr:'A lesson from your book')+'</p><span class="tile-arrow">↗</span>';return a;
 }
 function hub(){
- const grid=document.querySelector('#letter-grid');if(grid){grid.classList.add('storybook-map');initMapIntro(grid);grid.replaceChildren();alphabet.forEach((a,i)=>grid.append(cardLetter(a,i)))}
+ const grid=document.querySelector('#letter-grid');if(grid){grid.classList.add('storybook-map');if(grid.dataset.serverRendered!=='true'){initMapIntro(grid);grid.replaceChildren();alphabet.forEach((a,i)=>grid.append(cardLetter(a,i)))} }
  const unitsGrid=document.querySelector('#unit-grid');if(unitsGrid){unitsGrid.replaceChildren();units.forEach((u,i)=>unitsGrid.append(cardUnit(u,i)))}
 }
 

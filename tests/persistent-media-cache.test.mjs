@@ -5,7 +5,7 @@ import {runInNewContext} from 'node:vm';
 
 const source=readFileSync(new URL('../learn/media-sw.js',import.meta.url),'utf8');
 function mediaWorker(){
- const events=new Map(),entries=new Map();
+ const events=new Map(),entries=new Map(),pending=[];
  let downloads=0,offline=false;
  const cache={
   async match(key){const entry=entries.get(key.url||key);return entry?.clone()},
@@ -32,11 +32,11 @@ function mediaWorker(){
    let result=null;
    const event={request:new Request('https://rvu-kids.company'+path,{
     headers:range?{Range:range}:{}
-   }),respondWith(promise){result=promise}};
+   }),respondWith(promise){result=promise},waitUntil(promise){pending.push(promise)}};
    events.get('fetch')(event);
    return result?await result:null;
   },
-  entries,get downloads(){return downloads},set offline(v){offline=v}
+  entries,async settle(){await Promise.all(pending)},get downloads(){return downloads},set offline(v){offline=v}
  };
 }
 test('playing an MP3 caches its full body and supports offline byte-range replay',async()=>{
@@ -46,6 +46,7 @@ test('playing an MP3 caches its full body and supports offline byte-range replay
  assert.equal(first.headers.get('Content-Range'),'bytes 0-7/20');
  assert.equal(await first.text(),'01234567');
  assert.equal(worker.downloads,1);
+ await worker.settle();
  assert.equal(worker.entries.size,1);
  worker.offline=true;
  const repeat=await worker.request('/assets/audio/female/000.mp3','bytes=8-11');
@@ -59,6 +60,7 @@ test('media cache only intercepts approved site assets, not pages, forms, or API
  assert.equal(await worker.request('/api/orders'),null);
  assert.equal(await worker.request('/assets/audio/female/9999.mp3'),null);
  assert.equal(await worker.request('/assets/words/flower.svg').then(r=>r?.status),200);
+ await worker.settle();
  assert.equal(worker.downloads,1);
 });
 test('service worker is registered by lessons and limits local retention',()=>{
@@ -66,6 +68,7 @@ test('service worker is registered by lessons and limits local retention',()=>{
  assert.match(js,/navigator\.serviceWorker\.register\('\/learn\/media-sw\.js'/);
  assert.match(source,/const MAX_MEDIA_FILES=640/);
  assert.match(source,/await cache\.put\(key,response\.clone\(\)\)/);
+ assert.match(source,/event\.waitUntil\(write\)/);
  assert.match(source,/respondToRange\(response,range\)/);
  assert.doesNotMatch(source,/\/api\/|skipWaiting\(\)\s*;\s*fetch\(/);
 });

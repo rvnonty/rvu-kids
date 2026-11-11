@@ -1,5 +1,7 @@
 /assets/audio/*
-  Cache-Control: public, max-age=300, must-revalidate
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=604800
+/learn/media-sw.js
+  Cache-Control: no-cache, must-revalidate
 /assets/*
   Cache-Control: public, max-age=604800, stale-while-revalidate=86400
 /learn/content.js

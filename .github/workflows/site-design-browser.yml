@@ -19,6 +19,10 @@ on:
       - .github/workflows/site-design-browser.yml
   pull_request:
     paths:
+      - index.html
+      - style.css
+      - scripts/site-design-browser-check.mjs
+      - tests/site-design.test.mjs
       - learn/storybook.mjs
       - learn/next-adventures.mjs
       - parents/index.html

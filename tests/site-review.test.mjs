@@ -165,14 +165,15 @@ test('home is an uncluttered book storefront and lessons have a separate child-o
  assert.ok(app.includes("heroDelivery:'300 EGP per copy"));
 });
 
-test('order form has no mandatory consent paragraph but privacy remains accessible in footer',()=>{
+test('order form remains clear about data sharing without a privacy footer button',()=>{
  const html=read('index.html'),app=read('app.js');
  assert.ok(!html.includes('name="consent"'));
  assert.ok(!html.includes('id="privacy-open"'));
  assert.ok(!html.includes('موافق أشارك بيانات الطلب والعنوان'));
- assert.ok(html.includes('id="footer-privacy"'));
- assert.ok(html.includes('id="privacy-dialog"'));
- assert.ok(app.includes("document.getElementById('footer-privacy').addEventListener('click'"));
+ assert.ok(!html.includes('id="footer-privacy"'));
+ assert.ok(!html.includes('id="privacy-dialog"'));
+ assert.ok(html.includes('data-i18n="privacyShort"'));
+ assert.ok(!app.includes("getElementById('footer-privacy')"));
  assert.ok(app.includes("form.addEventListener('submit'"));
 });
 

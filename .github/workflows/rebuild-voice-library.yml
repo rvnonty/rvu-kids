@@ -1,0 +1,84 @@
+name: Rebuild the unified male and female English audio library
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/rebuild-voice-library.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: rvu-voice-library
+  cancel-in-progress: false
+
+jobs:
+  regenerate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 110
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install speech rendering and audio validation dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends ffmpeg espeak-ng libsndfile1
+          python -m pip install --disable-pip-version-check --upgrade pip
+          python -m pip install torch==2.6.0 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install "kokoro==0.9.4" "numpy>=1.24,<3"
+      - name: Rebuild all 488 matched lesson recordings
+        env:
+          TOKENIZERS_PARALLELISM: "false"
+          HF_HUB_DISABLE_TELEMETRY: "1"
+        run: python -u scripts/rebuild-voice-library.py
+      - name: Validate new source against curriculum and browser regression tests
+        run: npm test
+      - name: Validate all MP3 streams
+        run: |
+          python - <<'PY'
+          import json,subprocess
+          from pathlib import Path
+          manifest=json.loads(Path('learn/audio-manifest.json').read_text())
+          for record in manifest['recordings']:
+              for voice in ('male','female'):
+                  path=Path('.'+record['voices'][voice])
+                  result=subprocess.run(['ffmpeg','-v','error','-i',str(path),'-f','null','-'],capture_output=True,text=True)
+                  if result.returncode!=0 or result.stderr.strip():
+                      raise SystemExit('MP3 decode failure: '+str(path)+' '+result.stderr)
+          print('488 paired MP3 tracks decode successfully.')
+          PY
+      - name: Save reproducible voice QA inventory
+        uses: actions/upload-artifact@v4
+        with:
+          name: rvu-voice-regeneration-report
+          path: audio-build/report.json
+          retention-days: 14
+      - name: Commit matched speech library only after all validation passes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/audio learn/audio-manifest.json learn/learn.js learn/media-sw.js scripts/media-browser-smoke.mjs tests docs
+          if git diff --cached --quiet; then
+            echo "Nothing changed"
+            exit 0
+          fi
+          git commit -m "Rebuild all English lessons in two stable neural voices with verified word mappings"
+          for attempt in 1 2 3 4 5; do
+            if git push origin HEAD:main; then
+              echo "Updated audio library committed successfully"
+              exit 0
+            fi
+            git fetch origin main
+            git rebase origin/main
+            sleep $((attempt * 4))
+          done
+          echo "Unable to publish after validation" >&2
+          exit 1

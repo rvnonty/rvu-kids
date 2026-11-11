@@ -68,6 +68,8 @@ test('footer copyright stays left and Mansoura printing line stays right on desk
  const home=file('index.html'),css=file('style.css'),en=file('app.js');
  const bottom=home.slice(home.indexOf('class="wrap footer-bottom"'),home.indexOf('</footer>'));
  assert.ok(bottom.indexOf('id="year"')<bottom.indexOf('data-i18n="footerPlace"'));
+ assert.match(bottom,/<span class="footer-copyright" dir="ltr" lang="en">© <span id="year">2026<\/span> RVU Kids<\/span>/);
+ assert.ok(css.includes('.footer-bottom .footer-copyright{display:inline-block;direction:ltr;unicode-bidi:isolate;white-space:nowrap'));
  assert.match(bottom,/يُطبع بحب في المنصورة، مصر/);
  assert.ok(css.includes('.footer-bottom{direction:ltr}'));
  assert.ok(css.includes('.footer-bottom [data-i18n="footerPlace"]{direction:rtl}'));

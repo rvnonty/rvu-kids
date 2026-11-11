@@ -40,6 +40,33 @@
   const previous=root.previousElementSibling;
   if(previous?.classList?.contains('storybook-map-intro'))previous.replaceChildren(...intro.children);
   else root.before(intro);
+  const staticStops=[...root.querySelectorAll('.storybook-stop')];
+  if(root.dataset.staticLetters==='true'&&staticStops.length===letters.length){
+   staticStops.forEach((stop,index)=>{
+    const lesson=letters[index],word=lesson.words[0]||lesson.letter;
+    const station=stop.querySelector('.storybook-station');
+    const status=stop.querySelector('.storybook-station-status');
+    const listen=stop.querySelector('.storybook-station-listen');
+    const label=text('اكتشف الحرف','Explore this letter');
+    stop.dataset.status='explore';station.dataset.status='explore';
+    status.textContent=label;
+    station.setAttribute('aria-label',text('محطة ','Stop ')+(index+1)+' - '+lesson.letter+' - '+word+' - '+label);
+    const playable=window.RVU_WORD_AUDIO?.available(lesson.id,word)===true;
+    listen.disabled=!playable;
+    listen.textContent=playable?text('اسمع','Listen'):text('الصوت قيد المراجعة','Audio under review');
+    listen.setAttribute('aria-label',playable?
+     text('اسمع نطق كلمة ','Hear the word ')+word:
+     text('نطق كلمة ','Pronunciation for ')+word+text(' قيد المراجعة',' is being reviewed'));
+    if(playable)listen.addEventListener('click',()=>{
+     window.RVU_WORD_AUDIO.play(lesson.id,word);
+     stop.classList.remove('is-listening');
+     void stop.offsetWidth;
+     stop.classList.add('is-listening');
+    });
+   });
+   drawMapRoute(root);
+   return;
+  }
   root.replaceChildren();
   letters.forEach((lesson,index)=>{
    const stop=node('div','storybook-stop');

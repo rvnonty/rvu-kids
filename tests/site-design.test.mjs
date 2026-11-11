@@ -39,3 +39,21 @@ test('all primary pages remain intact and have a responsive viewport declaration
   assert.ok(existsSync('dist/'+page),'built route '+page);
  }
 });
+
+test('responsive footer uses the existing SVG logo, privacy dialog and Ramez Medhat credit',()=>{
+ const home=file('index.html'),css=file('style.css');
+ assert.match(home,/class="footer-identity"/);
+ assert.match(home,/class="brand light" href="\/" aria-label="RVU Kids/);
+ assert.match(home,/id="footer-privacy"/);
+ assert.match(home,/class="footer-credit" dir="ltr"/);
+ assert.match(home,/By:<\/span>/);
+ assert.match(home,/Ramez Medhat<span class="footer-heart"/);
+ assert.match(home,/❤️/);
+ assert.match(home,/id="year"/);
+ assert.match(home,/data-i18n="footerPlace"/);
+ assert.match(css,/\.footer-top\{display:grid;grid-template-columns:minmax\(0,1fr\) auto minmax\(0,1fr\)/);
+ assert.match(css,/@media\(max-width:820px\)/);
+ assert.match(css,/\.footer-privacy:focus-visible/);
+ assert.match(css,/\.footer-identity/);
+ assert.match(css,/assets\/rvu-kids-logo\.svg/);
+});

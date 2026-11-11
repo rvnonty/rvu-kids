@@ -11,6 +11,11 @@ on:
       - scripts/media-browser-smoke.mjs
       - style.css
       - learn/learn.css
+      - learn/next-adventures.css
+      - learn/story-journey.css
+      - learn/media-sw.js
+      - learn/audio-manifest.json
+      - assets/words/**
       - parents/guide.css
       - index.html
       - app.js

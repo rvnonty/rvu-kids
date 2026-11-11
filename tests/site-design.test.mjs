@@ -40,20 +40,26 @@ test('all primary pages remain intact and have a responsive viewport declaration
  }
 });
 
-test('responsive footer uses the existing SVG logo, privacy dialog and Ramez Medhat credit',()=>{
- const home=file('index.html'),css=file('style.css');
+test('responsive footer uses unboxed text wordmark, no privacy button, left credit, centered mobile tagline',()=>{
+ const home=file('index.html'),css=file('style.css'),app=file('app.js');
  assert.match(home,/class="footer-identity"/);
  assert.match(home,/class="brand light" href="\/" aria-label="RVU Kids/);
- assert.match(home,/id="footer-privacy"/);
+ assert.match(home,/class="brand-rvu">RVU<\/span><span class="brand-kids">KIDS<\/span>/);
+ assert.doesNotMatch(home,/id="footer-privacy"|id="privacy-dialog"/);
+ assert.doesNotMatch(app,/getElementById\('footer-privacy'\)|querySelector\('#privacy-close'\)/);
  assert.match(home,/class="footer-credit" dir="ltr"/);
  assert.match(home,/By:<\/span>/);
  assert.match(home,/Ramez Medhat<span class="footer-heart"/);
  assert.match(home,/❤️/);
  assert.match(home,/id="year"/);
- assert.match(home,/data-i18n="footerPlace"/);
- assert.match(css,/\.footer-top\{display:grid;grid-template-columns:minmax\(0,1fr\) auto minmax\(0,1fr\)/);
+ assert.match(home,/data-i18n="footerPlace">يُطبع بحب في المنصورة، مصر/);
+ assert.ok(home.indexOf('class="footer-credit"')<home.indexOf('class="footer-identity"'));
+ assert.ok(css.includes('.footer .brand{display:inline-flex;flex-direction:row'));
+ assert.ok(css.includes('background:none;box-shadow:none;color:#fff'));
+ assert.ok(css.includes('.footer-top>.footer-credit{grid-column:1;grid-row:1;justify-self:start'));
+ assert.ok(css.includes('.footer-top>.footer-identity{grid-column:2;grid-row:1;justify-self:end'));
+ assert.ok(css.includes('.footer-top .footer-identity .brand{grid-column:2;grid-row:1;justify-self:end'));
+ assert.ok(css.includes('.footer-top .footer-identity .footer-tagline{grid-column:1/-1;grid-row:2;justify-self:center'));
+ assert.ok(css.includes('.footer-bottom{direction:ltr}'));
  assert.match(css,/@media\(max-width:820px\)/);
- assert.match(css,/\.footer-privacy:focus-visible/);
- assert.match(css,/\.footer-identity/);
- assert.match(css,/assets\/rvu-kids-logo\.svg/);
 });

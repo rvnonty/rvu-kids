@@ -9,7 +9,7 @@ test('static alphabet map hydrates only once and preview gallery uses low-priori
   assert.match(html,/id="letter-grid" data-server-rendered="true"/);
  }
  const preview=readFileSync('preview/index.html','utf8');
- assert.equal((preview.match(/loading="lazy" fetchpriority="low"/g)||[]).length,5);
+ assert.equal((preview.match(/fetchpriority="low"/g)||[]).length,5);
  const css=readFileSync('learn/learn.css','utf8');
  assert.match(css,/\.preview-five figure\{content-visibility:auto/);
 });

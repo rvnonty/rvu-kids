@@ -724,3 +724,7 @@ html[lang=en] .footer-identity{direction:ltr}
  .footer .brand-rvu{font-size:1.03rem}
  .footer .brand-kids{font-size:.71rem}
 }
+
+.footer-bottom{direction:ltr}
+.footer-bottom [data-i18n="footerPlace"]{direction:rtl}
+html[lang=en] .footer-bottom [data-i18n="footerPlace"]{direction:ltr}

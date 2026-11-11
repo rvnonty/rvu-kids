@@ -17,7 +17,7 @@ async function optimizeHtml(dir){
   if(!entry.isFile()||!entry.name.endsWith('.html'))continue;
   const original=await readFile(file,'utf8');
   let output=original.replace(/<!--[\s\S]*?-->/g,'');
-  if(output.includes('<link rel="stylesheet"')&&!output.includes('rel="preconnect"')){
+  if(output.includes('fonts.googleapis.com/css2?')&&!output.includes('rel="preconnect"')){
    output=output.replace(/<head(?:\s[^>]*)?>/i,opening=>opening+'\n'+fontHints);
   }
   if(output!==original)await writeFile(file,output);

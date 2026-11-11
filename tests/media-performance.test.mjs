@@ -48,17 +48,19 @@ test('book previews defer nonessential images and prioritize visible cover',()=>
  assert.ok(preview.includes('src="/assets/cover.webp"'));
 });
 
-test('all built content pages preconnect font servers only once',()=>{
+test('font preconnects are emitted only for pages that actually load remote fonts',()=>{
  const paths=[
   'dist/index.html','dist/preview/index.html','dist/books/alphabet/index.html',
   'dist/parents/index.html','dist/learn/index.html',
   'dist/learn/alphabet/a/index.html','dist/learn/sentences/polite-words/index.html'
  ];
  for(const path of paths){
-  const html=read(path);
-  assert.equal((html.match(/rel="preconnect"/g)||[]).length,2,path);
-  assert.ok(html.includes('fonts.gstatic.com'),path);
+  const html=read(path),needsExternalFont=html.includes('fonts.googleapis.com/css2?');
+  assert.equal((html.match(/rel="preconnect"/g)||[]).length,needsExternalFont?2:0,path);
+  assert.equal(html.includes('fonts.gstatic.com'),needsExternalFont,path);
  }
+ assert.ok(!read('style.css').includes('@import'));
+ assert.ok(!read('learn/learn.css').includes('@import'));
 });
 
 test('production CSS and game bundles remove explanatory code comments',()=>{

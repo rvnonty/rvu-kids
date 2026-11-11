@@ -5,6 +5,9 @@ on:
     paths:
       - .github/workflows/lighthouse.yml
       - learn/learn.css
+      - style.css
+      - index.html
+      - build.mjs
       - learn/next-adventures.mjs
       - preview/index.html
   workflow_dispatch:

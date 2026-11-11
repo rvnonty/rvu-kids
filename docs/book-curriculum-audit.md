@@ -1,37 +1,20 @@
-# RVU Kids — Book-to-Site Curriculum Audit
-**Reference:** User-supplied `RVU_BOOk.pdf`, 96 pages, creation date 2026-11-03. Alphabet lesson art appears on PDF pages 4, 6, ... 54. This report is a comparison of the pictured words, not automated OCR.
+# RVU Kids — Printed-book to website curriculum audit
+Updated: 11 November 2026
 
-## Summary
-- 26 alphabet lessons exist in the repository.
-- 101 illustrated word entries are referenced by the website.
-- **12 letters contain 15 word slots that do not match the printed book.**
-- All 101 referenced SVG files exist, but **98 use operating-system emoji glyphs**, not the original illustrations. The three drawn vector exceptions are quilt, quail, and xylophone.
-- The site has 15 everyday units corresponding to printed units 27–41 (PDF pages 56–85). Printed units 42–46 (PDF pages 86–95) are review/challenge pages and are not implemented as separate digital lessons.
+## Current correspondence
+- The approved reference book contains 96 pages.
+- The website presents **26 alphabet lessons with 101 pictured words**; all lesson word texts now match the current printed curriculum and pass `tests/book-curriculum-snapshot.test.mjs`.
+- The 244-row audio manifest was regenerated to use the same word and example sentence texts as the curriculum. All 488 paired media paths exist.
+- The website also offers 15 Everyday English units containing 64 sentence recordings.
+- All 101 vocabulary assets use an SVG card frame with a consistent visual style. Some illustrations are emoji glyphs inside those cards rather than hand-drawn reconstructions of the original printed imagery; visual identity is not the same as pixel-for-pixel book fidelity.
 
-## Vocabulary differences
-| Letter / PDF art page | Word(s) on site, not in book | Word(s) in book, absent on site |
-| --- | --- | --- |
-| C / 8 | cup | carrot |
-| D / 10 | doll | drum |
-| E / 12 | ear, elbow | envelope, engine |
-| F / 14 | fork | fox |
-| I / 20 | island | igloo |
-| J / 22 | jam | jeep |
-| K / 24 | kangaroo | king |
-| N / 30 | night | nurse |
-| O / 32 | ocean, otter | owl, ox |
-| P / 34 | pen | pencil |
-| R / 38 | rain | rose |
-| S / 40 | sock, spoon | strawberry, snake |
+## Changes closed during the audit
+Fifteen prior text-to-audio mismatches were corrected: carrot, drum, envelope, engine, fox, igloo, jeep, king, nurse, owl, ox, pencil, rose, strawberry and snake. The old words belonged to an outdated audio map and are no longer substituted into the current curriculum. The previously inconsistent group of 17 image cards was restyled.
 
-The remaining fourteen alphabet lessons match the pictured word sets. Word ordering in the UI may differ from position on the printed page; order alone is not considered a mismatch.
+## Deliberate differences and remaining checks
+The five final printed review/challenge units (printed units 42–46) are not each replicated as separate standalone digital lessons. The website provides its own learning games instead.
 
-## Required remediation before claiming book-identical learning
-1. Update `learn/content.js` and generated audio row inventory together.
-2. Obtain **both female and male approved US-English voice clips** for each newly introduced word. Retain stable audio mapping or perform a deliberate ID migration.
-3. Replace placeholder SVG emoji with authorized, consistent illustrations matched to the book; do not publish the entire PDF.
-4. Review all affected games, picture scenes, prompts, reading examples, offline pack assets and labels.
-5. Run automated path integrity tests, play audio at all supported speeds, and sign off with human listening. Fish still requires real phonetic correction. Fork should not remain in the F book-matched set.
-6. Consider adding interactive review/challenge exercises representing the five existing printed review units without distributing their full printed pages.
+A complete visual comparison of every SVG card to the latest print reference remains subject to a manual review. Phonetic accuracy and speaker identity require human listening acceptance (see `docs/audio-review.md`). Do not claim 100% book-image or pronunciation equivalence from automated path checks.
 
-**Release gate:** Do not mark the website as a faithful digital companion to the printed book while the 15 mismatches or 98 emoji stand-ins remain unresolved.
+## Regression gate
+Run `npm test`, the five-pass GitHub workflow, the 41-lesson browser run, and the responsive site-design workflow after changing curriculum/media. The Lighthouse mobile lab gate currently identifies remaining LCP work on some learning pages; this is reported separately and not concealed.

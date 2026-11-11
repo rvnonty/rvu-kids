@@ -45,11 +45,11 @@ GitHub Pages serves the current domain, but it has usage limits and this repo's 
 For traffic spikes, deploy the static build through Cloudflare Workers Static Assets / Pages and configure caching and DNS; do not claim 10,000 simultaneous users are guaranteed until a staging load test has been completed and passed. Dynamic orders/API require separate load testing.
 
 ## Cache and media
-The `_headers` file is a configuration template for hosts that support it. Static media: seven-day edge cache, version before longer immutable caching; HTML: shorter TTL. SVG and MP3 are served as independent static assets. Avoid preloading all audio.
+The `_headers` file applies only on hosts that support it; GitHub Pages does not process this file. The learning service worker caches only requested MP3 and illustrated SVG media locally (cache `rvu-kids-media-v3`). Previously loaded audio can replay without a network connection unless the browser evicts its storage. Avoid preloading all audio.
 
 ## American-English pronunciation QA
 
-The existing 244 x 2 public recordings were synthesized using neural TTS, not recorded by human actors. Reports of `fish` sounding like `vish` and unnecessary trailing vowels mean they are **not guaranteed accurate or human-natural**. The `pronunciation-audit.yml` workflow uses independent speech recognition to screen the 101 word tracks in both voices and produces candidate F-word phonetic replacements as downloadable review files. ASR success alone is NOT sufficient to approve a take; human review is required before replacing any production audio. Genuine human speech needs licensed recordings by American-English voice actors.
+The 244 lesson rows have now been aligned with the printed curriculum and regenerated as 488 MP3 files in two consistent American-English synthetic voices: `am_liam` (boy) and `af_sarah` (girl). All 26 letter names, 26 letter sounds, 101 book words, 26 example sentences, 64 Everyday English sentences and one additional review sentence have paired files. File integrity and curriculum mapping passed automated verification, **but the owner-requested perceptual review of E, Fish and every clip remains open**. A synthetic clip's existence or an ASR match is not proof of flawless pronunciation or of a human actor. See `docs/audio-review.md`.
 
 ## Beyond-the-book activities
 
@@ -118,10 +118,7 @@ Regression checks: tests/garden-identity.test.mjs, with npm test.
 
 ## Quality and reliability gate (November 2026)
 
-- **Pronunciation:** Fish and Fork remain disabled pending actual US-English
-  listening review in both voice recordings. Existing files 037.mp3 and
-  040.mp3 have not been silently replaced or approved. See
-  [audio review](docs/audio-review.md).
+- **Pronunciation:** All curriculum recordings have been regenerated and mapped in both voice tracks. No book-word audio is disabled for missing files. Human phonetic approval, including letter E and timbre matching, remains outstanding. See [audio review](docs/audio-review.md).
 - **Image preview:** keeps exactly five book pages. Fixed image aspect ratios
   and light illustrated placeholders improve lazy loading and make missing
   images apparent during real scrolling.
@@ -133,10 +130,7 @@ Regression checks: tests/garden-identity.test.mjs, with npm test.
   by scripts/check-vitals.mjs. INP target 200ms requires field data
   (CrUX / Search Console) and must not be inferred from Lighthouse lab tests.
   See [performance verification](docs/performance.md).
-- **Limited offline lessons:** parents can explicitly save or remove beginner
-  lessons A/B, with their existing voice clips and word illustrations (voice quality still needs human review). No
-  automatic full-book download, no caching of Fish/Fork, and no silent
-  pre-download. Real-device offline testing remains required.
+- **Offline replay:** each requested recording or SVG illustration is retained in browser CacheStorage for repeat use, subject to browser storage limits and eviction. The browser smoke test verifies cached audio byte-range playback offline; full real-device QA remains necessary.
 - **Access and motion:** reduced-motion preferences are respected and the
   alphabet audio actions are separate from navigation links, reachable by
   keyboard and touch.

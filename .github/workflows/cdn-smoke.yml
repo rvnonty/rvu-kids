@@ -1,0 +1,23 @@
+name: Public CDN bounded availability smoke
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/cdn-smoke.yml
+      - scripts/cdn-smoke.mjs
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check 28 harmless static requests with at most five concurrent connections
+        run: node scripts/cdn-smoke.mjs

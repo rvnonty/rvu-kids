@@ -28,7 +28,10 @@ const el=(tag,cls,text)=>{const x=document.createElement(tag);if(cls)x.className
 function link(url,text,cls){const a=el('a',cls,text);a.href=url;return a}
 function renderNavLang(){
  const nav=document.querySelector('.sitebar nav');if(!nav)return;
- const sw=el('button','lang-switch',t('switch'));sw.type='button';sw.setAttribute('aria-label',lang==='ar'?'Switch to English':'التغيير إلى العربية');sw.addEventListener('click',()=>{const next=lang==='ar'?'en':'ar';sessionStorage.setItem('rvu-lang',next);const url=new URL(location.href);url.searchParams.set('lang',next);location.assign(url.href)});nav.append(sw);
+ const sw=nav.querySelector('button.lang-switch')||el('button','lang-switch');
+ sw.type='button';sw.textContent=t('switch');sw.setAttribute('aria-label',lang==='ar'?'Switch to English':'التغيير إلى العربية');
+ sw.addEventListener('click',()=>{const next=lang==='ar'?'en':'ar';sessionStorage.setItem('rvu-lang',next);const url=new URL(location.href);url.searchParams.set('lang',next);location.assign(url.href)});
+ if(!sw.isConnected)nav.append(sw);
  document.documentElement.lang=lang;document.documentElement.dir=lang==='ar'?'rtl':'ltr';
  const v=nav.querySelectorAll('a');
  if(v.length>=3){

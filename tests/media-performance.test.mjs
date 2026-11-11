@@ -30,7 +30,8 @@ test('244 compact audio mappings reproduce all 488 original MP3 locations exactl
    assert.ok(statSync('.'+r.voices[voice]).size>2300);
   }
  }
- assert.ok(js.includes('const CACHE_LIMIT=4'));
+ assert.ok(js.includes('const CACHE_LIMIT=12'));
+ assert.ok(existsSync('learn/media-sw.js'));
  assert.ok(js.includes("player.preload='auto'"));
  assert.ok(js.includes("b.addEventListener('pointerenter',prepare"));
  assert.ok(js.includes('stopAudio()'));

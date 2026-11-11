@@ -24,7 +24,7 @@ async function respondToRange(response,range){
  headers.delete('Content-Encoding');
  return new Response(body.slice(start,end+1),{status:206,statusText:'Partial Content',headers});
 }
-async function mediaResponse(request,url){
+async function mediaResponse(request,url,event){
  const key=new Request(url.origin+url.pathname,{credentials:'same-origin'});
  const range=request.headers.get('range');
  try{
@@ -33,11 +33,14 @@ async function mediaResponse(request,url){
   if(saved)return respondToRange(saved,range);
   const response=await fetch(key,{cache:'reload'});
   if(!response.ok||response.status!==200)return response;
-  try{
-   await cache.put(key,response.clone());
-   const keys=await cache.keys();
-   if(keys.length>MAX_MEDIA_FILES)await Promise.all(keys.slice(0,keys.length-MAX_MEDIA_FILES).map(old=>cache.delete(old)));
-  }catch{}
+  const write=(async()=>{
+   try{
+    await cache.put(key,response.clone());
+    const keys=await cache.keys();
+    if(keys.length>MAX_MEDIA_FILES)await Promise.all(keys.slice(0,keys.length-MAX_MEDIA_FILES).map(old=>cache.delete(old)));
+   }catch{}
+  })();
+  event.waitUntil(write);
   return respondToRange(response,range);
  }catch{return fetch(request)}
 }
@@ -46,5 +49,5 @@ self.addEventListener('fetch',event=>{
  if(request.method!=='GET')return;
  const url=new URL(request.url);
  if(url.origin!==self.location.origin||!MEDIA_PATH.test(url.pathname))return;
- event.respondWith(mediaResponse(request,url));
+ event.respondWith(mediaResponse(request,url,event));
 });

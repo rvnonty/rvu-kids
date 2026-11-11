@@ -505,8 +505,13 @@ function enableStoryMotion(){
  for(const target of targets){target.classList.add('story-reveal');observer.observe(target)}
 }
 enableStoryMotion();
-import('/learn/storybook.mjs')
- .catch(error=>{console.warn('Storybook enhancements unavailable',error)})
- .then(()=>import('/learn/next-adventures.mjs'))
- .then(module=>module.mountAdventureExtras({playButton}))
- .catch(error=>{console.warn('New learning interactions unavailable',error)});
+function loadLearningEnhancements(){
+ import('/learn/storybook.mjs')
+  .catch(error=>{console.warn('Storybook enhancements unavailable',error)})
+  .then(()=>import('/learn/next-adventures.mjs'))
+  .then(module=>module.mountAdventureExtras({playButton}))
+  .catch(error=>{console.warn('New learning interactions unavailable',error)});
+}
+if(typeof window.requestAnimationFrame==='function'){
+ window.requestAnimationFrame(()=>window.requestAnimationFrame(loadLearningEnhancements));
+}else loadLearningEnhancements();

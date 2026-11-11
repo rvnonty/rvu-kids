@@ -1,4 +1,4 @@
-/* RVU Kids — scene-based, audio-led Everyday English stories. */
+
 .rvu-story-journey{--scene-green:#184c3a;--scene-cream:#fffdf7;margin:26px 0;padding:clamp(16px,3vw,28px);border-radius:28px;border:1px solid #d5e6db;background:linear-gradient(125deg,#fffdf7,#f4f7ed);box-shadow:0 8px 26px #184c3a12}
 .rvu-story-kicker{font-size:.76rem;font-weight:900;color:#567d65;letter-spacing:.04em}
 .rvu-story-journey h2{margin:7px 0 5px;color:#184c3a;font-size:clamp(1.35rem,2.7vw,2rem)}

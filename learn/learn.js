@@ -86,6 +86,7 @@ function hub(){
 
 const illustratedWords=new Set(ALL_WORDS);
 const voiceRows=new Map(AUDIO_ROWS.map((r,i)=>[r[0]+'|'+r[1]+'|'+r[2],i]));
+const wordAudioIds=new Map(AUDIO_ROWS.flatMap((r,i)=>r[0]==='word'?[[r[2],i]]:[]));
 const audioUrl=(id,voice)=>'/assets/audio/'+voice+'/'+String(id).padStart(3,'0')+'.mp3';
 const cachedAudio=new Map();
 const CACHE_LIMIT=12;
@@ -175,7 +176,7 @@ function voicePicker(){
  return section;
 }
 function playButton(type,lesson,value){
- const id=voiceRows.get(type+'|'+lesson+'|'+value);
+ const id=voiceRows.get(type+'|'+lesson+'|'+value)??(type==='word'?wordAudioIds.get(value):undefined);
  if(id===undefined)return null;
  const b=el('button','audio-play',lang==='ar'?'اسمع':'Listen');b.type='button';
  b.setAttribute('aria-label',(lang==='ar'?'استمع إلى ':'Listen to ')+value);
@@ -466,7 +467,7 @@ try{
 window.RVU_WORD_AUDIO={
  available(lesson,word){
   const key='word|'+lesson+'|'+word;
-  return !REPORTED_WRONG_WORD_AUDIO.has(word)&&voiceRows.has(key);
+  return !REPORTED_WRONG_WORD_AUDIO.has(word)&&(voiceRows.has(key)||wordAudioIds.has(word));
  },
  play(lesson,word){
   const b=playButton('word',lesson,word);

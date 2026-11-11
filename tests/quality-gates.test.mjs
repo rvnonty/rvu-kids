@@ -27,7 +27,7 @@ test('new motion respects user reduction and does not autoplay audio',()=>{
  assert.match(css,/html\.rvu-motion-off/);
  assert.match(css,/@media\(prefers-reduced-motion:reduce\)/);
  assert.match(js,/window\.RVU_WORD_AUDIO/);
- assert.match(js,/if\(deviceVoice\)/);
+ assert.doesNotMatch(js,/SpeechSynthesisUtterance|speechSynthesis|deviceVoice/);
  assert.match(js,/b\.addEventListener\('click',\(\)=>\{/);
  assert.match(js,/utterance\.lang='en-US'/);
  assert.match(js,/REPORTED_WRONG_WORD_AUDIO/);

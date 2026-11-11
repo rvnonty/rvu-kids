@@ -40,7 +40,7 @@
   const previous=root.previousElementSibling;
   if(previous?.classList?.contains('storybook-map-intro'))previous.replaceChildren(...intro.children);
   else root.before(intro);
-  const staticStops=[...root.querySelectorAll('.storybook-stop')];
+  const staticStops=root.dataset.staticLetters==='true'&&typeof root.querySelectorAll==='function'?[...root.querySelectorAll('.storybook-stop')]:[];
   if(root.dataset.staticLetters==='true'&&staticStops.length===letters.length){
    staticStops.forEach((stop,index)=>{
     const lesson=letters[index],word=lesson.words[0]||lesson.letter;

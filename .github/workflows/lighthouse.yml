@@ -9,6 +9,9 @@ on:
       - index.html
       - build.mjs
       - learn/next-adventures.mjs
+      - learn/learn.js
+      - learn/index.html
+      - learn/alphabet/index.html
       - preview/index.html
   workflow_dispatch:
 

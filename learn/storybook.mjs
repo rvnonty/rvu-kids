@@ -152,7 +152,16 @@
   const page=document.body.dataset.page;
   if(page==='hub'||page==='alphabet-index'){
    const hero=document.querySelector('.hero');
-   if(hero)hero.append(makeGuide('welcome'));
+   if(hero){
+    const existing=hero.querySelector('.storybook-guide');
+    if(existing){
+     guide=existing;
+     guide.setAttribute('aria-label',text('مرشد مغامرة RVU Kids','RVU Kids story guide'));
+     const title=guide.querySelector('.storybook-guide-title');
+     if(title)title.textContent=text('صحابك في المغامرة','Your storybook friends');
+     setGuideMood('welcome');
+    }else hero.append(makeGuide('welcome'));
+   }
   }else if(page==='lesson'){
    const card=document.querySelector('.lesson-card');
    if(card){
@@ -161,7 +170,16 @@
     if(audio)audio.after(component);else card.prepend(component);
    }else{
     const hero=document.querySelector('.hero');
-    if(hero)hero.append(makeGuide('welcome'));
+    if(hero){
+    const existing=hero.querySelector('.storybook-guide');
+    if(existing){
+     guide=existing;
+     guide.setAttribute('aria-label',text('مرشد مغامرة RVU Kids','RVU Kids story guide'));
+     const title=guide.querySelector('.storybook-guide-title');
+     if(title)title.textContent=text('صحابك في المغامرة','Your storybook friends');
+     setGuideMood('welcome');
+    }else hero.append(makeGuide('welcome'));
+   }
    }
   }else if(page==='words'){
    const card=document.getElementById('word-library');

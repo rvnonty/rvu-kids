@@ -10,6 +10,7 @@ on:
       - build.mjs
       - learn/next-adventures.mjs
       - learn/learn.js
+      - learn/storybook.mjs
       - learn/index.html
       - learn/alphabet/index.html
       - preview/index.html

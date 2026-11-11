@@ -463,12 +463,10 @@ try{
   document.documentElement.classList.add('rvu-motion-off');
  }
 }catch{}
-/* Reuse the exact approved audio pipeline for the A–Z picture-listen controls.
-   Never synthesize a fallback for a clip awaiting pronunciation review. */
 window.RVU_WORD_AUDIO={
  available(lesson,word){
   const key='word|'+lesson+'|'+word;
-  return !REPORTED_WRONG_WORD_AUDIO.has(word)&&(voiceRows.has(key)||Boolean(window.speechSynthesis&&window.SpeechSynthesisUtterance));
+  return !REPORTED_WRONG_WORD_AUDIO.has(word)&&voiceRows.has(key);
  },
  play(lesson,word){
   const b=playButton('word',lesson,word);

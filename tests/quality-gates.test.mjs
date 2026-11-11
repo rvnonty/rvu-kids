@@ -29,7 +29,8 @@ test('new motion respects user reduction and does not autoplay audio',()=>{
  assert.match(js,/window\.RVU_WORD_AUDIO/);
  assert.doesNotMatch(js,/SpeechSynthesisUtterance|speechSynthesis|deviceVoice/);
  assert.match(js,/b\.addEventListener\('click',\(\)=>\{/);
- assert.match(js,/utterance\.lang='en-US'/);
+ assert.ok(!js.includes('utterance.lang='));
+ assert.match(js,/const id=voiceRows\.get/);
  assert.match(js,/REPORTED_WRONG_WORD_AUDIO/);
 });
 test('performance budgets are stated honestly without claiming a synthetic INP',()=>{

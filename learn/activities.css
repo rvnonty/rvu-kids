@@ -128,7 +128,7 @@ body[data-page="lesson"] .skip:focus-visible{top:1rem;transform:none;opacity:1;p
  .rvu-game-panel[data-mood="retry"] .rvu-lizard-avatar.character-portrait{transform:none;filter:none}
 }
 
-/* Storybook Adventure — game visuals from the book and simple geometric celebration */
+
 .rvu-lesson-games{border-radius:26px;overflow:hidden;background:#fffdf8;box-shadow:0 7px 20px #184c3a12}
 .rvu-arcade-intro{background:radial-gradient(circle at 85% 15%,#f9e9ba 0,transparent 28%),linear-gradient(120deg,#eff7ee,#fffaf0);border-color:#dde7da}
 .rvu-arcade-intro h2,.rvu-game-panel h3{color:#184c3a}
@@ -159,7 +159,7 @@ body[data-page="lesson"] .skip:focus-visible{top:1rem;transform:none;opacity:1;p
 }
 
 
-/* Short celebration characters are CSS/SVG-style symbols, not emoji. */
+
 .rvu-burst-piece[data-effect="notes"],.rvu-burst-piece[data-effect="letters"]{font:900 1.1rem/1 "DM Sans",sans-serif;display:grid;place-items:center;color:#21785b;background:transparent;filter:drop-shadow(0 3px 3px #184c3a20)}
 .rvu-burst-piece[data-effect="notes"]{font-size:1.34rem;color:#4a95b0}
 .rvu-burst-piece[data-effect="star"]{clip-path:polygon(50% 0,62% 35%,98% 35%,69% 58%,80% 95%,50% 75%,20% 95%,31% 58%,2% 35%,38% 35%);width:13px;height:13px;border-radius:0}

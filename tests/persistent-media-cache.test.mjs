@@ -4,12 +4,14 @@ import {readFileSync} from 'node:fs';
 import {runInNewContext} from 'node:vm';
 
 const source=readFileSync(new URL('../learn/media-sw.js',import.meta.url),'utf8');
-function mediaWorker(){
+function mediaWorker({holdCacheWrite=false}={}){
+ let releaseWrite=()=>{};
+ const cacheBarrier=holdCacheWrite?new Promise(resolve=>{releaseWrite=resolve}):null;
  const events=new Map(),entries=new Map(),pending=[];
  let downloads=0,offline=false;
  const cache={
   async match(key){const entry=entries.get(key.url||key);return entry?.clone()},
-  async put(key,response){entries.set(key.url||key,response.clone())},
+  async put(key,response){if(cacheBarrier)await cacheBarrier;entries.set(key.url||key,response.clone())},
   async keys(){return [...entries.keys()].map(url=>new Request(url))},
   async delete(key){return entries.delete(key.url||key)}
  };
@@ -36,7 +38,7 @@ function mediaWorker(){
    events.get('fetch')(event);
    return result?await result:null;
   },
-  entries,async settle(){await Promise.all(pending)},get downloads(){return downloads},set offline(v){offline=v}
+  entries,releaseWrite,async settle(){await Promise.all(pending)},get downloads(){return downloads},set offline(v){offline=v}
  };
 }
 test('playing an MP3 caches its full body and supports offline byte-range replay',async()=>{
@@ -71,4 +73,17 @@ test('service worker is registered by lessons and limits local retention',()=>{
  assert.match(source,/event\.waitUntil\(write\)/);
  assert.match(source,/respondToRange\(response,range\)/);
  assert.doesNotMatch(source,/\/api\/|skipWaiting\(\)\s*;\s*fetch\(/);
+});
+test('first audio response is not delayed by persistent cache writes',async()=>{
+ const worker=mediaWorker({holdCacheWrite:true});
+ const audio=await Promise.race([
+  worker.request('/assets/audio/male/031.mp3','bytes=0-5'),
+  new Promise((_,reject)=>setTimeout(()=>reject(new Error('Playback blocked waiting for cache storage')),1000))
+ ]);
+ assert.equal(audio.status,206);
+ assert.equal(await audio.text(),'012345');
+ assert.equal(worker.entries.size,0);
+ worker.releaseWrite();
+ await worker.settle();
+ assert.equal(worker.entries.size,1);
 });

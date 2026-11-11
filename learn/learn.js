@@ -65,7 +65,14 @@ function cardLetter(a,index=0){
  return stop;
 }
 function initMapIntro(grid){
- if(grid.previousElementSibling?.classList?.contains('storybook-map-intro'))return;
+ const existing=grid.previousElementSibling;
+ if(existing?.classList?.contains('storybook-map-intro')){
+  existing.querySelector('.storybook-kicker').textContent=lang==='ar'?'رحلة من 26 محطة':'26 stops to explore';
+  existing.querySelector('.storybook-map-title').textContent=lang==='ar'?'كل حرف محطة جديدة':'Every letter is a new adventure';
+  existing.querySelector('.storybook-map-description').textContent=lang==='ar'?'اختار محطة، شوف صورتها، واسمع الكلمات.':'Choose a station, explore its pictures and hear its words.';
+  existing.querySelector('.storybook-resume').textContent=lang==='ar'?'ابدأ بحرف A':'Start with A';
+  return;
+ }
  const intro=el('div','storybook-map-intro');
  const copy=el('div','storybook-map-copy');
  copy.append(el('span','storybook-kicker',lang==='ar'?'رحلة من 26 محطة':'26 stops to explore'));

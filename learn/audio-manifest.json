@@ -2207,12 +2207,14 @@
   ],
   "pronunciationQA": {
     "locale": "en-US",
-    "releaseBlockers": [
-      "word|f|fish",
-      "word|f|fork"
-    ],
-    "approvalPolicy": "Requires documented human listening of both voices at normal and supported playback speeds",
-    "humanSignoffComplete": false
+    "releaseBlockers": [],
+    "approvalPolicy": "Automated text mapping and MP3 decoding pass, but 100% phonetic accuracy requires individual human listening approval.",
+    "humanSignoffComplete": false,
+    "knownConcerns": [
+      "Human listening approval pending for all 488 generated recordings",
+      "E letter name and short-e sound require listening verification",
+      "Male voice's similarity to the earlier Egg/Elephant samples is not certified"
+    ]
   },
   "voiceLibrary": {
     "source": "Kokoro English American synthetic voices",

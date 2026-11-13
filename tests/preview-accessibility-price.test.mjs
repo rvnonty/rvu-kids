@@ -2,10 +2,11 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 const read=p=>readFileSync(p,'utf8');
-test('English translation maintains inclusive 300 EGP price and Mansoura city',()=>{
+test('English preview promotes the book and retains its production details without prices',()=>{
  const script=read('learn/learn.js'),preview=read('preview/index.html');
  assert.doesNotMatch(script,/200 EGP|Mit Ghamr|Shipping is calculated by governorate/);
- assert.match(script,/300 EGP including shipping and doorstep delivery/);
+ assert.doesNotMatch(script,/300 EGP|٣٠٠|جنيه/);
+ assert.match(script,/A book to hold\. A world to explore\./);
  assert.match(script,/Printed on demand in Mansoura, Egypt/);
  assert.match(preview,/96 صفحة مطبوعة حسب الطلب في المنصورة/);
 });

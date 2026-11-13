@@ -39,7 +39,7 @@ test('alphabet index and selected lesson previews are wired',()=>{
 });
 test('English and Arabic switching is coherent on main and learning pages',()=>{
  const app=read('app.js'), learn=read('learn/learn.js'),html=read('index.html');
- assert.ok(app.includes("sessionStorage.setItem('rvu-lang',lang)"));
+ assert.ok(app.includes("writeStorage('rvu-lang',lang,sessionStorage)"));
  assert.ok(learn.includes("url.searchParams.set('lang',next)"));
  assert.ok(html.includes('data-i18n="navLearn"'));
  assert.ok(html.includes('data-i18n="navPreview"'));
@@ -89,19 +89,19 @@ test('book preview cards do not introduce white picture frames',()=>{
 
 test('whatsapp orders use approved international recipient number and never fake submission',()=>{
  const page=read('index.html'),js=read('app.js');
- assert.ok(page.includes('value="instapay"'));
- assert.ok(page.includes('value="vodafone_cash"'));
+ assert.ok(page.includes('name="quantity"'));
+ assert.ok(!page.includes('name="payment"'));
  assert.ok(!page.includes('value="bank"'));
  assert.ok(page.includes('id="submit-order" class="button full" data-i18n="submitOrder"'));
  assert.ok(!page.includes('واتساب مع Ramez'));
- assert.ok(!page.includes('https://wa.me/'));
+ assert.doesNotMatch(page,/>\s*\+?201012809358\s*</);
  assert.ok(!page.includes('+201012809358'));
  assert.ok(!page.includes('@n2nty'));
  assert.ok(!js.includes('@n2nty'));
  assert.ok(js.includes("'https://wa.me/201012809358?text='"));
  assert.ok(js.includes('encodeURIComponent(fields.join('));
  assert.ok(js.includes('window.location.assign(url)'));
- assert.ok(js.includes('payload.payment'));
+ assert.ok(js.includes('buildOrderUrl(copies,lang)'));
  assert.ok(!js.includes("fetch('./api/config'"));
  assert.ok(!js.includes("fetch('./api/orders'"));
  assert.ok(!page.includes('id="service-status"'));
@@ -109,10 +109,10 @@ test('whatsapp orders use approved international recipient number and never fake
 });
 test('why different gives clear printed learning progression and honest future US audio',()=>{
  const page=read('index.html'),app=read('app.js');
- for(const id of ['why-different','whyLettersTitle','whyWordsTitle','whySentencesTitle','whyAudioSoon','whyAudioTitle','whyAudioText']){
+ for(const id of ['why-different','whyLettersTitle','whyWordsTitle','whySentencesTitle','listen','listenIntro']){
   assert.ok(page.includes(id),id);
  }
- assert.ok(app.includes('American English audio library'));
+ assert.ok(app.includes('American English words and sentences'));
  const css=read('style.css');
  assert.ok(css.includes('.why-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))'));
 });
@@ -162,7 +162,7 @@ test('home is an uncluttered book storefront and lessons have a separate child-o
  assert.match(hub,/href="\/learn\/alphabet\//);
  assert.match(hub,/href="\/learn\/sentences\//);
  assert.ok(!hub.includes('/parents/'));
- assert.ok(app.includes("heroDelivery:'300 EGP per copy"));
+ assert.ok(app.includes("heroLearn:'Try learning & listening"));
 });
 
 test('order form remains clear about data sharing without a privacy footer button',()=>{
@@ -172,7 +172,7 @@ test('order form remains clear about data sharing without a privacy footer butto
  assert.ok(!html.includes('موافق أشارك بيانات الطلب والعنوان'));
  assert.ok(!html.includes('id="footer-privacy"'));
  assert.ok(!html.includes('id="privacy-dialog"'));
- assert.ok(html.includes('data-i18n="privacyShort"'));
+ assert.ok(html.includes('data-i18n="orderPrivacy"'));
  assert.ok(!app.includes("getElementById('footer-privacy')"));
  assert.ok(app.includes("form.addEventListener('submit'"));
 });

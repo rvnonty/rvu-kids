@@ -5,26 +5,13 @@ const read=path=>readFileSync(new URL('../'+path,import.meta.url),'utf8');
 const home=read('index.html'),app=read('app.js'),book=read('books/alphabet/index.html');
 const parents=read('parents/index.html'),preview=read('preview/index.html'),worker=read('server/worker.mjs');
 
-test('the published book has a fixed 300 EGP delivered price throughout Arabic and English public pages',()=>{
- assert.match(home,/300 جنيه شامل الشحن والتوصيل لباب المنزل/);
- assert.match(home,/300 جنيه للنسخة، من غير أي رسوم شحن إضافية/);
- assert.match(home,/id="subtotal">300 جنيه/);
+test('public book pages and both languages show no price or automatic monetary total',()=>{
+ for(const [name,source] of Object.entries({home,app,book,parents,preview,learning:read('learn/learn.js')})){
+  assert.doesNotMatch(source,/300|٣٠٠|EGP|جنيه|BOOK_PRICE_EGP/,name);
+ }
  assert.match(book,/content="0;url=\/#order"/);
- assert.match(preview,/300 جنيه شامل الشحن والتوصيل لباب المنزل/);
- assert.match(parents,/300 جنيه للنسخة، شامل مصاريف الشحن والتوصيل لباب المنزل/);
  assert.match(parents,/content="0;url=\/#order"/);
- assert.match(app,/price:'300 EGP/);
- for(const file of [home,book,parents])assert.doesNotMatch(file,/200 (?:جنيه|EGP)|الشحن حسب المحافظة|plus shipping/);
-});
-
-test('order quantity and WhatsApp totals include delivery without any additional quote',()=>{
- assert.match(app,/const BOOK_PRICE_EGP=300/);
- assert.match(app,/const total=count\*BOOK_PRICE_EGP/);
- assert.match(app,/const copies=Number\(payload.quantity\)/);
- assert.match(app,/copies\*BOOK_PRICE_EGP/);
- assert.match(app,/مصاريف شحن إضافية: 0 جنيه/);
- assert.match(app,/Additional shipping fee: 0 EGP/);
- assert.doesNotMatch(app,/count\*200|copies\*200|shippingRates|Awaiting shipping quote/);
+ assert.doesNotMatch(home,/id="(?:subtotal|total|shipping-cost)"/);
 });
 
 test('backend never adds a legacy regional surcharge, even if orders are enabled',()=>{

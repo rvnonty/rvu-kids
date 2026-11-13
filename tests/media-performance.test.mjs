@@ -6,7 +6,7 @@ const js=read('learn/learn.js'),manifest=JSON.parse(read('learn/audio-manifest.j
 const page=read('index.html'),app=read('app.js');
 
 test('WhatsApp phone number is hidden until a valid order is submitted',()=>{
- assert.ok(!page.includes('https://wa.me/'));
+ assert.doesNotMatch(page,/>\s*\+?201012809358\s*</);
  assert.ok(!page.includes('+201012809358'));
  assert.ok(page.includes('id="submit-order"'));
  assert.ok(app.includes("'https://wa.me/201012809358?text='"));

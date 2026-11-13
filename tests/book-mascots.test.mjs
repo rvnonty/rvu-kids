@@ -14,9 +14,9 @@ test('remove only the requested home order timing statement, in Arabic and Engli
  assert.ok(!home.includes('الطباعة بتاخد تقريبًا يوم بعد مراجعة التحويل'));
  assert.ok(!home.includes('data-i18n="howIntro"'));
  assert.ok(!translation.includes("howIntro:'Printed on demand"));
- assert.ok(home.includes('data-i18n="step1Title"'),'order steps stay intact');
+ assert.ok(home.includes('id="together"'),'book and website connection is visible');
  assert.ok(home.includes('id="submit-order"'),'WhatsApp order form remains available');
- assert.ok(!home.includes('https://wa.me/'),'phone number is not exposed as a public link');
+ assert.doesNotMatch(home,/>\s*\+?201012809358\s*</,'phone number is not displayed');
  assert.ok(translation.includes("'https://wa.me/201012809358?text='"),'order submit still opens WhatsApp');
 });
 

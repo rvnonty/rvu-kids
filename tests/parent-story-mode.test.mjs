@@ -17,10 +17,10 @@ const css=from('learn/story-journey.css');
 test('first screen focuses on the printed book and one WhatsApp order form',()=>{
  assert.match(home,/class="hero-actions purchase-actions"/);
  assert.match(home,/href="#order"/);
- assert.match(home,/data-i18n="heroDelivery"/);
+ assert.match(home,/data-i18n="heroLearn"/);
  assert.match(home,/id="submit-order"/);
  assert.doesNotMatch(home,/class="hero-routes"|hero-route-parents|href="\/parents\//);
- assert.doesNotMatch(home,/https:\/\/wa\.me\//);
+ assert.doesNotMatch(home,/>\s*\+?201012809358\s*</);
 });
 test('old parent settings guide redirects to the single book order page',()=>{
  assert.match(parents,/name="robots" content="noindex,follow"/);

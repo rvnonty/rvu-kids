@@ -34,9 +34,9 @@ try{
  await contact.waitFor();
  if(await page.locator('.order-whatsapp-link').count()!==0)throw Error('Old public WhatsApp link still visible');
  if((await page.locator('body').innerText()).includes('+201012809358'))throw Error('Phone number exposed in UI');
- if(!(await contact.innerText()).includes('كمّل طلبك على واتساب'))throw Error('Arabic order CTA missing');
+ if(!(await contact.innerText()).includes('اطلب الكتاب على واتساب'))throw Error('Arabic order CTA missing');
  await page.locator('#language').click();
- if(!(await contact.innerText()).includes('Continue on WhatsApp'))throw Error('English order CTA translation missing');
+ if(!(await contact.innerText()).includes('Order the book on WhatsApp'))throw Error('English order CTA translation missing');
  await page.locator('#language').click();
 
  let openedUrl='';
@@ -44,17 +44,13 @@ try{
   openedUrl=route.request().url();
   route.fulfill({status:200,contentType:'text/html',body:'<html><body>WhatsApp redirect captured locally</body></html>'});
  });
- await page.locator('#order-form input[name="name"]').fill('Test Parent');
- await page.locator('#order-form input[name="phone"]').fill('01000000000');
- await page.locator('#order-form select[name="governorate"]').selectOption('C');
- await page.locator('#order-form input[name="city"]').fill('Test City');
- await page.locator('#order-form textarea[name="address"]').fill('Example Street 123 Cairo');
- await page.locator('#order-form select[name="payment"]').selectOption('instapay');
+ await page.locator('#quantity').selectOption('2');
  await page.locator('#submit-order').click();
  await page.waitForURL(/wa\.me\/201012809358\?text=/,{timeout:10000});
  if(!openedUrl.includes('wa.me/201012809358?text='))throw Error('Order chat target incorrect: '+openedUrl);
  const message=new URL(openedUrl).searchParams.get('text');
- if(!message.includes('01000000000')||!message.includes('Test Parent'))throw Error('Order message incomplete');
+ if(!message.includes('عدد النسخ: 2'))throw Error('Order quantity missing');
+ if(/300|٣٠٠|EGP|جنيه/.test(message))throw Error('Price leaked into WhatsApp message');
 
  await page.goto(base+'/learn/alphabet/a/',{waitUntil:'domcontentloaded'});
  await page.locator('.word-image').first().waitFor({timeout:10000});

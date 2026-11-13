@@ -79,6 +79,7 @@ try{
     const text=await page.locator('body').innerText();
     if(text.includes('المعاينة لصفحات مختارة')||text.includes('درجة الألوان في الطباعة')||
        text.includes('Printed colors may look different'))throw Error('Removed preview disclaimer still visible');
+    if(/300|٣٠٠|EGP|جنيه/.test(text))throw Error('Public homepage must not display prices');
     const footer=page.locator('footer.footer');
     const credit=await footer.locator('.footer-credit').innerText();
     if(!credit.includes('By:')||!credit.includes('Ramez Medhat')||!credit.includes('❤️'))

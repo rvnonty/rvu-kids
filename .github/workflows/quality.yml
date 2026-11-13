@@ -20,6 +20,7 @@ jobs:
       - name: Verify JavaScript syntax
         run: |
           node --check app.js
+          node --check home-motion.mjs
           node --check learn/content.js
           node --check learn/learn.js
           node --check learn/activities.mjs

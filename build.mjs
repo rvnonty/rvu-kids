@@ -3,7 +3,7 @@ import {mkdir,copyFile,cp,rm,readFile,writeFile,readdir} from 'node:fs/promises'
 await rm('dist',{recursive:true,force:true});
 await mkdir('dist',{recursive:true});
 
-for(const file of ['index.html','404.html','style.css','app.js','favicon.svg','robots.txt','_headers','CNAME','sitemap.xml'])
+for(const file of ['index.html','404.html','style.css','home-motion.css','app.js','home-motion.mjs','favicon.svg','robots.txt','_headers','CNAME','sitemap.xml'])
   await copyFile(file,`dist/${file}`);
 
 for(const dir of ['assets','learn','preview','books','parents'])

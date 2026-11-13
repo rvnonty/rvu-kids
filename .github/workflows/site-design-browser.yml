@@ -12,6 +12,10 @@ on:
       - learn/alphabet/index.html
       - preview/index.html
       - scripts/media-browser-smoke.mjs
+      - home-motion.css
+      - home-motion.mjs
+      - assets/motion-buddy.svg
+      - assets/ramez-signature.svg
       - style.css
       - learn/learn.css
       - learn/next-adventures.css
@@ -28,6 +32,10 @@ on:
   pull_request:
     paths:
       - index.html
+      - home-motion.css
+      - home-motion.mjs
+      - assets/motion-buddy.svg
+      - assets/ramez-signature.svg
       - style.css
       - scripts/site-design-browser-check.mjs
       - tests/site-design.test.mjs

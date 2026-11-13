@@ -76,6 +76,15 @@ try{
     viewport.name+' '+path+' page scroll overflow '+JSON.stringify(measurements)
    );
    if(path==='/'){
+    if(viewport.width<=560){
+     await page.locator('#motion-sidekick.at-hero').waitFor({state:'attached'});
+     const overlaps=await page.evaluate(()=>{
+      const a=document.querySelector('.art-credit').getBoundingClientRect();
+      const b=document.querySelector('#motion-sidekick').getBoundingClientRect();
+      return a.left<b.right&&a.right>b.left&&a.top<b.bottom&&a.bottom>b.top;
+     });
+     if(overlaps)throw Error('Mobile companion overlaps the creator caption');
+    }
     const text=await page.locator('body').innerText();
     if(text.includes('المعاينة لصفحات مختارة')||text.includes('درجة الألوان في الطباعة')||
        text.includes('Printed colors may look different'))throw Error('Removed preview disclaimer still visible');

@@ -1,3 +1,4 @@
+import {mountMotionWorld} from './home-motion.mjs?v=20261113-world';
 export function buildOrderMessage(copies,language='ar'){
  if(!Number.isInteger(copies)||copies<1||copies>20)throw new RangeError('Choose between 1 and 20 copies');
  return language==='en'?['Hello RVU Kids! I would like to order Rvu Alphabet Book.','Copies: '+copies,'Please share the order and delivery details.']:['أهلًا RVU Kids! عاوز أطلب Rvu Alphabet Book.','عدد النسخ: '+copies,'من فضلك ابعتلي تفاصيل الطلب والتوصيل.'];
@@ -8,7 +9,7 @@ export function buildOrderUrl(copies,language='ar'){
 }
 const en = {
 skip:'Skip to content',announcement:'A book to hold. A world to explore together.',navInside:'Discover the book',navTogether:'Book + website',navLearn:'Learn & play',navPreview:'Look inside',navOrder:'Order the book ↗',age:'For little explorers, ages 3–6',
-heroTitle:'See it in a book.<br>Hear it. <em>Try it together.</em>',heroDescription:'A first English adventure, one picture at a time. A 96-page illustrated workbook, with a companion website for American English audio, letters, words and play.',heroLearn:'Try learning & listening <span aria-hidden="true">↗</span>',heroPreview:'Discover the book ↓',heroNote:'Their book friends, every step of the way.<br><strong>Look · listen · repeat · try</strong>',phoneListen:'Listen & repeat',phoneCaption:'From the page to play',pagesBadge:'pages of<br>discovery',actualCover:'The real book + an interactive experience',benefit1:'Illustrated letters & words',benefit2:'Pages to explore & practise',benefit3:'Everyday English units',benefit4:'Audio & interactive activities',
+heroTitle:'A little book.<br><em>A BIG adventure!</em>',heroOrderAction:'Order the book ↗',heroTry:'Try listening & playing ↓',onlineTag:'Listen, play & explore!',heroDescription:'A first English adventure, one picture at a time. A 96-page illustrated workbook, with a companion website for American English audio, letters, words and play.',heroLearn:'Try learning & listening <span aria-hidden="true">↗</span>',heroPreview:'Discover the book ↓',heroNote:'Their book friends, every step of the way.<br><strong>Look · listen · repeat · try</strong>',phoneListen:'Listen & repeat',phoneCaption:'From the page to play',pagesBadge:'pages of<br>discovery',actualCover:'Created with imagination by',benefit1:'Illustrated letters & words',benefit2:'Pages to explore & practise',benefit3:'Everyday English units',benefit4:'Audio & interactive activities',
 listenEyebrow:'Give it a little listen',listenTitle:'Listen clearly.<br><em>Repeat at their pace.</em>',listenIntro:'American English words and sentences to practise together. Choose a voice, set a comfortable speed, and hear the same word again whenever you like.',listenFeature1:'Choose a girl or boy voice',listenFeature2:'Normal or slower playback, with replay',listenFeature3:'Separate letter name, letter sound, word and sentence',openLesson:'Keep exploring letter A ↗',labTitle:'A little taste of the letter A adventure',labKicker:'Look at the picture. Hear the word.',voiceFemale:'Girl',voiceMale:'Boy',speedLabel:'Audio speed',speedNormal:'Normal',speedSlow:'Slow',speedVerySlow:'Very slow',letterName:'Letter name',letterSound:'Letter sound',wordLabel:'The word',sentenceLabel:'The sentence',audioReady:'Press a listen button and say it with us.',
 togetherEyebrow:'One adventure, on paper and on screen',togetherTitle:'The same lesson.<br><em>More ways to learn.</em>',togetherIntro:'The book is a place for pencils and practice. The website adds listening and interaction. Open the same letter or lesson pages and keep learning together.',paperLabel:'01 / IN THE BOOK',paperTitle:'Pick up a pencil. Give it a try.',paperText:'Explore letters, connect words to pictures, and practise tracing, writing and choosing.',screenLabel:'02 / ON THE WEBSITE',screenTitle:'Listen. Repeat. Join in.',screenText:'Hear the same words and sentences, choose a playback speed, and try picture and listening games.',pageShortcutTitle:'Already have the book open?',pageShortcutText:'Choose the printed page number or letter to find its words, pictures and audio.',pageShortcutAction:'Find your page’s words ↗',
 whyEyebrow:'From their first letter to a little sentence',whyTitle:'Every page.<br><em>A new little beginning.</em>',whyIntro:'Illustrated worlds, varied activities, and words to use together in everyday life.',whyLettersTitle:'Letters with a story',whyLettersText:'Uppercase and lowercase A–Z, with words connected to pictures and meaning.',whyWordsTitle:'Little hands. Plenty of practice.',whyWordsText:'Trace, write, match and choose, at a pace that suits your child’s readiness.',whySentencesTitle:'English from their everyday world',whySentencesText:'15 units about feelings, family, food, play, polite words and other familiar situations.',celebrateText:'<strong>Celebrate every little step!</strong> Reviews, challenges and a final certificate in the book to celebrate their effort together.',
@@ -85,7 +86,7 @@ function setLanguage(value){
  document.querySelector('meta[property="og:title"]').content=document.title;
  document.querySelector('meta[property="og:description"]').content=description;
  document.querySelector('.header nav').setAttribute('aria-label',isEn()?'Main navigation':'التنقل الرئيسي');
- document.querySelector('.lesson-phone').setAttribute('aria-label',isEn()?'Try listening to apple':'جرّب استماع كلمة apple');
+ document.querySelector('.hero-book-figure .book').setAttribute('aria-label',isEn()?'Open the book preview':'افتح معاينة الكتاب');
  const pictureLabels={apple:['تفاحة من رسومات الكتاب','An apple from the book artwork'],airplane:['طائرة','Airplane'],ant:['نملة','Ant']};
  document.querySelectorAll('.sample-picture[role="img"]').forEach(el=>el.setAttribute('aria-label',pictureLabels.apple[isEn()?1:0]));
  document.querySelectorAll('[data-answer]').forEach(el=>el.setAttribute('aria-label',pictureLabels[el.dataset.answer][isEn()?1:0]));
@@ -101,6 +102,7 @@ function setLanguage(value){
  renderPreviews();renderVoices();setStatus('ready');
  if(document.querySelector('#preview-dialog').open)showPreviewAt(activePreview);
  writeStorage('rvu-lang',lang,sessionStorage);
+ window.dispatchEvent(new Event('rvu:languagechange'));
 }
 document.querySelector('#language').addEventListener('click',()=>{
  setLanguage(isEn()?'ar':'en');const url=new URL(location.href);url.searchParams.set('lang',lang);history.replaceState(null,'',url);
@@ -140,5 +142,6 @@ document.addEventListener('visibilitychange',()=>{if(document.hidden){stopAudio(
 window.addEventListener('pagehide',stopAudio);
 document.querySelector('#year').textContent=String(new Date().getFullYear());
 setLanguage(lang);
+mountMotionWorld({getLanguage:()=>lang});
 
 }

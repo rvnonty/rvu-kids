@@ -174,3 +174,8 @@ html[lang=en] .home.motion-world .hero-welcome-quote{direction:ltr}
 }
 .motion-paused .home.motion-world .hero-welcome-quote,
 .motion-paused .motion-sidekick .buddy-book-face{animation-play-state:paused!important}
+
+/* Restore the cover if reduced motion is enabled while welcome video is playing. */
+@media(prefers-reduced-motion:reduce){
+ .home.motion-world .hero-book-figure .book.has-live-video>img{opacity:1!important}
+}

@@ -67,11 +67,19 @@ try{
    }
    const h1=await page.locator('h1').first().textContent().catch(()=>null);
    if(!h1||!h1.trim())throw Error(viewport.name+' '+path+' missing main heading');
-   const measurements=await page.evaluate(()=>({
+   const takeMeasurements=()=>page.evaluate(()=>({
     doc:document.documentElement.scrollWidth,
     view:document.documentElement.clientWidth,
     body:document.body.scrollWidth
    }));
+   let measurements;
+   try{measurements=await takeMeasurements()}
+   catch(error){
+    if(!/Execution context was destroyed|navigation/i.test(String(error)))throw error;
+    await page.waitForLoadState('domcontentloaded',{timeout:12000});
+    await page.locator('main').first().waitFor({timeout:12000});
+    measurements=await takeMeasurements();
+   }
    if(measurements.doc>measurements.view+3)throw Error(
     viewport.name+' '+path+' page scroll overflow '+JSON.stringify(measurements)
    );

@@ -87,3 +87,13 @@ html[lang=en] .home.motion-world .hero h1{font-size:clamp(2.6rem,4.8vw,4rem);lin
 @media(max-width:360px){.home.motion-world .hero-art .book{width:min(270px,75vw)}.home.motion-world .hero-art .pages-badge{scale:.7}}
 @media(prefers-reduced-motion:reduce){.hero-starfield i,.home.motion-world .hero-order-button{animation:none!important}.hero-loop-video{display:none!important}}
 .motion-paused .hero-starfield i,.motion-paused .home.motion-world .hero-order-button{animation-play-state:paused!important}
+
+/* Mobile hero reserves no empty companion area; static decorative sunburst does not repaint continuously. */
+.home.motion-world .book-sunburst{animation:none;mask-image:none;opacity:.36;background:radial-gradient(circle,#ffe49a82 0 32%,transparent 72%)}
+@media(max-width:560px){
+ .home.motion-world .hero-buddy-slot{display:none!important;height:0!important;margin:0!important;padding:0!important}
+ .home.motion-world #motion-sidekick[data-scene="hero"]:not(.at-order){opacity:0;visibility:hidden;pointer-events:none}
+ .home.motion-world .hero-art{min-height:0!important;padding-block:8px 10px!important;margin-block:0!important}
+ .home.motion-world .hero-art .art-credit{margin-top:13px}
+ .home.motion-world .hero.wrap{gap:9px}
+}

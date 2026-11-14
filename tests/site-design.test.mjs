@@ -52,7 +52,7 @@ test('responsive footer uses unboxed text wordmark, no privacy button, left cred
  assert.match(home,/Ramez Medhat<span class="footer-heart"/);
  assert.match(home,/❤️/);
  assert.match(home,/id="year"/);
- assert.match(home,/data-i18n="footerPlace">يُطبع بحب في المنصورة، مصر/);
+ assert.match(home,/data-i18n="footerPlace">كتاب من 100 صفحة · والتوصيل لباب المنزل/);
  assert.ok(home.indexOf('class="footer-credit"')<home.indexOf('class="footer-identity"'));
  assert.ok(css.includes('.footer .brand{display:inline-flex;flex-direction:row'));
  assert.ok(css.includes('background:none;box-shadow:none;color:#fff'));
@@ -64,15 +64,15 @@ test('responsive footer uses unboxed text wordmark, no privacy button, left cred
  assert.match(css,/@media\(max-width:820px\)/);
 });
 
-test('footer copyright stays left and Mansoura printing line stays right on desktop',()=>{
+test('footer copyright stays left and delivery line stays right on desktop',()=>{
  const home=file('index.html'),css=file('style.css'),en=file('app.js');
  const bottom=home.slice(home.indexOf('class="wrap footer-bottom"'),home.indexOf('</footer>'));
  assert.ok(bottom.indexOf('id="year"')<bottom.indexOf('data-i18n="footerPlace"'));
  assert.match(bottom,/<span class="footer-copyright" dir="ltr" lang="en">© <span id="year">2026<\/span> RVU Kids<\/span>/);
  assert.ok(css.includes('.footer-bottom .footer-copyright{display:inline-block;direction:ltr;unicode-bidi:isolate;white-space:nowrap'));
- assert.match(bottom,/يُطبع بحب في المنصورة، مصر/);
+ assert.match(bottom,/كتاب من 100 صفحة · والتوصيل لباب المنزل/);
  assert.ok(css.includes('.footer-bottom{direction:ltr}'));
  assert.ok(css.includes('.footer-bottom [data-i18n="footerPlace"]{direction:rtl}'));
  assert.ok(css.includes('.footer-bottom{justify-content:center;flex-direction:column'));
- assert.ok(en.includes("footerPlace:'Printed with love in Mansoura, Egypt'"));
+ assert.ok(en.includes("footerPlace:'100 illustrated pages · doorstep delivery'"));
 });

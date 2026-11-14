@@ -25,7 +25,7 @@ export function mountMotionWorld({getLanguage=()=>document.documentElement.lang}
  const toggle=document.querySelector('#motion-toggle'),message=dock.querySelector('.buddy-message'),go=dock.querySelector('.buddy-go');
  const panel=dock.querySelector('.buddy-panel'),minimize=dock.querySelector('.buddy-minimize'),restore=dock.querySelector('.buddy-restore');
  const homeParent=dock.parentNode,homeNext=dock.nextSibling;
- const heroSlot=document.querySelector('.hero-buddy-slot');
+ const heroSlot=matchMedia('(min-width:561px)').matches?document.querySelector('.hero-buddy-slot'):null;
  const slot=document.createElement('div');slot.className='order-buddy-slot';document.querySelector('.order-book')?.append(slot);
  const scenes=MOTION_SCENES.map(scene=>({...scene,element:document.querySelector(scene.selector)})).filter(scene=>scene.element);
  const visible=new Set(),running=new Set();let current='hero',previousY=scrollY,frame=0,paused=reduce.matches,hidden=false,pointerX=innerWidth/2,pointerY=innerHeight/2;

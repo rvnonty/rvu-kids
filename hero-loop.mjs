@@ -44,6 +44,7 @@ if (bookLink && hero && !saveData && !prefersReduced.matches) {
       };
       video.addEventListener('playing', onPlaying);
       video.addEventListener('error', onError);
+      video.addEventListener('stalled', () => { if (video.readyState === 0) onError(); });
       bookLink.append(video);
       video.src = MEDIA_PATH;
       const visibility = new IntersectionObserver(entries => {

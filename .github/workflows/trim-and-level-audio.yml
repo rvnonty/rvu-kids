@@ -19,6 +19,10 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
+      - name: Install FFmpeg audio codec utilities
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends ffmpeg
       - run: python -m pip install --disable-pip-version-check "numpy==1.26.4"
       - name: Trim only silent speech boundaries, level voices, and validate streams
         run: python -u scripts/trim-and-level-audio.py

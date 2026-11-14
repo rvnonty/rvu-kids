@@ -43,7 +43,7 @@ async function playAudio(button){
  stopAudio();
  if(wasPlaying){setStatus('ready');return}
  const token=audioToken;
- const url='/assets/audio/'+preferredVoice+'/'+button.dataset.audio+'.mp3';
+ const url='/assets/audio/'+preferredVoice+'/'+button.dataset.audio+'.mp3?v=20261114-clean';
  let player=audioCache.get(url);
  if(!player){player=new Audio(url);player.preload='none';audioCache.set(url,player)}
  activeAudio=player;activeButton=button;

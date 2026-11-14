@@ -98,7 +98,7 @@ const illustratedWords=new Set(ALL_WORDS);
 const voiceRows=new Map(AUDIO_ROWS.map((r,i)=>[r[0]+'|'+r[1]+'|'+r[2],i]));
 const normalizedWord=value=>String(value).normalize('NFKC').trim().toLocaleLowerCase('en-US').replace(/\s+/g,' ');
 const wordAudioIds=new Map(AUDIO_ROWS.flatMap((r,i)=>r[0]==='word'?[[normalizedWord(r[2]),i]]:[]));
-const audioUrl=(id,voice)=>'/assets/audio/'+voice+'/'+String(id).padStart(3,'0')+'.mp3';
+const audioUrl=(id,voice)=>'/assets/audio/'+voice+'/'+String(id).padStart(3,'0')+'.mp3?v=20261114-clean';
 const cachedAudio=new Map();
 const CACHE_LIMIT=24;
 const SPEED_OPTIONS=[

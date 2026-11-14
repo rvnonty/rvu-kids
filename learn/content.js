@@ -1,7 +1,7 @@
-/* Curriculum transcribed from the supplied 96-page RVU Alphabet Book; original approved audio mappings stay separate. */
+/* Curriculum mapping follows the earlier 96-page supplied edition. Storefront advertises the user-confirmed 100-page revision; new pages require source verification before adding curriculum entries. */
 window.RVU_CURRICULUM={
   "source": "RVU_BOOk(1).pdf, 96 pages, SHA-256 c739601bc7cc4ef243760b4d008be33f8d23b51be3bab2b557b15be8529c5ebd",
-  "bookPages": 96,
+  "bookPages": 100,
   "alphabet": [
     {
       "id": "a",

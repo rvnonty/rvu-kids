@@ -766,3 +766,7 @@ html[lang=en] .home h1{line-height:1.25;font-size:clamp(2.4rem,4.6vw,4rem);lette
 .home .book-face{background-image:url('/assets/cover-480.webp')}
 .home .hero-art .book{animation:none;transition:transform .45s ease}.home .hero-art .book:hover{transform:rotate(-6deg) translateY(-5px)}
 @media(prefers-reduced-motion:reduce){.home .hero-art .book:hover{transform:rotate(-9deg)}}
+
+/* Independent voice avatars, rather than cropping children's faces out of a printed book page. */
+.home .book-face.boy{background-image:url('/assets/avatars/boy.svg')!important;background-size:contain!important;background-position:center!important;background-color:transparent!important;border:0!important}
+.home .book-face.girl{background-image:url('/assets/avatars/girl.svg')!important;background-size:contain!important;background-position:center!important;background-color:transparent!important;border:0!important}

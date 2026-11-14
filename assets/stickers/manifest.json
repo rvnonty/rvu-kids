@@ -1,115 +1,115 @@
 {
   "format": "transparent WebP 192x192",
-  "source": "Microsoft Fluent Emoji 3D (MIT), and RVU original pictograms",
+  "source": "RVU original painted illustrations and transparent independent vocabulary images; existing 76 items retained pending individualized illustration approval",
   "license": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
   "items": [
     {
       "word": "airplane",
       "file": "airplane.webp",
-      "bytes": 8062,
-      "artwork": "Fluent-3D:2708"
+      "bytes": 16612,
+      "artwork": "RVU custom illustrated object, transparent, new standalone illustration"
     },
     {
       "word": "alligator",
       "file": "alligator.webp",
-      "bytes": 8116,
-      "artwork": "Fluent-3D:1f40a"
+      "bytes": 19596,
+      "artwork": "RVU custom illustrated object, transparent, new standalone illustration"
     },
     {
       "word": "ant",
       "file": "ant.webp",
-      "bytes": 8066,
-      "artwork": "Fluent-3D:1f41c"
+      "bytes": 20564,
+      "artwork": "RVU custom illustrated object, transparent, new standalone illustration"
     },
     {
       "word": "apple",
       "file": "apple.webp",
-      "bytes": 5248,
-      "artwork": "Fluent-3D:1f34e"
+      "bytes": 15532,
+      "artwork": "RVU custom illustrated object, transparent, new standalone illustration"
     },
     {
       "word": "ball",
       "file": "ball.webp",
-      "bytes": 7012,
-      "artwork": "Fluent-3D:26bd"
+      "bytes": 13088,
+      "artwork": "RVU custom illustrated object, transparent, new standalone illustration"
     },
     {
       "word": "banana",
       "file": "banana.webp",
-      "bytes": 5930,
-      "artwork": "Fluent-3D:1f34c"
+      "bytes": 14012,
+      "artwork": "RVU custom illustrated object, transparent, new standalone illustration"
     },
     {
       "word": "bear",
       "file": "bear.webp",
-      "bytes": 6112,
-      "artwork": "Fluent-3D:1f43b"
+      "bytes": 18700,
+      "artwork": "RVU custom illustrated object, transparent, new standalone illustration"
     },
     {
       "word": "boat",
       "file": "boat.webp",
-      "bytes": 4668,
-      "artwork": "Fluent-3D:26f5"
+      "bytes": 18244,
+      "artwork": "RVU custom illustrated object, transparent, new standalone illustration"
     },
     {
       "word": "cake",
       "file": "cake.webp",
-      "bytes": 6194,
-      "artwork": "Fluent-3D:1f382"
+      "bytes": 21940,
+      "artwork": "RVU custom illustrated object, transparent, new standalone illustration"
     },
     {
       "word": "car",
       "file": "car.webp",
-      "bytes": 5066,
-      "artwork": "Fluent-3D:1f697"
+      "bytes": 16690,
+      "artwork": "RVU custom illustrated object, transparent, new standalone illustration"
     },
     {
       "word": "carrot",
       "file": "carrot.webp",
-      "bytes": 6382,
-      "artwork": "Fluent-3D:1f955"
+      "bytes": 19522,
+      "artwork": "RVU custom illustrated object, transparent, new standalone illustration"
     },
     {
       "word": "cat",
       "file": "cat.webp",
-      "bytes": 8156,
-      "artwork": "Fluent-3D:1f408"
+      "bytes": 20196,
+      "artwork": "RVU custom illustrated object, transparent, new standalone illustration"
     },
     {
       "word": "dog",
       "file": "dog.webp",
-      "bytes": 8592,
-      "artwork": "Fluent-3D:1f415"
+      "bytes": 20000,
+      "artwork": "RVU custom illustrated object, transparent, new standalone illustration"
     },
     {
       "word": "door",
       "file": "door.webp",
-      "bytes": 1596,
-      "artwork": "Fluent-3D:1f6aa"
+      "bytes": 16038,
+      "artwork": "RVU custom illustrated object, transparent, new standalone illustration"
     },
     {
       "word": "drum",
       "file": "drum.webp",
-      "bytes": 6920,
-      "artwork": "Fluent-3D:1f941"
+      "bytes": 19652,
+      "artwork": "RVU custom illustrated object, transparent, new standalone illustration"
     },
     {
       "word": "duck",
       "file": "duck.webp",
-      "bytes": 5434,
-      "artwork": "Fluent-3D:1f986"
+      "bytes": 17018,
+      "artwork": "RVU custom illustrated object, transparent, new standalone illustration"
     },
     {
       "word": "egg",
       "file": "egg.webp",
-      "bytes": 4310,
-      "artwork": "Fluent-3D:1f95a"
+      "bytes": 13292,
+      "artwork": "RVU custom illustrated object, transparent, new standalone illustration"
     },
     {
       "word": "elephant",
       "file": "elephant.webp",
-      "bytes": 4706,
-      "artwork": "Fluent-3D:1f418"
+      "bytes": 19518,
+      "artwork": "RVU custom illustrated object, transparent, new standalone illustration"
     },
     {
       "word": "engine",
@@ -120,32 +120,32 @@
     {
       "word": "envelope",
       "file": "envelope.webp",
-      "bytes": 1694,
-      "artwork": "Fluent-3D:2709"
+      "bytes": 16108,
+      "artwork": "RVU custom illustrated object, transparent, new standalone illustration"
     },
     {
       "word": "fish",
       "file": "fish.webp",
-      "bytes": 6502,
-      "artwork": "Fluent-3D:1f41f"
+      "bytes": 20704,
+      "artwork": "RVU custom illustrated object, transparent, new standalone illustration"
     },
     {
       "word": "flower",
       "file": "flower.webp",
-      "bytes": 6156,
-      "artwork": "Fluent-3D:1f33c"
+      "bytes": 18806,
+      "artwork": "RVU custom illustrated object, transparent, new standalone illustration"
     },
     {
       "word": "fox",
       "file": "fox.webp",
-      "bytes": 6158,
-      "artwork": "Fluent-3D:1f98a"
+      "bytes": 18412,
+      "artwork": "RVU custom illustrated object, transparent, new standalone illustration"
     },
     {
       "word": "frog",
       "file": "frog.webp",
-      "bytes": 6602,
-      "artwork": "Fluent-3D:1f438"
+      "bytes": 19558,
+      "artwork": "RVU custom illustrated object, transparent, new standalone illustration"
     },
     {
       "word": "gift",
@@ -156,14 +156,14 @@
     {
       "word": "goat",
       "file": "goat.webp",
-      "bytes": 6262,
-      "artwork": "Fluent-3D:1f410"
+      "bytes": 18274,
+      "artwork": "RVU custom illustrated object, transparent, new standalone illustration"
     },
     {
       "word": "grapes",
       "file": "grapes.webp",
-      "bytes": 6522,
-      "artwork": "Fluent-3D:1f347"
+      "bytes": 17876,
+      "artwork": "RVU custom illustrated object, transparent, new standalone illustration"
     },
     {
       "word": "guitar",

@@ -130,6 +130,8 @@ export function mountMotionWorld({getLanguage=()=>document.documentElement.lang}
  sprite.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();sprite.click()}});
  sprite.addEventListener('click',()=>{
   dock.classList.remove('is-greeting');void dock.offsetWidth;dock.classList.add('is-greeting');burst(dock.querySelector('.buddy-sprite'));
+  message.textContent=english()?'Hello! I am your chameleon friend. Choose a picture and play!':'أهلًا يا أبطال! أنا الحرباية، يلا نسمع ونختار سوا!';
+  setTimeout(()=>{if(dock.isConnected)labels()},3200);
  });
  minimize.addEventListener('click',()=>{dock.classList.add('is-collapsed');minimize.setAttribute('aria-expanded','false');restore.focus()});
  restore.addEventListener('click',()=>{dock.classList.remove('is-collapsed');minimize.setAttribute('aria-expanded','true');minimize.focus()});

@@ -164,7 +164,8 @@ function mountInteractiveScene(playButton){
  const background=make('div','rvu-scene-landscape');
  background.setAttribute('aria-hidden','true');
  background.append(make('span','rvu-scene-sun'),make('span','rvu-scene-hill first'),make('span','rvu-scene-hill second'));
- const character=make('span','rvu-scene-character character-portrait '+(type==='alphabet'?'lizard':'girl'));
+ const character=make('img','rvu-scene-character rvu-mascot-portrait');
+ character.src='/assets/mascot/chameleon.webp';character.alt='';character.width=192;character.height=170;
  character.setAttribute('aria-hidden','true');
  const objects=make('div','rvu-scene-items');
  const announcement=make('p','rvu-scene-announcement',t('اختار صورة وابدأ الاستماع','Choose a picture to listen'));

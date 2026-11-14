@@ -179,3 +179,125 @@ html[lang=en] .home.motion-world .hero-welcome-quote{direction:ltr}
 @media(prefers-reduced-motion:reduce){
  .home.motion-world .hero-book-figure .book.has-live-video>img{opacity:1!important}
 }
+
+/* Approved ORIGINAL chameleon — independent transparent artwork, never a book-page crop. */
+.home.motion-world .motion-sidekick .buddy-sprite.buddy-from-book{left:0;bottom:0;width:207px;height:207px;border:0}
+.home.motion-world .motion-sidekick .buddy-book-face{
+ position:absolute;left:0;bottom:0;width:204px;height:190px;
+ display:block;object-fit:contain;object-position:center bottom;
+ background:none!important;border:0!important;border-radius:0!important;
+ box-shadow:none!important;filter:drop-shadow(0 7px 7px rgba(14,89,70,.21));
+ transform-origin:48% 75%;animation:rvu-mascot-talk 3.6s ease-in-out infinite;
+}
+@keyframes rvu-mascot-talk{
+ 0%,100%{transform:rotate(-2deg) translateY(0) scale(1)}
+ 35%{transform:rotate(2deg) translateY(-4px) scale(1.025)}
+ 67%{transform:rotate(-1deg) translateY(-1px) scale(1)}
+}
+.home.motion-world .motion-sidekick .buddy-bubble{
+ right:auto;left:120px;top:8px;width:177px;
+ border-radius:20px 20px 20px 20px;z-index:6;
+ box-shadow:0 6px 0 #b5dfc3,0 10px 18px rgba(19,96,70,.12);
+}
+.home.motion-world .motion-sidekick .buddy-bubble::after{
+ left:-19px;right:auto;top:72px;bottom:auto;width:22px;height:25px;
+ border:0;background:#fffef5;transform:rotate(-8deg);
+ clip-path:polygon(100% 0,0 58%,100% 100%);
+}
+.home.motion-world .motion-sidekick .buddy-message{font-size:.79rem!important;font-weight:850}
+.home.motion-world .book-face.lizard{
+ background-image:url('/assets/mascot/chameleon.webp')!important;
+ background-position:center!important;background-size:contain!important;
+ background-color:transparent!important;border:0!important;
+ filter:drop-shadow(0 3px 4px #165b4d2a);
+}
+.home.motion-world .sample-picture{
+ background-color:transparent!important;background-repeat:no-repeat;
+ background-size:contain!important;background-position:center!important;
+ border-radius:0!important;
+}
+.home.motion-world .sample-picture.apple{background-image:url('/assets/stickers/apple.webp')!important}
+.home.motion-world .sample-picture.ant{background-image:url('/assets/stickers/ant.webp')!important}
+.home.motion-world .sample-picture.airplane{background-image:url('/assets/stickers/airplane.webp')!important}
+.home.motion-world .audio-choices.audio-choices-two{
+ display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;
+}
+.home.motion-world .audio-choices.audio-choices-two>button{
+ min-height:84px;border-radius:16px;font-size:.85rem;
+ border:2px solid #bedfca;background:#f4fffa;
+}
+.home.motion-world .demo-letter-name{
+ margin:0 0 12px;display:flex;align-items:center;justify-content:center;
+ gap:9px;font-weight:800;color:#28694e;font-size:.83rem;
+}
+.home.motion-world .demo-letter-name b{
+ display:inline-grid;place-items:center;width:30px;height:30px;border-radius:10px;
+ background:#ffdb6c;color:#234c37;font:900 1.18rem/1 'Manrope',sans-serif
+}
+@media(max-width:560px){
+ .home.motion-world #motion-sidekick[data-scene="hero"]:not(.at-order){
+   visibility:visible;opacity:1;pointer-events:none;transform:scale(.64);
+   transform-origin:bottom left;left:4px;bottom:10px;
+ }
+ .home.motion-world .motion-sidekick .buddy-bubble{top:0;left:113px;width:174px}
+ .home.motion-world .motion-sidekick .buddy-book-face{width:195px;height:180px}
+ .home.motion-world .audio-choices.audio-choices-two>button{min-height:75px}
+}
+@media(prefers-reduced-motion:reduce){.home.motion-world .motion-sidekick .buddy-book-face{animation:none!important}}
+
+/* Never overlay the creator byline on a small viewport: show a dedicated inline mascot. */
+.home.motion-world .hero-mobile-mascot{display:none}
+@media(max-width:560px){
+ .home.motion-world #motion-sidekick[data-scene="hero"]:not(.at-order){
+  opacity:0!important;visibility:hidden!important;pointer-events:none!important;
+ }
+ .home.motion-world .hero-mobile-mascot{
+  display:flex;direction:ltr;align-items:center;justify-content:center;
+  gap:5px;width:100%;max-width:360px;position:relative;z-index:4;
+  margin:13px auto 4px;min-height:112px;
+ }
+ .home.motion-world .hero-mobile-mascot img{
+  width:min(112px,31vw);height:auto;max-height:110px;
+  object-fit:contain;filter:drop-shadow(0 4px 4px #135b4833);flex:none;
+  animation:rvu-mascot-talk 3.8s ease-in-out infinite;
+ }
+ .home.motion-world .hero-mobile-mascot p{
+  position:relative;margin:0;padding:10px 12px;min-width:0;flex:1;
+  background:#fffefa;border:2px solid #65bda0;border-radius:19px;
+  font-weight:850;font-size:clamp(.67rem,3.2vw,.81rem);
+  color:#206f52;text-align:center;direction:rtl;line-height:1.75;
+  box-shadow:0 5px 0 #c2e6d0;
+ }
+ .home.motion-world .hero-mobile-mascot p::before{
+  content:'';position:absolute;left:-17px;top:45%;width:19px;height:20px;
+  background:#fffefa;clip-path:polygon(100% 0,0 52%,100% 100%);
+ }
+ .home.motion-world .hero-art .art-credit{margin-top:8px}
+}
+@media(prefers-reduced-motion:reduce){
+ .home.motion-world .hero-mobile-mascot img{animation:none!important}
+}
+
+/* Always-visible desktop welcome speaker; hide the dock on its hero scene to avoid duplicate mascots. */
+.home.motion-world .hero-buddy-slot{display:none!important;width:0!important;height:0!important;margin:0!important}
+.home.motion-world #motion-sidekick[data-scene="hero"]:not(.at-order){display:none!important}
+.home.motion-world .hero-desktop-mascot{
+ display:flex;direction:ltr;align-items:center;gap:8px;position:relative;
+ width:min(100%,385px);min-height:136px;margin:18px 0 0;
+}
+.home.motion-world .hero-desktop-mascot img{
+ width:128px;height:128px;flex:none;object-fit:contain;object-position:center;
+ filter:drop-shadow(0 6px 6px #156f532d);animation:rvu-mascot-talk 3.8s ease-in-out infinite;
+}
+.home.motion-world .hero-desktop-mascot p{
+ position:relative;margin:0;padding:13px 14px;flex:1;
+ border-radius:19px;border:2px solid #62bea4;background:#fffdf1;
+ box-shadow:0 5px 0 #b4dfca;color:#19654e;font-size:.78rem;line-height:1.85;
+ text-align:center;direction:rtl;font-weight:850;
+}
+.home.motion-world .hero-desktop-mascot p::before{
+ content:'';position:absolute;left:-18px;top:42%;width:19px;height:22px;
+ background:#fffdf1;clip-path:polygon(100% 0,0 50%,100% 100%);
+}
+@media(max-width:560px){.home.motion-world .hero-desktop-mascot{display:none!important}}
+@media(prefers-reduced-motion:reduce){.home.motion-world .hero-desktop-mascot img{animation:none!important}}

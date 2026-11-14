@@ -43,8 +43,13 @@ if(bookLink&&hero&&!saveData&&!reducedMotion.matches){
    }
   });
   video.addEventListener('error',restorePoster,{once:true});
+  const webm=document.createElement('source');
+  webm.src='/assets/rvu-hero-loop.webm';webm.type='video/webm';
+  const mp4=document.createElement('source');
+  mp4.src=MEDIA_PATH;mp4.type='video/mp4';
+  video.append(webm,mp4);
   bookLink.append(video);
-  video.src=MEDIA_PATH;
+  video.load();
   if('IntersectionObserver' in window){
    const visibility=new IntersectionObserver(entries=>{
     visible=entries[0]?.isIntersecting??true;

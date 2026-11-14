@@ -4,15 +4,18 @@ import {readFileSync, statSync} from 'node:fs';
 const read=p=>readFileSync(p,'utf8');
 test('Original animated kids greeting is committed and under a 1.2 MB budget',()=>{
  const path='assets/rvu-hero-loop.mp4';
+ const webm='assets/rvu-hero-loop.webm';
  const bytes=readFileSync(path);
  assert.ok(bytes.length>90000&&bytes.length<1200000);
  assert.equal(bytes.toString('latin1',4,8),'ftyp');
+ assert.ok(statSync(webm).size>90000&&statSync(webm).size<1100000);
  assert.match(read('hero-loop.mjs'),/rvu-hero-loop\.mp4/);
  assert.match(read('hero-loop.mjs'),/video\.loop\s*=\s*true/);
  assert.match(read('hero-loop.mjs'),/video\.muted\s*=\s*true/);
  assert.match(read('hero-loop.mjs'),/video\.playsInline\s*=\s*true/);
  assert.match(read('hero-loop.mjs'),/prefers-reduced-motion/);
  assert.ok(statSync('dist/assets/rvu-hero-loop.mp4').size>90000);
+ assert.ok(statSync('dist/assets/rvu-hero-loop.webm').size>90000);
 });
 test('The sidekick is the original book chameleon in a speech-bubble portrait',()=>{
  const html=read('index.html');

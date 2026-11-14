@@ -6,7 +6,7 @@ import {resolve,join,sep,extname} from 'node:path';
 const root=resolve('dist');
 const mime={'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8',
  '.js':'text/javascript; charset=utf-8','.mjs':'text/javascript; charset=utf-8',
- '.json':'application/json','.svg':'image/svg+xml','.webp':'image/webp','.mp3':'audio/mpeg','.mp4':'video/mp4'};
+ '.json':'application/json','.svg':'image/svg+xml','.webp':'image/webp','.mp3':'audio/mpeg','.mp4':'video/mp4','.webm':'video/webm'};
 const server=createServer(async(req,res)=>{
  const pathname=decodeURIComponent(new URL(req.url,'http://localhost').pathname);
  let path=resolve(root,'.'+pathname);
@@ -38,6 +38,9 @@ try{
  const sourceVideo=await page.request.get(base+'/assets/rvu-hero-loop.mp4');
  if(sourceVideo.status()!==200||!sourceVideo.headers()['content-type']?.includes('video/mp4'))throw Error('Locally hosted welcome video does not load as video/mp4');
  if((await sourceVideo.body()).length>1200000)throw Error('Welcome video exceeds optimized bandwidth budget');
+ const fallbackWebm=await page.request.get(base+'/assets/rvu-hero-loop.webm');
+ if(fallbackWebm.status()!==200||!fallbackWebm.headers()['content-type']?.includes('video/webm'))throw Error('WebM fallback is unavailable');
+ if((await fallbackWebm.body()).length>1100000)throw Error('WebM fallback exceeds budget');
  const videoHead=await page.request.head(base+'/assets/rvu-hero-loop.mp4');
  const videoGate=await page.evaluate(()=>({
   reducedMotion:matchMedia('(prefers-reduced-motion: reduce)').matches,
@@ -57,10 +60,12 @@ try{
  if(!videoGate.reducedMotion&&!videoGate.saveData){
  const videoState=await page.locator('.hero-loop-video').evaluate(video=>({
   muted:video.muted,loop:video.loop,playsInline:video.playsInline,autoplay:video.autoplay,
-  source:new URL(video.currentSrc||video.src).pathname
+  source:new URL(video.currentSrc||video.querySelector('source')?.src).pathname,
+  choices:[...video.querySelectorAll('source')].map(s=>({path:new URL(s.src).pathname,type:s.type}))
  }));
  if(!videoState.muted||!videoState.loop||!videoState.playsInline||!videoState.autoplay||
-    videoState.source!=='/assets/rvu-hero-loop.mp4')
+    !['/assets/rvu-hero-loop.mp4','/assets/rvu-hero-loop.webm'].includes(videoState.source)||
+    videoState.choices.length!==2)
   throw Error('Welcome animation has unsafe or incorrect playback settings: '+JSON.stringify(videoState));
  }
  const contact=page.locator('#submit-order');

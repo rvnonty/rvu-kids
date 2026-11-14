@@ -70,20 +70,20 @@ try{
     await page.locator('.voice-picker .voice-avatar.boy').count()!==1)
    throw Error('Original book boy/girl portraits missing from voice selector');
  await page.goto(base+'/learn/alphabet/x/',{waitUntil:'domcontentloaded'});
- await page.locator('.letter-name-action .audio-play').waitFor({timeout:10000});
- if((await page.locator('.letter-name-value').innerText()).trim()!=='ex')throw Error('X letter name ex was altered');
+ await page.locator('.letter-name:not(.letter-sound-card) .letter-name-action .audio-play').waitFor({timeout:10000});
+ if((await page.locator('.letter-name:not(.letter-sound-card) .letter-name-value').innerText()).trim()!=='ex')throw Error('X letter name ex was altered');
  if(await page.locator('.phonics-line,.phonics-note').count()!==0)throw Error('Removed phonics section is still visible');
  if(await page.locator('a.lesson-words-link[href="/learn/words/#letter-x"]').count()!==1)throw Error('X page spread link missing');
- const copyBox=await page.locator('.letter-name-copy').boundingBox();
- const soundBox=await page.locator('.letter-name-action .audio-play').boundingBox();
+ const copyBox=await page.locator('.letter-name:not(.letter-sound-card) .letter-name-copy').boundingBox();
+ const soundBox=await page.locator('.letter-name:not(.letter-sound-card) .letter-name-action .audio-play').boundingBox();
  if(!copyBox||!soundBox||soundBox.y<copyBox.y+copyBox.height+8)
    throw Error('Letter name and listen button overlap on phone');
  const overflow=await page.evaluate(()=>document.documentElement.scrollWidth>document.documentElement.clientWidth+3);
  if(overflow)throw Error('X page has horizontal overflow');
  await page.screenshot({path:'artifacts/alphabet-x-mobile.png',fullPage:true});
  await page.setViewportSize({width:1280,height:800});
- const copyWide=await page.locator('.letter-name-copy').boundingBox();
- const buttonWide=await page.locator('.letter-name-action .audio-play').boundingBox();
+ const copyWide=await page.locator('.letter-name:not(.letter-sound-card) .letter-name-copy').boundingBox();
+ const buttonWide=await page.locator('.letter-name:not(.letter-sound-card) .letter-name-action .audio-play').boundingBox();
  if(!copyWide||!buttonWide)throw Error('Desktop letter name card is not measurable');
  const desktopGap=Math.max(
   copyWide.x-(buttonWide.x+buttonWide.width),

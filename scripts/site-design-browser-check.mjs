@@ -77,10 +77,13 @@ try{
    );
    if(path==='/'){
     if(viewport.width<=560){
-     await page.locator('#motion-sidekick.at-hero').waitFor({state:'attached'});
+     const slotDisplay=await page.locator('.hero-buddy-slot').evaluate(el=>getComputedStyle(el).display);
+     if(slotDisplay!=='none')throw Error('Mobile hero must not reserve a blank companion slot');
      const overlaps=await page.evaluate(()=>{
       const a=document.querySelector('.art-credit').getBoundingClientRect();
-      const b=document.querySelector('#motion-sidekick').getBoundingClientRect();
+      const dock=document.querySelector('#motion-sidekick');
+      if(!dock||getComputedStyle(dock).visibility==='hidden')return false;
+      const b=dock.getBoundingClientRect();
       return a.left<b.right&&a.right>b.left&&a.top<b.bottom&&a.bottom>b.top;
      });
      if(overlaps)throw Error('Mobile companion overlaps the creator caption');

@@ -6,7 +6,7 @@ import {resolve,join,sep,extname} from 'node:path';
 const root=resolve('dist');
 const mime={'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8',
  '.js':'text/javascript; charset=utf-8','.mjs':'text/javascript; charset=utf-8',
- '.json':'application/json','.svg':'image/svg+xml','.webp':'image/webp','.mp3':'audio/mpeg'};
+ '.json':'application/json','.svg':'image/svg+xml','.webp':'image/webp','.mp3':'audio/mpeg','.mp4':'video/mp4'};
 const server=createServer(async(req,res)=>{
  const pathname=decodeURIComponent(new URL(req.url,'http://localhost').pathname);
  let path=resolve(root,'.'+pathname);
@@ -30,6 +30,22 @@ page.on('request',request=>{
 });
 try{
  await page.goto(base+'/',{waitUntil:'domcontentloaded'});
+ const welcome=page.locator('.hero-welcome-quote');
+ await welcome.waitFor({timeout:12000});
+ if(!(await welcome.innerText()).includes('أهلًا'))throw Error('Kids welcoming words missing');
+ if(await page.locator('.buddy-book-face').count()!==1)throw Error('Original book chameleon portrait missing');
+ if(await page.locator('.buddy-drawing').count()!==0)throw Error('Old unrelated chameleon illustration remains');
+ const sourceVideo=await page.request.get(base+'/assets/rvu-hero-loop.mp4');
+ if(sourceVideo.status()!==200||!sourceVideo.headers()['content-type']?.includes('video/mp4'))throw Error('Locally hosted welcome video does not load as video/mp4');
+ if((await sourceVideo.body()).length>1200000)throw Error('Welcome video exceeds optimized bandwidth budget');
+ await page.waitForFunction(()=>Boolean(document.querySelector('.hero-loop-video')),{timeout:12000});
+ const videoState=await page.locator('.hero-loop-video').evaluate(video=>({
+  muted:video.muted,loop:video.loop,playsInline:video.playsInline,autoplay:video.autoplay,
+  source:new URL(video.currentSrc||video.src).pathname
+ }));
+ if(!videoState.muted||!videoState.loop||!videoState.playsInline||!videoState.autoplay||
+    videoState.source!=='/assets/rvu-hero-loop.mp4')
+  throw Error('Welcome animation has unsafe or incorrect playback settings: '+JSON.stringify(videoState));
  const contact=page.locator('#submit-order');
  await contact.waitFor();
  if(await page.locator('.order-whatsapp-link').count()!==0)throw Error('Old public WhatsApp link still visible');

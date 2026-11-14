@@ -8,9 +8,9 @@ test('Original animated kids greeting is committed and under a 1.2 MB budget',()
  assert.ok(bytes.length>90000&&bytes.length<1200000);
  assert.equal(bytes.toString('latin1',4,8),'ftyp');
  assert.match(read('hero-loop.mjs'),/rvu-hero-loop\.mp4/);
- assert.match(read('hero-loop.mjs'),/video\.loop = true/);
- assert.match(read('hero-loop.mjs'),/video\.muted = true/);
- assert.match(read('hero-loop.mjs'),/video\.playsInline = true/);
+ assert.match(read('hero-loop.mjs'),/video\.loop\s*=\s*true/);
+ assert.match(read('hero-loop.mjs'),/video\.muted\s*=\s*true/);
+ assert.match(read('hero-loop.mjs'),/video\.playsInline\s*=\s*true/);
  assert.match(read('hero-loop.mjs'),/prefers-reduced-motion/);
  assert.ok(statSync('dist/assets/rvu-hero-loop.mp4').size>90000);
 });

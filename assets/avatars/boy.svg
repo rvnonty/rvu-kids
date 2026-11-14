@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" role="img" aria-label="Illustrated young boy with a friendly smile">
+<defs>
+ <linearGradient id="skin" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff2d4"/><stop offset=".48" stop-color="#f6ba86"/><stop offset="1" stop-color="#d98a5d"/></linearGradient>
+ <radialGradient id="shine" cx=".34" cy=".25" r=".8"><stop stop-color="#a16430"/><stop offset=".5" stop-color="#59351e"/><stop offset="1" stop-color="#21170f"/></radialGradient>
+ <linearGradient id="hair" x1=".2" y1="0" x2=".75" y2="1"><stop stop-color="#8f5633"/><stop offset=".55" stop-color="#59341f"/><stop offset="1" stop-color="#36261d"/></linearGradient>
+ <linearGradient id="hood" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#83d5f9"/><stop offset=".55" stop-color="#439be8"/><stop offset="1" stop-color="#2573a9"/></linearGradient>
+ <linearGradient id="pink" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffc7e1"/><stop offset=".48" stop-color="#ff7fae"/><stop offset="1" stop-color="#d9518e"/></linearGradient>
+</defs>
+<ellipse cx="129" cy="239" rx="88" ry="10" fill="#27665a" opacity=".12"/>
+<path d="M42 243c6-50 34-72 87-74 56-2 84 29 87 74z" fill="url(#hood)" stroke="#417cbb" stroke-width="5"/>
+<path d="M82 188q51 42 94-3l-10-16-77 1z" fill="#e2ad84"/>
+<ellipse cx="57" cy="122" rx="14" ry="22" fill="#eab186"/><ellipse cx="200" cy="122" rx="14" ry="22" fill="#eab186"/>
+<ellipse cx="128" cy="123" rx="77" ry="83" fill="url(#skin)" stroke="#e6a178" stroke-width="3"/>
+<path d="M51 122Q37 40 100 30Q153 7 198 46Q225 73 201 123Q187 93 178 76Q155 90 136 76Q100 110 56 93Z" fill="url(#hair)"/>
+<path d="M51 82Q63 35 109 31Q128 28 137 39Q116 60 83 57Q67 72 51 82" fill="#9c693d" opacity=".8"/>
+<ellipse cx="94" cy="122" rx="19" ry="25" fill="#fff"/><ellipse cx="162" cy="122" rx="19" ry="25" fill="#fff"/>
+<ellipse cx="100" cy="126" rx="13" ry="19" fill="url(#shine)"/><ellipse cx="155" cy="126" rx="13" ry="19" fill="url(#shine)"/>
+<circle cx="96" cy="120" r="5" fill="#fff"/><circle cx="152" cy="120" r="5" fill="#fff"/>
+<ellipse cx="78" cy="154" rx="18" ry="8" fill="#ee8f8b" opacity=".5"/><ellipse cx="180" cy="154" rx="18" ry="8" fill="#ee8f8b" opacity=".5"/>
+<path d="M102 169Q129 198 157 170Q127 182 102 169" fill="#953c45"/><path d="M106 172Q129 183 153 173" stroke="#fff" stroke-width="5" fill="none" stroke-linecap="round"/>
+<path d="M105 210l23 22 22-22" fill="none" stroke="#dcf5ff" stroke-width="8" stroke-linecap="round"/>
+</svg>

@@ -263,8 +263,8 @@ body .storybook-guide .storybook-guide-face{
 }
 body .storybook-guide .storybook-guide-bubble{position:relative;isolation:isolate}
 body .storybook-guide .storybook-guide-bubble::before{
- content:'';position:absolute;top:47%;left:-18px;width:23px;height:27px;
- background:inherit;clip-path:polygon(100% 0,0 50%,100% 100%);
+ content:'';position:absolute;top:47%;right:-18px;left:auto;width:23px;height:27px;
+ background:inherit;clip-path:polygon(0 0,100% 50%,0 100%);
 }
 body .rvu-scene-character.rvu-mascot-portrait{
  display:block!important;width:120px!important;height:118px!important;
@@ -285,7 +285,7 @@ body .character-portrait.girl,body .voice-avatar.girl{background-image:url('/ass
 }
 @media(max-width:560px){
  body .storybook-guide .storybook-guide-face{width:82px!important;height:82px!important}
- body .storybook-guide .storybook-guide-bubble::before{top:40%;left:-15px;width:18px;height:21px}
+ body .storybook-guide .storybook-guide-bubble::before{top:40%;right:-15px;left:auto;width:18px;height:21px}
 }
 @media(prefers-reduced-motion:reduce){
  body .storybook-guide .storybook-guide-face{animation:none!important}

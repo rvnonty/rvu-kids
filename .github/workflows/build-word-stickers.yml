@@ -1,0 +1,36 @@
+name: Generate 101 transparent illustrated word stickers
+on:
+  push:
+    branches: [feat/complete-audio-stickers-nov14]
+    paths:
+      - scripts/build-word-stickers.py
+      - .github/workflows/build-word-stickers.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  generate-stickers:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install image processing dependency
+        run: python -m pip install --disable-pip-version-check "Pillow==11.3.0"
+      - name: Generate and validate 101 transparent WebP illustrations
+        run: python -u scripts/build-word-stickers.py
+      - name: Commit only validated illustrations to this review branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/stickers/
+          if git diff --cached --quiet; then
+            echo "No illustration changes"
+            exit 0
+          fi
+          git commit -m "Add 101 transparent lightweight 3D vocabulary illustrations"
+          git push origin HEAD:feat/complete-audio-stickers-nov14

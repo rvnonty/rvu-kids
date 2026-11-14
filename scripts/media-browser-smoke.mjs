@@ -6,7 +6,7 @@ import {resolve,join,sep,extname} from 'node:path';
 const root=resolve('dist');
 const mime={'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8',
  '.js':'text/javascript; charset=utf-8','.mjs':'text/javascript; charset=utf-8',
- '.json':'application/json','.svg':'image/svg+xml','.webp':'image/webp','.mp3':'audio/mpeg'};
+ '.json':'application/json','.svg':'image/svg+xml','.webp':'image/webp','.mp3':'audio/mpeg','.mp4':'video/mp4','.webm':'video/webm'};
 const server=createServer(async(req,res)=>{
  const pathname=decodeURIComponent(new URL(req.url,'http://localhost').pathname);
  let path=resolve(root,'.'+pathname);
@@ -30,6 +30,44 @@ page.on('request',request=>{
 });
 try{
  await page.goto(base+'/',{waitUntil:'domcontentloaded'});
+ const welcome=page.locator('.hero-welcome-quote');
+ await welcome.waitFor({timeout:12000});
+ if(!(await welcome.innerText()).includes('أهلًا'))throw Error('Kids welcoming words missing');
+ if(await page.locator('.buddy-book-face').count()!==1)throw Error('Original book chameleon portrait missing');
+ if(await page.locator('.buddy-drawing').count()!==0)throw Error('Old unrelated chameleon illustration remains');
+ const sourceVideo=await page.request.get(base+'/assets/rvu-hero-loop.mp4');
+ if(sourceVideo.status()!==200||!sourceVideo.headers()['content-type']?.includes('video/mp4'))throw Error('Locally hosted welcome video does not load as video/mp4');
+ if((await sourceVideo.body()).length>1200000)throw Error('Welcome video exceeds optimized bandwidth budget');
+ const fallbackWebm=await page.request.get(base+'/assets/rvu-hero-loop.webm');
+ if(fallbackWebm.status()!==200||!fallbackWebm.headers()['content-type']?.includes('video/webm'))throw Error('WebM fallback is unavailable');
+ if((await fallbackWebm.body()).length>1100000)throw Error('WebM fallback exceeds budget');
+ const videoHead=await page.request.head(base+'/assets/rvu-hero-loop.mp4');
+ const videoGate=await page.evaluate(()=>({
+  reducedMotion:matchMedia('(prefers-reduced-motion: reduce)').matches,
+  saveData: Boolean(navigator.connection?.saveData),
+  book: Boolean(document.querySelector('.hero-book-figure .book')),
+  hero: Boolean(document.querySelector('.hero-art')),
+  script: Boolean(document.querySelector('script[src*="hero-loop.mjs"]')),
+  currentMedia:document.querySelector('.hero-art')?.dataset.heroMedia,
+  hasVideo: Boolean(document.querySelector('.hero-loop-video'))
+ }));
+ console.log('WELCOME_VIDEO_DIAGNOSTIC',JSON.stringify({videoGate,headStatus:videoHead.status(),headMime:videoHead.headers()['content-type'],pageErrors:errors}));
+ if(!videoGate.reducedMotion&&!videoGate.saveData){
+  await page.waitForFunction(()=>Boolean(document.querySelector('.hero-loop-video')),null,{timeout:12000});
+ }else{
+  if(videoGate.hasVideo)throw Error('Reduced-motion/data-saving mode should preserve poster instead of starting video');
+ }
+ if(!videoGate.reducedMotion&&!videoGate.saveData){
+ const videoState=await page.locator('.hero-loop-video').evaluate(video=>({
+  muted:video.muted,loop:video.loop,playsInline:video.playsInline,autoplay:video.autoplay,
+  source:new URL(video.currentSrc||video.querySelector('source')?.src).pathname,
+  choices:[...video.querySelectorAll('source')].map(s=>({path:new URL(s.src).pathname,type:s.type}))
+ }));
+ if(!videoState.muted||!videoState.loop||!videoState.playsInline||!videoState.autoplay||
+    !['/assets/rvu-hero-loop.mp4','/assets/rvu-hero-loop.webm'].includes(videoState.source)||
+    videoState.choices.length!==2)
+  throw Error('Welcome animation has unsafe or incorrect playback settings: '+JSON.stringify(videoState));
+ }
  const contact=page.locator('#submit-order');
  await contact.waitFor();
  if(await page.locator('.order-whatsapp-link').count()!==0)throw Error('Old public WhatsApp link still visible');

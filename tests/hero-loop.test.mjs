@@ -18,8 +18,9 @@ test('hero video is optional and never blocks the book poster',()=>{
  const css=readFileSync('home-motion.css','utf8');
  assert.match(home, /hero-loop\.mjs/);
  assert.match(home, /assets\/cover-480\.webp/);
- assert.match(js, /fetch\(MEDIA_PATH, \{ method: 'HEAD'/);
- assert.match(js, /if \(!availability\.ok/);
+ assert.match(js, /mp4\.src=MEDIA_PATH/);
+ assert.match(js, /webm\.src='\/assets\/rvu-hero-loop\.webm'/);
+ assert.match(js, /video\.addEventListener\('error',restorePoster/);
  assert.match(js, /prefers-reduced-motion: reduce/);
  assert.match(js, /classList\.add\('has-live-video'\)/);
  assert.match(css, /\.hero-loop-video/);

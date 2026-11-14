@@ -244,3 +244,36 @@ html[lang=en] .home.motion-world .hero-welcome-quote{direction:ltr}
  .home.motion-world .audio-choices.audio-choices-two>button{min-height:75px}
 }
 @media(prefers-reduced-motion:reduce){.home.motion-world .motion-sidekick .buddy-book-face{animation:none!important}}
+
+/* Never overlay the creator byline on a small viewport: show a dedicated inline mascot. */
+.home.motion-world .hero-mobile-mascot{display:none}
+@media(max-width:560px){
+ .home.motion-world #motion-sidekick[data-scene="hero"]:not(.at-order){
+  opacity:0!important;visibility:hidden!important;pointer-events:none!important;
+ }
+ .home.motion-world .hero-mobile-mascot{
+  display:flex;direction:ltr;align-items:center;justify-content:center;
+  gap:5px;width:100%;max-width:360px;position:relative;z-index:4;
+  margin:13px auto 4px;min-height:112px;
+ }
+ .home.motion-world .hero-mobile-mascot img{
+  width:min(112px,31vw);height:auto;max-height:110px;
+  object-fit:contain;filter:drop-shadow(0 4px 4px #135b4833);flex:none;
+  animation:rvu-mascot-talk 3.8s ease-in-out infinite;
+ }
+ .home.motion-world .hero-mobile-mascot p{
+  position:relative;margin:0;padding:10px 12px;min-width:0;flex:1;
+  background:#fffefa;border:2px solid #65bda0;border-radius:19px;
+  font-weight:850;font-size:clamp(.67rem,3.2vw,.81rem);
+  color:#206f52;text-align:center;direction:rtl;line-height:1.75;
+  box-shadow:0 5px 0 #c2e6d0;
+ }
+ .home.motion-world .hero-mobile-mascot p::before{
+  content:'';position:absolute;left:-17px;top:45%;width:19px;height:20px;
+  background:#fffefa;clip-path:polygon(100% 0,0 52%,100% 100%);
+ }
+ .home.motion-world .hero-art .art-credit{margin-top:8px}
+}
+@media(prefers-reduced-motion:reduce){
+ .home.motion-world .hero-mobile-mascot img{animation:none!important}
+}

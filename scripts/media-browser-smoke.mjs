@@ -38,7 +38,23 @@ try{
  const sourceVideo=await page.request.get(base+'/assets/rvu-hero-loop.mp4');
  if(sourceVideo.status()!==200||!sourceVideo.headers()['content-type']?.includes('video/mp4'))throw Error('Locally hosted welcome video does not load as video/mp4');
  if((await sourceVideo.body()).length>1200000)throw Error('Welcome video exceeds optimized bandwidth budget');
- await page.waitForFunction(()=>Boolean(document.querySelector('.hero-loop-video')),{timeout:12000});
+ const videoHead=await page.request.head(base+'/assets/rvu-hero-loop.mp4');
+ const videoGate=await page.evaluate(()=>({
+  reducedMotion:matchMedia('(prefers-reduced-motion: reduce)').matches,
+  saveData: Boolean(navigator.connection?.saveData),
+  book: Boolean(document.querySelector('.hero-book-figure .book')),
+  hero: Boolean(document.querySelector('.hero-art')),
+  script: Boolean(document.querySelector('script[src*="hero-loop.mjs"]')),
+  currentMedia:document.querySelector('.hero-art')?.dataset.heroMedia,
+  hasVideo: Boolean(document.querySelector('.hero-loop-video'))
+ }));
+ console.log('WELCOME_VIDEO_DIAGNOSTIC',JSON.stringify({videoGate,headStatus:videoHead.status(),headMime:videoHead.headers()['content-type'],pageErrors:errors}));
+ if(!videoGate.reducedMotion&&!videoGate.saveData){
+  await page.waitForFunction(()=>Boolean(document.querySelector('.hero-loop-video')),null,{timeout:12000});
+ }else{
+  if(videoGate.hasVideo)throw Error('Reduced-motion/data-saving mode should preserve poster instead of starting video');
+ }
+ if(!videoGate.reducedMotion&&!videoGate.saveData){
  const videoState=await page.locator('.hero-loop-video').evaluate(video=>({
   muted:video.muted,loop:video.loop,playsInline:video.playsInline,autoplay:video.autoplay,
   source:new URL(video.currentSrc||video.src).pathname
@@ -46,6 +62,7 @@ try{
  if(!videoState.muted||!videoState.loop||!videoState.playsInline||!videoState.autoplay||
     videoState.source!=='/assets/rvu-hero-loop.mp4')
   throw Error('Welcome animation has unsafe or incorrect playback settings: '+JSON.stringify(videoState));
+ }
  const contact=page.locator('#submit-order');
  await contact.waitFor();
  if(await page.locator('.order-whatsapp-link').count()!==0)throw Error('Old public WhatsApp link still visible');

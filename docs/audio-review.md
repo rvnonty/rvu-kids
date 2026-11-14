@@ -3,7 +3,7 @@ Updated: 11 November 2026
 
 ## Current published inventory
 - 26 alphabet letter-name rows, 26 letter-sound rows, 101 exact book word rows, 26 alphabet example sentences, 64 Everyday English sentences, and one additional review sentence = **244 mapped recording rows**.
-- Each row has exactly two MP3 assets: **female af_sarah** and **male am_liam** (Kokoro English neural synthesizer) = **488 files**.
+- Each row has exactly two MP3 assets: **female af_heart** and **male am_puck** (Kokoro English neural synthesizer) = **488 files**.
 - All fifteen originally missing book words (carrot, drum, engine, envelope, fox, igloo, jeep, king, nurse, owl, ox, pencil, rose, snake, strawberry) were regenerated with new, matching file mappings.
 - E letter **name** is row `028` and E short **sound** is row `029`, each with both voice versions. They were regenerated with explicit phonetic instructions. **Correctness by ear has not been certified.**
 - Fish is row `037`; the legacy Fork clip at row `040` was replaced with Fox to match the latest printed F lesson. The old Fish/Fork blocklist was removed after regeneration. That does **not** indicate phonetic perfection.
@@ -19,3 +19,6 @@ The regeneration action validated MP3 decoding, file size, waveform plausibility
 5. Bump service-worker cache version after replacing MP3s and repeat all audio, layout, functional and offline tests. Record who listened and the approval date.
 
 **Status: mechanically consistent and published; human pronunciation signoff remains incomplete.** Neither ASR nor MP3 format checks can certify 100% accurate spoken English.
+
+## American voice refresh — 14 November 2026
+Rebuilt all 244 lines as a warm female af_heart and a playful male am_puck, then trimmed and normalized 488 MP3 tracks. Human listening approval remains pending.

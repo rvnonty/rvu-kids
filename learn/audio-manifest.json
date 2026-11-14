@@ -1,5 +1,5 @@
 {
-  "version": 6,
+  "version": 7,
   "locale": "en-US",
   "status": "partially-reviewed-not-final",
   "requiredRecordings": 244,
@@ -2211,20 +2211,21 @@
     "approvalPolicy": "Automated text mapping and MP3 decoding pass, but 100% phonetic accuracy requires individual human listening approval.",
     "humanSignoffComplete": false,
     "knownConcerns": [
-      "Human listening approval pending for all 488 generated recordings",
-      "E letter name and short-e sound require listening verification",
-      "Male voice's similarity to the earlier Egg/Elephant samples is not certified"
+      "Full listening review of all 488 recordings is pending",
+      "Check word Fish initial f, short E vowel, stress and consonant endings",
+      "Young voice perception is subjective and not guaranteed"
     ]
   },
   "voiceLibrary": {
-    "source": "Kokoro English American synthetic voices",
-    "female": "af_sarah",
-    "male": "am_liam",
-    "automatedVerification": "basic waveform, MP3 and curriculum integrity",
+    "source": "Kokoro 82M US English",
+    "female": "af_heart",
+    "male": "am_puck",
+    "character": "warm/playful, perceived age not independently verified",
+    "automatedVerification": "transcript mapping, waveforms, MP3 decoding, individual clipping and normalization",
     "humanPronunciationSignoff": false
   },
   "processingQA": {
-    "stage": "conservative non-destructive speech-boundary cleanup, gentle fades, leveled RMS",
+    "stage": "new consistent warm female and playful male speech, trimmed and leveled",
     "filesValidated": 488,
     "humanListeningApproved": false,
     "phonemeValidation": "still requires listening"

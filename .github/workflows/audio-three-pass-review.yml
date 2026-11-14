@@ -1,0 +1,34 @@
+name: Triple mechanical validation of all 488 RVU Kids voice clips
+on:
+  push:
+    branches: [feat/approved-chameleon-original-illustrations-20261114]
+    paths:
+      - scripts/audio-three-pass-review.py
+      - .github/workflows/audio-three-pass-review.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  three-pass:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends ffmpeg
+      - name: Build static website including all spoken media
+        run: npm run build
+      - name: Check each clip three independent ways
+        run: python -u scripts/audio-three-pass-review.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: rvu-488-three-pass-technical-voice-audit
+          path: audio-qa/three-pass-488-voice-report.json
+          retention-days: 30

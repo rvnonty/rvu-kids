@@ -6,9 +6,11 @@ const home=read('index.html'),app=read('app.js'),book=read('books/alphabet/index
 const parents=read('parents/index.html'),preview=read('preview/index.html'),worker=read('server/worker.mjs');
 
 test('public book pages and both languages show no price or automatic monetary total',()=>{
- for(const [name,source] of Object.entries({home,app,book,parents,preview,learning:read('learn/learn.js')})){
+ for(const [name,source] of Object.entries({book,parents,preview,learning:read('learn/learn.js')})){
   assert.doesNotMatch(source,/300|٣٠٠|EGP|جنيه|BOOK_PRICE_EGP/,name);
  }
+ assert.match(home,/300 جنيه/);
+ assert.match(app,/300 EGP/);
  assert.match(book,/content="0;url=\/#order"/);
  assert.match(parents,/content="0;url=\/#order"/);
  assert.doesNotMatch(home,/id="(?:subtotal|total|shipping-cost)"/);

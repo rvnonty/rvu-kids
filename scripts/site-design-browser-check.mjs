@@ -91,7 +91,10 @@ try{
     const text=await page.locator('body').innerText();
     if(text.includes('المعاينة لصفحات مختارة')||text.includes('درجة الألوان في الطباعة')||
        text.includes('Printed colors may look different'))throw Error('Removed preview disclaimer still visible');
-    if(/300|٣٠٠|EGP|جنيه/.test(text))throw Error('Public homepage must not display prices');
+    const price=page.locator('#order .order-price-ribbon');
+     if(await price.count()!==1)throw Error('Homepage order section must display the inclusive book price');
+     const priceText=await price.innerText();
+     if(!/300 (?:جنيه|EGP)/.test(priceText)||!/(الشحن|shipping)/i.test(priceText))throw Error('Book price must include shipping and delivery');
     const footer=page.locator('footer.footer');
     const credit=await footer.locator('.footer-credit').innerText();
     if(!credit.includes('By:')||!credit.includes('Ramez Medhat')||!credit.includes('❤️'))

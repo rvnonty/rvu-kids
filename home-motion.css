@@ -97,3 +97,8 @@ html[lang=en] .home.motion-world .hero h1{font-size:clamp(2.6rem,4.8vw,4rem);lin
  .home.motion-world .hero-art .art-credit{margin-top:13px}
  .home.motion-world .hero.wrap{gap:9px}
 }
+
+/* Inclusive printed book pricing, visible on the order section only. */
+.home.motion-world .order-price-ribbon{display:inline-block;margin:16px 0 18px;padding:11px 18px;border:2px solid #c4dec0;border-radius:16px;background:#fffbea;color:#184b36;font-weight:750;line-height:1.7;max-width:100%}
+.home.motion-world .order-price-ribbon strong{color:#0a7559;font-size:1.35em;white-space:nowrap}
+@media(max-width:560px){.home.motion-world .order-price-ribbon{padding:12px;font-size:.93rem;margin:12px 0}}

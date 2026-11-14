@@ -55,7 +55,7 @@ function cardLetter(a,index=0){
  const picture=el('span','storybook-station-picture');
  const word=a.words[0]||a.letter;
  const img=el('img','storybook-station-image');
- img.src='/assets/words/'+word.replaceAll(' ','-')+'.svg';
+ img.src='/assets/stickers/'+word.replaceAll(' ','-')+'.webp';
  img.alt='';img.width=112;img.height=112;
  img.decoding='async';img.loading=index<6?'eager':'lazy';
  picture.append(img);
@@ -96,10 +96,11 @@ function hub(){
 
 const illustratedWords=new Set(ALL_WORDS);
 const voiceRows=new Map(AUDIO_ROWS.map((r,i)=>[r[0]+'|'+r[1]+'|'+r[2],i]));
-const wordAudioIds=new Map(AUDIO_ROWS.flatMap((r,i)=>r[0]==='word'?[[r[2],i]]:[]));
+const normalizedWord=value=>String(value).normalize('NFKC').trim().toLocaleLowerCase('en-US').replace(/\s+/g,' ');
+const wordAudioIds=new Map(AUDIO_ROWS.flatMap((r,i)=>r[0]==='word'?[[normalizedWord(r[2]),i]]:[]));
 const audioUrl=(id,voice)=>'/assets/audio/'+voice+'/'+String(id).padStart(3,'0')+'.mp3';
 const cachedAudio=new Map();
-const CACHE_LIMIT=12;
+const CACHE_LIMIT=24;
 const SPEED_OPTIONS=[
  [0.7,'بطيء جدًا','Very slow'],
  [0.85,'بطيء','Slow'],
@@ -185,7 +186,7 @@ function voicePicker(){
  return section;
 }
 function playButton(type,lesson,value){
- const id=voiceRows.get(type+'|'+lesson+'|'+value)??(type==='word'?wordAudioIds.get(value):undefined);
+ const id=voiceRows.get(type+'|'+lesson+'|'+value)??(type==='word'?wordAudioIds.get(normalizedWord(value)):undefined);
  if(id===undefined){
   if(type!=='word')return null;
   const missing=el('button','audio-play audio-unavailable',lang==='ar'?'النطق قيد المراجعة':'Audio under review');
@@ -318,7 +319,7 @@ function wordLibrary(){
 function wordVisual(w){
  const box=el('div','word-visual story-visual');
  if(illustratedWords.has(w)){
-  const image=el('img','word-image');image.src='/assets/words/'+w.replaceAll(' ','-')+'.svg';
+  const image=el('img','word-image');image.src='/assets/stickers/'+w.replaceAll(' ','-')+'.webp';
   image.alt=w;image.loading='lazy';image.decoding='async';image.width=192;image.height=192;box.append(image);
  }else{box.append(el('span','word-icon',w[0].toUpperCase()))}
  return box;
@@ -476,8 +477,8 @@ try{
 }catch{}
 window.RVU_WORD_AUDIO={
  available(lesson,word){
-  const key='word|'+lesson+'|'+word;
-  return voiceRows.has(key)||wordAudioIds.has(word);
+  const key='word|'+lesson+'|'+normalizedWord(word);
+  return voiceRows.has(key)||wordAudioIds.has(normalizedWord(word));
  },
  play(lesson,word){
   const b=playButton('word',lesson,word);

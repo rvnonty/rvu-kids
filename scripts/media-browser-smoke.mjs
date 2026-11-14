@@ -68,6 +68,19 @@ try{
     videoState.choices.length!==2)
   throw Error('Welcome animation has unsafe or incorrect playback settings: '+JSON.stringify(videoState));
  }
+ // Confirm real advancing playback, not merely a present video tag.
+ if(!videoGate.reducedMotion&&!videoGate.saveData){
+  await page.waitForFunction(()=>{
+   const v=document.querySelector('.hero-loop-video');
+   return !!v&&v.currentTime>0.15&&!v.paused&&document.querySelector('.hero-book-figure .book')?.classList.contains('has-live-video');
+  },null,{timeout:18000});
+  await page.emulateMedia({reducedMotion:'reduce'});
+  await page.waitForFunction(()=>document.querySelector('.hero-art')?.dataset.heroMedia==='poster',null,{timeout:5000});
+  const coverOpacity=await page.locator('.hero-book-figure .book>img').evaluate(img=>Number(getComputedStyle(img).opacity));
+  if(coverOpacity<0.99)throw Error('Book poster hidden after switching on reduced motion');
+  await page.emulateMedia({reducedMotion:'no-preference'});
+  await page.waitForFunction(()=>document.querySelector('.hero-art')?.dataset.heroMedia==='video',null,{timeout:15000});
+ }
  const contact=page.locator('#submit-order');
  await contact.waitFor();
  if(await page.locator('.order-whatsapp-link').count()!==0)throw Error('Old public WhatsApp link still visible');

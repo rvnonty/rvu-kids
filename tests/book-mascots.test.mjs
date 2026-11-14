@@ -20,12 +20,14 @@ test('remove only the requested home order timing statement, in Arabic and Engli
  assert.ok(translation.includes("'https://wa.me/201012809358?text='"),'order submit still opens WhatsApp');
 });
 
-test('all letter lessons keep alphabet name audio but no longer render phonics audio or explanation',()=>{
+test('every letter lesson offers separate name and sound audio without the old phonics explanation',()=>{
  assert.ok(learning.includes("playButton('letter-name',d.id,d.letter)"));
  assert.ok(learning.includes("const letterCard=el('div','letter-name')"));
  assert.ok(learning.includes("el('div','letter-name-copy')"));
  assert.ok(learning.includes("el('div','letter-name-action')"));
- assert.ok(!learning.includes("playButton('letter-sound',d.id,d.letter)"));
+ assert.ok(learning.includes("playButton('letter-sound',d.id,d.letter)"));
+ assert.ok(learning.includes("letter-sound-card"));
+ assert.ok(learning.includes("صوت الحرف"));
  assert.ok(!learning.includes("phonics-note"));
  assert.ok(!lessonCss.includes('.phonics-note'));
  assert.ok(!learning.includes("phonics-line"));

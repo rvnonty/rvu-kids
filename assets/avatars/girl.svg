@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" role="img" aria-label="Illustrated young girl with a friendly smile">
+<defs>
+ <linearGradient id="skin" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff2d4"/><stop offset=".48" stop-color="#f6ba86"/><stop offset="1" stop-color="#d98a5d"/></linearGradient>
+ <radialGradient id="shine" cx=".34" cy=".25" r=".8"><stop stop-color="#a16430"/><stop offset=".5" stop-color="#59351e"/><stop offset="1" stop-color="#21170f"/></radialGradient>
+ <linearGradient id="hair" x1=".2" y1="0" x2=".75" y2="1"><stop stop-color="#8f5633"/><stop offset=".55" stop-color="#59341f"/><stop offset="1" stop-color="#36261d"/></linearGradient>
+ <linearGradient id="hood" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#83d5f9"/><stop offset=".55" stop-color="#439be8"/><stop offset="1" stop-color="#2573a9"/></linearGradient>
+ <linearGradient id="pink" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffc7e1"/><stop offset=".48" stop-color="#ff7fae"/><stop offset="1" stop-color="#d9518e"/></linearGradient>
+</defs>
+<ellipse cx="129" cy="239" rx="86" ry="10" fill="#27665a" opacity=".12"/>
+<path d="M42 241q10-54 87-69 74 13 86 69z" fill="url(#pink)" stroke="#d45b96" stroke-width="5"/>
+<path d="M48 127Q33 29 124 28Q214 21 210 131L194 204 62 206Z" fill="url(#hair)"/>
+<ellipse cx="128" cy="121" rx="77" ry="82" fill="url(#skin)" stroke="#dd9c78" stroke-width="3"/>
+<path d="M54 91Q48 39 93 29Q132 10 176 39Q204 51 200 98Q183 76 172 65Q151 95 132 76Q101 101 56 94Z" fill="url(#hair)"/>
+<ellipse cx="95" cy="123" rx="20" ry="25" fill="#fff"/><ellipse cx="162" cy="123" rx="20" ry="25" fill="#fff"/>
+<ellipse cx="100" cy="125" rx="13" ry="19" fill="url(#shine)"/><ellipse cx="155" cy="125" rx="13" ry="19" fill="url(#shine)"/>
+<circle cx="96" cy="119" r="5" fill="#fff"/><circle cx="152" cy="119" r="5" fill="#fff"/>
+<path d="M74 113l-7-6m12 4l-4-9M177 112l7-7m-11 6l2-8" stroke="#33211f" stroke-width="3" stroke-linecap="round"/>
+<ellipse cx="78" cy="153" rx="18" ry="8" fill="#ed8592" opacity=".57"/><ellipse cx="180" cy="153" rx="18" ry="8" fill="#ed8592" opacity=".57"/>
+<path d="M103 171Q129 194 155 169Q126 184 103 171" fill="#9b4350"/><path d="M108 173Q129 183 151 172" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round"/>
+<path d="M163 41q-44-28-36-13 24 29 45 39M172 42q17-40 42-22 16 16-33 46" fill="url(#pink)" stroke="#d65a9f" stroke-width="4"/>
+<circle cx="173" cy="48" r="12" fill="#ffdd77" stroke="#efb855" stroke-width="3"/>
+<path d="M102 201Q130 219 156 200" stroke="#f9e9ee" stroke-width="7" fill="none" stroke-linecap="round"/>
+</svg>

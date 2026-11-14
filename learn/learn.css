@@ -247,3 +247,46 @@ body[data-page="alphabet-index"] .hero>.standalone-speed-picker,body[data-page="
 }
 .letter-sound-card .letter-name-value{background:#f7fff9;border-color:#b6ddc8}
 @media(max-width:650px){.letter-name.letter-sound-card{margin-top:-12px}}
+
+/* Same approved turquoise chameleon on EVERY learning route and in game scenes. */
+body .storybook-guide{overflow:visible;position:relative;isolation:isolate}
+body .storybook-guide .storybook-guide-face.rvu-mascot-portrait,
+body .storybook-guide .storybook-guide-face{
+ display:block!important;flex:none;width:104px!important;height:103px!important;
+ background-image:url('/assets/mascot/chameleon.webp')!important;
+ background-size:contain!important;background-position:center!important;
+ background-repeat:no-repeat!important;background-color:transparent!important;
+ border:0!important;box-shadow:none!important;object-fit:contain!important;
+ object-position:center!important;border-radius:0!important;
+ filter:drop-shadow(0 5px 5px #164f3929);
+ animation:rvu-story-chameleon-wave 4s ease-in-out infinite;
+}
+body .storybook-guide .storybook-guide-bubble{position:relative;isolation:isolate}
+body .storybook-guide .storybook-guide-bubble::before{
+ content:'';position:absolute;top:47%;left:-18px;width:23px;height:27px;
+ background:inherit;clip-path:polygon(100% 0,0 50%,100% 100%);
+}
+body .rvu-scene-character.rvu-mascot-portrait{
+ display:block!important;width:120px!important;height:118px!important;
+ background:none!important;object-fit:contain!important;
+ object-position:center bottom;filter:drop-shadow(0 5px 6px #1b655138);
+ border:0!important;border-radius:0!important;
+}
+body .character-portrait.lizard,
+body .compact-cast .lizard{
+ background-image:url('/assets/mascot/chameleon.webp')!important;
+ background-size:contain!important;background-color:transparent!important;background-position:center!important;
+}
+body .character-portrait.boy,body .voice-avatar.boy{background-image:url('/assets/avatars/boy.svg')!important;background-size:contain!important;background-position:center!important;background-color:transparent!important}
+body .character-portrait.girl,body .voice-avatar.girl{background-image:url('/assets/avatars/girl.svg')!important;background-size:contain!important;background-position:center!important;background-color:transparent!important}
+@keyframes rvu-story-chameleon-wave{
+ 0%,100%{transform:rotate(-3deg) translateY(0)}
+ 45%{transform:rotate(2deg) translateY(-5px)}
+}
+@media(max-width:560px){
+ body .storybook-guide .storybook-guide-face{width:82px!important;height:82px!important}
+ body .storybook-guide .storybook-guide-bubble::before{top:40%;left:-15px;width:18px;height:21px}
+}
+@media(prefers-reduced-motion:reduce){
+ body .storybook-guide .storybook-guide-face{animation:none!important}
+}

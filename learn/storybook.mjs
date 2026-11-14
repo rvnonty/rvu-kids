@@ -148,11 +148,12 @@
  let guide=null;
  function setGuideMood(mood){
   if(!guide||!messages[mood])return;
-  const [message,character]=messages[mood];
+  const [message]=messages[mood];
   guide.dataset.mood=mood;
   const face=guide.querySelector('.storybook-guide-face');
   if(face){
-   face.className='storybook-guide-face character-portrait '+character;
+   face.className='storybook-guide-face rvu-mascot-portrait';
+   if(face.tagName==='IMG'){face.src='/assets/mascot/chameleon.webp';face.alt=''}
    void face.offsetWidth;
    face.classList.add('guide-moment');
   }
@@ -162,7 +163,8 @@
  function makeGuide(mood){
   const panel=node('aside','storybook-guide');
   panel.setAttribute('aria-label',text('مرشد مغامرة RVU Kids','RVU Kids story guide'));
-  const portrait=node('span','storybook-guide-face character-portrait boy');
+  const portrait=node('img','storybook-guide-face rvu-mascot-portrait');
+  portrait.src='/assets/mascot/chameleon.webp';portrait.alt='';portrait.width=180;portrait.height=160;portrait.decoding='async';
   portrait.setAttribute('aria-hidden','true');
   const bubble=node('div','storybook-guide-bubble');
   bubble.append(node('strong','storybook-guide-title',text('صحابك في المغامرة','Your storybook friends')));

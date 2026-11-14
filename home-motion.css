@@ -277,3 +277,27 @@ html[lang=en] .home.motion-world .hero-welcome-quote{direction:ltr}
 @media(prefers-reduced-motion:reduce){
  .home.motion-world .hero-mobile-mascot img{animation:none!important}
 }
+
+/* Always-visible desktop welcome speaker; hide the dock on its hero scene to avoid duplicate mascots. */
+.home.motion-world .hero-buddy-slot{display:none!important;width:0!important;height:0!important;margin:0!important}
+.home.motion-world #motion-sidekick[data-scene="hero"]:not(.at-order){display:none!important}
+.home.motion-world .hero-desktop-mascot{
+ display:flex;direction:ltr;align-items:center;gap:8px;position:relative;
+ width:min(100%,385px);min-height:136px;margin:18px 0 0;
+}
+.home.motion-world .hero-desktop-mascot img{
+ width:128px;height:128px;flex:none;object-fit:contain;object-position:center;
+ filter:drop-shadow(0 6px 6px #156f532d);animation:rvu-mascot-talk 3.8s ease-in-out infinite;
+}
+.home.motion-world .hero-desktop-mascot p{
+ position:relative;margin:0;padding:13px 14px;flex:1;
+ border-radius:19px;border:2px solid #62bea4;background:#fffdf1;
+ box-shadow:0 5px 0 #b4dfca;color:#19654e;font-size:.78rem;line-height:1.85;
+ text-align:center;direction:rtl;font-weight:850;
+}
+.home.motion-world .hero-desktop-mascot p::before{
+ content:'';position:absolute;left:-18px;top:42%;width:19px;height:22px;
+ background:#fffdf1;clip-path:polygon(100% 0,0 50%,100% 100%);
+}
+@media(max-width:560px){.home.motion-world .hero-desktop-mascot{display:none!important}}
+@media(prefers-reduced-motion:reduce){.home.motion-world .hero-desktop-mascot img{animation:none!important}}

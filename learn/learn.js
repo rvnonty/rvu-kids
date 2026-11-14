@@ -195,7 +195,8 @@ function playButton(type,lesson,value){
   return missing;
  }
  const b=el('button','audio-play',lang==='ar'?'اسمع':'Listen');b.type='button';
- b.setAttribute('aria-label',(lang==='ar'?'استمع إلى ':'Listen to ')+value);
+ const actionLabel=type==='letter-name'?(lang==='ar'?'استمع إلى اسم الحرف ':'Listen to the letter name '):type==='letter-sound'?(lang==='ar'?'استمع إلى صوت الحرف ':'Listen to the letter sound '):(lang==='ar'?'استمع إلى ':'Listen to ');
+ b.setAttribute('aria-label',actionLabel+value);
  const prepare=()=>{
   const connection=navigator.connection;
   if(connection?.saveData||/2g/.test(connection?.effectiveType||''))return;
@@ -380,6 +381,16 @@ function lessonTemplate(type,d,idx){
   const nameSound=playButton('letter-name',d.id,d.letter);
   if(nameSound){const action=el('div','letter-name-action');action.append(nameSound);letterCard.append(action)}
   shell.append(letterCard);
+  const phonemeSound=playButton('letter-sound',d.id,d.letter);
+  if(phonemeSound){
+   const soundCard=el('div','letter-name letter-sound-card');
+   const soundText=el('div','letter-name-copy');
+   soundText.append(el('span','letter-name-label',lang==='ar'?'صوت الحرف':'Letter sound'));
+   const smallLetter=el('b','letter-name-value',d.letter.toLowerCase());smallLetter.dir='ltr';smallLetter.lang='en';
+   soundText.append(smallLetter);
+   const action=el('div','letter-name-action');action.append(phonemeSound);
+   soundCard.append(soundText,action);shell.append(soundCard);
+  }
  }
  const title=el('h2','minor-heading',type==='alphabet'?t('words'):t('sentences'));shell.append(title);
  if(type==='alphabet'){

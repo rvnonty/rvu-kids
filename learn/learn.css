@@ -238,3 +238,12 @@ html.rvu-motion-off *,html.rvu-motion-off *::before,html.rvu-motion-off *::after
 
 /* Reserve pronunciation control height before hydration to prevent layout shift. */
 body[data-page="alphabet-index"] .hero>.standalone-speed-picker,body[data-page="hub"] .hero>.standalone-speed-picker{min-height:108px;align-items:center}
+
+/* Distinguish the phoneme from the letter name: both use separate recorded voice clips. */
+.letter-name.letter-sound-card{
+ background:linear-gradient(115deg,#e4f6ec,#d7efe7);
+ border-color:#a8d6c0;
+ margin-top:-18px;
+}
+.letter-sound-card .letter-name-value{background:#f7fff9;border-color:#b6ddc8}
+@media(max-width:650px){.letter-name.letter-sound-card{margin-top:-12px}}

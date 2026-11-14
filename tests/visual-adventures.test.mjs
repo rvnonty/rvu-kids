@@ -118,7 +118,7 @@ test('all 41 lessons have complete, distinct and existing picture cues',()=>{
   assert.equal(cues.length,(type==='alphabet'?lesson.words:lesson.sentences).length);
   assert.equal(new Set(cues.map(c=>c.image)).size,cues.length);
   assert.ok(cues.every(c=>allWords.includes(c.image)));
-  assert.ok(cues.every(c=>pictureSource(c.image).endsWith('.svg')));
+  assert.ok(cues.every(c=>pictureSource(c.image).endsWith('.webp')));
  }
 });
 

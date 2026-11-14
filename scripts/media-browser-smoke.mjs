@@ -62,7 +62,7 @@ try{
  const female=requests.find(url=>/\/assets\/audio\/female\/\d{3}\.mp3$/.test(url));
  if(!female)throw Error('Female audio was never requested');
  await page.waitForFunction(async url=>{
-  const cache=await caches.open('rvu-kids-media-v3');
+  const cache=await caches.open('rvu-kids-media-v4');
   return Boolean(await cache.match(url));
  },female,{timeout:10000});
  await page.context().setOffline(true);

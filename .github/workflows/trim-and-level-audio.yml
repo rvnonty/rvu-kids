@@ -26,7 +26,7 @@ jobs:
       - run: python -m pip install --disable-pip-version-check "numpy==1.26.4"
       - name: Trim only silent speech boundaries, level voices, and validate streams
         run: python -u scripts/trim-and-level-audio.py
-      - name: Verify the entire static site
+      - name: Verify complete picture and voice mappings plus all site tests
         run: npm test
       - uses: actions/upload-artifact@v4
         with:

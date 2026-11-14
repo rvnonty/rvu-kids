@@ -9,7 +9,7 @@ const d=env.window.RVU_CURRICULUM;
 const qr=JSON.parse(text('learn/qr-map.json'));
 const audio=JSON.parse(text('learn/audio-manifest.json'));
 test('locked content counts',()=>{
- assert.equal(d.bookPages,96);
+ assert.equal(d.bookPages,100);
  assert.equal(d.alphabet.length,26);
  assert.equal(d.alphabet.reduce((n,a)=>n+a.words.length,0),101);
  assert.equal(d.sentences.length,15);

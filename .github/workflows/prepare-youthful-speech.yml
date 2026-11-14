@@ -1,0 +1,73 @@
+name: Prepare complete youthful American speech library
+on:
+  push:
+    branches: [feat/youthful-voices-release-20261114]
+    paths:
+      - .github/workflows/prepare-youthful-speech.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: rvu-voices-youth-20261114
+  cancel-in-progress: false
+jobs:
+  rebuild-voices:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 110
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install audio codec and phoneme tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends ffmpeg espeak-ng libsndfile1
+          python -m pip install --disable-pip-version-check --upgrade pip
+          python -m pip install torch==2.6.0 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install 'kokoro==0.9.4' 'numpy>=1.24,<3'
+      - name: Rebuild all 488 voice tracks and safely trim/loudness-normalize them
+        env:
+          TOKENIZERS_PARALLELISM: 'false'
+          HF_HUB_DISABLE_TELEMETRY: '1'
+        run: python -u scripts/rebuild-youthful-voices.py
+      - name: Verify every lesson, complete manifest, all MP3s and cache version
+        run: |
+          npm test
+          python - <<'PY'
+          import json,subprocess
+          from pathlib import Path
+          m=json.loads(Path('learn/audio-manifest.json').read_text())
+          assert len(m['recordings'])==244
+          assert m['voiceLibrary']['female']=='af_heart'
+          assert m['voiceLibrary']['male']=='am_puck'
+          for record in m['recordings']:
+              for voice in ('female','male'):
+                  path='.'+record['voices'][voice]
+                  proc=subprocess.run(['ffmpeg','-v','error','-nostdin','-i',path,'-f','null','-'],capture_output=True,text=True)
+                  assert proc.returncode==0 and not proc.stderr.strip(),path
+          print('All 488 speech recordings decode correctly.')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: rvu-youthful-voices-qa-report
+          path: audio-build/youthful-voice-report.json
+          retention-days: 14
+          if-no-files-found: ignore
+      - name: Commit verified voice pair to the review branch only
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets/audio learn/audio-manifest.json learn/learn.js learn/media-sw.js app.js scripts/media-browser-smoke.mjs tests/persistent-media-cache.test.mjs docs/audio-review.md
+          if git diff --cached --quiet; then
+            echo 'No files changed'
+            exit 0
+          fi
+          git commit -m 'Refresh all 488 American voice clips with warm girl and playful boy voices'
+          git push origin HEAD:feat/youthful-voices-release-20261114

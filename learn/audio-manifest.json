@@ -2222,5 +2222,11 @@
     "male": "am_liam",
     "automatedVerification": "basic waveform, MP3 and curriculum integrity",
     "humanPronunciationSignoff": false
+  },
+  "processingQA": {
+    "stage": "conservative non-destructive speech-boundary cleanup, gentle fades, leveled RMS",
+    "filesValidated": 488,
+    "humanListeningApproved": false,
+    "phonemeValidation": "still requires listening"
   }
 }

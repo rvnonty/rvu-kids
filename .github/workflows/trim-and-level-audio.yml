@@ -1,0 +1,46 @@
+name: Clean speech boundaries and normalize all 488 paired recordings
+on:
+  push:
+    branches: [feat/complete-audio-stickers-nov14]
+    paths:
+      - scripts/trim-and-level-audio.py
+      - .github/workflows/trim-and-level-audio.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  clean-audio:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install FFmpeg audio codec utilities
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends ffmpeg
+      - run: python -m pip install --disable-pip-version-check "numpy==1.26.4"
+      - name: Trim only silent speech boundaries, level voices, and validate streams
+        run: python -u scripts/trim-and-level-audio.py
+      - name: Verify complete picture and voice mappings plus all site tests
+        run: npm test
+      - uses: actions/upload-artifact@v4
+        with:
+          name: rvu-488-voice-cleaning-inventory
+          path: audio-build/trim-report.json
+          retention-days: 14
+      - name: Commit only validated speech assets and manifest
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/audio learn/audio-manifest.json
+          if git diff --cached --quiet; then
+            echo "No audio changes"
+            exit 0
+          fi
+          git commit -m "Trim redundant silence and level 488 American English recordings"
+          git push origin HEAD:feat/complete-audio-stickers-nov14

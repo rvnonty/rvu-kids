@@ -26,7 +26,7 @@ const page=await browser.newPage({viewport:{width:390,height:844}});
 const errors=[],requests=[];
 page.on('pageerror',error=>errors.push(String(error)));
 page.on('request',request=>{
- if(request.url().startsWith(base)&&/\/assets\/(audio|words|cover)/.test(request.url()))requests.push(request.url());
+ if(request.url().startsWith(base)&&/\/assets\/(audio|words|cover|stickers)/.test(request.url()))requests.push(request.url());
 });
 try{
  await page.goto(base+'/',{waitUntil:'domcontentloaded'});
@@ -59,11 +59,11 @@ try{
  await page.waitForFunction(()=>navigator.serviceWorker?.controller?.scriptURL.endsWith('/learn/media-sw.js'),null,{timeout:12000});
  await page.locator('.audio-play').first().click();
  await page.waitForTimeout(400);
- const female=requests.find(url=>/\/assets\/audio\/female\/\d{3}\.mp3$/.test(url));
+ const female=requests.find(url=>/\/assets\/audio\/female\/\d{3}\.mp3$/.test(new URL(url).pathname));
  if(!female)throw Error('Female audio was never requested');
  await page.waitForFunction(async url=>{
-  const cache=await caches.open('rvu-kids-media-v3');
-  return Boolean(await cache.match(url));
+  const cache=await caches.open('rvu-kids-media-v4');
+  return Boolean(await cache.match(new URL(url).origin+new URL(url).pathname));
  },female,{timeout:10000});
  await page.context().setOffline(true);
  const repeat=await page.evaluate(async url=>{
@@ -75,7 +75,7 @@ try{
  await page.locator('.voice-choice[data-voice="male"]').first().click();
  await page.locator('.audio-play').first().click();
  await page.waitForTimeout(400);
- if(!requests.some(url=>/\/assets\/audio\/male\/\d{3}\.mp3$/.test(url)))throw Error('Male audio was never requested');
+ if(!requests.some(url=>/\/assets\/audio\/male\/\d{3}\.mp3$/.test(new URL(url).pathname)))throw Error('Male audio was never requested');
  if(errors.length)throw Error('Browser JS errors: '+errors.slice(0,7).join(' | '));
  console.log(JSON.stringify({result:'PASS',whatsapp:'phone hidden and bilingual submit CTA verified',audio:'female and male on demand; offline replay verified',words:'illustrations present',pageErrors:errors.length}));
 }finally{

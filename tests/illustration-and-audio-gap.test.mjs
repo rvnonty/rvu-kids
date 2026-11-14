@@ -21,7 +21,7 @@ test('audio wiring makes missing book pronunciations visible instead of substitu
  const js=read('learn/learn.js');
  assert.doesNotMatch(js,/SpeechSynthesisUtterance|speechSynthesis|deviceVoice/);
  assert.match(js,/audio-unavailable/);
- assert.match(js,/wordAudioIds\.get\(value\)/);
+ assert.match(js,/wordAudioIds\.get\(normalizedWord\(value\)\)/);
  const rows=JSON.parse(js.match(/^const AUDIO_ROWS=(\[\[.*\]\]);$/m)[1]);
  const words=new Set(rows.filter(row=>row[0]==='word').map(row=>row[2]));
  const curriculum=JSON.parse(read('learn/content.js').replace(/^.*?window\.RVU_CURRICULUM=/s,'').replace(/;\s*$/,''));

@@ -88,7 +88,7 @@ test('storybook alphabet map renders 26 accessible lesson links with book illust
  assert.equal(page.map.children.length,26);
  assert.equal(page.map.children[0].querySelector('.storybook-station').href,'/learn/alphabet/a/');
  assert.equal(page.map.children[25].querySelector('.storybook-station').href,'/learn/alphabet/z/');
- assert.equal(page.map.children[0].querySelector('.storybook-station-image').src,'/assets/words/apple.svg');
+ assert.equal(page.map.children[0].querySelector('.storybook-station-image').src,'/assets/stickers/apple.webp');
  assert.ok(page.map.children[0].querySelector('.storybook-station-listen'));
  assert.ok(page.map.children[0].querySelector('.storybook-station-listen').disabled,'No speech playback without approved word-audio pipeline');
  assert.ok(page.hero.querySelector('.storybook-guide'));

@@ -18,7 +18,7 @@ export const SENTENCE_PICTURES=Object.freeze({
  'stay-safe':['hand','watch','rose','bear','flower','hat']
 });
 const FALLBACK=['sun','apple','ball','flower','rainbow','moon','house','hat','cup','dog','boat','tree'];
-export function pictureSource(word){return '/assets/words/'+String(word).replaceAll(' ','-')+'.svg'}
+export function pictureSource(word){return '/assets/stickers/'+String(word).replaceAll(' ','-')+'.webp'}
 export function getPictureCues(type,lesson,wordList){
  const approved=new Set(wordList);
  if(type==='alphabet'){

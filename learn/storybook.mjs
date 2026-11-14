@@ -80,7 +80,7 @@
    const visual=node('span','storybook-station-picture');
    const word=lesson.words[0]||lesson.letter;
    const image=node('img','storybook-station-image');
-   image.src='/assets/words/'+word.replaceAll(' ','-')+'.svg';
+   image.src='/assets/stickers/'+word.replaceAll(' ','-')+'.webp';
    image.alt='';
    image.width=112;image.height=112;image.loading=index<6?'eager':'lazy';image.decoding='async';
    image.addEventListener('error',()=>{visual.replaceChildren(node('span','storybook-picture-fallback',lesson.letter.toLowerCase()))},{once:true});

@@ -1,0 +1,613 @@
+{
+  "format": "transparent WebP 192x192",
+  "source": "Microsoft Fluent Emoji 3D (MIT), and RVU original pictograms",
+  "license": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+  "items": [
+    {
+      "word": "airplane",
+      "file": "airplane.webp",
+      "bytes": 8062,
+      "artwork": "Fluent-3D:2708"
+    },
+    {
+      "word": "alligator",
+      "file": "alligator.webp",
+      "bytes": 8116,
+      "artwork": "Fluent-3D:1f40a"
+    },
+    {
+      "word": "ant",
+      "file": "ant.webp",
+      "bytes": 8066,
+      "artwork": "Fluent-3D:1f41c"
+    },
+    {
+      "word": "apple",
+      "file": "apple.webp",
+      "bytes": 5248,
+      "artwork": "Fluent-3D:1f34e"
+    },
+    {
+      "word": "ball",
+      "file": "ball.webp",
+      "bytes": 7012,
+      "artwork": "Fluent-3D:26bd"
+    },
+    {
+      "word": "banana",
+      "file": "banana.webp",
+      "bytes": 5930,
+      "artwork": "Fluent-3D:1f34c"
+    },
+    {
+      "word": "bear",
+      "file": "bear.webp",
+      "bytes": 6112,
+      "artwork": "Fluent-3D:1f43b"
+    },
+    {
+      "word": "boat",
+      "file": "boat.webp",
+      "bytes": 4668,
+      "artwork": "Fluent-3D:26f5"
+    },
+    {
+      "word": "cake",
+      "file": "cake.webp",
+      "bytes": 6194,
+      "artwork": "Fluent-3D:1f382"
+    },
+    {
+      "word": "car",
+      "file": "car.webp",
+      "bytes": 5066,
+      "artwork": "Fluent-3D:1f697"
+    },
+    {
+      "word": "carrot",
+      "file": "carrot.webp",
+      "bytes": 6382,
+      "artwork": "Fluent-3D:1f955"
+    },
+    {
+      "word": "cat",
+      "file": "cat.webp",
+      "bytes": 8156,
+      "artwork": "Fluent-3D:1f408"
+    },
+    {
+      "word": "dog",
+      "file": "dog.webp",
+      "bytes": 8592,
+      "artwork": "Fluent-3D:1f415"
+    },
+    {
+      "word": "door",
+      "file": "door.webp",
+      "bytes": 1596,
+      "artwork": "Fluent-3D:1f6aa"
+    },
+    {
+      "word": "drum",
+      "file": "drum.webp",
+      "bytes": 6920,
+      "artwork": "Fluent-3D:1f941"
+    },
+    {
+      "word": "duck",
+      "file": "duck.webp",
+      "bytes": 5434,
+      "artwork": "Fluent-3D:1f986"
+    },
+    {
+      "word": "egg",
+      "file": "egg.webp",
+      "bytes": 4310,
+      "artwork": "Fluent-3D:1f95a"
+    },
+    {
+      "word": "elephant",
+      "file": "elephant.webp",
+      "bytes": 4706,
+      "artwork": "Fluent-3D:1f418"
+    },
+    {
+      "word": "engine",
+      "file": "engine.webp",
+      "bytes": 2508,
+      "artwork": "original"
+    },
+    {
+      "word": "envelope",
+      "file": "envelope.webp",
+      "bytes": 1694,
+      "artwork": "Fluent-3D:2709"
+    },
+    {
+      "word": "fish",
+      "file": "fish.webp",
+      "bytes": 6502,
+      "artwork": "Fluent-3D:1f41f"
+    },
+    {
+      "word": "flower",
+      "file": "flower.webp",
+      "bytes": 6156,
+      "artwork": "Fluent-3D:1f33c"
+    },
+    {
+      "word": "fox",
+      "file": "fox.webp",
+      "bytes": 6158,
+      "artwork": "Fluent-3D:1f98a"
+    },
+    {
+      "word": "frog",
+      "file": "frog.webp",
+      "bytes": 6602,
+      "artwork": "Fluent-3D:1f438"
+    },
+    {
+      "word": "gift",
+      "file": "gift.webp",
+      "bytes": 4118,
+      "artwork": "Fluent-3D:1f381"
+    },
+    {
+      "word": "goat",
+      "file": "goat.webp",
+      "bytes": 6262,
+      "artwork": "Fluent-3D:1f410"
+    },
+    {
+      "word": "grapes",
+      "file": "grapes.webp",
+      "bytes": 6522,
+      "artwork": "Fluent-3D:1f347"
+    },
+    {
+      "word": "guitar",
+      "file": "guitar.webp",
+      "bytes": 6888,
+      "artwork": "Fluent-3D:1f3b8"
+    },
+    {
+      "word": "hand",
+      "file": "hand.webp",
+      "bytes": 5176,
+      "artwork": "Fluent-3D:270b"
+    },
+    {
+      "word": "hat",
+      "file": "hat.webp",
+      "bytes": 3924,
+      "artwork": "Fluent-3D:1f3a9"
+    },
+    {
+      "word": "horse",
+      "file": "horse.webp",
+      "bytes": 7760,
+      "artwork": "Fluent-3D:1f40e"
+    },
+    {
+      "word": "house",
+      "file": "house.webp",
+      "bytes": 4650,
+      "artwork": "Fluent-3D:1f3e0"
+    },
+    {
+      "word": "ice cream",
+      "file": "ice-cream.webp",
+      "bytes": 4814,
+      "artwork": "Fluent-3D:1f366"
+    },
+    {
+      "word": "igloo",
+      "file": "igloo.webp",
+      "bytes": 2622,
+      "artwork": "original"
+    },
+    {
+      "word": "iguana",
+      "file": "iguana.webp",
+      "bytes": 7884,
+      "artwork": "Fluent-3D:1f98e"
+    },
+    {
+      "word": "insect",
+      "file": "insect.webp",
+      "bytes": 6324,
+      "artwork": "Fluent-3D:1f41b"
+    },
+    {
+      "word": "jacket",
+      "file": "jacket.webp",
+      "bytes": 5062,
+      "artwork": "Fluent-3D:1f9e5"
+    },
+    {
+      "word": "jeep",
+      "file": "jeep.webp",
+      "bytes": 5830,
+      "artwork": "Fluent-3D:1f699"
+    },
+    {
+      "word": "jellyfish",
+      "file": "jellyfish.webp",
+      "bytes": 3826,
+      "artwork": "original"
+    },
+    {
+      "word": "juice",
+      "file": "juice.webp",
+      "bytes": 3818,
+      "artwork": "Fluent-3D:1f9c3"
+    },
+    {
+      "word": "key",
+      "file": "key.webp",
+      "bytes": 5158,
+      "artwork": "Fluent-3D:1f511"
+    },
+    {
+      "word": "king",
+      "file": "king.webp",
+      "bytes": 7296,
+      "artwork": "Fluent-3D:1f934"
+    },
+    {
+      "word": "kite",
+      "file": "kite.webp",
+      "bytes": 8424,
+      "artwork": "Fluent-3D:1fa81"
+    },
+    {
+      "word": "kitten",
+      "file": "kitten.webp",
+      "bytes": 8156,
+      "artwork": "Fluent-3D:1f408"
+    },
+    {
+      "word": "lamp",
+      "file": "lamp.webp",
+      "bytes": 1718,
+      "artwork": "original"
+    },
+    {
+      "word": "leaf",
+      "file": "leaf.webp",
+      "bytes": 9158,
+      "artwork": "Fluent-3D:1f343"
+    },
+    {
+      "word": "lemon",
+      "file": "lemon.webp",
+      "bytes": 5654,
+      "artwork": "Fluent-3D:1f34b"
+    },
+    {
+      "word": "lion",
+      "file": "lion.webp",
+      "bytes": 6486,
+      "artwork": "Fluent-3D:1f981"
+    },
+    {
+      "word": "milk",
+      "file": "milk.webp",
+      "bytes": 3626,
+      "artwork": "Fluent-3D:1f95b"
+    },
+    {
+      "word": "monkey",
+      "file": "monkey.webp",
+      "bytes": 8916,
+      "artwork": "Fluent-3D:1f412"
+    },
+    {
+      "word": "moon",
+      "file": "moon.webp",
+      "bytes": 5298,
+      "artwork": "Fluent-3D:1f319"
+    },
+    {
+      "word": "mouse",
+      "file": "mouse.webp",
+      "bytes": 6166,
+      "artwork": "Fluent-3D:1f401"
+    },
+    {
+      "word": "nest",
+      "file": "nest.webp",
+      "bytes": 7664,
+      "artwork": "Fluent-3D:1faba"
+    },
+    {
+      "word": "net",
+      "file": "net.webp",
+      "bytes": 2704,
+      "artwork": "original"
+    },
+    {
+      "word": "nose",
+      "file": "nose.webp",
+      "bytes": 5048,
+      "artwork": "Fluent-3D:1f443"
+    },
+    {
+      "word": "nurse",
+      "file": "nurse.webp",
+      "bytes": 5824,
+      "artwork": "Fluent-3D:1f469-200d-2695-fe0f"
+    },
+    {
+      "word": "octopus",
+      "file": "octopus.webp",
+      "bytes": 6638,
+      "artwork": "Fluent-3D:1f419"
+    },
+    {
+      "word": "orange",
+      "file": "orange.webp",
+      "bytes": 5180,
+      "artwork": "Fluent-3D:1f34a"
+    },
+    {
+      "word": "owl",
+      "file": "owl.webp",
+      "bytes": 6584,
+      "artwork": "Fluent-3D:1f989"
+    },
+    {
+      "word": "ox",
+      "file": "ox.webp",
+      "bytes": 6540,
+      "artwork": "Fluent-3D:1f402"
+    },
+    {
+      "word": "panda",
+      "file": "panda.webp",
+      "bytes": 5886,
+      "artwork": "Fluent-3D:1f43c"
+    },
+    {
+      "word": "pencil",
+      "file": "pencil.webp",
+      "bytes": 4376,
+      "artwork": "Fluent-3D:270f"
+    },
+    {
+      "word": "pig",
+      "file": "pig.webp",
+      "bytes": 4934,
+      "artwork": "Fluent-3D:1f416"
+    },
+    {
+      "word": "pizza",
+      "file": "pizza.webp",
+      "bytes": 5052,
+      "artwork": "Fluent-3D:1f355"
+    },
+    {
+      "word": "quail",
+      "file": "quail.webp",
+      "bytes": 2280,
+      "artwork": "original"
+    },
+    {
+      "word": "queen",
+      "file": "queen.webp",
+      "bytes": 7262,
+      "artwork": "Fluent-3D:1f478"
+    },
+    {
+      "word": "quilt",
+      "file": "quilt.webp",
+      "bytes": 3014,
+      "artwork": "original"
+    },
+    {
+      "word": "rabbit",
+      "file": "rabbit.webp",
+      "bytes": 5568,
+      "artwork": "Fluent-3D:1f407"
+    },
+    {
+      "word": "rainbow",
+      "file": "rainbow.webp",
+      "bytes": 5802,
+      "artwork": "Fluent-3D:1f308"
+    },
+    {
+      "word": "robot",
+      "file": "robot.webp",
+      "bytes": 6104,
+      "artwork": "Fluent-3D:1f916"
+    },
+    {
+      "word": "rose",
+      "file": "rose.webp",
+      "bytes": 5098,
+      "artwork": "Fluent-3D:1f339"
+    },
+    {
+      "word": "snake",
+      "file": "snake.webp",
+      "bytes": 8936,
+      "artwork": "Fluent-3D:1f40d"
+    },
+    {
+      "word": "star",
+      "file": "star.webp",
+      "bytes": 5290,
+      "artwork": "Fluent-3D:2b50"
+    },
+    {
+      "word": "strawberry",
+      "file": "strawberry.webp",
+      "bytes": 5210,
+      "artwork": "Fluent-3D:1f353"
+    },
+    {
+      "word": "sun",
+      "file": "sun.webp",
+      "bytes": 4968,
+      "artwork": "Fluent-3D:2600"
+    },
+    {
+      "word": "tiger",
+      "file": "tiger.webp",
+      "bytes": 6854,
+      "artwork": "Fluent-3D:1f405"
+    },
+    {
+      "word": "train",
+      "file": "train.webp",
+      "bytes": 5264,
+      "artwork": "Fluent-3D:1f682"
+    },
+    {
+      "word": "tree",
+      "file": "tree.webp",
+      "bytes": 4136,
+      "artwork": "Fluent-3D:1f333"
+    },
+    {
+      "word": "turtle",
+      "file": "turtle.webp",
+      "bytes": 4302,
+      "artwork": "Fluent-3D:1f422"
+    },
+    {
+      "word": "umbrella",
+      "file": "umbrella.webp",
+      "bytes": 5596,
+      "artwork": "Fluent-3D:2602"
+    },
+    {
+      "word": "uncle",
+      "file": "uncle.webp",
+      "bytes": 6382,
+      "artwork": "Fluent-3D:1f468"
+    },
+    {
+      "word": "under",
+      "file": "under.webp",
+      "bytes": 2510,
+      "artwork": "original"
+    },
+    {
+      "word": "up",
+      "file": "up.webp",
+      "bytes": 2418,
+      "artwork": "Fluent-3D:2b06"
+    },
+    {
+      "word": "van",
+      "file": "van.webp",
+      "bytes": 3998,
+      "artwork": "Fluent-3D:1f690"
+    },
+    {
+      "word": "vase",
+      "file": "vase.webp",
+      "bytes": 6324,
+      "artwork": "Fluent-3D:1f3fa"
+    },
+    {
+      "word": "vegetables",
+      "file": "vegetables.webp",
+      "bytes": 3232,
+      "artwork": "original"
+    },
+    {
+      "word": "violin",
+      "file": "violin.webp",
+      "bytes": 5956,
+      "artwork": "Fluent-3D:1f3bb"
+    },
+    {
+      "word": "watch",
+      "file": "watch.webp",
+      "bytes": 5256,
+      "artwork": "Fluent-3D:231a"
+    },
+    {
+      "word": "watermelon",
+      "file": "watermelon.webp",
+      "bytes": 6336,
+      "artwork": "Fluent-3D:1f349"
+    },
+    {
+      "word": "whale",
+      "file": "whale.webp",
+      "bytes": 6950,
+      "artwork": "Fluent-3D:1f40b"
+    },
+    {
+      "word": "window",
+      "file": "window.webp",
+      "bytes": 2580,
+      "artwork": "Fluent-3D:1fa9f"
+    },
+    {
+      "word": "x-ray",
+      "file": "x-ray.webp",
+      "bytes": 4130,
+      "artwork": "Fluent-3D:1fa7b"
+    },
+    {
+      "word": "xylophone",
+      "file": "xylophone.webp",
+      "bytes": 2410,
+      "artwork": "original"
+    },
+    {
+      "word": "yak",
+      "file": "yak.webp",
+      "bytes": 2622,
+      "artwork": "original"
+    },
+    {
+      "word": "yellow",
+      "file": "yellow.webp",
+      "bytes": 4262,
+      "artwork": "Fluent-3D:1f7e1"
+    },
+    {
+      "word": "yo-yo",
+      "file": "yo-yo.webp",
+      "bytes": 6824,
+      "artwork": "Fluent-3D:1fa80"
+    },
+    {
+      "word": "yogurt",
+      "file": "yogurt.webp",
+      "bytes": 1778,
+      "artwork": "original"
+    },
+    {
+      "word": "zebra",
+      "file": "zebra.webp",
+      "bytes": 7932,
+      "artwork": "Fluent-3D:1f993"
+    },
+    {
+      "word": "zero",
+      "file": "zero.webp",
+      "bytes": 3552,
+      "artwork": "original"
+    },
+    {
+      "word": "zipper",
+      "file": "zipper.webp",
+      "bytes": 1962,
+      "artwork": "original"
+    },
+    {
+      "word": "zoo",
+      "file": "zoo.webp",
+      "bytes": 2168,
+      "artwork": "original"
+    }
+  ]
+}

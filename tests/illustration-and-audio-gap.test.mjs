@@ -17,10 +17,10 @@ test('all 101 vocabulary cards share the same illustrated layout without embedde
  assert.match(read(dir+'/drum.svg'),/🥁/);
  for(const word of ['igloo','quilt','xylophone'])assert.match(read(dir+'/'+word+'.svg'),/<path|<rect/);
 });
-test('audio wiring makes missing book pronunciations visible instead of substituting a third voice',()=>{
+test('audio mapping is complete and never replaces recorded speech with unavailable disabled controls',()=>{
  const js=read('learn/learn.js');
  assert.doesNotMatch(js,/SpeechSynthesisUtterance|speechSynthesis|deviceVoice/);
- assert.match(js,/audio-unavailable/);
+ assert.doesNotMatch(js,/audio-play audio-unavailable/);
  assert.match(js,/wordAudioIds\.get\(normalizedWord\(value\)\)/);
  const rows=JSON.parse(js.match(/^const AUDIO_ROWS=(\[\[.*\]\]);$/m)[1]);
  const words=new Set(rows.filter(row=>row[0]==='word').map(row=>row[2]));

@@ -188,11 +188,8 @@ function voicePicker(){
 function playButton(type,lesson,value){
  const id=voiceRows.get(type+'|'+lesson+'|'+value)??(type==='word'?wordAudioIds.get(normalizedWord(value)):undefined);
  if(id===undefined){
-  if(type!=='word')return null;
-  const missing=el('button','audio-play audio-unavailable',lang==='ar'?'النطق قيد المراجعة':'Audio under review');
-  missing.type='button';missing.disabled=true;
-  missing.setAttribute('aria-label',(lang==='ar'?'لا يوجد تسجيل معتمد للكلمة: ':'No approved recording for ')+value);
-  return missing;
+  console.warn('RVU Kids missing voice mapping',type,lesson,value);
+  return null;
  }
  const b=el('button','audio-play',lang==='ar'?'اسمع':'Listen');b.type='button';
  const actionLabel=type==='letter-name'?(lang==='ar'?'استمع إلى اسم الحرف ':'Listen to the letter name '):type==='letter-sound'?(lang==='ar'?'استمع إلى صوت الحرف ':'Listen to the letter sound '):(lang==='ar'?'استمع إلى ':'Listen to ');

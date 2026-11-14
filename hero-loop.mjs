@@ -32,6 +32,12 @@ if(bookLink&&hero&&!saveData&&!reducedMotion.matches){
   };
   const sync=()=>{
    if(failed)return;
+   if(reducedMotion.matches){
+    video.pause();
+    bookLink.classList.remove('has-live-video');
+    hero.dataset.heroMedia='poster';
+    return;
+   }
    if(active())video.play().catch(()=>{});
    else video.pause();
   };

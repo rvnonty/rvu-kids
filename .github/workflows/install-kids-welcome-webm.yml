@@ -1,0 +1,43 @@
+name: Produce browser-compatible WebM welcome fallback
+on:
+  push:
+    branches: [feat/welcome-loop-book-chameleon-20261114]
+    paths:
+      - .github/workflows/install-kids-welcome-webm.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  make-webm:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Install FFmpeg and VP9 encoder
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends ffmpeg
+      - name: Convert the approved local welcome animation to WebM VP9
+        run: |
+          ffmpeg -nostdin -y -hide_banner -loglevel error -i assets/rvu-hero-loop.mp4 \
+            -an -c:v libvpx-vp9 -deadline good -cpu-used 4 -row-mt 1 \
+            -b:v 0 -crf 38 -pix_fmt yuv420p assets/rvu-hero-loop.webm
+          python3 - <<'PY'
+          import pathlib,json,subprocess
+          path=pathlib.Path('assets/rvu-hero-loop.webm')
+          meta=json.loads(subprocess.check_output(['ffprobe','-v','error','-show_entries','format=duration','-show_entries','stream=codec_name,width,height','-of','json',str(path)]))
+          assert meta['streams'][0]['codec_name']=='vp9'
+          assert meta['streams'][0]['width']==540 and meta['streams'][0]['height']==960
+          assert 9.0<float(meta['format']['duration'])<9.5
+          assert 90000<path.stat().st_size<1100000
+          print('WebM validated:',path.stat().st_size,'bytes')
+          PY
+      - name: Publish local WebM fallback to the feature branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/rvu-hero-loop.webm
+          git commit -m "Add VP9 WebM welcome loop for Chromium and Firefox"
+          git push origin HEAD:feat/welcome-loop-book-chameleon-20261114

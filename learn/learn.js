@@ -465,9 +465,9 @@ function mountStandaloneSpeedPicker(){
  if(page!=='hub'&&page!=='alphabet-index'&&!(page==='lesson'&&!parts[2]))return;
  const hero=document.querySelector('.hero');
  if(!hero)return;
- const wrapper=el('div','standalone-speed-picker');
- wrapper.append(pronunciationSpeedPicker());
- hero.append(wrapper);
+ const wrapper=hero.querySelector('.standalone-speed-picker')||el('div','standalone-speed-picker');
+ wrapper.replaceChildren(pronunciationSpeedPicker());
+ if(!wrapper.isConnected)hero.append(wrapper);
 }
 try{
  if(localStorage.getItem('rvu-motion-off')==='true'){

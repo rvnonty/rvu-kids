@@ -72,6 +72,12 @@ try{
  },female);
  await page.context().setOffline(false);
  if(repeat.status!==206||repeat.bytes!==8||!repeat.range?.startsWith('bytes 0-7/'))throw Error('Previously played sound is not cached: '+JSON.stringify(repeat));
+ const shortVowel=page.locator('.letter-sound-card .audio-play');
+ if(await shortVowel.count()!==1)throw Error('Separate letter-sound control missing');
+ if(!(await shortVowel.getAttribute('aria-label')).includes('صوت الحرف'))throw Error('Letter sound needs an explicit accessible label');
+ await shortVowel.click();
+ await page.waitForTimeout(400);
+ if(!requests.some(url=>/\/assets\/audio\/female\/001\.mp3$/.test(new URL(url).pathname)))throw Error('A letter phoneme was not requested');
  await page.locator('.voice-choice[data-voice="male"]').first().click();
  await page.locator('.audio-play').first().click();
  await page.waitForTimeout(400);
